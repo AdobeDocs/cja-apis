@@ -1,7 +1,9 @@
-# Adobe I/O Documentation Template
+# Customer Journey Analytics API Documentation.
 
-This is a Gatsby site template built with [Adobe I/O Gatsby Theme](https://github.com/adobe/gatsby-theme-aio).
+This is the source repository for the [Customer Journey Analytics API documentation](#). See the [Contributing](CONTRIBUTING.md) page to learn how to make edits or improvements to this repository so they are reflected in the published documentation.
 
-View the [demo](https://adobedocs.github.io/dev-site-documentation-template/) running on Github Pages.  
+This site was built with [Adobe I/O Gatsby Theme](https://github.com/adobe/gatsby-theme-aio).
 
-Follow the [instructions](https://github.com/adobe/gatsby-theme-aio#getting-started) to get started.
+<!-- View the [demo](https://adobedocs.github.io/dev-site-documentation-template/) running on Github Pages.  
+
+Follow the [instructions](https://github.com/adobe/gatsby-theme-aio#getting-started) to get started. -->

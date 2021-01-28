@@ -1,40 +1,43 @@
 ---
-title: Overview - Adobe Analytics
-description: This is the overview page of Adobe Analytics
-contributors:
-  - https://github.com/simonwex 
+title: Customer Journey Analytics APIs
+description: The CJA API overview page.
 ---
 
 <Hero slots="image, heading, text" background="rgb(64, 34, 138)"/>
 
 ![Hero image](./analytics-hero.png) 
 
-# Adobe Analytics 
 
-Adobe Product API offers limitless ways to integrate your most important customer data into key business processes. Adobe Product API offer limitless ways.
+# Customer Journey Analytics APIs
+
+The Customer Journey Analytics APIs offer limitless ways to integrate your most important customer data into key business processes.
 
 <Resources slots="heading, links"/>
 
 #### Resources
 
-* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/analytics/docs.html)
-* [Adobe Analytics Github Repo](https://github.com/AdobeDocs/analytics-2.0-apis)
+* [Quick start guide](getting-started/index.md)
+* [Github repository](https://github.com/AdobeDocs/cja-apis)
 
 ## Overview
 
-This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
+The Customer Journey Analytics APIs allow you to directly call Adobe's servers to perform almost any action that you can perform in the user interface. Examples include the creation of connections and data views, retrieval of reports, and the creation of filters or calculated metrics. This documentation provides instructions on how to call Adobe's endpoints to return the desired data. 
 
-The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace. 
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+This user guide assumes that you have an understanding of Customer Journey Analytics and Adobe Experience Platform. See the respective documentation repositories for more information on [Customer Journey Analytics](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-landing.html) or [Adobe Experience Platform](https://experienceleague.adobe.com/docs/experience-platform/landing/home.html).
 
-## Discover 
+If you are looking for the API around traditional Adobe Analytics, see the [Analytics 2.0 API documentation](https://www.adobe.io/apis/experiencecloud/analytics/docs.html).
+
+This user guide adheres to Adobe's [Code of Conduct](/CODE_OF_CONDUCT.md). [Contributions](/.github/CONTRIBUTING.md) are encouraged and appreciated.
+
+## Endpoints
+
+Once you have successfully authenticated, you can send requests to any of the following endpoints:
 
 <DiscoverBlock width="100%" slots="heading, link, text"/>
 
 ### Get Started
 
-[Quickstart Guide](guides/)
+[Getting started](getting-started/index.md)
     
 Get started with the Adobe Analytics APIs.
 
@@ -42,21 +45,21 @@ Get started with the Adobe Analytics APIs.
 
 ### Guides
 
-[Calculated Metrics API](guides/calculated_metrics_api/) 
+[Calculated metrics API](calculatedmetrics/index.md) 
      
-Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
+Retrieve, update, or create calculated metrics.
 
 <DiscoverBlock slots="link, text"/>
 
-[Segments API](guides/segments_api/) 
+[Filters API](filters/index.md) 
 
-Provides configuration guidance and best practices for the /segments endpoint.
+Retrieve, update, or create filters.
 
 <DiscoverBlock slots="link, text"/>
 
-[Reporting Guide API](guides/reporting_api/)
+[Reporting API](reporting/index.md)
 
-Provides configuration guidance and best practices for the /reports endpoint.
+Retrieve data from a data view.
 
 <DiscoverBlock slots="link, text"/>
 
