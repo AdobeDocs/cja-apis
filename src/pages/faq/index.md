@@ -18,3 +18,7 @@ The enforced rate limit for API calls is **12 requests every 6 seconds** per use
 ```json
 {"error_code":"429050","message":"Too many requests"}
 ```
+
+## What are the differences between the Analytics 2.0 APIs and the CJA APIs?
+
+See [Differences between the CJA APIs and Analytics 2.0 APIs](differences.md);

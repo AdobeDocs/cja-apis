@@ -1,51 +1,75 @@
 ---
-title: Support - Adobe Analytics
-description: This is the support page of Adobe Analytics 
+title: CJA API support
+description: Learn where to ask questions, report bugs, make feature requests, and spark discussions. 
 ---
 
 <Hero slots="heading, text" background="rgb(19, 93, 183)"/>
 
-# Support
+# CJA API support
 
-Learn where to ask questions, report bugs, make feature requests, and spark discussions.
+Adobe actively participates in several communities. You can use any of the following communities for their designated purpose.
 
-## Feedback
+## Adobe Experience League
 
-You've got a place to start discussions.
-
-<DiscoverBlock slots="image, heading, link, text" width="25%"/>
+<DiscoverBlock slots="image, link, text" width="25%"/>
 
 ![Adobe Experience Cloud](experience_cloud.png)
 
-### Developer forum
+[CJA forum](https://experienceleaguecommunities.adobe.com/t5/adobe-analytics/ct-p/adobe-analytics-community)
 
-[Get started](https://adobe.io)
-
-Open discussion and support with community experts and Adobe staff.
+Ask/answer questions, participate in discussions, or submit ideas around the CJA APIs.
 
 <DiscoverBlock slots="link, text" width="25%"/>
 
-[Experience league](https://adobe.io) 
+[Adobe I/O forum](https://experienceleaguecommunities.adobe.com/t5/adobe-i-o-console/ct-p/adobe-io-console) 
 
-Tutorials and videos for the whole community.
+Ask/answer questions or participate in discussions around the Adobe I/O console.
+
+## GitHub
+
+<DiscoverBlock slots="image, link, text" width="25%"/>
+
+![GitHub](github.png)
+
+[Contributing](https://github.com/AdobeDocs/cja-apis/blob/main/.github/CONTRIBUTING.md)
+
+Learn how you can contribute to the CJA API documentation.
 
 <DiscoverBlock slots="link, text" width="25%"/>
 
-[Experience forum](https://adobe.io) 
+[Issues](https://github.com/AdobeDocs/cja-apis/issues)
 
-Forum to get help and help others
+Submit an issue to the repo for Adobe to address.
 
-## Community
+<DiscoverBlock slots="link, text" width="25%"/>
 
-You've got a place to join the conversation.
+[Pull requests](https://github.com/AdobeDocs/cja-apis/pulls)
 
-<DiscoverBlock slots="image, heading, link, text" width="100%"/>
+View open pull requests for the repository.
+
+## Slack
+
+<DiscoverBlock slots="image, link, text" width="25%"/>
+
+![Slack](slack.png)
+
+[Request an invite](https://join.measure.chat)
+
+Submission form to request joining #Measure, an industry-wide slack channel for multiple analytics platforms.
+
+<DiscoverBlock slots="link, text" width="25%"/>
+
+[Measure slack](https://measure.slack.com/messages/adobe-analytics)
+
+The #adobe-analytics channel within Measure Slack.
+
+## Stack Overflow
+
+<DiscoverBlock slots="image, link, text" width="25%"/>
 
 ![Stack Overflow](stack-overflow.png)
 
-### Stack Overflow
+[Tagged questions](https://stackoverflow.com/questions/tagged/adobe-analytics)
 
-[Explore](https://adobe.io)
-
-Developer Q&A using a specific tag.
+Ask/answer developer questions tagged `[adobe-analytics]`.
 

@@ -25,8 +25,11 @@ Once you have the desired ID, you can append the ID to the call to retrieve deta
 
 ## Create a calculated metric
 
-Create a new calculated metric with the desired formula.
+<InlineAlert variant="info" slots="text"/>
 
+Adobe does not yet support the creation of calculated metrics through the API. Support for this feature is planned for the near future.
+
+<!--
 `POST https://cja.adobe.io/calculatedmetrics`
 
 An example POST body:
@@ -58,4 +61,4 @@ An example POST body:
     }
 }
 ```
-
+-->

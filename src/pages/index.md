@@ -27,7 +27,7 @@ This user guide assumes that you have an understanding of Customer Journey Analy
 
 If you are looking for the API around traditional Adobe Analytics, see the [Analytics 2.0 API documentation](https://www.adobe.io/apis/experiencecloud/analytics/docs.html).
 
-This user guide adheres to Adobe's [Code of Conduct](/CODE_OF_CONDUCT.md). [Contributions](/.github/CONTRIBUTING.md) are encouraged and appreciated.
+This user guide adheres to Adobe's Code of Conduct. Contributions are encouraged and appreciated. See Adobe's [Code of Conduct](https://github.com/AdobeDocs/cja-apis/blob/main/CODE_OF_CONDUCT.md) and [Contribution guidelines](https://github.com/AdobeDocs/cja-apis/blob/main/.github/CONTRIBUTING.md) on GitHub for more information.
 
 ## Endpoints
 
