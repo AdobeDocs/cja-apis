@@ -8,7 +8,7 @@ description: Learn where to ask questions, report bugs, make feature requests, a
 # CJA API support
 
 Adobe actively participates in several communities. You can use any of the following communities for their designated purpose.
-
+<!--
 ## Adobe Experience League
 
 <DiscoverBlock slots="image, link, text" width="25%"/>
@@ -73,3 +73,4 @@ The #adobe-analytics channel within Measure Slack.
 
 Ask/answer developer questions tagged `[adobe-analytics]`.
 
+-->
