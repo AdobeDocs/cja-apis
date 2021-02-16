@@ -41,7 +41,11 @@ module.exports = {
           },
           {
             title: 'FAQ',
-            path: '/getting-started/'
+            path: '/getting-started/faq/'
+          },
+          {
+            title: 'Compare CJA API to Analytics 2.0',
+            path: '/getting-started/differences/'
           }
         ]
       },
