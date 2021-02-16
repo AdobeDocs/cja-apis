@@ -41,7 +41,11 @@ module.exports = {
           },
           {
             title: 'FAQ',
-            path: '/getting-started/'
+            path: '/getting-started/faq/'
+          },
+          {
+            title: 'Compare CJA API to Analytics 2.0',
+            path: '/getting-started/differences/'
           }
         ]
       },
@@ -122,5 +126,5 @@ module.exports = {
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`],
-  pathPrefix: process.env.PATH_PREFIX || '/dev-site-documentation-template/'
+  pathPrefix: process.env.PATH_PREFIX || '/cja-apis/docs'
 };
