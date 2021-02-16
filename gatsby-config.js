@@ -20,57 +20,28 @@ globalNav.menus = [globalNav.menus[1]];
 module.exports = {
   siteMetadata: {
     globalNav,
-    versions: [
-      {
-        title: 'v2.0'
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/analytics-1.4-apis'
-      }
-    ],
     pages: [
       {
-        title: 'Adobe Analytics',
+        title: 'Customer Journey Analytics',
         path: '/'
       },
       {
-        title: 'Guides',
-        path: '/guides/'
-      },
-      {
-        title: 'API Reference',
+        title: 'API reference',
         path: '/api/'
       },
-      {
-        title: 'Support',
-        path: '/support/'
-      }
     ],
     subPages: [
       {
         title: 'Get Started',
-        path: '/guides/',
+        path: '/getting-started/',
         pages: [
           {
             title: 'Overview',
-            path: '/guides/'
+            path: '/getting-started/'
           },
           {
-            title: 'Creating an OAuth Client',
-            path: '/guides/creating_oauth_client/'
-          },
-          {
-            title: 'OAuth using cURL',
-            path: '/guides/oauth_using_curl/'
-          },
-          {
-            title: 'OAuth using POSTMAN',
-            path: '/guides/oauth_using_postman/'
-          },
-          {
-            title: 'JWT Authentication',
-            path: '/guides/jwt_authentication/'
+            title: 'FAQ',
+            path: '/getting-started/'
           }
         ]
       },
