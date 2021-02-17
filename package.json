@@ -5,11 +5,11 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/dev-site-product-template"
+    "url": "https://github.com/AdobeDocs/cja-apis"
   },
   "author": {
-    "name": "Stephan Ringel",
-    "url": "https://github.com/icaraps"
+    "name": "Russ Whitchurch",
+    "url": "https://github.com/gigazelle"
   },
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^2.15.0",
@@ -24,5 +24,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.28"
   }
 }
