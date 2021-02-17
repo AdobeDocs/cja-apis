@@ -26,102 +26,147 @@ module.exports = {
         path: '/'
       },
       {
+        title: 'Endpoint guides',
+        path: '/endpoints/'
+      },
+      {
         title: 'API reference',
         path: '/api/'
       },
     ],
     subPages: [
       {
-        title: 'Get Started',
-        path: '/getting-started/',
+        title: 'Customer Journey Analytics',
+        path: '/',
         pages: [
           {
             title: 'Overview',
-            path: '/getting-started/'
+            path: '/'
           },
           {
-            title: 'FAQ',
-            path: '/getting-started/faq/'
-          },
-          {
-            title: 'Compare CJA API to Analytics 2.0',
-            path: '/getting-started/differences/'
-          }
-        ]
-      },
-      {
-        title: 'Reporting API',
-        path: '/guides/reporting_api/',
-        pages: [
-          {
-            title: 'Overview',
-            path: '/guides/reporting_api/'
-          },
-          {
-            title: 'Reporting with breakdowns',
-            path: '/guides/reporting_api/reporting_breakdowns/',
+            title: 'Getting started',
+            path: '/getting-started/',
             pages: [
               {
-                title: 'Reporting with single breakdowns',
-                path: '/guides/reporting_api/reporting_breakdowns/',
+                title: 'Overview',
+                path: '/getting-started/'
               },
               {
-                title: 'Reporting with multiple breakdowns',
-                path: '/guides/reporting_api/reporting_breakdowns/reporting_multiple_breakdowns/',
+                title: 'FAQ',
+                path: '/getting-started/faq/'
               },
+              {
+                title: 'CJA vs. 2.0 API',
+                path: '/getting-started/differences/'
+              }
             ]
           },
           {
-            title: 'Reporting tips and tricks',
-            path: '/guides/reporting_api/reporting_tips_tricks/'
-          }
-        ]
-      },
-      {
-        title: 'Discovery API',
-        path: '/guides/discovery_api/'
-      },
-      {
-        title: 'Segments API',
-        path: '/guides/segments_api/'
-      },
-      {
-        title: 'Calculated Metrics API',
-        path: '/guides/calculated_metrics_api/'
-      },
-      {
-        title: 'Migrating',
-        path: '/guides/migrating/'
-      },
-      {
-        title: 'Overview',
-        path: '/support/',
-        header: true,
-        pages: [
+            title: 'Use cases',
+            path: '/use-cases/',
+            pages: [
+              {
+                title: 'Use cases overview',
+                path: '/use-cases/'
+              },
+              {
+                title: 'Postman',
+                path: '/use-cases/postman/'
+              },                {
+                title: 'Python',
+                path: '/use-cases/python/'
+              }
+            ]
+          },
           {
-            title: 'Help',
+            title: 'Support',
             path: '/support/'
-          },
-          {
-            title: 'FAQ',
-            path: '/support/FAQ/'
-          },
-          {
-            title: 'How to contribute',
-            path: '/support/contribute/'
           }
         ]
       },
       {
-        title: 'Community',
-        path: '/support/community/',
-        header: true,
+        title: 'Endpoint guides',
+        path: '/endpoints/',
         pages: [
           {
-            title: 'Information',
-            path: '/support/community/'
+            title: 'Endpoints overview',
+            path: '/endpoints/',
+            pages: [
+              {
+                title: 'Calculated metrics',
+                path: '/endpoints/calculatedmetrics/',
+                pages: [
+                  {
+                    title: 'Calculated metrics overview',
+                    path: '/endpoints/calculatedmetrics/'
+                  },
+                  {
+                    title: 'Functions',
+                    path: '/endpoints/calculatedmetrics/functions/'
+                  },
+                  {
+                    title: 'Validate',
+                    path: '/endpoints/calculatedmetrics/validate/'
+                  },
+                  {
+                    title: 'FAQ',
+                    path: '/endpoints/calculatedmetrics/faq'
+                  }
+                ]
+              },
+              {
+                title: 'Data groups',
+                path: '/endpoints/datagroups/',
+                pages: [
+                  {
+                    title: 'Data groups overview',
+                    path: '/endpoints/datagroups/'
+                  },
+                  {
+                    title: 'Data views',
+                    path: '/endpoints/datagroups/dataviews/'
+                  },
+                  {
+                    title: 'Dimensions and metrics',
+                    path: '/endpoints/datagroups/data/'
+                  }
+                ]
+              },
+              {
+                title: 'Filters',
+                path: '/endpoints/filters/',
+                pages: [
+                  {
+                    title: 'Filters overview',
+                    path: '/endpoints/filters/'
+                  },
+                  {
+                    title: 'Validate',
+                    path: '/endpoints/filters/validate/'
+                  }
+                ]
+              },
+              {
+                title: 'Reporting',
+                path: '/endpoints/reporting/',
+                pages: [
+                  {
+                    title: 'Reporting overview',
+                    path: '/endpoints/reporting/'
+                  },
+                  {
+                    title: 'Debugger',
+                    path: '/endpoints/reporting/debugger'
+                  }
+                ]
+              }
+            ]
           }
         ]
+      },
+      {
+        title: 'API reference',
+        path: '/api/'
       }
     ]
   },
