@@ -22,7 +22,7 @@ module.exports = {
     globalNav,
     pages: [
       {
-        title: 'Customer Journey Analytics',
+        title: 'Customer Journey Analytics API',
         path: '/'
       },
       {
