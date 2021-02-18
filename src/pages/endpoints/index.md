@@ -30,3 +30,5 @@ Retrieve, update, or create filters.
 [Reporting API](reporting/index.md)
 
 Retrieve data from a data view.
+
+See the [API reference](../api.md) for a full list of calls that you can make.

@@ -26,6 +26,10 @@ module.exports = {
         path: '/'
       },
       {
+        title: 'Getting started',
+        path: '/getting-started/'
+      },
+      {
         title: 'Endpoint guides',
         path: '/endpoints/'
       },
@@ -33,54 +37,27 @@ module.exports = {
         title: 'API reference',
         path: '/api/'
       },
+      {
+        title: 'Use cases',
+        path: '/use-cases/'
+      },
+      {
+        title: 'Support',
+        path: '/support/'
+      }
     ],
     subPages: [
       {
-        title: 'Customer Journey Analytics',
-        path: '/',
+        title: 'Getting started',
+        path: '/getting-started/',
         pages: [
           {
-            title: 'Overview',
-            path: '/'
+            title: 'FAQ',
+            path: '/getting-started/faq/'
           },
           {
-            title: 'Getting started',
-            path: '/getting-started/',
-            pages: [
-              {
-                title: 'Overview',
-                path: '/getting-started/'
-              },
-              {
-                title: 'FAQ',
-                path: '/getting-started/faq/'
-              },
-              {
-                title: 'CJA vs. 2.0 API',
-                path: '/getting-started/differences/'
-              }
-            ]
-          },
-          {
-            title: 'Use cases',
-            path: '/use-cases/',
-            pages: [
-              {
-                title: 'Use cases overview',
-                path: '/use-cases/'
-              },
-              {
-                title: 'Postman',
-                path: '/use-cases/postman/'
-              },                {
-                title: 'Python',
-                path: '/use-cases/python/'
-              }
-            ]
-          },
-          {
-            title: 'Support',
-            path: '/support/'
+            title: 'CJA vs. 2.0 API',
+            path: '/getting-started/differences/'
           }
         ]
       },
@@ -89,87 +66,75 @@ module.exports = {
         path: '/endpoints/',
         pages: [
           {
-            title: 'Endpoints overview',
-            path: '/endpoints/',
+            title: 'Calculated metrics',
+            path: '/endpoints/calculatedmetrics/',
             pages: [
               {
-                title: 'Calculated metrics',
-                path: '/endpoints/calculatedmetrics/',
-                pages: [
-                  {
-                    title: 'Calculated metrics overview',
-                    path: '/endpoints/calculatedmetrics/'
-                  },
-                  {
-                    title: 'Functions',
-                    path: '/endpoints/calculatedmetrics/functions/'
-                  },
-                  {
-                    title: 'Validate',
-                    path: '/endpoints/calculatedmetrics/validate/'
-                  },
-                  {
-                    title: 'FAQ',
-                    path: '/endpoints/calculatedmetrics/faq'
-                  }
-                ]
+                title: 'Functions',
+                path: '/endpoints/calculatedmetrics/functions/'
               },
               {
-                title: 'Data groups',
-                path: '/endpoints/datagroups/',
-                pages: [
-                  {
-                    title: 'Data groups overview',
-                    path: '/endpoints/datagroups/'
-                  },
-                  {
-                    title: 'Data views',
-                    path: '/endpoints/datagroups/dataviews/'
-                  },
-                  {
-                    title: 'Dimensions and metrics',
-                    path: '/endpoints/datagroups/data/'
-                  }
-                ]
+                title: 'Validate',
+                path: '/endpoints/calculatedmetrics/validate/'
               },
               {
-                title: 'Filters',
-                path: '/endpoints/filters/',
-                pages: [
-                  {
-                    title: 'Filters overview',
-                    path: '/endpoints/filters/'
-                  },
-                  {
-                    title: 'Validate',
-                    path: '/endpoints/filters/validate/'
-                  }
-                ]
+                title: 'FAQ',
+                path: '/endpoints/calculatedmetrics/faq'
+              }
+            ]
+          },
+          {
+            title: 'Data groups',
+            path: '/endpoints/datagroups/',
+            pages: [
+              {
+                title: 'Data views',
+                path: '/endpoints/datagroups/dataviews/'
               },
               {
-                title: 'Reporting',
-                path: '/endpoints/reporting/',
-                pages: [
-                  {
-                    title: 'Reporting overview',
-                    path: '/endpoints/reporting/'
-                  },
-                  {
-                    title: 'Debugger',
-                    path: '/endpoints/reporting/debugger'
-                  }
-                ]
+                title: 'Dimensions and metrics',
+                path: '/endpoints/datagroups/data/'
+              }
+            ]
+          },
+          {
+            title: 'Filters',
+            path: '/endpoints/filters/',
+            pages: [
+              {
+                title: 'Validate',
+                path: '/endpoints/filters/validate/'
+              }
+            ]
+          },
+          {
+            title: 'Reporting',
+            path: '/endpoints/reporting/',
+            pages: [
+              {
+                title: 'Debugger',
+                path: '/endpoints/reporting/debugger'
               }
             ]
           }
         ]
       },
       {
-        title: 'API reference',
-        path: '/api/'
+        title: 'Use cases',
+        path: '/use-cases/',
+        pages: [
+          {
+            title: 'Postman',
+            path: '/use-cases/postman/'
+          }, {
+            title: 'Python',
+            path: '/use-cases/python/'
+          }
+        ]
       }
     ]
   },
+
   plugins: [`@adobe/gatsby-theme-aio`],
   pathPrefix: process.env.PATH_PREFIX || '/cja-apis/docs'
 };
