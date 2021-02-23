@@ -11,7 +11,7 @@ Adobe actively participates in several communities. You can use any of the follo
 
 <DiscoverBlock slots="image, heading, link, text"/>
 
-![Adobe Experience Cloud](experience_cloud.png)
+![Adobe Experience Cloud](../assets/experience_cloud.png)
 
 ### Adobe Experience League
 
@@ -27,7 +27,7 @@ Ask/answer questions or participate in discussions around the Adobe I/O console.
 
 <DiscoverBlock slots="image, heading, link, text"/>
 
-![GitHub](github.png)
+![GitHub](../assets/github.png)
 
 ### GitHub
 
@@ -50,7 +50,7 @@ View open pull requests for the repository.
 
 <DiscoverBlock slots="image, heading, link, text"/>
 
-![Slack](slack.png)
+![Slack](../assets/slack.png)
 
 ### Slack
 
@@ -66,7 +66,7 @@ The #adobe-analytics channel within Measure Slack.
 
 <DiscoverBlock slots="image, link, text"/>
 
-![Stack Overflow](stack-overflow.png)
+![Stack Overflow](../assets/stack-overflow.png)
 
 ### Stack Overflow
 
