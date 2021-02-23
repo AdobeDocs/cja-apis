@@ -8,69 +8,68 @@ description: Learn where to ask questions, report bugs, make feature requests, a
 # CJA API support
 
 Adobe actively participates in several communities. You can use any of the following communities for their designated purpose.
-<!--
-## Adobe Experience League
 
-<DiscoverBlock slots="image, link, text" width="25%"/>
+<DiscoverBlock slots="image, heading, link, text"/>
 
 ![Adobe Experience Cloud](experience_cloud.png)
+
+### Adobe Experience League
 
 [CJA forum](https://experienceleaguecommunities.adobe.com/t5/adobe-analytics/ct-p/adobe-analytics-community)
 
 Ask/answer questions, participate in discussions, or submit ideas around the CJA APIs.
 
-<DiscoverBlock slots="link, text" width="25%"/>
+<DiscoverBlock slots="link, text"/>
 
 [Adobe I/O forum](https://experienceleaguecommunities.adobe.com/t5/adobe-i-o-console/ct-p/adobe-io-console) 
 
 Ask/answer questions or participate in discussions around the Adobe I/O console.
 
-## GitHub
-
-<DiscoverBlock slots="image, link, text" width="25%"/>
+<DiscoverBlock slots="image, heading, link, text"/>
 
 ![GitHub](github.png)
+
+### GitHub
 
 [Contributing](https://github.com/AdobeDocs/cja-apis/blob/main/.github/CONTRIBUTING.md)
 
 Learn how you can contribute to the CJA API documentation.
 
-<DiscoverBlock slots="link, text" width="25%"/>
+<DiscoverBlock slots="link, text"/>
 
 [Issues](https://github.com/AdobeDocs/cja-apis/issues)
 
 Submit an issue to the repo for Adobe to address.
 
-<DiscoverBlock slots="link, text" width="25%"/>
+<DiscoverBlock slots="link, text"/>
 
 [Pull requests](https://github.com/AdobeDocs/cja-apis/pulls)
 
 View open pull requests for the repository.
 
-## Slack
 
-<DiscoverBlock slots="image, link, text" width="25%"/>
+<DiscoverBlock slots="image, heading, link, text"/>
 
 ![Slack](slack.png)
+
+### Slack
 
 [Request an invite](https://join.measure.chat)
 
 Submission form to request joining #Measure, an industry-wide slack channel for multiple analytics platforms.
 
-<DiscoverBlock slots="link, text" width="25%"/>
+<DiscoverBlock slots="link, text"/>
 
 [Measure slack](https://measure.slack.com/messages/adobe-analytics)
 
 The #adobe-analytics channel within Measure Slack.
 
-## Stack Overflow
-
-<DiscoverBlock slots="image, link, text" width="25%"/>
+<DiscoverBlock slots="image, link, text"/>
 
 ![Stack Overflow](stack-overflow.png)
+
+### Stack Overflow
 
 [Tagged questions](https://stackoverflow.com/questions/tagged/adobe-analytics)
 
 Ask/answer developer questions tagged `[adobe-analytics]`.
-
--->
