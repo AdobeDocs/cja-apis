@@ -21,4 +21,4 @@ The enforced rate limit for API calls is **12 requests every 6 seconds** per use
 
 ## What are the differences between the Analytics 2.0 APIs and the CJA APIs?
 
-See [Differences between the CJA APIs and Analytics 2.0 APIs](differences.md);
+See [Differences between the CJA APIs and Analytics 2.0 APIs](/src/pages/getting-started/differences.md);

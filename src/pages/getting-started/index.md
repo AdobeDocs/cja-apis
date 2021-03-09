@@ -42,9 +42,10 @@ At this point, you decide how you want to authenticate with the API.
 
 ## Authentication
 
-Adobe offers two primary methods to authenticate:
+<!-- Adobe offers two primary methods to authenticate: -->
+Adobe currently only offers OAuth to authenticate with the API. Support for JWT authentication is planned.
 
 * **OAuth**: See [OAuth connection](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md) in the Adobe I/O Authentication user guide. This method is typically easier to set up, but tokens expire after 24 hours.
-* **JWT**: See [JSON web token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWTCertificate.md) in the Adobe I/O Authentication user guide. This method requires more complex setup, but allows a workflow to generate your own access tokens to authenticate with Adobe.
+<!-- * **JWT**: See [JSON web token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWTCertificate.md) in the Adobe I/O Authentication user guide. This method requires more complex setup, but allows a workflow to generate your own access tokens to authenticate with Adobe. -->
 
 Choose your desired authentication method, and complete the remaining steps to complete the API client wizard.
