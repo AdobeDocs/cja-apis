@@ -116,6 +116,10 @@ module.exports = {
         path: '/use-cases/',
         pages: [
           {
+            title: 'cURL',
+            path: '/use-cases/curl/'
+          },
+          {
             title: 'Postman',
             path: '/use-cases/postman/'
           }, {
