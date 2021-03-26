@@ -12,20 +12,19 @@
     "url": "https://github.com/gigazelle"
   },
   "dependencies": {
-    "@adobe/gatsby-theme-aio": "^2.15.0",
-    "gatsby": "^2.23.11",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@adobe/gatsby-theme-aio": "^3.0.9",
+    "gatsby": "^3.0.0"
   },
   "scripts": {
     "start": "gatsby build && gatsby serve",
     "start:prefix": "gatsby build --prefix-paths && gatsby serve --prefix-paths",
     "dev": "gatsby develop",
     "build": "gatsby build",
+    "build:incremental": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "devDependencies": {
-    "@types/node": "^14.14.31"
+    "@types/node": "^14.14.35"
   }
 }

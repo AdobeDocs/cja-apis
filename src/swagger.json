@@ -4679,7 +4679,7 @@
         }
       }
     },
-    "/reporting": {
+    "/reports": {
       "post": {
         "tags": [
           "Reporting API"
@@ -6992,7 +6992,7 @@
         }
       }
     },
-    "/reporting/topItems": {
+    "/reports/topItems": {
       "get": {
         "tags": [
           "Reporting API"

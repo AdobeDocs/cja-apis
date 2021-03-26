@@ -5,7 +5,7 @@ description: The CJA API overview page.
 
 <Hero slots="image, heading, text" background="rgb(64, 34, 138)"/>
 
-![Hero image](../assets/analytics-hero.png)
+![Hero image](./assets/analytics-hero.png)
 
 # Customer Journey Analytics APIs
 
