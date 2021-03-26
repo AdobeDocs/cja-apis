@@ -33,18 +33,28 @@ See [Managing developers](https://helpx.adobe.com/enterprise/using/manage-develo
 Once you are a developer for a CJA product profile, you can create an API client in the Adobe Developer Console.
 
 1. Navigate to [console.adobe.io](https://console.adobe.io).
-2. Check the organization name in the top right to make sure you are logged in to the correct company.
-3. Click **Create new project**.
-4. Click **Add API**.
-5. Click **Customer Journey Analytics**, then click **Next**.
+1. Check the organization name in the top right to make sure that you are logged in to the correct company.
+1. Click **Create new project**.
+1. Click **Add API**.
+1. Click **Customer Journey Analytics**, then click **Next**.
+1. Click **Generate Keypair**.
+   
+   A `config.zip` file is automatically downloaded to your local machine. Keep this config folder in a secure location, as it contains your only copy of your private key. See [JSON web token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWTCertificate.md) in the Adobe I/O Authentication user guide for more information.
 
-At this point, you decide how you want to authenticate with the API.
+1. Click **Next**.
+1. Select the desired product profiles for the service account. Make sure that it contains the right permissions to access the API. Click **Save configured API**.
+1. Back on the project's home page, click **Add to project** > **API**.
+1. Click **Adobe Experience Platform**, then click **Next**.
+1. You already generated a keypair when creating the Adobe Analytics API, so you do not need to create another. Click **Next**.
+1. Select the desired product profiles for the service account. Make sure that it contains the right permissions to access the API. Click **Save configured API**.
 
-## Authentication
+## Generate a JWT token and make an API call using the command line
 
-Adobe offers two primary methods to authenticate:
+1. Back on the project's home page, click **Service Account (JWT)** on the left, then click the **Generate JWT** tab.
+1. Open your `config.zip` file and locate your private key. Paste the private key in the Generate custom JWT field.
+1. Click **Generate Token**.
+1. Copy the sample cURL command to your clipboard.
+1. Open your operating system's Command Prompt or Terminal, then paste and execute the cURL command.
+1. Adobe's servers provide a response that includes an `access_token`. Copy this token to your clipboard.
 
-* **OAuth**: See [OAuth connection](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md) in the Adobe I/O Authentication user guide. This method is typically easier to set up, but tokens expire after 24 hours.
-* **JWT**: See [JSON web token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWTCertificate.md) in the Adobe I/O Authentication user guide. This method requires more complex setup, but allows a workflow to generate your own access tokens to authenticate with Adobe.
-
-Choose your desired authentication method, and complete the remaining steps to complete the API client wizard.
+You now have everything you need to start making API calls using the platform of your choice. See [Use cases](../use-cases/index.md) for examples on how to make API calls on different platforms.
