@@ -132,5 +132,5 @@ module.exports = {
   },
 
   plugins: [`@adobe/gatsby-theme-aio`],
-  pathPrefix: process.env.PATH_PREFIX || '/cja-apis/docs'
+  pathPrefix: process.env.PATH_PREFIX || '/cja-apis/docs/'
 };
