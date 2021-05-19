@@ -27,6 +27,6 @@
     "clean": "gatsby clean"
   },
   "devDependencies": {
-    "@types/node": "^14.14.37"
+    "@types/node": "^15.3.0"
   }
 }
