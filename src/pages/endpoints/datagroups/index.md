@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Data groups
 description: An intermediary endpoint to manage data views and components.
 ---

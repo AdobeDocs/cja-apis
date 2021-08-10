@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Endpoint guides
 description: Learn how to use the endpoints that the Customer Journey Analytics API offers.
 ---

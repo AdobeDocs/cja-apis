@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Use CJA with cURL
 description: Get started making API calls within the command line tool.
 ---

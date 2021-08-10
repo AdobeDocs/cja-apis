@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Customer Journey Analytics APIs
 description: The CJA API overview page.
 ---
