@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: CJA API FAQ
 description: Frequently asked questions for the CJA APIs.
 ---

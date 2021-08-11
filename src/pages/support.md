@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: CJA API support
 description: Learn where to ask questions, report bugs, make feature requests, and spark discussions. 
 ---

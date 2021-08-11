@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Use CJA in Python
 description: Get started making CJA API calls using Python.
 ---

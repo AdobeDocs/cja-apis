@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Calculated metrics API FAQ
 description: Frequently asked questions for the Calculated metrics APIs.
 ---

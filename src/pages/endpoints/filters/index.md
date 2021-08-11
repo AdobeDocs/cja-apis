@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Filters
 description: Add, edit, or delete filters using the API.
 ---

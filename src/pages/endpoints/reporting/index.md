@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Reporting API
 description: Retrieve data from data views using the API.
 ---
