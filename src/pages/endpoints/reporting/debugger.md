@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Oberon XML and JSON debugger
 description: Use the Analysis Workspace debugger to view API requests in XML or JSON format.
 ---

@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Validate filters
 description: Check to see if a filter API call is valid.
 ---

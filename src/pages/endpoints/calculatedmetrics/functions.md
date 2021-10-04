@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Calculated metric functions
 description: Call or reference calculated metric functions in API requests.
 ---

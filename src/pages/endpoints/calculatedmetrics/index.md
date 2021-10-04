@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Calculated metrics
 description: Add, edit, or delete calculated metrics using the API.
 ---

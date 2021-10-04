@@ -9803,7 +9803,6 @@
                 "curationEnabled",
                 "recentRecordedAccess",
                 "sessionDefinition",
-                "curatedComponents",
                 "externalData",
                 "containerNames"
               ]
@@ -9995,168 +9994,6 @@
                               "type": "array",
                               "items": {
                                 "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "curatedComponents": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "componentId": {
-                              "type": "string"
-                            },
-                            "componentType": {
-                              "type": "string"
-                            },
-                            "componentName": {
-                              "type": "string"
-                            },
-                            "componentDescription": {
-                              "type": "string"
-                            },
-                            "defaultAllocationModel": {
-                              "type": "object",
-                              "properties": {
-                                "func": {
-                                  "type": "string",
-                                  "enum": [
-                                    "ALLOCATION_FIRST_TOUCH",
-                                    "ALLOCATION_FIRST_TOUCH_DIM",
-                                    "ALLOCATION_LAST_TOUCH",
-                                    "ALLOCATION_LAST_TOUCH_DIM",
-                                    "ALLOCATION_INSTANCE",
-                                    "ALLOCATION_DEDUPED_INSTANCE",
-                                    "ALLOCATION_LAST_KNOWN",
-                                    "ALLOCATION_LEGACY",
-                                    "ALLOCATION_LINEAR",
-                                    "ALLOCATION_PARTICIPATION",
-                                    "ALLOCATION_PARTICIPATION_DIM",
-                                    "ALLOCATION_POSITION_BASED",
-                                    "ALLOCATION_TIME_DECAY",
-                                    "ALLOCATION_U_SHAPED",
-                                    "ALLOCATION_J_SHAPED",
-                                    "ALLOCATION_REVERSE_J_SHAPED",
-                                    "ALLOCATION_DEDUPED_LINEAR",
-                                    "ALLOCATION_ALGORITHMIC"
-                                  ]
-                                },
-                                "expiration": {
-                                  "type": "object",
-                                  "properties": {
-                                    "func": {
-                                      "type": "string",
-                                      "enum": [
-                                        "afterEvents",
-                                        "beforeEvents",
-                                        "inactivity",
-                                        "container"
-                                      ]
-                                    },
-                                    "events": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "granularity": {
-                                      "type": "string"
-                                    },
-                                    "numPeriods": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "context": {
-                                      "type": "string"
-                                    }
-                                  }
-                                },
-                                "lookbackExpiration": {
-                                  "type": "object",
-                                  "properties": {
-                                    "func": {
-                                      "type": "string"
-                                    },
-                                    "granularity": {
-                                      "type": "string"
-                                    },
-                                    "numPeriods": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    }
-                                  }
-                                },
-                                "merchandising": {
-                                  "type": "object",
-                                  "properties": {
-                                    "func": {
-                                      "type": "string",
-                                      "enum": [
-                                        "nonMerchandising",
-                                        "forced",
-                                        "auto"
-                                      ]
-                                    },
-                                    "bindingCriteria": {
-                                      "type": "object",
-                                      "properties": {
-                                        "func": {
-                                          "type": "string",
-                                          "enum": [
-                                            "always",
-                                            "events"
-                                          ]
-                                        },
-                                        "bindingEvents": {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "context": {
-                                  "type": "string"
-                                },
-                                "firstWeight": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "middleWeight": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "lastWeight": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "halfLifeNumPeriods": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "halfLifeGranularity": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "lookback": {
-                              "type": "object",
-                              "properties": {
-                                "func": {
-                                  "type": "string"
-                                },
-                                "granularity": {
-                                  "type": "string"
-                                },
-                                "numPeriods": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                }
                               }
                             }
                           }
@@ -10511,168 +10348,6 @@
                     }
                   }
                 },
-                "curatedComponents": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "componentId": {
-                        "type": "string"
-                      },
-                      "componentType": {
-                        "type": "string"
-                      },
-                      "componentName": {
-                        "type": "string"
-                      },
-                      "componentDescription": {
-                        "type": "string"
-                      },
-                      "defaultAllocationModel": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string",
-                            "enum": [
-                              "ALLOCATION_FIRST_TOUCH",
-                              "ALLOCATION_FIRST_TOUCH_DIM",
-                              "ALLOCATION_LAST_TOUCH",
-                              "ALLOCATION_LAST_TOUCH_DIM",
-                              "ALLOCATION_INSTANCE",
-                              "ALLOCATION_DEDUPED_INSTANCE",
-                              "ALLOCATION_LAST_KNOWN",
-                              "ALLOCATION_LEGACY",
-                              "ALLOCATION_LINEAR",
-                              "ALLOCATION_PARTICIPATION",
-                              "ALLOCATION_PARTICIPATION_DIM",
-                              "ALLOCATION_POSITION_BASED",
-                              "ALLOCATION_TIME_DECAY",
-                              "ALLOCATION_U_SHAPED",
-                              "ALLOCATION_J_SHAPED",
-                              "ALLOCATION_REVERSE_J_SHAPED",
-                              "ALLOCATION_DEDUPED_LINEAR",
-                              "ALLOCATION_ALGORITHMIC"
-                            ]
-                          },
-                          "expiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "afterEvents",
-                                  "beforeEvents",
-                                  "inactivity",
-                                  "container"
-                                ]
-                              },
-                              "events": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              },
-                              "context": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "lookbackExpiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string"
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              }
-                            }
-                          },
-                          "merchandising": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "nonMerchandising",
-                                  "forced",
-                                  "auto"
-                                ]
-                              },
-                              "bindingCriteria": {
-                                "type": "object",
-                                "properties": {
-                                  "func": {
-                                    "type": "string",
-                                    "enum": [
-                                      "always",
-                                      "events"
-                                    ]
-                                  },
-                                  "bindingEvents": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "context": {
-                            "type": "string"
-                          },
-                          "firstWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "middleWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "lastWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeNumPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeGranularity": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "lookback": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string"
-                          },
-                          "granularity": {
-                            "type": "string"
-                          },
-                          "numPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
                 "externalData": {
                   "type": "object",
                   "properties": {
@@ -10727,7 +10402,6 @@
                 "curationEnabled",
                 "recentRecordedAccess",
                 "sessionDefinition",
-                "curatedComponents",
                 "externalData",
                 "containerNames"
               ]
@@ -10828,168 +10502,6 @@
                         "type": "array",
                         "items": {
                           "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "curatedComponents": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "componentId": {
-                        "type": "string"
-                      },
-                      "componentType": {
-                        "type": "string"
-                      },
-                      "componentName": {
-                        "type": "string"
-                      },
-                      "componentDescription": {
-                        "type": "string"
-                      },
-                      "defaultAllocationModel": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string",
-                            "enum": [
-                              "ALLOCATION_FIRST_TOUCH",
-                              "ALLOCATION_FIRST_TOUCH_DIM",
-                              "ALLOCATION_LAST_TOUCH",
-                              "ALLOCATION_LAST_TOUCH_DIM",
-                              "ALLOCATION_INSTANCE",
-                              "ALLOCATION_DEDUPED_INSTANCE",
-                              "ALLOCATION_LAST_KNOWN",
-                              "ALLOCATION_LEGACY",
-                              "ALLOCATION_LINEAR",
-                              "ALLOCATION_PARTICIPATION",
-                              "ALLOCATION_PARTICIPATION_DIM",
-                              "ALLOCATION_POSITION_BASED",
-                              "ALLOCATION_TIME_DECAY",
-                              "ALLOCATION_U_SHAPED",
-                              "ALLOCATION_J_SHAPED",
-                              "ALLOCATION_REVERSE_J_SHAPED",
-                              "ALLOCATION_DEDUPED_LINEAR",
-                              "ALLOCATION_ALGORITHMIC"
-                            ]
-                          },
-                          "expiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "afterEvents",
-                                  "beforeEvents",
-                                  "inactivity",
-                                  "container"
-                                ]
-                              },
-                              "events": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              },
-                              "context": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "lookbackExpiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string"
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              }
-                            }
-                          },
-                          "merchandising": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "nonMerchandising",
-                                  "forced",
-                                  "auto"
-                                ]
-                              },
-                              "bindingCriteria": {
-                                "type": "object",
-                                "properties": {
-                                  "func": {
-                                    "type": "string",
-                                    "enum": [
-                                      "always",
-                                      "events"
-                                    ]
-                                  },
-                                  "bindingEvents": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "context": {
-                            "type": "string"
-                          },
-                          "firstWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "middleWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "lastWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeNumPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeGranularity": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "lookback": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string"
-                          },
-                          "granularity": {
-                            "type": "string"
-                          },
-                          "numPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          }
                         }
                       }
                     }
@@ -11307,7 +10819,6 @@
                 "curationEnabled",
                 "recentRecordedAccess",
                 "sessionDefinition",
-                "curatedComponents",
                 "externalData",
                 "containerNames"
               ]
@@ -11408,168 +10919,6 @@
                         "type": "array",
                         "items": {
                           "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "curatedComponents": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "componentId": {
-                        "type": "string"
-                      },
-                      "componentType": {
-                        "type": "string"
-                      },
-                      "componentName": {
-                        "type": "string"
-                      },
-                      "componentDescription": {
-                        "type": "string"
-                      },
-                      "defaultAllocationModel": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string",
-                            "enum": [
-                              "ALLOCATION_FIRST_TOUCH",
-                              "ALLOCATION_FIRST_TOUCH_DIM",
-                              "ALLOCATION_LAST_TOUCH",
-                              "ALLOCATION_LAST_TOUCH_DIM",
-                              "ALLOCATION_INSTANCE",
-                              "ALLOCATION_DEDUPED_INSTANCE",
-                              "ALLOCATION_LAST_KNOWN",
-                              "ALLOCATION_LEGACY",
-                              "ALLOCATION_LINEAR",
-                              "ALLOCATION_PARTICIPATION",
-                              "ALLOCATION_PARTICIPATION_DIM",
-                              "ALLOCATION_POSITION_BASED",
-                              "ALLOCATION_TIME_DECAY",
-                              "ALLOCATION_U_SHAPED",
-                              "ALLOCATION_J_SHAPED",
-                              "ALLOCATION_REVERSE_J_SHAPED",
-                              "ALLOCATION_DEDUPED_LINEAR",
-                              "ALLOCATION_ALGORITHMIC"
-                            ]
-                          },
-                          "expiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "afterEvents",
-                                  "beforeEvents",
-                                  "inactivity",
-                                  "container"
-                                ]
-                              },
-                              "events": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              },
-                              "context": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "lookbackExpiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string"
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              }
-                            }
-                          },
-                          "merchandising": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "nonMerchandising",
-                                  "forced",
-                                  "auto"
-                                ]
-                              },
-                              "bindingCriteria": {
-                                "type": "object",
-                                "properties": {
-                                  "func": {
-                                    "type": "string",
-                                    "enum": [
-                                      "always",
-                                      "events"
-                                    ]
-                                  },
-                                  "bindingEvents": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "context": {
-                            "type": "string"
-                          },
-                          "firstWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "middleWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "lastWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeNumPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeGranularity": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "lookback": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string"
-                          },
-                          "granularity": {
-                            "type": "string"
-                          },
-                          "numPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          }
                         }
                       }
                     }
@@ -11906,168 +11255,6 @@
                     }
                   }
                 },
-                "curatedComponents": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "componentId": {
-                        "type": "string"
-                      },
-                      "componentType": {
-                        "type": "string"
-                      },
-                      "componentName": {
-                        "type": "string"
-                      },
-                      "componentDescription": {
-                        "type": "string"
-                      },
-                      "defaultAllocationModel": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string",
-                            "enum": [
-                              "ALLOCATION_FIRST_TOUCH",
-                              "ALLOCATION_FIRST_TOUCH_DIM",
-                              "ALLOCATION_LAST_TOUCH",
-                              "ALLOCATION_LAST_TOUCH_DIM",
-                              "ALLOCATION_INSTANCE",
-                              "ALLOCATION_DEDUPED_INSTANCE",
-                              "ALLOCATION_LAST_KNOWN",
-                              "ALLOCATION_LEGACY",
-                              "ALLOCATION_LINEAR",
-                              "ALLOCATION_PARTICIPATION",
-                              "ALLOCATION_PARTICIPATION_DIM",
-                              "ALLOCATION_POSITION_BASED",
-                              "ALLOCATION_TIME_DECAY",
-                              "ALLOCATION_U_SHAPED",
-                              "ALLOCATION_J_SHAPED",
-                              "ALLOCATION_REVERSE_J_SHAPED",
-                              "ALLOCATION_DEDUPED_LINEAR",
-                              "ALLOCATION_ALGORITHMIC"
-                            ]
-                          },
-                          "expiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "afterEvents",
-                                  "beforeEvents",
-                                  "inactivity",
-                                  "container"
-                                ]
-                              },
-                              "events": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              },
-                              "context": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "lookbackExpiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string"
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              }
-                            }
-                          },
-                          "merchandising": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "nonMerchandising",
-                                  "forced",
-                                  "auto"
-                                ]
-                              },
-                              "bindingCriteria": {
-                                "type": "object",
-                                "properties": {
-                                  "func": {
-                                    "type": "string",
-                                    "enum": [
-                                      "always",
-                                      "events"
-                                    ]
-                                  },
-                                  "bindingEvents": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "context": {
-                            "type": "string"
-                          },
-                          "firstWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "middleWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "lastWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeNumPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeGranularity": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "lookback": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string"
-                          },
-                          "granularity": {
-                            "type": "string"
-                          },
-                          "numPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
                 "externalData": {
                   "type": "object",
                   "properties": {
@@ -12122,7 +11309,6 @@
                 "curationEnabled",
                 "recentRecordedAccess",
                 "sessionDefinition",
-                "curatedComponents",
                 "externalData",
                 "containerNames"
               ]
@@ -12223,168 +11409,6 @@
                         "type": "array",
                         "items": {
                           "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "curatedComponents": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "componentId": {
-                        "type": "string"
-                      },
-                      "componentType": {
-                        "type": "string"
-                      },
-                      "componentName": {
-                        "type": "string"
-                      },
-                      "componentDescription": {
-                        "type": "string"
-                      },
-                      "defaultAllocationModel": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string",
-                            "enum": [
-                              "ALLOCATION_FIRST_TOUCH",
-                              "ALLOCATION_FIRST_TOUCH_DIM",
-                              "ALLOCATION_LAST_TOUCH",
-                              "ALLOCATION_LAST_TOUCH_DIM",
-                              "ALLOCATION_INSTANCE",
-                              "ALLOCATION_DEDUPED_INSTANCE",
-                              "ALLOCATION_LAST_KNOWN",
-                              "ALLOCATION_LEGACY",
-                              "ALLOCATION_LINEAR",
-                              "ALLOCATION_PARTICIPATION",
-                              "ALLOCATION_PARTICIPATION_DIM",
-                              "ALLOCATION_POSITION_BASED",
-                              "ALLOCATION_TIME_DECAY",
-                              "ALLOCATION_U_SHAPED",
-                              "ALLOCATION_J_SHAPED",
-                              "ALLOCATION_REVERSE_J_SHAPED",
-                              "ALLOCATION_DEDUPED_LINEAR",
-                              "ALLOCATION_ALGORITHMIC"
-                            ]
-                          },
-                          "expiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "afterEvents",
-                                  "beforeEvents",
-                                  "inactivity",
-                                  "container"
-                                ]
-                              },
-                              "events": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              },
-                              "context": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "lookbackExpiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string"
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              }
-                            }
-                          },
-                          "merchandising": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "nonMerchandising",
-                                  "forced",
-                                  "auto"
-                                ]
-                              },
-                              "bindingCriteria": {
-                                "type": "object",
-                                "properties": {
-                                  "func": {
-                                    "type": "string",
-                                    "enum": [
-                                      "always",
-                                      "events"
-                                    ]
-                                  },
-                                  "bindingEvents": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "context": {
-                            "type": "string"
-                          },
-                          "firstWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "middleWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "lastWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeNumPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeGranularity": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "lookback": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string"
-                          },
-                          "granularity": {
-                            "type": "string"
-                          },
-                          "numPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          }
                         }
                       }
                     }
@@ -12814,6 +11838,367 @@
         }
       }
     },
+    "/datagroups/dataviews/copy/{dataViewId}": {
+      "put": {
+        "tags": [
+          "Dataviews API"
+        ],
+        "summary": "Copy a data view",
+        "description": "Copy a Data View.",
+        "operationId": "copy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataViewId",
+            "in": "path",
+            "description": "The Data View id to lookup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional fields to include on response.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "name",
+                "description",
+                "owner",
+                "isDeleted",
+                "parentDataGroupId",
+                "segmentList",
+                "currentTimezoneOffset",
+                "timezoneDesignator",
+                "modified",
+                "createdDate",
+                "organization",
+                "curationEnabled",
+                "recentRecordedAccess",
+                "sessionDefinition",
+                "externalData",
+                "containerNames"
+              ]
+            },
+            "collectionFormat": "csv"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "object",
+                  "properties": {
+                    "imsUserId": {
+                      "type": "string",
+                      "description": "the ims org id of the owner, included when the expansion parameter owner is true"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "isDeleted": {
+                  "type": "boolean"
+                },
+                "parentDataGroupId": {
+                  "type": "string"
+                },
+                "segmentList": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "currentTimezoneOffset": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "timezoneDesignator": {
+                  "type": "string"
+                },
+                "modifiedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "createdDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "organization": {
+                  "type": "string"
+                },
+                "modifiedBy": {
+                  "type": "string"
+                },
+                "curationEnabled": {
+                  "type": "boolean"
+                },
+                "recentRecordedAccess": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "sessionDefinition": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "numPeriods": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "granularity": {
+                        "type": "string",
+                        "enum": [
+                          "MINUTE",
+                          "HOUR",
+                          "DAY",
+                          "WEEK"
+                        ]
+                      },
+                      "func": {
+                        "type": "string",
+                        "enum": [
+                          "INACTIVITY",
+                          "BEFORE_EVENTS"
+                        ]
+                      },
+                      "events": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "externalData": {
+                  "type": "object",
+                  "properties": {
+                    "externalId": {
+                      "type": "string"
+                    },
+                    "externalParentId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "containerNames": {
+                  "type": "object",
+                  "properties": {
+                    "event": {
+                      "type": "string"
+                    },
+                    "session": {
+                      "type": "string"
+                    },
+                    "people": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errorCode": {
+                  "type": "string",
+                  "enum": [
+                    "invalid_metric_access",
+                    "method_not_allowed",
+                    "resource_conflict",
+                    "invalid_access",
+                    "resource_temporarily_unavailable",
+                    "external_api_failure",
+                    "aam_failure",
+                    "resource_already_exists",
+                    "invalid_state",
+                    "invalid_json_input",
+                    "invalid_parameters",
+                    "invalid_dimension_access",
+                    "unsupported_data_type",
+                    "resource_not_found",
+                    "insufficient_access",
+                    "health_check_error",
+                    "invalid_data",
+                    "unexpected_error",
+                    "external_api_error",
+                    "unsupported_resource",
+                    "io_error",
+                    "action_not_implemented",
+                    "too_many_requests",
+                    "payload_too_large",
+                    "invalid_request",
+                    "invalid_client_id",
+                    "unauthorized",
+                    "authorization_error",
+                    "invalid_token",
+                    "insufficient_scope",
+                    "bluecoat_unauthorized"
+                  ]
+                },
+                "errorDescription": {
+                  "type": "string"
+                },
+                "errorId": {
+                  "type": "string"
+                },
+                "errorDetails": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                },
+                "rootCauseService": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unable to find Data View ID",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errorCode": {
+                  "type": "string",
+                  "enum": [
+                    "invalid_metric_access",
+                    "method_not_allowed",
+                    "resource_conflict",
+                    "invalid_access",
+                    "resource_temporarily_unavailable",
+                    "external_api_failure",
+                    "aam_failure",
+                    "resource_already_exists",
+                    "invalid_state",
+                    "invalid_json_input",
+                    "invalid_parameters",
+                    "invalid_dimension_access",
+                    "unsupported_data_type",
+                    "resource_not_found",
+                    "insufficient_access",
+                    "health_check_error",
+                    "invalid_data",
+                    "unexpected_error",
+                    "external_api_error",
+                    "unsupported_resource",
+                    "io_error",
+                    "action_not_implemented",
+                    "too_many_requests",
+                    "payload_too_large",
+                    "invalid_request",
+                    "invalid_client_id",
+                    "unauthorized",
+                    "authorization_error",
+                    "invalid_token",
+                    "insufficient_scope",
+                    "bluecoat_unauthorized"
+                  ]
+                },
+                "errorDescription": {
+                  "type": "string"
+                },
+                "errorId": {
+                  "type": "string"
+                },
+                "errorDetails": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                },
+                "rootCauseService": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error while retrieving Data View",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errorCode": {
+                  "type": "string",
+                  "enum": [
+                    "invalid_metric_access",
+                    "method_not_allowed",
+                    "resource_conflict",
+                    "invalid_access",
+                    "resource_temporarily_unavailable",
+                    "external_api_failure",
+                    "aam_failure",
+                    "resource_already_exists",
+                    "invalid_state",
+                    "invalid_json_input",
+                    "invalid_parameters",
+                    "invalid_dimension_access",
+                    "unsupported_data_type",
+                    "resource_not_found",
+                    "insufficient_access",
+                    "health_check_error",
+                    "invalid_data",
+                    "unexpected_error",
+                    "external_api_error",
+                    "unsupported_resource",
+                    "io_error",
+                    "action_not_implemented",
+                    "too_many_requests",
+                    "payload_too_large",
+                    "invalid_request",
+                    "invalid_client_id",
+                    "unauthorized",
+                    "authorization_error",
+                    "invalid_token",
+                    "insufficient_scope",
+                    "bluecoat_unauthorized"
+                  ]
+                },
+                "errorDescription": {
+                  "type": "string"
+                },
+                "errorId": {
+                  "type": "string"
+                },
+                "errorDetails": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                },
+                "rootCauseService": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/datagroups/dataviews/validate": {
       "post": {
         "tags": [
@@ -12924,168 +12309,6 @@
                         "type": "array",
                         "items": {
                           "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "curatedComponents": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "componentId": {
-                        "type": "string"
-                      },
-                      "componentType": {
-                        "type": "string"
-                      },
-                      "componentName": {
-                        "type": "string"
-                      },
-                      "componentDescription": {
-                        "type": "string"
-                      },
-                      "defaultAllocationModel": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string",
-                            "enum": [
-                              "ALLOCATION_FIRST_TOUCH",
-                              "ALLOCATION_FIRST_TOUCH_DIM",
-                              "ALLOCATION_LAST_TOUCH",
-                              "ALLOCATION_LAST_TOUCH_DIM",
-                              "ALLOCATION_INSTANCE",
-                              "ALLOCATION_DEDUPED_INSTANCE",
-                              "ALLOCATION_LAST_KNOWN",
-                              "ALLOCATION_LEGACY",
-                              "ALLOCATION_LINEAR",
-                              "ALLOCATION_PARTICIPATION",
-                              "ALLOCATION_PARTICIPATION_DIM",
-                              "ALLOCATION_POSITION_BASED",
-                              "ALLOCATION_TIME_DECAY",
-                              "ALLOCATION_U_SHAPED",
-                              "ALLOCATION_J_SHAPED",
-                              "ALLOCATION_REVERSE_J_SHAPED",
-                              "ALLOCATION_DEDUPED_LINEAR",
-                              "ALLOCATION_ALGORITHMIC"
-                            ]
-                          },
-                          "expiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "afterEvents",
-                                  "beforeEvents",
-                                  "inactivity",
-                                  "container"
-                                ]
-                              },
-                              "events": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              },
-                              "context": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "lookbackExpiration": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string"
-                              },
-                              "granularity": {
-                                "type": "string"
-                              },
-                              "numPeriods": {
-                                "type": "integer",
-                                "format": "int32"
-                              }
-                            }
-                          },
-                          "merchandising": {
-                            "type": "object",
-                            "properties": {
-                              "func": {
-                                "type": "string",
-                                "enum": [
-                                  "nonMerchandising",
-                                  "forced",
-                                  "auto"
-                                ]
-                              },
-                              "bindingCriteria": {
-                                "type": "object",
-                                "properties": {
-                                  "func": {
-                                    "type": "string",
-                                    "enum": [
-                                      "always",
-                                      "events"
-                                    ]
-                                  },
-                                  "bindingEvents": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "context": {
-                            "type": "string"
-                          },
-                          "firstWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "middleWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "lastWeight": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeNumPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          },
-                          "halfLifeGranularity": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "lookback": {
-                        "type": "object",
-                        "properties": {
-                          "func": {
-                            "type": "string"
-                          },
-                          "granularity": {
-                            "type": "string"
-                          },
-                          "numPeriods": {
-                            "type": "integer",
-                            "format": "int32"
-                          }
                         }
                       }
                     }

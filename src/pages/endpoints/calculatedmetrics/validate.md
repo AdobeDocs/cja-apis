@@ -1,4 +1,8 @@
 ---
+keywords:
+  - Experience Platform
+  - API Documentation
+  - JavaScript
 title: Validate calculated metrics
 description: Check to see if a calculated metric API call is valid.
 ---
