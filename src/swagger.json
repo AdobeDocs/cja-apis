@@ -13209,6 +13209,569 @@
           }
         }
       }
+    },
+    "/auditlogs/api/v1/auditlogs/search": {
+      "post": {
+        "tags": [
+          "Audit Logs"
+        ],
+        "summary": "Retrieve audit logs for Customer Journey Analytics.",
+        "description": "This API returns a filterable list of audit log records.",
+        "operationId": "searchAuditLogs_1",
+        "parameters": [
+          {
+            "name": "x-user-auth",
+            "in": "header",
+            "description": "IMS User Access Token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-gw-ims-org-id",
+            "in": "header",
+            "description": "IMS Organization ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request body containing the search criteria to filter the results by",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchDto"
+              },
+              "examples": {
+                "Do not apply any filters. Return audit log records sorted in descending order by date created.": {
+                  "summary": "Return the latest records. No filters applied.",
+                  "description": "Do not apply any filters. Return audit log records sorted in descending order by date created.",
+                  "value": {
+                    "criteria": null,
+                    "pageSize": 10,
+                    "pageNumber": 0
+                  }
+                },
+                "Another example of a valid request to not apply any filters. Return audit log records sorted in descending order by date created.": {
+                  "summary": "No filters.",
+                  "description": "Another example of a valid request to not apply any filters. Return audit log records sorted in descending order by date created.",
+                  "value": {}
+                },
+                "Filter audit logs between two dates where records have an 'ACTION' fieldType of 'CREATE' OR 'EDIT'.  ": {
+                  "summary": "Filter logs by date range where fieldType is 'x' or 'y'",
+                  "description": "Filter audit logs between two dates where records have an 'ACTION' fieldType of 'CREATE' OR 'EDIT'.  ",
+                  "value": {
+                    "criteria": {
+                      "fieldOperator": "AND",
+                      "fields": [
+                        {
+                          "fieldType": "BEGIN_DATE_RANGE",
+                          "value": [
+                            "2021-06-01T00:00:00-07"
+                          ],
+                          "operator": "EQUALS"
+                        },
+                        {
+                          "fieldType": "END_DATE_RANGE",
+                          "value": [
+                            "2021-07-30T23:59:59-07"
+                          ],
+                          "operator": "EQUALS"
+                        }
+                      ],
+                      "subCriteriaOperator": "AND",
+                      "subCriteria": {
+                        "fieldOperator": "AND",
+                        "fields": [
+                          {
+                            "fieldType": "ACTION",
+                            "value": [
+                              "CREATE",
+                              "EDIT"
+                            ],
+                            "operator": "IN"
+                          }
+                        ],
+                        "subCriteriaOperator": null,
+                        "subCriteria": null
+                      }
+                    },
+                    "pageSize": 10,
+                    "pageNumber": 0
+                  }
+                },
+                "Filter audit logs by component and description. Also filter logs where the user_email contains one user or another.  ": {
+                  "summary": "Filter logs by component, description and user email",
+                  "description": "Filter audit logs by component and description. Also filter logs where the user_email contains one user or another.  ",
+                  "value": {
+                    "criteria": {
+                      "fieldOperator": "AND",
+                      "fields": [
+                        {
+                          "fieldType": "COMPONENT",
+                          "value": [
+                            "DATA_VIEW",
+                            "DATA_GROUP",
+                            "CONNECTION"
+                          ],
+                          "operator": "IN"
+                        },
+                        {
+                          "fieldType": "DESCRIPTION",
+                          "value": [
+                            "created"
+                          ],
+                          "operator": "CONTAINS"
+                        }
+                      ],
+                      "subCriteriaOperator": "AND",
+                      "subCriteria": {
+                        "fieldOperator": "OR",
+                        "fields": [
+                          {
+                            "fieldType": "USER_EMAIL",
+                            "value": [
+                              "jane"
+                            ],
+                            "operator": "CONTAINS"
+                          },
+                          {
+                            "fieldType": "USER_EMAIL",
+                            "value": [
+                              "john"
+                            ],
+                            "operator": "CONTAINS"
+                          }
+                        ],
+                        "subCriteriaOperator": null,
+                        "subCriteria": null
+                      }
+                    },
+                    "pageSize": null,
+                    "pageNumber": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Unexpected error; Searching audit logs failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsAsrErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsAsrErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAuditLogDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auditlogs/api/v1/auditlogs": {
+      "get": {
+        "tags": [
+          "Audit Logs"
+        ],
+        "summary": "Get audit logs for Customer Journey Analytics.",
+        "description": "This API returns a filterable list of audit log records.",
+        "operationId": "getAuditLogs_1",
+        "parameters": [
+          {
+            "name": "x-user-auth",
+            "in": "header",
+            "description": "IMS User Access Token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-gw-ims-org-id",
+            "in": "header",
+            "description": "IMS Organization ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Date is not required, but if you filter by date, both start & end date must be set.",
+            "schema": {
+              "type": "string",
+              "default": "2021-08-01T00:00:00-07"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Date is not required, but if you filter by date, both start & end date must be set.",
+            "schema": {
+              "type": "string",
+              "default": "2021-08-31T00:00:00-07"
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "description": "The action you want to filter by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "component",
+            "in": "query",
+            "description": "The type of component you want to filter by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "componentId",
+            "in": "query",
+            "description": "The ID of the component.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userType",
+            "in": "query",
+            "description": "The type of user.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The ID of the user.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userEmail",
+            "in": "query",
+            "description": "The email address of the user.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "The log description you want to filter by.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results per page. If left null, the default size will be set to 100.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Page number (base 0 - first page is \"0\")",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Unexpected error; Searching audit logs failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsAsrErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsAsrErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAuditLogDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ComponentDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "idType" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "idType" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Pageable" : {
+        "type" : "object",
+        "properties" : {
+          "sort" : {
+            "$ref" : "#/components/schemas/Sort"
+          },
+          "pageNumber" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "paged" : {
+            "type" : "boolean"
+          },
+          "unpaged" : {
+            "type" : "boolean"
+          },
+          "offset" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "Sort" : {
+        "type" : "object",
+        "properties" : {
+          "sorted" : {
+            "type" : "boolean"
+          },
+          "unsorted" : {
+            "type" : "boolean"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "FieldDto" : {
+        "type" : "object",
+        "properties" : {
+          "fieldType" : {
+            "type" : "string",
+            "enum" : [ "COMPONENT", "COMPONENT_ID", "APPLICATION", "APPLICATION_ID", "USER", "USER_ID", "USER_EMAIL", "ORG_ID", "BEGIN_DATE_RANGE", "END_DATE_RANGE", "ACTION", "DESCRIPTION" ]
+          },
+          "value" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "operator" : {
+            "type" : "string",
+            "enum" : [ "EQUALS", "NOT_EQUALS", "CONTAINS", "IN" ]
+          }
+        }
+      },
+      "SearchCriteriaDto" : {
+        "type" : "object",
+        "properties" : {
+          "fieldOperator" : {
+            "type" : "string",
+            "enum" : [ "AND", "OR" ]
+          },
+          "fields" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/FieldDto"
+            }
+          },
+          "subCriteriaOperator" : {
+            "type" : "string",
+            "enum" : [ "AND", "OR" ]
+          },
+          "subCriteria" : {
+            "$ref" : "#/components/schemas/SearchCriteriaDto"
+          }
+        }
+      },
+      "SearchDto" : {
+        "type" : "object",
+        "properties" : {
+          "criteria" : {
+            "$ref" : "#/components/schemas/SearchCriteriaDto"
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "pageNumber" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "AnalyticsAsrErrorResponse" : {
+        "properties" : {
+          "errorDescription" : {
+            "type" : "string"
+          },
+          "errorCode" : {
+            "type" : "string"
+          },
+          "errorId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PageUserAuditLogDto" : {
+        "type" : "object",
+        "properties" : {
+          "totalElements" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "totalPages" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/Sort"
+          },
+          "numberOfElements" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "first" : {
+            "type" : "boolean"
+          },
+          "last" : {
+            "type" : "boolean"
+          },
+          "pageable" : {
+            "$ref" : "#/components/schemas/Pageable"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "content" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserAuditLogDto"
+            }
+          },
+          "number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "UserAuditLogDto" : {
+        "properties" : {
+          "component" : {
+            "$ref" : "#/components/schemas/ComponentDto"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "action" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "user" : {
+            "$ref" : "#/components/schemas/UserDto"
+          },
+          "imsOrgId" : {
+            "type" : "string"
+          }
+        }
+      }
     }
   }
 }
+
