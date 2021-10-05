@@ -13,6 +13,12 @@ Once you have followed the [Getting started](../getting-started/index.md) guide,
 
 <DiscoverBlock slots="link, text"/> 
 
+[Audit Logs API](auditlogs/index.md) 
+     
+Retrieve audit logs to understand how individuals in your organization use Customer Journey Analytics.
+
+<DiscoverBlock slots="link, text"/> 
+
 [Calculated metrics API](calculatedmetrics/index.md) 
      
 Retrieve, update, or create calculated metrics.
