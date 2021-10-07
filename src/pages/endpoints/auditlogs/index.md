@@ -281,7 +281,7 @@ Show me audit logs where the component is 'FILTER' or 'CALCULATED_METRIC', the '
 
 ## POST Example 2
 
-Show me audit logs between June 1st and October 1st where the 'ACTION' was either 'CREATE' OR 'EDIT' OR the 'DESCRIPTION' contained the string 'job' or 'test'. The response will only include logs between those dates but the other criteria will be filtered using 'OR' logic.
+Show me audit logs between June 1st and October 1st where the 'ACTION' was either 'CREATE' OR 'EDIT' OR the 'DESCRIPTION' contained the string 'job' or 'test'. The response only includes logs between those dates but the other criteria is filtered using 'OR' logic.
 
 ```
 {
