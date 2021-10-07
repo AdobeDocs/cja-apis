@@ -9,35 +9,37 @@ description: Get a list of audit logs using the API.
 
 # CJA Audit Logs
 
-The Audit Log API allows you to retrieve a list of audit log records using a GET or POST method through Adobe I/O. The GET endpoint provides a way to add filters through query string parameters. The POST endpoint offers greater flexibility to your search criteria.
+The Audit Log API allows you to retrieve a list of audit log records using a `GET` or `POST` method through Adobe I/O. The `GET` endpoint provides a way to add filters through query string parameters. The `POST` endpoint offers greater flexibility to your search criteria.
 
 ## Get Audit Logs
 
-The GET endpoint is designed for use when few or no filters are needed. If filters are included by adding query string parameters, each query string parameter will filter the list of audit logs using an 'AND' condition.
+The `GET` endpoint is designed for use when few or no filters are needed. If filters are included by adding query string parameters, each query string parameter filters the list of audit logs using an 'AND' condition.
 
 `GET https://cja.adobe.io/auditlogs/api/v1/auditlogs`
 
-Hitting this endpoint with no query string parameters will return the last 1000 audit log records in descending order. To filter the audit log records, please reference the list of available query string parameters.
+Submitting a request to this endpoint with no query string parameters returns the last 1000 audit log records in descending order. Reference the following list of available query string parameters to filter the audit log records.
 
 
 ### Query String Parameters
-| Query String | Type | Description | Possible Values|
+
+| Query String | Type | Description | Possible Values |
 | --- | --- | ---------- | ----- |
-| startDate | String | Begin date range. If startDate is set, endDate must also be defined. | 2021-01-01T00:00:00-07 |
-| endDate | String | End date range. If endDate is set, startDate must also be defined. | 2021-02-01T00:00:00-07 |
-| action | Enum | The type of action a user or system can make. | CREATE, EDIT, DELETE, LOGIN_FAILED, LOGIN_SUCCESSFUL, API_REQUEST |
-| component | Enum | The type of component. | CALCULATED_METRIC, CONNECTION, DATA_GROUP, DATA_VIEW, DATE_RANGE, FILTER, MOBILE, PROJECT, REPORT, SCHEDULED_PROJECT |
-| componentId | String | The id of the component. | -- |
-| userType | Enum | The type of user. | IMS, OKTA |
-| userId | String | The id of the user. | -- |
-| userEmail | String | The email address of the user. | User defined |
-| description | String | The description of the audit log. | User defined |
-| pageSize | Integer | Number of results per page. If left null, the default size will be set to 100. | 10 |
-| pageNumber | Integer | Page number (base 0 - first page is "0") | 0 |
+| `startDate` | String | Begin date range. If this query string is set, `endDate` is required. | YYYY-01-01T00:00:00-07 |
+| `endDate` | String | End date range. If this query string is set, `startDate` is required. | YYYY-02-01T00:00:00-07 |
+| `action` | Enum | The type of action a user or system can make. | CREATE, EDIT, DELETE, LOGIN_FAILED, LOGIN_SUCCESSFUL, API_REQUEST |
+| `component` | Enum | The type of component. | CALCULATED_METRIC, CONNECTION, DATA_GROUP, DATA_VIEW, DATE_RANGE, FILTER, MOBILE, PROJECT, REPORT, SCHEDULED_PROJECT |
+| `componentId` | String | The id of the component. | -- |
+| `userType` | Enum | The type of user. | IMS, OKTA |
+| `userId` | String | The ID of the user. | -- |
+| `userEmail` | String | The email address of the user. | User defined |
+| `description` | String | The description of the audit log. | User defined |
+| `pageSize` | Integer | Number of results per page. If left `null`, the default size is 100. | 10 |
+| `pageNumber` | Integer | Page number. The first page is indexed at 0. | 0 |
 
 ### Example : Get audit logs with no filters
 
 Request:
+
 `GET https://cja.adobe.io/auditlogs/api/v1/auditlogs`
 
 Response:
@@ -50,9 +52,9 @@ Response:
       "dateCreated": "2021-10-01T16:30:13.377+00:00",
       "action": "CREATE",
       "description": "Creating scheduled job: e1efbf6c-d483-408e-b033-3045e594b656",
-      "imsOrgId": "4E9432245BC7C44B0A494037@AdobeOrg",
+      "imsOrgId": "EXAMPLEIMSORG@AdobeOrg",
       "user": {
-        "id": "434F42A85501C8190A4C86DE@AdobeID",
+        "id": "EXAMPLEUSER@AdobeID",
         "idType": "IMS",
         "name": null,
         "email": null
@@ -68,9 +70,9 @@ Response:
       "dateCreated": "2021-10-01T16:23:04.821+00:00",
       "action": "DELETE",
       "description": "Deleting scheduled job: 7baaf2f8-209a-4886-9619-30f3054884ce",
-      "imsOrgId": "4E9432245BC7C44B0A494037@AdobeOrg",
+      "imsOrgId": "EXAMPLEIMSORG@AdobeOrg",
       "user": {
-        "id": "06257AF96137B9990A494018@fd6f6f286137b98d494230.e",
+        "id": "EXAMPLEUSER@AdobeID",
         "idType": "IMS",
         "name": null,
         "email": null
@@ -117,7 +119,9 @@ Request:
 ```
 https://cja.adobe.io/auditlogs/api/v1/auditlogs?startDate=2021-08-01T00%3A00%3A00-07&endDate=2021-09-30T00%3A00%3A00-07&action=CREATE&action=EDIT&action=DELETE&component=SCHEDULED_PROJECT&userType=IMS&description=job&pageSize=2
 ```
+
 Response:
+
 ```
 {
   "content": [
@@ -188,12 +192,13 @@ Response:
 
 ## Search Audit Logs
 
-If you need to retrieve a list of audit logs using 'OR' criteria, you will want to utilize the POST /auditlogs/search endpoint. These lists can be used as a guide for the available ENUM values for the associated key.
+If you need to retrieve a list of audit logs using 'OR' criteria, you can use the `POST /auditlogs/search` endpoint. Use the following lists for available Enum values for the associated key.
 
 `POST https://cja.adobe.io/auditlogs/api/v1/auditlogs/search`
 
 
 ### fieldType
+
   * COMPONENT
   * COMPONENT_ID
   * USER
@@ -223,7 +228,7 @@ _If 'BEGIN_DATE_RANGE' is set as a fieldType, 'END_DATE_RANGE' must also be set.
 
 ## POST Example 1
 
-#### Show me audit logs where the component is 'FILTER' or 'CALCULATED_METRIC', the 'DESCRIPTION' contains the string 'created', AND the 'USER_EMAIL' contains EITHER 'jane' or 'john'.
+Show me audit logs where the component is 'FILTER' or 'CALCULATED_METRIC', the 'DESCRIPTION' contains the string 'created', AND the 'USER_EMAIL' contains EITHER 'jane' or 'john'.
 
 ```
 {
@@ -276,7 +281,7 @@ _If 'BEGIN_DATE_RANGE' is set as a fieldType, 'END_DATE_RANGE' must also be set.
 
 ## POST Example 2
 
-#### Show me audit logs between June 1st and October 1st where the 'ACTION' was either 'CREATE' OR 'EDIT' OR the 'DESCRIPTION' contained the string 'job' or 'test'. The response will only include logs between those dates but the other criteria will be filtered using 'OR' logic.
+Show me audit logs between June 1st and October 1st where the 'ACTION' was either 'CREATE' OR 'EDIT' OR the 'DESCRIPTION' contained the string 'job' or 'test'. The response will only include logs between those dates but the other criteria will be filtered using 'OR' logic.
 
 ```
 {
