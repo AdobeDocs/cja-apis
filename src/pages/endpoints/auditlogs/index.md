@@ -130,9 +130,9 @@ Response:
       "dateCreated": "2021-09-30T06:30:42.968+00:00",
       "action": "CREATE",
       "description": "Creating scheduled job: ce4e1239-ab7b-471c-9d6a-14934c9d5ea4",
-      "imsOrgId": "4E9432245BC7C44B0A494037@AdobeOrg",
+      "imsOrgId": "EXAMPLEIMSORG@AdobeOrg",
       "user": {
-        "id": "434F42A85501C8190A4C86DE@AdobeID",
+        "id": "EXAMPLEUSER@AdobeID",
         "idType": "IMS",
         "name": null,
         "email": null
@@ -148,9 +148,9 @@ Response:
       "dateCreated": "2021-09-30T06:19:11.145+00:00",
       "action": "EDIT",
       "description": "Updating scheduled job: 2dab1331-4844-4f82-94ff-9721ec47830c",
-      "imsOrgId": "4E9432245BC7C44B0A494037@AdobeOrg",
+      "imsOrgId": "EXAMPLEIMSORG@AdobeOrg",
       "user": {
-        "id": "039D6F286137B99D0A49401D@fd6f6f286137b98d494230.e",
+        "id": "EXAMPLEUSER@AdobeID",
         "idType": "IMS",
         "name": null,
         "email": null
@@ -226,7 +226,7 @@ _If 'BEGIN_DATE_RANGE' is set as a fieldType, 'END_DATE_RANGE' must also be set.
 * OR
 
 
-## POST Example 1
+## POST Request Body Example 1
 
 Show me audit logs where the component is 'FILTER' or 'CALCULATED_METRIC', the 'DESCRIPTION' contains the string 'created', AND the 'USER_EMAIL' contains EITHER 'jane' or 'john'.
 
@@ -279,7 +279,7 @@ Show me audit logs where the component is 'FILTER' or 'CALCULATED_METRIC', the '
 }
 ```
 
-## POST Example 2
+## POST Request Body Example 2
 
 Show me audit logs between June 1st and October 1st where the 'ACTION' was either 'CREATE' OR 'EDIT' OR the 'DESCRIPTION' contained the string 'job' or 'test'. The response only includes logs between those dates but the other criteria is filtered using 'OR' logic.
 
@@ -331,3 +331,4 @@ Show me audit logs between June 1st and October 1st where the 'ACTION' was eithe
   "pageSize": 10,
   "pageNumber": 0
 }
+```
