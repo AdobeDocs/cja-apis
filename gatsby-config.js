@@ -55,6 +55,7 @@ module.exports = {
       },
       {
         title: 'Endpoint guides',
+        path: '/endpoints/',
         pages: [
           {
             title: 'Audit Logs',
