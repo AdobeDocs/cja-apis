@@ -58,6 +58,10 @@ module.exports = {
         path: '/endpoints/',
         pages: [
           {
+            title: 'Audit Logs',
+            path: '/endpoints/auditlogs/'
+          },
+          {
             title: 'Calculated metrics',
             path: '/endpoints/calculatedmetrics/',
             pages: [
