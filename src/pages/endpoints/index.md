@@ -41,4 +41,28 @@ Retrieve, update, or create filters.
 
 Retrieve data from a data view.
 
+<DiscoverBlock slots="link, text"/>
+
+[Date Range API](dateranges/index.md)
+
+Retrieve, update, or create date ranges.
+
+<DiscoverBlock slots="link, text"/>
+
+[Projects API](projects/index.md)
+
+Retrieve, update, or create date projects.
+
+<DiscoverBlock slots="link, text"/>
+
+[Tags API](tags/index.md)
+
+Retrieve, update, or create tags.
+
+<DiscoverBlock slots="link, text"/>
+
+[Shares API](shares/index.md)
+
+Retrieve, update, or create shares.
+
 See the [API reference](../api.md) for a full list of calls that you can make.

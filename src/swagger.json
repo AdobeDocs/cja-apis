@@ -13065,6 +13065,323 @@
             "content": {}
           }
         }
+      },
+      "post" : {
+        "tags" : [ "Filters API" ],
+        "summary" : "Creates configuration for a Filters.",
+        "description" : "",
+        "operationId" : "createFilter",
+        "requestBody": {
+          "description": "JSON-formatted Object containing key/value pairs to be updated.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "modified": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "report_suite": {
+                    "type": "string"
+                  },
+                  "modifiedById": {
+                    "type": "string"
+                  },
+                  "definition": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  },
+                  "compatibility": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  },
+                  "createDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "createdBy": {
+                    "type": "string"
+                  },
+                  "disabled": {
+                    "type": "boolean"
+                  },
+                  "internal": {
+                    "type": "boolean"
+                  },
+                  "organization": {
+                    "type": "string"
+                  },
+                  "template": {
+                    "type": "boolean"
+                  },
+                  "recentRecordedAccess": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "performanceScore": {
+                    "type": "string"
+                  },
+                  "performanceScoreWeightVersion": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "definitionLastModified": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "dataId": {
+                    "type": "string"
+                  },
+                  "owner": {
+                    "type": "object",
+                    "properties": {
+                      "imsUserId": {
+                        "type": "string",
+                        "description": "the ims org id of the owner, included when the expansion parameter owner is true"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "isDeleted": {
+                    "type": "boolean"
+                  },
+                  "dataName": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  "shares": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  "approved": {
+                    "type": "boolean"
+                  },
+                  "favorite": {
+                    "type": "boolean"
+                  },
+                  "usageSummary": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "parameters" : [ 
+        {
+          "name": "locale",
+          "in": "query",
+          "description": "Locale",
+          "schema": {
+            "type": "string",
+            "default": "en_US"
+          }
+        }, {
+          "name": "expansion",
+          "in": "query",
+          "description": "Comma-delimited list of additional segment metadata fields to include on response.",
+          "style": "form",
+          "explode": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "compatibility",
+                "definition",
+                "internal",
+                "modified",
+                "isDeleted",
+                "definitionLastModified",
+                "createdDate",
+                "recentRecordedAccess",
+                "performanceScore",
+                "owner",
+                "dataId",
+                "ownerFullName",
+                "dataName",
+                "sharesFullName",
+                "approved",
+                "favorite",
+                "shares",
+                "tags",
+                "usageSummary",
+                "usageSummaryWithRelevancyScore"
+              ]
+            }
+          }
+        } ],
+        "responses" : {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "modified": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "report_suite": {
+                      "type": "string"
+                    },
+                    "modifiedById": {
+                      "type": "string"
+                    },
+                    "definition": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {}
+                      }
+                    },
+                    "compatibility": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {}
+                      }
+                    },
+                    "createDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "createdBy": {
+                      "type": "string"
+                    },
+                    "disabled": {
+                      "type": "boolean"
+                    },
+                    "internal": {
+                      "type": "boolean"
+                    },
+                    "organization": {
+                      "type": "string"
+                    },
+                    "template": {
+                      "type": "boolean"
+                    },
+                    "recentRecordedAccess": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "performanceScore": {
+                      "type": "string"
+                    },
+                    "performanceScoreWeightVersion": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "definitionLastModified": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "dataId": {
+                      "type": "string"
+                    },
+                    "owner": {
+                      "type": "object",
+                      "properties": {
+                        "imsUserId": {
+                          "type": "string",
+                          "description": "the ims org id of the owner, included when the expansion parameter owner is true"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "isDeleted": {
+                      "type": "boolean"
+                    },
+                    "dataName": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "object",
+                          "properties": {}
+                        }
+                      }
+                    },
+                    "shares": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "object",
+                          "properties": {}
+                        }
+                      }
+                    },
+                    "approved": {
+                      "type": "boolean"
+                    },
+                    "favorite": {
+                      "type": "boolean"
+                    },
+                    "usageSummary": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/filters/validate": {
@@ -13900,7 +14217,1009 @@
           }
         }
       }
+    },
+    "/dateranges" : {
+      "get" : {
+        "tags" : [ "Date Range APIs" ],
+        "summary" : "Returns a list of dateranges for the user",
+        "description" : "This API allows users to store commonly used date ranges so that they can be reused throughout the product.",
+        "operationId" : "getDateRanges",
+        "parameters" : [ {
+          "name": "locale",
+          "in": "query",
+          "description": "Locale",
+          "schema": {
+            "type": "string",
+            "default": "en_US"
+          }
+        }, {
+          "name": "filterByIds",
+          "in": "query",
+          "description": "Filter list to only include date ranges in the specified list (comma-delimited list of IDs). This has filtered Ids from tags, approved, favorites and user specified Ids list.",
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "name": "limit",
+          "in": "query",
+          "description": "Number of results per page",
+          "schema": {
+            "type": "integer",
+            "default": 10
+          }
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "Page number (base 0 - first page is \"0\")",
+          "schema": {
+            "type": "integer",
+            "default": 0
+          }
+        }, {
+          "name": "expansion",
+          "in": "query",
+          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+          "style": "form",
+          "explode": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "definition",
+                "modified",
+                "ownerFullName",
+                "sharesFullName",
+                "shares",
+                "tags"
+              ]
+            }
+          }
+        },
+        {
+          "name": "includeType",
+          "in": "query",
+          "description": "Include additional date ranges not owned by user.",
+          "style": "form",
+          "explode": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "shared",
+                "templates"
+              ]
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Date Range APIs" ],
+        "summary" : "Creates configuration for a DateRange.",
+        "description" : "",
+        "operationId" : "createDateRange",
+        "requestBody": {
+          "description": "Date Range request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyticsDateRange"
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters" : [ 
+        {
+          "name": "locale",
+          "in": "query",
+          "description": "Locale",
+          "schema": {
+            "type": "string",
+            "default": "en_US"
+          }
+        }, {
+          "name": "expansion",
+          "in": "query",
+          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+          "style": "form",
+          "explode": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "definition",
+                "modified",
+                "ownerFullName",
+                "sharesFullName",
+                "shares",
+                "tags"
+              ]
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dateranges/{id}" : {
+      "get" : {
+        "tags" : [ "Date Range APIs" ],
+        "summary" : "Retrieves configuration for a DateRange.",
+        "description" : "",
+        "operationId" : "getDateRange",
+        "parameters" : [ {
+          "name": "id",
+          "in": "path",
+          "description": "Date Range ID to be retrieved",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "name": "locale",
+          "in": "query",
+          "description": "Locale",
+          "schema": {
+            "type": "string",
+            "default": "en_US"
+          }
+        }, {
+          "name": "expansion",
+          "in": "query",
+          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+          "style": "form",
+          "explode": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "definition",
+                "modified",
+                "ownerFullName",
+                "sharesFullName",
+                "shares",
+                "tags"
+              ]
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Date Range APIs" ],
+        "summary" : "Updates configuration for a DateRange.",
+        "description" : "",
+        "operationId" : "updateDateRange",
+        "requestBody": {
+          "description": "Date Range request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyticsDateRange"
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters" : [ 
+        {
+          "name": "id",
+          "in": "path",
+          "description": "Date Range ID to be updated",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },{
+          "name": "locale",
+          "in": "query",
+          "description": "Locale",
+          "schema": {
+            "type": "string",
+            "default": "en_US"
+          }
+        }, {
+          "name": "expansion",
+          "in": "query",
+          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+          "style": "form",
+          "explode": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "definition",
+                "modified",
+                "ownerFullName",
+                "sharesFullName",
+                "shares",
+                "tags"
+              ]
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Date Range APIs" ],
+        "summary" : "Deletes a DateRange.",
+        "description" : "",
+        "operationId" : "deleteDateRange",
+        "parameters" : [ {
+          "name": "id",
+          "in": "path",
+          "description": "Date Range ID to be deleted",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses" : {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects/{id}": {
+      "get": {
+        "tags": [
+          "Projects APIs"
+        ],
+        "summary": "Retrieves configuration for a Project.",
+        "description": "",
+        "operationId": "projects_getProject",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Project id for which to retrieve information",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional project metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "shares",
+                  "tags",
+                  "accessLevel",
+                  "modified",
+                  "externalReferences",
+                  "definition"
+                ]
+              }
+            }
+          }, 
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          }
+        ],
+        "responses": {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnalyticsProject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Projects APIs"
+        ],
+        "summary": "Updates configuration for a project.",
+        "description": "",
+        "operationId": "projects_updateProject",
+        "requestBody": {
+          "description": "Project request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyticsProject"
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Project id for which to retrieve information",
+            "required": true,
+            "schema":{
+              "type": "string"
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional project metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "shares",
+                  "tags",
+                  "accessLevel",
+                  "modified",
+                  "externalReferences",
+                  "definition"
+                ]
+              }
+            }
+          }, 
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          }
+        ],
+        "responses": {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnalyticsProject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projects APIs"
+        ],
+        "summary": "deletes a project.",
+        "description": "",
+        "operationId": "projects_deleteProject",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Project id for which to retrieve information",
+            "required": true,
+            "schema":{
+              "type": "string"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          }
+        ],
+        "responses": {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DeleteResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects/validate": {
+      "post": {
+        "tags": [
+          "Projects APIs"
+        ],
+        "summary": "Validates a Project definition",
+        "description": "",
+        "operationId": "projects_validateProject",
+        "requestBody": {
+          "description": "Project request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "project": {
+                    "$ref": "#/components/schemas/AnalyticsProject"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          }
+        ],
+        "responses": {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref": "#/components/schemas/ProjectCompatibility"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "External API error; Project validation failed"
+          },
+          "400": {
+            "description": "Invalid input; definition is required. Definition must be formatted as a JSON Object."
+          }
+        }
+      }
+    },
+    "/projects": {
+      "get": {
+        "tags": [
+          "Projects APIs"
+        ],
+        "summary": "Returns a list of projects for the user",
+        "description": "This Returns the projects list primarily for the Analytics product. ",
+        "operationId": "projects_getProjects",
+        "parameters": [
+          {
+            "name": "includeType",
+            "in": "query",
+            "description": "Include additional segments not owned by user.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "shared"
+                ]
+              }
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional project metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "shares",
+                  "tags",
+                  "accessLevel",
+                  "modified",
+                  "externalReferences",
+                  "definition"
+                ]
+              }
+            }
+          }, 
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "filterByIds",
+            "in": "query",
+            "description": "Filter list to only include projects in the specified list (comma-delimited list of IDs)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "description": "return paginated results",
+            "schema": {
+              "type": "string",
+              "default": "true",
+              "enum": [
+                "true",
+                "false"
+              ]
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "description": "Filter list to only include projects owned by the specified imsUserId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (base 0 - first page is \"0\")",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AnalyticsProject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projects APIs"
+        ],
+        "summary": "Creates a single project.",
+        "description": "",
+        "operationId": "projects_createProject",
+        "requestBody": {
+          "description": "Project request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyticsProject"
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional project metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "shares",
+                  "tags",
+                  "accessLevel",
+                  "modified",
+                  "externalReferences",
+                  "definition"
+                ]
+              }
+            }
+          }, 
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          }
+        ],
+        "responses": {
+          "200" : {
+            "description" : "successful operation",
+            "content": {
+              "application/json": {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnalyticsProject"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
-  "components": {}
+  "components" : {
+    "schemas": {
+      "AnalyticsDateRange" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "System generated id",
+            "readOnly" : true
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "rsid" : {
+            "type" : "string",
+            "description" : "The report suite id for which the component was created/updated"
+          },
+          "reportSuiteName" : {
+            "type" : "string",
+            "description" : "The report suite name for which the component was created/updated",
+            "readOnly" : true
+          },
+          "owner" : {
+            "$ref" : "#/components/schemas/Owner"
+          },
+          "definition" : {
+            "type" : "object"
+          },
+          "tags" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Tag"
+            }
+          },
+          "siteTitle" : {
+            "type" : "string"
+          },
+          "modified" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "created" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AnalyticsDateRangeDefinition" : {
+        "type" : "object",
+        "properties" : {
+          "start" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RollingDateFunction"
+            }
+          },
+          "end" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RollingDateFunction"
+            }
+          },
+          "calendarType" : {
+            "$ref" : "#/components/schemas/CalendarType"
+          },
+          "version" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RollingDateFunction" : {
+        "type" : "object",
+        "properties" : {
+          "function" : {
+            "type" : "string"
+          },
+          "granularity" : {
+            "type" : "string",
+            "enum" : [ "year", "quarter", "month", "week", "day", "hour", "minute" ]
+          },
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "dow" : {
+            "type" : "string",
+            "enum" : [ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" ]
+          },
+          "date" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CalendarType" : {
+        "type" : "object",
+        "properties" : {
+          "rsid" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "gregorian", "nrf", "qrs", "custom_454", "custom_445", "modified_gregorian" ]
+          },
+          "anchorDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AnalyticsProject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "System generated id",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "rsid": {
+            "type": "string",
+            "description": "The report suite id for which the component was created/updated"
+          },
+          "reportSuiteName": {
+            "type": "string",
+            "description": "The report suite name for which the component was created/updated",
+            "readOnly": true
+          },
+          "owner": {
+            "$ref": "#/components/schemas/Owner"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["project", "mobileScorecard"]
+          },
+          "definition": {
+            "$ref": "#/components/schemas/JsonNode"
+          },
+          "externalReferences": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "accessLevel": {
+            "type": "string"
+          },
+          "versionNotes": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "shares": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "JsonNode": {
+        "type": "object"
+      },
+      "ProjectCompatibility": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          },
+          "validatorVersion": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Owner" : {
+        "type" : "object",
+        "properties" : {
+          "imsUserId" : {
+            "type" : "integer",
+            "format" : "string",
+            "description" : "the ims user id of the owner"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "the friendly full login name of the owner, included when the expansion parameter ownerFullName is true"
+          }
+        }
+      },
+      "DeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Tag" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "the tag id"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "the tag name "
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "the tag description"
+          },
+          "components" : {
+            "type" : "array",
+            "description" : "the list of components that have been tagged with this tag",
+            "uniqueItems" : true,
+            "items" : {
+              "$ref" : "#/components/schemas/TaggedComponent"
+            }
+          }
+        },
+        "description" : "Tag Model"
+      },
+      "TaggedComponent" : {
+        "type" : "object",
+        "properties" : {
+          "componentType" : {
+            "type" : "string"
+          },
+          "componentId" : {
+            "type" : "string"
+          },
+          "tags" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Tag"
+            }
+          }
+        }
+      }
+    }
+  }
 }
