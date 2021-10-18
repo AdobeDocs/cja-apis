@@ -80,6 +80,20 @@ module.exports = {
             ]
           },
           {
+            title: 'Component Metadata',
+            path: '/endpoints/componentmetadata/',
+            pages: [
+              {
+                title: 'Shares',
+                path: '/endpoints/componentmetadata/shares/'
+              },
+              {
+                title: 'Tags',
+                path: '/endpoints/componentmetadata/tags/'
+              }
+            ]
+          },
+          {
             title: 'Data groups',
             path: '/endpoints/datagroups/',
             pages: [
@@ -94,12 +108,26 @@ module.exports = {
             ]
           },
           {
+            title: 'Date Ranges',
+            path: '/endpoints/dateranges/'
+          },
+          {
             title: 'Filters',
             path: '/endpoints/filters/',
             pages: [
               {
                 title: 'Validate',
                 path: '/endpoints/filters/validate/'
+              }
+            ]
+          },
+          {
+            title: 'Projects',
+            path: '/endpoints/projects/',
+            pages: [
+              {
+                title: 'Project Structure',
+                path: '/endpoints/projects/structure/'
               }
             ]
           },

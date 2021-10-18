@@ -55,13 +55,13 @@ Retrieve, update, or create date projects.
 
 <DiscoverBlock slots="link, text"/>
 
-[Tags API](tags/index.md)
+[Tags API](componentmetadata/tags/index.md)
 
 Retrieve, update, or create tags.
 
 <DiscoverBlock slots="link, text"/>
 
-[Shares API](shares/index.md)
+[Shares API](componentmetadata/shares/index.md)
 
 Retrieve, update, or create shares.
 
