@@ -26,7 +26,7 @@ Submitting a request to this endpoint with no query string parameters returns th
 | --- | --- | ---------- | ----- |
 | `startDate` | String | Begin date range. If this query string is set, `endDate` is required. | YYYY-01-01T00:00:00-07 |
 | `endDate` | String | End date range. If this query string is set, `startDate` is required. | YYYY-02-01T00:00:00-07 |
-| `action` | Enum | The type of action a user or system can make. | CREATE, EDIT, DELETE, LOGIN_FAILED, LOGIN_SUCCESSFUL, API_REQUEST |
+| `action` | Enum | The type of action a user or system can make. | CREATE, EDIT, DELETE, LOGIN_FAILED, LOGIN_SUCCESSFUL, API_REQUEST, LOGOUT, APPROVE, UNAPPROVE, SHARE, UNSHARE, TRANSFER; |
 | `component` | Enum | The type of component. | CALCULATED_METRIC, CONNECTION, DATA_GROUP, DATA_VIEW, DATE_RANGE, FILTER, MOBILE, PROJECT, REPORT, SCHEDULED_PROJECT |
 | `componentId` | String | The id of the component. | -- |
 | `userType` | Enum | The type of user. | IMS, OKTA |
