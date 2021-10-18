@@ -29,11 +29,6 @@ Once you have the desired ID, you can append the ID to the call to retrieve deta
 
 ## Create a filter
 
-<InlineAlert variant="info" slots="text"/>
-
-Adobe does not yet support the creation of filters through the API. Support for this feature is planned for the near future.
-
-<!--
 Create a new filter with the desired definition.
 
 `POST https://cja.adobe.io/filters`
@@ -68,4 +63,3 @@ An example POST body:
     "description": "For Integration Test Only"
 }
 ```
--->
