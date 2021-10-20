@@ -75,12 +75,12 @@ If creating a project through the API is required, make sure to utilize the `/pr
               "y": 0
             },
             "reportSuite": {
-              "id": "apptestpnwtest",
+              "id": "dv_000000000000000000",
               "__entity__": true,
               "type": "ReportSuite",
               "__metaData__": {
-                "name": "apptestpnwtest",
-                "rsid": "apptestpnwtest"
+                "name": "dv name",
+                "rsid": "dv_000000000000000000"
               }
             },
             "segmentGroups": [],
