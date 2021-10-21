@@ -11,7 +11,7 @@ description: Learn how to use the endpoints that the Customer Journey Analytics 
 
 Once you have followed the [Getting started](../getting-started/index.md) guide, you can send requests to any of the following endpoints:
 
-<DiscoverBlock slots="link, text"/> 
+<DiscoverBlock slots="link, text"/>
 
 [Audit Logs API](auditlogs/index.md) 
      
