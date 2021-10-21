@@ -3,8 +3,8 @@ keywords:
   - Experience Platform
   - API Documentation
   - JavaScript
-title: Audit Logs
-description: Get a list of audit logs using the API.
+title: Projects
+description: Get a list of projects using the API.
 ---
 
 # Projects Overview
@@ -288,11 +288,11 @@ The following example shows the response with updated name data:
 
 ## Validate Endpoint
 
-Because report suites can have different configurations, variables, or metrics, one project that is valid in one report suite may not be valid in another. To determine which projects to use in different report suites, you can use the `validate` endpoint. This endpoint allows you to `POST` a definition along with a target `rsid`. The validate endpoint responds with compatibility information on the project.
+Because data views can have different configurations, variables, or metrics, one project that is valid in one report suite may not be valid in another. To determine which projects to use in different data views, you can use the `validate` endpoint. This endpoint allows you to `POST` a definition along with a target `dataId`. The validate endpoint responds with compatibility information on the project.
 
 ### Example Request
 
-The following example requests validation for the project with `rsid`: `apptestpnwtest`. The example shows a `POST` of the JSON [definition](projects.md):
+The following example requests validation for the project with `dataId`: `dv_000000000000000000`. The example shows a `POST` of the JSON [definition](structure.md):
 
 `POST https://cja.adobe.io/projects/validate`
 ```
@@ -301,7 +301,7 @@ The following example requests validation for the project with `rsid`: `apptestp
     "id": "6091a10005c7706c0acdd751",
     "name": "New Project",
     "description": "",
-    "rsid": "apptestpnwtest",
+    "dataId": "dv_000000000000000000",
     "owner": {
       "id": 622291
     },
@@ -348,7 +348,7 @@ The following example requests validation for the project with `rsid`: `apptestp
             "__entity__": true,
             "type": "ReportSuite",
             "__metaData__": {
-              "name": "dv_000000000000000000",
+              "name": "dv name",
               "rsid": "dv_000000000000000000"
             }
           },
