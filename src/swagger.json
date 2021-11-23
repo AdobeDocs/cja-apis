@@ -34,15 +34,6 @@
                 ]
               }
             }
-          },
-          {
-            "name": "useCache",
-            "in": "query",
-            "description": "useCache",
-            "schema": {
-              "type": "boolean",
-              "default": true
-            }
           }
         ],
         "responses": {
@@ -3624,19 +3615,6 @@
             }
           },
           {
-            "name": "useCache",
-            "in": "query",
-            "description": "Use cache",
-            "schema": {
-              "type": "boolean",
-              "default": true,
-              "enum": [
-                true,
-                false
-              ]
-            }
-          },
-          {
             "name": "limit",
             "in": "query",
             "description": "Number of results per page",
@@ -3727,15 +3705,6 @@
             "schema": {
               "type": "string",
               "default": "en_US"
-            }
-          },
-          {
-            "name": "useCache",
-            "in": "query",
-            "description": "Use caching for faster requests",
-            "schema": {
-              "type": "boolean",
-              "default": true
             }
           }
         ],
@@ -3855,19 +3824,6 @@
               "type": "integer",
               "format": "int64"
             }
-          },
-          {
-            "name": "useCache",
-            "in": "query",
-            "description": "Use cache",
-            "schema": {
-              "type": "boolean",
-              "default": true,
-              "enum": [
-                true,
-                false
-              ]
-            }
           }
         ],
         "responses": {
@@ -3957,19 +3913,6 @@
             "schema": {
               "type": "string",
               "default": "en_US"
-            }
-          },
-          {
-            "name": "useCache",
-            "in": "query",
-            "description": "Use cache",
-            "schema": {
-              "type": "boolean",
-              "default": true,
-              "enum": [
-                true,
-                false
-              ]
             }
           }
         ],
@@ -4918,38 +4861,6 @@
         "description": "See the [Reporting User Guide](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/reporting-guide.md) for details.",
         "operationId": "runReport_2",
         "parameters": [
-          {
-            "name": "allowRemoteLoad",
-            "in": "query",
-            "description": "Controls if Oberon should remote load data.  Default behavior is true with fallback to false if remote data does not exist",
-            "schema": {
-              "type": "string",
-              "default": "default",
-              "enum": [
-                "true",
-                "false",
-                "default"
-              ]
-            }
-          },
-          {
-            "name": "useCache",
-            "in": "query",
-            "description": "Use caching for faster requests (Use cached dimensions to speed up permission checks - This does not do any report caching)",
-            "schema": {
-              "type": "boolean",
-              "default": true
-            }
-          },
-          {
-            "name": "useResultsCache",
-            "in": "query",
-            "description": "Use results caching for faster reporting times (This is a pass through to Oberon which manages the Cache)",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
           {
             "name": "includeOberonXml",
             "in": "query",
@@ -7340,20 +7251,6 @@
             "description": "A full search phrase that will be searched for.",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "allowRemoteLoad",
-            "in": "query",
-            "description": "Controls if Oberon should remote load data.  Default behavior is true with fallback to false if remote data does not exist",
-            "schema": {
-              "type": "string",
-              "default": "default",
-              "enum": [
-                "true",
-                "false",
-                "default"
-              ]
             }
           },
           {
