@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/aresconfig/users/me": {
+    "/configuration/users/me": {
       "get": {
         "tags": [
           "Configuration API"
@@ -7382,7 +7382,7 @@
         }
       }
     },
-    "/datagroups/data/{dataviewId}/dimensions": {
+    "/data/dataviews/{dataviewId}/dimensions": {
       "get": {
         "tags": [
           "Dimensions API"
@@ -8051,7 +8051,7 @@
         }
       }
     },
-    "/datagroups/data/{dataviewId}/dimensions/{dimensionId}": {
+    "/data/dataviews/{dataviewId}/dimensions/{dimensionId}": {
       "get": {
         "tags": [
           "Dimensions API"
@@ -8713,7 +8713,7 @@
         }
       }
     },
-    "/datagroups/data/{dataviewId}/metrics": {
+    "/data/dataviews/{dataviewId}/metrics": {
       "get": {
         "tags": [
           "Metrics API"
@@ -9374,7 +9374,7 @@
         }
       }
     },
-    "/datagroups/data/{dataviewId}/metrics/{metricId}": {
+    "/data/dataviews/{dataviewId}/metrics/{metricId}": {
       "get": {
         "tags": [
           "Metrics API"
@@ -10028,7 +10028,7 @@
         }
       }
     },
-    "/datagroups/dataviews": {
+    "/data/dataviews": {
       "get": {
         "tags": [
           "Dataviews API"
@@ -11084,7 +11084,7 @@
         "x-codegen-request-body-name": "body"
       }
     },
-    "/datagroups/dataviews/{dataViewId}": {
+    "/data/dataviews/{dataViewId}": {
       "get": {
         "tags": [
           "Dataviews API"
@@ -12203,7 +12203,7 @@
         }
       }
     },
-    "/datagroups/dataviews/copy/{dataViewId}": {
+    "/data/dataviews/copy/{dataViewId}": {
       "put": {
         "tags": [
           "Dataviews API"
@@ -12581,7 +12581,7 @@
         }
       }
     },
-    "/datagroups/dataviews/validate": {
+    "/data/dataviews/validate": {
       "post": {
         "tags": [
           "Dataviews API"
