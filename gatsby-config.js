@@ -58,6 +58,20 @@ module.exports = {
         path: '/endpoints/',
         pages: [
           {
+            title: 'Annotations',
+            path: '/endpoints/annotations',
+            pages: [
+              {
+                title: 'Parameters',
+                path: '/endpoints/annotations/parameters'
+              },
+              {
+                title: 'Definition data structure',
+                path: '/endpoints/annotations/definition'
+              }
+            ]
+          },
+          {
             title: 'Audit Logs',
             path: '/endpoints/auditlogs/'
           },
