@@ -9,7 +9,7 @@ description: Get a list of date ranges using the API.
 
 # CJA Date Ranges
 
-The Date Range API allows you to retrieve a list of ranges, get a single date range, update a date range, or create a date range through Adobe I/O.
+The Date Range API allows you to retrieve a list of ranges, get a single date range, update a date range, or create a date range through Adobe Developer.
 
 ## Get Date Ranges
 

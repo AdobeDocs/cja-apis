@@ -5,7 +5,7 @@ description: Create, edit, or delete annotations using the API.
 
 # Annotations API
 
-The CJA Annotations APIs allow you to retrieve, update, or create annotations programmatically through Adobe I/O. These APIs use the same data and methods that Adobe uses inside the product UI.
+The CJA Annotations APIs allow you to retrieve, update, or create annotations programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI.
 
 ## Retrieve multiple annotations
 
@@ -23,7 +23,7 @@ For example, get a response of all annotations shared with the user.
 curl -X GET "https://cja.adobe.io/annotations?includeType=shared" \
     -H "x-api-key: {CLIENTID}" \
     -H "x-gw-ims-org-id: {IMSORG}" \
-    -H "Authorization: Bearer {ACCESSTOKEN}" \
+    -H "Authorization: Bearer {ACCESSTOKEN}"
 ```
 
 #### Response
@@ -134,7 +134,7 @@ For example, delete an annotation with the ID of `62437d`:
 curl -X DELETE "https://cja.adobe.io/annotations/62437d" \
     -H "x-api-key: {CLIENTID}" \
     -H "x-gw-ims-org-id: {IMSORG}" \
-    -H "Authorization: Bearer {ACCESSTOKEN}" \
+    -H "Authorization: Bearer {ACCESSTOKEN}"
 ```
 
 #### Response

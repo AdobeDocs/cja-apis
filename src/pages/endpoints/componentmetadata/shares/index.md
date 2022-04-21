@@ -9,7 +9,7 @@ description: Controls shares via API
 
 # Shares APIs
 
-The CJA Shares APIs allow you to retrieve, update, or create shares and their association with components programmatically through Adobe I/O. The APIs use the same data and methods that are used when working with shares in the UI.
+The CJA Shares APIs allow you to retrieve, update, or create shares and their association with components programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with shares in the UI.
 
 ## `/componentmetadata/shares` endpoint description
 

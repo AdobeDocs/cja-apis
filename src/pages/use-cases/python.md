@@ -16,7 +16,7 @@ description: Get started making CJA API calls using Python.
 Make sure that you meet all requirements on the [Getting started](../getting-started/index.md) page, including:
 
 * Your user account belongs to the correct product profile in the [Adobe Admin Console](https://adminconsole.adobe.com)
-* An API client created in the [Adobe I/O Console](https://console.adobe.io)
+* An API client created in the [Adobe Developer Console](https://console.adobe.io)
 * You have generated a JWT (JSON Web Token), via the Service Account Integration or by your own script.
 
 ## 1. Preparing your header

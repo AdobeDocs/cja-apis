@@ -16,7 +16,7 @@ description: Get started making API calls within the command line tool.
 Make sure that you meet all requirements on the [Getting started](../getting-started/index.md) page, including:
 
 * Your user account belonging to the correct product profile in the [Adobe Admin Console](https://adminconsole.adobe.com)
-* An API client created in the [Adobe I/O Console](https://console.adobe.io)
+* An API client created in the [Adobe Developer Console](https://console.adobe.io)
 
 ## Send a simple API call using cURL
 
@@ -24,8 +24,8 @@ Make sure that you meet all requirements on the [Getting started](../getting-sta
 1. Type `curl -V` then press enter. Make sure that `-V` is capitalized.
 1. If you get cURL's version number and list of supported features, you have the tool installed. If you get an unrecognized command, [install cURL](https://curl.se/download.html).
 1. Adobe requires three headers for API calls. You can use the `-H` option to include them.
-   * **x-api-key**: The Client ID found in the Adobe I/O Console.
-   * **x-gw-ims-org-id**: The Organization ID found in the Adobe I/O Console.
+   * **x-api-key**: The Client ID found in the Adobe Developer Console.
+   * **x-gw-ims-org-id**: The Organization ID found in the Adobe Developer Console.
    * **access_token**: The access token generated from the JWT.
 1. Formulate the API call to Adobe with the required headers and an API call retrieving basic user information:
 

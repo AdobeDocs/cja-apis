@@ -9,7 +9,7 @@ description: Add, edit, or delete filters using the API.
 
 # Filters
 
-The Filters APIs allow you to retrieve, update, or create filters programmatically through Adobe I/O. The APIs use the same data and methods that are used when working with filters in the UI. See [Filters overview](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-components/cja-filters/filters-overview.html) in the CJA documentation for more information.
+The Filters APIs allow you to retrieve, update, or create filters programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with filters in the UI. See [Filters overview](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-components/cja-filters/filters-overview.html) in the CJA documentation for more information.
 
 You can call the `/filters` endpoint to add, edit or delete filters.
 

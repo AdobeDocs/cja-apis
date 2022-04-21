@@ -9,7 +9,7 @@ description: Controls tags via API
 
 # Tags APIs
 
-The CJA Tags APIs allow you to retrieve, update, or create tags and their association with components programmatically through Adobe I/O. The APIs use the same data and methods that are used when working with tags in the UI.
+The CJA Tags APIs allow you to retrieve, update, or create tags and their association with components programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with tags in the UI.
 
 ## `/componentmetadata/tags` endpoint description
 

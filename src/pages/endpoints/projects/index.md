@@ -9,7 +9,7 @@ description: Get a list of projects using the API.
 
 # Projects Overview
 
-The CJA APIs allow you to retrieve, update, or create projects programmatically through Adobe I/O. The APIs use the same data and methods that are used when working with projects in the UI. For more information on understanding project definition data architecture, see the [Project Definition](structure.md) article that accompanies this user guide.  See [Workspace projects overview](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-workspace/home.html) in the CJA documentation for more information.
+The CJA APIs allow you to retrieve, update, or create projects programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with projects in the UI. For more information on understanding project definition data architecture, see the [Project Definition](structure.md) article that accompanies this user guide.  See [Workspace projects overview](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-workspace/home.html) in the CJA documentation for more information.
 
 ## Best Practices
 

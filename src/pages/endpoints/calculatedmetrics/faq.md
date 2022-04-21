@@ -23,4 +23,3 @@ Adobe recommends following these guidelines when querying the calculated metrics
 ## What are predefined calculated metrics, and how can I identify them?
 
 Adobe provides several predefined calculated metric templates. Although original templates cannot be modified or deleted, copies of them can be made and then the copies can be modified. You can identify templates by the additional attribute `template: true`.
-

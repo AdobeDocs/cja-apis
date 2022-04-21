@@ -12,7 +12,7 @@ description: Learn the first steps that you can take to start using the CJA API.
 There are several steps to take before using the CJA APIs.
 
 * **Permissions**: Configure permissions for the developer in the Adobe Admin Console.
-* **API Client**: Create a client configuration in the Adobe I/O Console.
+* **API Client**: Create a client configuration in the Adobe Developer Console.
 * **Authentication**: Obtain the necessary credentials to send data to Adobe.
 
 ## Permissions
@@ -43,7 +43,7 @@ Once you are a developer for a CJA product profile, you can create an API client
 1. Click **Customer Journey Analytics**, then click **Next**.
 1. Click **Generate Keypair**.
    
-   A `config.zip` file is automatically downloaded to your local machine. Keep this config folder in a secure location, as it contains your only copy of your private key. See [JSON web token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWTCertificate.md) in the Adobe I/O Authentication user guide for more information.
+   A `config.zip` file is automatically downloaded to your local machine. Keep this config folder in a secure location, as it contains your only copy of your private key. See [JSON web token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWTCertificate.md) in the Adobe Developer Authentication user guide for more information.
 
 1. Click **Next**.
 1. Select the desired product profiles for the service account. Make sure that it contains the right permissions to access the API. Click **Save configured API**.

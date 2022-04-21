@@ -9,7 +9,7 @@ description: Get a list of audit logs using the API.
 
 # CJA Audit Logs
 
-The Audit Log API allows you to retrieve a list of audit log records using a `GET` or `POST` method through Adobe I/O. The `GET` endpoint provides a way to add filters through query string parameters. The `POST` endpoint offers greater flexibility to your search criteria.
+The Audit Log API allows you to retrieve a list of audit log records using a `GET` or `POST` method through Adobe Developer. The `GET` endpoint provides a way to add filters through query string parameters. The `POST` endpoint offers greater flexibility to your search criteria.
 
 ## Get Audit Logs
 
@@ -18,7 +18,6 @@ The `GET` endpoint is designed for use when few or no filters are needed. If fil
 `GET https://cja.adobe.io/auditlogs/api/v1/auditlogs`
 
 Submitting a request to this endpoint with no query string parameters returns the last 1000 audit log records in descending order. Reference the following list of available query string parameters to filter the audit log records.
-
 
 ### Query String Parameters
 
@@ -44,7 +43,7 @@ Request:
 
 Response:
 
-```
+```json
 {
   "content": [
     {
@@ -116,7 +115,7 @@ Response:
 
 Request:
 
-```
+```sh
 https://cja.adobe.io/auditlogs/api/v1/auditlogs?startDate=2021-08-01T00%3A00%3A00-07&endDate=2021-09-30T00%3A00%3A00-07&action=CREATE&action=EDIT&action=DELETE&component=SCHEDULED_PROJECT&userType=IMS&description=job&pageSize=2
 ```
 
@@ -196,18 +195,17 @@ If you need to retrieve a list of audit logs using 'OR' criteria, you can use th
 
 `POST https://cja.adobe.io/auditlogs/api/v1/auditlogs/search`
 
-
 ### fieldType
 
-  * COMPONENT
-  * COMPONENT_ID
-  * USER
-  * USER_ID
-  * USER_EMAIL
-  * BEGIN_DATE_RANGE
-  * END_DATE_RANGE
-  * ACTION
-  * DESCRIPTION
+* COMPONENT
+* COMPONENT_ID
+* USER
+* USER_ID
+* USER_EMAIL
+* BEGIN_DATE_RANGE
+* END_DATE_RANGE
+* ACTION
+* DESCRIPTION
 
 #### Notes
 
@@ -225,12 +223,11 @@ _If 'BEGIN_DATE_RANGE' is set as a fieldType, 'END_DATE_RANGE' must also be set.
 * AND
 * OR
 
-
 ## POST Request Body Example 1
 
 Show me audit logs where the component is 'FILTER' or 'CALCULATED_METRIC', the 'DESCRIPTION' contains the string 'created', AND the 'USER_EMAIL' contains EITHER 'jane' or 'john'.
 
-```
+```json
 {
   "criteria": {
     "fieldOperator": "AND",
@@ -283,7 +280,7 @@ Show me audit logs where the component is 'FILTER' or 'CALCULATED_METRIC', the '
 
 Show me audit logs between June 1st and October 1st where the 'ACTION' was either 'CREATE' OR 'EDIT' OR the 'DESCRIPTION' contained the string 'job' or 'test'. The response only includes logs between those dates but the other criteria is filtered using 'OR' logic.
 
-```
+```json
 {
   "criteria": {
     "fieldOperator": "AND",

@@ -16,7 +16,7 @@ description: Get started making API calls within the Postman API client.
 Before following this guide, make sure that you are prepared with all requirements that are listed on the [Getting started](/src/pages/getting-started/index.md) page. These requirements include:
 
 * Your user account belonging to the correct product profile in the [Adobe Admin Console](https://adminconsole.adobe.com)
-* An API client created in the [Adobe I/O Console](https://console.adobe.io)
+* An API client created in the [Adobe Developer Console](https://console.adobe.io)
 
 ## Send a basic API call through Postman
 
