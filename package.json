@@ -1,21 +1,21 @@
 {
   "private": true,
-  "name": "dev-site-documentation-template",
-  "version": "0.0.1",
+  "name": "substance-3d-automation",
+  "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/cja-apis"
+    "url": "https://github.com/AdobeDocs/substance-3d-automation"
   },
   "author": {
     "name": "Russ Whitchurch",
     "url": "https://github.com/gigazelle"
   },
   "dependencies": {
-    "@adobe/gatsby-theme-aio": "^3.24.2",
-    "gatsby": "^3.6.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "@adobe/gatsby-theme-aio": "^4.6.2",
+    "gatsby": "4.22.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "scripts": {
     "start": "gatsby build && gatsby serve",
@@ -29,5 +29,6 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.35"
-  }
+  },
+  "packageManager": "yarn@3.2.2"
 }
