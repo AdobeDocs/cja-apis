@@ -4222,10 +4222,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.35":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: aa04366b9103b7d6cfd6b2ef64182e0eaa7d4462c3f817618486ea0422984c51fc69fd0d436eae6c9e696ddfdbec9ccaa27a917f7c2e8c75c5d57827fe3d95e8
+"@types/node@npm:^18.8.4":
+  version: 18.8.4
+  resolution: "@types/node@npm:18.8.4"
+  checksum: c2b87f6b0b1f02b2ce61ca7cb93ea287119bda086a3f33e48da8f5e70c24ad7141cc3465946e0e36abb7eba70c7b320c7659842096e4aa573b3a8d557322c818
   languageName: node
   linkType: hard
 
@@ -17932,7 +17932,7 @@ __metadata:
   resolution: "substance-3d-automation@workspace:."
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.6.2
-    "@types/node": ^17.0.35
+    "@types/node": ^18.8.4
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
