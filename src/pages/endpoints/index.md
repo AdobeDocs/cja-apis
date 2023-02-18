@@ -13,7 +13,7 @@ Once you have followed the [Getting started](../getting-started/index.md) guide,
 
 <DiscoverBlock slots="link, text"/> 
 
-[Calculated metrics API](annotations/index.md)
+[Annotations API](annotations/index.md)
 
 Retrieve, update, or create annotations.
 
