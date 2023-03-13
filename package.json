@@ -28,7 +28,7 @@
     "clean": "gatsby clean"
   },
   "devDependencies": {
-    "@types/node": "^18.15.0"
+    "@types/node": "^18.15.2"
   },
   "packageManager": "yarn@3.2.2"
 }
