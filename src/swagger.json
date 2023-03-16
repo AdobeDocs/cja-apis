@@ -12748,6 +12748,310 @@
         "x-codegen-request-body-name": "body"
       }
     },
+    "/connections/{connectionId}": {
+      "get": {
+        "tags": [
+          "Connections API"
+        ],
+        "summary": "Retrieval of a connection by connectionId",
+        "description": "Used to retrieve a connection by id",
+        "operationId": "getConnection_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "path",
+            "description": "The id of the connection to lookup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional fields to include on response.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "name",
+                "description",
+                "owner",
+                "isDeleted",
+                "isDisabled",
+                "dataSets",
+                "createdDate",
+                "modified",
+                "caseSensitive",
+                "organization",
+                "components",
+                "numDailyEvents",
+                "externalData",
+                "backfillEnabled",
+                "granularBackfills",
+                "granularStreaming",
+                "backfillsSummaryConnection",
+                "backfillsSummaryDataSets",
+                "dataSetLastIngested",
+                "sandboxName",
+                "sandboxId",
+                "fieldsId",
+                "floatPrecision",
+                "dataRetentionMonths",
+                "validationErrors",
+                "resolveIdentityNamespace",
+                "stitchedDataSets",
+                "ownerFullName",
+                "schemaInfo",
+                "tags"
+              ]
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "required": false,
+            "type": "string",
+            "default": "en_US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "500": {
+            "description": "unexpected_error - Internal error while retrieving connection"
+          },
+          "404": {
+            "description": "resource_not_found - could not find connection with given parameters"
+          }
+        }
+      }
+    },
+    "/connections": {
+      "get": {
+        "tags": [
+          "Connections API"
+        ],
+        "summary": "Retrieval of connections for an org",
+        "description": "Used to retrieve connections for an org.",
+        "operationId": "getConnectionsForCompany_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataSetIds",
+            "in": "query",
+            "description": "Comma-delimited list of dataSet ids to limit the response with.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "connectionIds",
+            "in": "query",
+            "description": "Comma-delimited list of connectionIds to limit the response with.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sandboxId",
+            "in": "query",
+            "description": "Filter by sandbox id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sandboxName",
+            "in": "query",
+            "description": "Filter by sandbox name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional fields to include on response.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "name",
+                "description",
+                "owner",
+                "isDeleted",
+                "isDisabled",
+                "dataSets",
+                "createdDate",
+                "modified",
+                "caseSensitive",
+                "organization",
+                "components",
+                "numDailyEvents",
+                "externalData",
+                "backfillEnabled",
+                "granularBackfills",
+                "granularStreaming",
+                "backfillsSummaryConnection",
+                "backfillsSummaryDataSets",
+                "dataSetLastIngested",
+                "sandboxName",
+                "sandboxId",
+                "fieldsId",
+                "floatPrecision",
+                "dataRetentionMonths",
+                "validationErrors",
+                "resolveIdentityNamespace",
+                "stitchedDataSets"
+              ]
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "includeType",
+            "in": "query",
+            "description": "Include additional connections.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "systemUserOwned",
+                "disabled"
+              ]
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "cached",
+            "in": "query",
+            "description": "return cached results",
+            "required": false,
+            "type": "boolean",
+            "default": true,
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "required": false,
+            "type": "string",
+            "default": "en_US"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "type": "integer",
+            "default": 10
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (base 0 - first page is \"0\")",
+            "required": false,
+            "type": "integer",
+            "default": 0
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction (ASC or DESC)",
+            "required": false,
+            "type": "string",
+            "default": "ASC"
+          },
+          {
+            "name": "sortProperty",
+            "in": "query",
+            "description": "Property to sort by (only modifiedDate and id are currently allowed)",
+            "required": false,
+            "type": "string",
+            "default": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "500": {
+            "description": "Internal error while retrieving connections"
+          },
+          "404": {
+            "description": "Could not find connections for company with given parameters"
+          }
+        }
+      }
+    },
+    "/connections/search": {
+      "get": {
+        "tags": ["Connections API"],
+        "summary": "Retrieval of connections for an org by connection",
+        "description": "Used to retrieve connections for an org based on connectionId or connection name.",
+        "operationId": "search_1",
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "query",
+          "in": "query",
+          "description": "Search by connection name or connectionId.",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "expansion",
+          "in": "query",
+          "description": "Comma-delimited list of additional fields to include on response.",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["name", "description", "owner", "isDeleted", "isDisabled", "dataSets", "createdDate", "modified", "caseSensitive", "organization", "components", "numDailyEvents", "externalData", "backfillEnabled", "granularBackfills", "granularStreaming", "backfillsSummaryConnection", "backfillsSummaryDataSets", "dataSetLastIngested", "sandboxName", "sandboxId", "fieldsId", "floatPrecision", "dataRetentionMonths", "validationErrors", "resolveIdentityNamespace", "stitchedDataSets", "ownerFullName", "schemaInfo", "tags"]
+          },
+          "collectionFormat": "csv"
+        }, {
+          "name": "locale",
+          "in": "query",
+          "description": "Locale",
+          "required": false,
+          "type": "string",
+          "default": "en_US"
+        }, {
+          "name": "limit",
+          "in": "query",
+          "description": "Number of results per page",
+          "required": false,
+          "type": "integer",
+          "default": 10
+        }, {
+          "name": "page",
+          "in": "query",
+          "description": "Page number (base 0 - first page is \"0\")",
+          "required": false,
+          "type": "integer",
+          "default": 0
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "500": {
+            "description": "Internal error while retrieving Connections"
+          },
+          "404": {
+            "description": "Could not find Connections for company with given parameters"
+          }
+        }
+      }
+    },
     "/filters": {
       "get": {
         "tags": [
