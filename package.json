@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "substance-3d-automation",
+  "name": "cja-apis",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/substance-3d-automation"
+    "url": "https://github.com/AdobeDocs/cja-apis"
   },
   "author": {
     "name": "Russ Whitchurch",
@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.8.4",
-    "gatsby": "^4.22.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "gatsby": "4.22.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "scripts": {
     "start": "gatsby build && gatsby serve",
@@ -26,9 +26,6 @@
     "build:incremental": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
-  },
-  "devDependencies": {
-    "@types/node": "^18.15.3"
   },
   "packageManager": "yarn@3.2.2"
 }
