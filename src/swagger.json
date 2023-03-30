@@ -13405,7 +13405,7 @@
           },
           "required": false
         },
-        "parameters" : [ 
+        "parameters" : [
         {
           "name": "locale",
           "in": "query",
@@ -14339,13 +14339,13 @@
           {
             "name": "startDate",
             "in": "query",
-            "description": "Date is not required, but if you filter by date, both start & end date must be set.",
+            "description": "Date is not required, but if you filter by date, both start & end date must be set. When date range is undefined, start date defaults to 3 months ago.",
             "schema": {}
           },
           {
             "name": "endDate",
             "in": "query",
-            "description": "Date is not required, but if you filter by date, both start & end date must be set.",
+            "description": "Date is not required, but if you filter by date, both start & end date must be set. When date range is undefined, end date defaults to today.",
             "schema": {}
           },
           {
@@ -14524,7 +14524,7 @@
           },
           "required": true
         },
-        "parameters" : [ 
+        "parameters" : [
         {
           "name": "locale",
           "in": "query",
@@ -14640,7 +14640,7 @@
           },
           "required": true
         },
-        "parameters" : [ 
+        "parameters" : [
         {
           "name": "id",
           "in": "path",
@@ -14765,7 +14765,7 @@
                 ]
               }
             }
-          }, 
+          },
           {
             "name": "locale",
             "in": "query",
@@ -14837,7 +14837,7 @@
                 ]
               }
             }
-          }, 
+          },
           {
             "name": "locale",
             "in": "query",
@@ -15003,7 +15003,7 @@
                 ]
               }
             }
-          }, 
+          },
           {
             "name": "locale",
             "in": "query",
@@ -15120,7 +15120,7 @@
                 ]
               }
             }
-          }, 
+          },
           {
             "name": "locale",
             "in": "query",
