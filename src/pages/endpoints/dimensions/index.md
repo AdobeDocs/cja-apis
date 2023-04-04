@@ -13,7 +13,7 @@ Retrieve a list of dimensions for a specified dataview ID. that the user can acc
 
 `GET https://cja.adobe.io/dimensions`
 
-For example, get a response of all dimensions shared with the user.
+, get a response of all dimensions shared with the user.
 
 <CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
@@ -46,36 +46,21 @@ curl -X GET "https://cja.adobe.io/dimensions?includeType=shared" \
 }
 ```
 
-## Retrieve a single dimension
 
-You can retrieve details around a single dimension if you know the dimension ID. You can find the dimension ID by using the multiple dimensions endpoint. See [Dimensions parameters](parameters.md) for query strings that you can attach to this API call.
 
-`GET https://cja.adobe.io/dimensions`
 
-For example, find dimensions with an ID of `62437d`, including the name, description, date range, and color:
 
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+### Request parameters
 
-#### Request
+Optional parameters are specified as query parameters in the request.
 
-```sh
-curl -X GET "https://cja.adobe.io/dimensions/62437d?expansion=name,description,dateRange,color" \
-    -H "x-api-key: {CLIENTID}" \
-    -H "x-gw-ims-org-id: {IMSORG}" \
-    -H "Authorization: Bearer {ACCESSTOKEN}"
-```
+| Parameter | Req/Opt | Type | Description |
+| --- | --- | -- | --|
+| `dataviewId` | required | string | The ID of the dataview containing the dimension |
+| `includeType` | optional | array of strings | A comma-delimited list of include types |
+| `locale` | optional | string | The language to use in the response |
+| `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response |
 
-#### Response
-
-```json
-{
-    "id": "62437d",
-    "name": "Example dimension",
-    "description": "This is an example dimension description.",
-    "dateRange": "YYYY-03-29T00:00:00/YYYY-03-29T23:59:59",
-    "color": "STANDARD6"
-}
-```
 
 ### Response parameters
 
@@ -131,3 +116,36 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 | `defaultDimensionSort` | boolean | Whether sorting of dimensions is set for default. |
 | `persistenceSetting` | object | The settings for persistence, including `enabled`, `allocationModel`, and `lookback`. For the complete data model on these settings, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
 | `isDeleted` | boolean | Whether the dimension is deleted. |
+
+
+
+## Retrieve a single dimension
+
+You can retrieve details around a single dimension if you know the dimension ID. You can find the dimension ID by using the multiple dimensions endpoint. See [Dimensions parameters](parameters.md) for query strings that you can attach to this API call.
+
+`GET https://cja.adobe.io/dimensions`
+
+For example, find dimensions with an ID of `62437d`, including the name, description, date range, and color:
+
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+
+#### Request
+
+```sh
+curl -X GET "https://cja.adobe.io/dimensions/62437d?expansion=name,description,dateRange,color" \
+    -H "x-api-key: {CLIENTID}" \
+    -H "x-gw-ims-org-id: {IMSORG}" \
+    -H "Authorization: Bearer {ACCESSTOKEN}"
+```
+
+#### Response
+
+```json
+{
+    "id": "62437d",
+    "name": "Example dimension",
+    "description": "This is an example dimension description.",
+    "dateRange": "YYYY-03-29T00:00:00/YYYY-03-29T23:59:59",
+    "color": "STANDARD6"
+}
+```
