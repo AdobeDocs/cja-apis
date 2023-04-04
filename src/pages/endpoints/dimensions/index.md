@@ -50,9 +50,9 @@ curl -X GET "https://cja.adobe.io/dimensions?includeType=shared" \
 
 You can retrieve details around a single dimension if you know the dimension ID. You can find the dimension ID by using the multiple dimensions endpoint. See [Dimensions parameters](parameters.md) for query strings that you can attach to this API call.
 
-`GET https://cja.adobe.io/annotations/{ID}`
+`GET https://cja.adobe.io/dimensions`
 
-For example, find details around the dimensions with an ID of `62437d`, including the name, description, date range, and color:
+For example, find dimensions with an ID of `62437d`, including the name, description, date range, and color:
 
 <CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
@@ -114,19 +114,20 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 | `type` | string | The type specified: `string`, `numeric` or `date` (all type `enum`). This is contained in the `includeExcludeSetting` response object. |
 | `rules` | array of objects | Contains the rules specified for the query: This includes `string` and `value` (both type `string`). This is contained in the `includeExcludeSetting` response object. |
 | `enabled` | boolean | Whether the query specifies that the dimension is enabled. This is contained in the `includeExcludeSetting` response object. |
-
-
-
-
-| `category` | string | Product category |
-
-| `categories` | string | Product categories. An extra metadata item in response to the `expansion` request parameter. |
-| `support` | string | Support information |
-| `pathable` | boolean | Whether the report/dimension is pathing enabled |
-| `parent` | string | Parent dimension |
-| `extraTitleInfo` | string | Additional title info |
-| `reportable` | array (string) | Whether the dimension is segmentable |
-| `allowedForReporting` | boolean | Whether the dimension is set to be allowed for reporting. An extra metadata item in response to the `expansion` request parameter. |
-| `noneSettings` | boolean | Whether "none" item report setting is set.  |
-| `tags` | object | An extra metadata item in response to the `expansion` request parameter. This can include the tag ID, tag name, tag description, and a list of components associated the tag. | |
-
+| `fieldDefinition` | array of objects | Shows field definitions for `func`, `id`, `field`, `label`, `branches`, `oberon-storage-type`, `oberon-table`, `oberon-field`, `oberon-storage-id`, `case-sensitive`, and `mapped-type`. These definitions are described in the following rows. |
+| `func` | string | The function of the field, including options: `raw_field`, `match` or `floor` (all type `enum`). This is contained in the `fieldDefinition` response object. |
+| `id` | string | The ID of the field. This is contained in the `fieldDefinition` response object. |
+| `field` | string | The field associated with the `fieldDefinition`. This is contained in the `fieldDefinition` response object. |
+| `label` | string | The label. This is contained in the `fieldDefinition` response object. |
+| `branches` | array of objects | Shows branches for `pred` and `map-to`.  This is contained in the `fieldDefinition` response object. For the complete data model on  `pred` objects and parameters, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
+| `oberon-storage-type` | string | The type used in oberon storage. This is contained in the `fieldDefinition` response object. |
+| `oberon-table` | string | The table used in oberon. This is contained in the `fieldDefinition` response object. |
+| `oberon-field` | string | The field in oberon. This is contained in the `fieldDefinition` response object. |
+| `oberon-storage-id` | string | The ID associated with oberon storage. This is contained in the `fieldDefinition` response object. |
+| `case-sensitive` | boolean | Whether the `fieldDefinition` is case-sensitive. This is contained in the `fieldDefinition` response object. |
+| `mapped-type` | string | The type used for mapping. This is contained in the `fieldDefinition` response object. |
+| `bucketingSetting` | object | The setting used for bucketing, including options `bucketSetting` and `enabled`. For the complete data model on these settings, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
+| `noValueOptionsSetting` | object | The options setting used for dimensions with no value, including `option` and `value`. |
+| `defaultDimensionSort` | boolean | Whether sorting of dimensions is set for default. |
+| `persistenceSetting` | object | The settings for persistence, including `enabled`, `allocationModel`, and `lookback`. For the complete data model on these settings, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
+| `isDeleted` | boolean | Whether the dimension is deleted. |
