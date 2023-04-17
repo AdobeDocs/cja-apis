@@ -12779,32 +12779,20 @@
                 "name",
                 "description",
                 "owner",
-                "isDeleted",
-                "isDisabled",
                 "dataSets",
                 "createdDate",
                 "modified",
-                "caseSensitive",
                 "organization",
-                "components",
-                "numDailyEvents",
-                "externalData",
-                "backfillEnabled",
-                "granularBackfills",
-                "granularStreaming",
                 "backfillsSummaryConnection",
                 "backfillsSummaryDataSets",
                 "dataSetLastIngested",
                 "sandboxName",
                 "sandboxId",
-                "fieldsId",
                 "floatPrecision",
                 "dataRetentionMonths",
                 "validationErrors",
-                "resolveIdentityNamespace",
                 "stitchedDataSets",
                 "ownerFullName",
-                "schemaInfo",
                 "tags"
               ]
             },
@@ -12821,13 +12809,22 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
           },
           "500": {
-            "description": "unexpected_error - Internal error while retrieving connection"
+            "description": "unexpected_error - Internal error while retrieving Connection",
+            "schema": {
+              "$ref": "#/definitions/ErrorStatus"
+            }
           },
           "404": {
-            "description": "resource_not_found - could not find connection with given parameters"
+            "description": "resource_not_found - could not find connection with given parameters",
+            "schema": {
+              "$ref": "#/definitions/ErrorStatus"
+            }
           }
         }
       }
@@ -12884,30 +12881,21 @@
                 "name",
                 "description",
                 "owner",
-                "isDeleted",
-                "isDisabled",
                 "dataSets",
                 "createdDate",
                 "modified",
-                "caseSensitive",
                 "organization",
-                "components",
-                "numDailyEvents",
-                "externalData",
-                "backfillEnabled",
-                "granularBackfills",
-                "granularStreaming",
                 "backfillsSummaryConnection",
                 "backfillsSummaryDataSets",
                 "dataSetLastIngested",
                 "sandboxName",
                 "sandboxId",
-                "fieldsId",
                 "floatPrecision",
                 "dataRetentionMonths",
                 "validationErrors",
-                "resolveIdentityNamespace",
-                "stitchedDataSets"
+                "stitchedDataSets",
+                "ownerFullName",
+                "tags"
               ]
             },
             "collectionFormat": "csv"
@@ -12982,13 +12970,22 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
           },
           "500": {
-            "description": "Internal error while retrieving connections"
+            "description": "unexpected_error - Internal error while retrieving Connection",
+            "schema": {
+              "$ref": "#/definitions/ErrorStatus"
+            }
           },
           "404": {
-            "description": "Could not find connections for company with given parameters"
+            "description": "resource_not_found - could not find connection with given parameters",
+            "schema": {
+              "$ref": "#/definitions/ErrorStatus"
+            }
           }
         }
       }
@@ -13014,7 +13011,26 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["name", "description", "owner", "isDeleted", "isDisabled", "dataSets", "createdDate", "modified", "caseSensitive", "organization", "components", "numDailyEvents", "externalData", "backfillEnabled", "granularBackfills", "granularStreaming", "backfillsSummaryConnection", "backfillsSummaryDataSets", "dataSetLastIngested", "sandboxName", "sandboxId", "fieldsId", "floatPrecision", "dataRetentionMonths", "validationErrors", "resolveIdentityNamespace", "stitchedDataSets", "ownerFullName", "schemaInfo", "tags"]
+            "enum": [
+              "name",
+              "description",
+              "owner",
+              "dataSets",
+              "createdDate",
+              "modified",
+              "organization",
+              "backfillsSummaryConnection",
+              "backfillsSummaryDataSets",
+              "dataSetLastIngested",
+              "sandboxName",
+              "sandboxId",
+              "floatPrecision",
+              "dataRetentionMonths",
+              "validationErrors",
+              "stitchedDataSets",
+              "ownerFullName",
+              "tags"
+            ]
           },
           "collectionFormat": "csv"
         }, {
@@ -13041,13 +13057,22 @@
         }],
         "responses": {
           "200": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
           },
           "500": {
-            "description": "Internal error while retrieving Connections"
+            "description": "unexpected_error - Internal error while retrieving Connection",
+            "schema": {
+              "$ref": "#/definitions/ErrorStatus"
+            }
           },
           "404": {
-            "description": "Could not find Connections for company with given parameters"
+            "description": "resource_not_found - could not find connection with given parameters",
+            "schema": {
+              "$ref": "#/definitions/ErrorStatus"
+            }
           }
         }
       }
@@ -15403,6 +15428,315 @@
           }
         },
         "description" : "Tag Model"
+      },
+      "Connection": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "owner": {
+            "$ref": "#/definitions/CJAOwner"
+          },
+          "dataSets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/DataSetMetadata"
+            }
+          },
+          "modifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "modifiedBy": {
+            "type": "string"
+          },
+          "modifiedByFullName": {
+            "type": "string"
+          },
+          "backfillEnabled": {
+            "type": "boolean"
+          },
+          "sandboxId": {
+            "type": "string"
+          },
+          "sandboxName": {
+            "type": "string"
+          },
+          "floatPrecision": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataRetentionMonths": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "connectionValidationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ConnectionValidationError"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "backfillSummary": {
+            "$ref": "#/definitions/BackfillSummary"
+          },
+          "idWithoutPrefix": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "CJAOwner": {
+        "type": "object",
+        "properties": {
+          "imsUserId": {
+            "type": "string",
+            "description": "the ims org id of the owner, included when the expansion parameter owner is true"
+          },
+          "ownerId": {
+            "type": "string",
+            "description": "the ims user id or the system user id of the owner, included when the expansion parameter owner is true"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["imsUser", "systemUser"]
+          }
+        }
+      },
+      "DataSetMetadata": {
+        "type": "object",
+        "properties": {
+          "dataSetId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "timestampId": {
+            "type": "string"
+          },
+          "visitorId": {
+            "type": "string"
+          },
+          "lookupKeyField": {
+            "type": "string"
+          },
+          "lookupParentFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "identityNamespace": {
+            "type": "string"
+          },
+          "usePrimaryIdNamespace": {
+            "type": "boolean"
+          },
+          "identityMap": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "schemaInfo": {
+            "$ref": "#/definitions/SchemaInfo"
+          },
+          "backfills": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/DataSetBackfill"
+            }
+          },
+          "streaming": {
+            "type": "boolean"
+          },
+          "backfillSummary": {
+            "$ref": "#/definitions/BackfillSummary"
+          },
+          "lastIngestedTime": {
+            "type": "string"
+          },
+          "streamingEnabledAt": {
+            "type": "string",
+            "example": "2022-03-11T14:44:16Z"
+          },
+          "identityNamespaceCol": {
+            "type": "string"
+          },
+          "dataSourceType": {
+            "$ref": "#/definitions/DataSourceType"
+          }
+        }
+      },
+      "DataSetBackfill": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "dataSetId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["COMPLETED", "FAILED", "IN_PROGRESS", "IN_QUEUE"]
+          },
+          "startDate": {
+            "type": "string",
+            "example": "2022-03-11T14:44:16Z"
+          },
+          "endDate": {
+            "type": "string",
+            "example": "2022-03-11T14:44:16Z"
+          },
+          "createdDate": {
+            "type": "string",
+            "example": "2022-03-11T14:44:16Z"
+          },
+          "allData": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BackfillSummary": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "inProgress": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "completed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "invalid": {
+            "type": "boolean"
+          }
+        }
+      },
+      "DataSourceType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "ConnectionValidationError": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "string",
+            "enum": ["MISSING_FIELD", "DISALLOWED_FIELD", "INVALID_CONNECTION_NAME", "INVALID_SANDBOX_ID", "INVALID_SANDBOX_NAME", "INVALID_DOMAIN", "INVALID_DATA_SET_TYPE", "INVALID_VISITOR_ID", "INVALID_NAME_SPACE", "INVALID_IDENTITY_NAMESPACE", "INVALID_IDENTITY_MAP", "INVALID_LOOKUP_KEY_FIELD", "INVALID_LOOKUP_PARENT_FIELDS", "INVALID_USE_PRIMARY_ID_NAME_SPACE", "INVALID_DATA_SOURCE_TYPE", "DATA_SET_DOES_NOT_EXIST", "REQUIRED_EVENT_DATA_SET_MISSING", "SCHEMA_UNAVAILABLE", "NAMESPACE_UNAVAILABLE", "DATASET_BACKFILL_REQUEST_LIMIT_EXCEEDED", "DATASETS_PER_CONNECTION_LIMIT_EXCEEDED"]
+          },
+          "dataSetId": {
+            "type": "string"
+          },
+          "dataSetName": {
+            "type": "string"
+          },
+          "disallowedField": {
+            "type": "string"
+          },
+          "missingField": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorStatus": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "string",
+            "enum": ["invalid_metric_access", "method_not_allowed", "resource_conflict", "invalid_access", "resource_temporarily_unavailable", "external_api_failure", "aam_failure", "resource_already_exists", "invalid_state", "invalid_json_input", "invalid_parameters", "invalid_dimension_access", "unsupported_data_type", "resource_not_found", "insufficient_access", "health_check_error", "invalid_data", "unexpected_error", "external_api_error", "unsupported_resource", "io_error", "action_not_implemented", "too_many_requests", "payload_too_large", "invalid_request", "invalid_client_id", "unauthorized", "authorization_error", "invalid_token", "insufficient_scope", "bluecoat_unauthorized"]
+          },
+          "errorDescription": {
+            "type": "string"
+          },
+          "errorId": {
+            "type": "string"
+          },
+          "errorDetails": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "rootCauseService": {
+            "type": "string"
+          }
+        }
+      },
+      "SchemaInfo": {
+        "type": "object",
+        "properties": {
+          "schemaId": {
+            "type": "string"
+          },
+          "schemaName": {
+            "type": "string"
+          },
+          "schemaRef": {
+            "$ref": "#/definitions/SchemaRef"
+          }
+        }
+      },
+      "SchemaRef": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id contains full URL path for XDM schema."
+          },
+          "contentType": {
+            "type": "string",
+            "description": "contentType represents XDM schema version and type of schema."
+          }
+        },
+        "description": "This is the full URL for XDM schema path. This field will be derived from schema field, if it is not present. This field will be used to annotate XDM schema version used in the dataSet or dataSetView."
       },
       "TaggedComponent" : {
         "type" : "object",
