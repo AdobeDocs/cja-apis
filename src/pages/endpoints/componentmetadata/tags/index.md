@@ -13,7 +13,7 @@ The CJA Tags APIs allow you to retrieve, update, or create tags and their associ
 
 ## `/componentmetadata/tags` endpoint description
 
-The `/componentmetadata/tags` endpoint description is shown in our [Swagger UI](../../api.md). Use the Swagger UI to see endpoint summaries, available methods, parameters, example values, models, and status codes, and to try out the API.
+The `/componentmetadata/tags` endpoint description is shown in our [Swagger UI](../../../api.md). Use the Swagger UI to see endpoint summaries, available methods, parameters, example values, models, and status codes, and to try out the API.
 
 ## Example creating tags
 

@@ -9,7 +9,7 @@ The CJA Dimensions APIs allow you to retrieve dimensions programmatically throug
 
 ## Retrieve multiple dimensions
 
-Retrieve a list of dimensions for a specified dataview ID. that the user can access. See [Dimensions parameters](parameters.md) for query strings that you can attach to this API call.
+Retrieve a list of dimensions for a specified dataview ID. that the user can access.
 
 `GET https://cja.adobe.io/dimensions`
 

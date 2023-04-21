@@ -13,7 +13,7 @@ The CJA Shares APIs allow you to retrieve, update, or create shares and their as
 
 ## `/componentmetadata/shares` endpoint description
 
-The `/componentmetadata/shares` endpoint description is shown in our [Swagger UI](../../api.md). Use the Swagger UI to see endpoint summaries, available methods, parameters, example values, models, and status codes, and to try out the API.
+The `/componentmetadata/shares` endpoint description is shown in our [Swagger UI](../../../api.md). Use the Swagger UI to see endpoint summaries, available methods, parameters, example values, models, and status codes, and to try out the API.
 
 ## Example creating shares
 
