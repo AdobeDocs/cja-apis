@@ -23,32 +23,39 @@ Submitting a request to this endpoint with no query string parameters returns th
 
 | Query String | Type | Description | Possible Values |
 | --- | --- | ---------- | ----- |
-| `startDate` | String | Begin date range. If this query string is set, `endDate` is required. | YYYY-01-01T00:00:00-07 |
-| `endDate` | String | End date range. If this query string is set, `startDate` is required. | YYYY-02-01T00:00:00-07 |
-| `action` | Enum | The type of action a user or system can make. | CREATE, EDIT, DELETE, LOGIN_FAILED, LOGIN_SUCCESSFUL, API_REQUEST, LOGOUT, APPROVE, UNAPPROVE, SHARE, UNSHARE, TRANSFER; |
-| `component` | Enum | The type of component. | CALCULATED_METRIC, CONNECTION, DATA_GROUP, DATA_VIEW, DATE_RANGE, FILTER, MOBILE, PROJECT, REPORT, SCHEDULED_PROJECT |
-| `componentId` | String | The id of the component. | -- |
-| `userType` | Enum | The type of user. | IMS, OKTA |
-| `userId` | String | The ID of the user. | -- |
-| `userEmail` | String | The email address of the user. | User defined |
-| `description` | String | The description of the audit log. | User defined |
-| `pageSize` | Integer | Number of results per page. If left `null`, the default size is 100. | 10 |
-| `pageNumber` | Integer | Page number. The first page is indexed at 0. | 0 |
+| **`startDate`** | String | Begin date range. If this query string is set, `endDate` is required. | YYYY-01-01T00:00:00-07 |
+| **`endDate`** | String | End date range. If this query string is set, `startDate` is required. | YYYY-02-01T00:00:00-07 |
+| **`action`** | Enum | The type of action a user or system can make. | API_REQUEST, APPROVE, CREATE, DELETE, EDIT, EXPORT, ORG_CHANGE, REFRESH, SHARE, TRANSFER, UNAPPROVE, UNSHARE |
+| **`component`** | Enum | The type of component. | ANNOTATION, AUDIENCE, CALCULATED_METRIC, CONNECTION, DATA_GROUP, DATA_VIEW, DATASET_STITCHING, DATE_RANGE, FEATURE_ACCESS, FILTER, IMS_ORG, MOBILE, PROJECT, REPORT, SCHEDULED_PROJECT, USER, USER_GROUP |
+| **`componentId`** | String | The id of the component. | -- |
+| **`userType`** | Enum | The type of user. | IMS, OKTA |
+| **`userId`** | String | The ID of the user. | -- |
+| **`userEmail`** | String | The email address of the user. | User defined |
+| **`description`** | String | The description of the audit log. | User defined |
+| **`pageSize`** | Integer | Number of results per page. If left `null`, the default size is 100. | 10 |
+| **`pageNumber`** | Integer | Page number. The first page is indexed at 0. | 0 |
 
-### Example : Get audit logs with no filters
+### Example: Get audit logs with no filters
 
-Request:
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
-`GET https://cja.adobe.io/auditlogs/api/v1/auditlogs`
+#### Request
 
-Response:
+```sh
+curl -X GET "https://cja.adobe.io/auditlogs/api/v1/auditlogs" \
+  -H "x-api-key: {CLIENTID}" \
+  -H "x-gw-ims-org-id: {IMSORG}" \
+  -H "Authorization: Bearer {ACCESSTOKEN}"
+```
+
+#### Response
 
 ```json
 {
   "content": [
     {
       "id": "61573795d9409a491f1a9604",
-      "dateCreated": "2021-10-01T16:30:13.377+00:00",
+      "dateCreated": "YYYY-10-01T16:30:13.377+00:00",
       "action": "CREATE",
       "description": "Creating scheduled job: e1efbf6c-d483-408e-b033-3045e594b656",
       "imsOrgId": "EXAMPLEIMSORG@AdobeOrg",
@@ -66,7 +73,7 @@ Response:
     },
     {
       "id": "615735e8d9409a491f1a9603",
-      "dateCreated": "2021-10-01T16:23:04.821+00:00",
+      "dateCreated": "YYYY-10-01T16:23:04.821+00:00",
       "action": "DELETE",
       "description": "Deleting scheduled job: 7baaf2f8-209a-4886-9619-30f3054884ce",
       "imsOrgId": "EXAMPLEIMSORG@AdobeOrg",
@@ -111,17 +118,22 @@ Response:
 }
 ```
 
-### Example : Get audit logs with filters applied
+### Example: Get audit logs with filters applied
 
-Request:
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+
+#### Request
 
 ```sh
-https://cja.adobe.io/auditlogs/api/v1/auditlogs?startDate=2021-08-01T00%3A00%3A00-07&endDate=2021-09-30T00%3A00%3A00-07&action=CREATE&action=EDIT&action=DELETE&component=SCHEDULED_PROJECT&userType=IMS&description=job&pageSize=2
+curl -X GET "https://cja.adobe.io/auditlogs/api/v1/auditlogs?startDate=2021-08-01T00%3A00%3A00-07&endDate=2021-09-30T00%3A00%3A00-07&action=CREATE&action=EDIT&action=DELETE&component=SCHEDULED_PROJECT&userType=IMS&description=job&pageSize=2" \
+  -H "x-api-key: {CLIENTID}" \
+  -H "x-gw-ims-org-id: {IMSORG}" \
+  -H "Authorization: Bearer {ACCESSTOKEN}"
 ```
 
-Response:
+#### Response
 
-```
+```json
 {
   "content": [
     {
@@ -288,14 +300,14 @@ Show me audit logs between June 1st and October 1st where the 'ACTION' was eithe
       {
         "fieldType": "BEGIN_DATE_RANGE",
         "value": [
-          "2021-06-01T00:00:00-07"
+          "YYYY-06-01T00:00:00-07"
         ],
         "operator": "EQUALS"
       },
       {
         "fieldType": "END_DATE_RANGE",
         "value": [
-          "2021-10-01T00:00:00-07"
+          "YYYY-10-01T00:00:00-07"
         ],
         "operator": "EQUALS"
       }
