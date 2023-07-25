@@ -9,7 +9,7 @@ description: Learn the first steps that you can take to start using the CJA API.
 
 # Getting started with the CJA API
 
-There are several steps to take before using the CJA APIs.
+Before using the CJA APIs, follow these steps:
 
 * **Permissions**: Configure permissions for the developer in the Adobe Admin Console.
 * **API Client**: Create a client configuration in the Adobe Developer Console.
@@ -52,13 +52,21 @@ Once you are a developer for a CJA product profile, you can create an API client
 1. You already generated a keypair when creating the Adobe Analytics API, so you do not need to create another. Click **Next**.
 1. Select the desired product profiles for the service account. Make sure that it contains the right permissions to access the API. Click **Save configured API**.
 
-## Generate a JWT token and make an API call using the command line
+## Authentication
 
-1. Back on the project's home page, click **Service Account (JWT)** on the left, then click the **Generate JWT** tab.
-1. Open your `config.zip` file and locate your private key. Paste the private key in the Generate custom JWT field.
-1. Click **Generate Token**.
-1. Copy the sample cURL command to your clipboard.
-1. Open your operating system's Command Prompt or Terminal, then paste and execute the cURL command.
-1. Adobe's servers provide a response that includes an `access_token`. Copy this token to your clipboard.
+Adobe offers two primary methods to authenticate:
 
-You now have everything you need to start making API calls using the platform of your choice. See [Use cases](../use-cases/index.md) for examples on how to make API calls on different platforms.
+
+* **OAuth User**: Use your own account to authenticate with the API. See [OAuth User Authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/) in the Adobe Developer Authentication user guide.
+
+* **OAuth Server to Server**: Use a server-to-server account to authenticate with the API. See [OAuth Server to Server Authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/) in the Adobe Developer Authentication user guide.
+
+JWT authentication is deprecated and will only be supported until January 1, 2025. Current integrations using JWT will need to [migrate](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/migration/) to OAuth Server to Server prior to January 1, 2025. 
+
+Choose your desired authentication method, and complete any remaining steps to finish the API client wizard, as described in the previous section.
+
+
+To refresh authentication tokens, see the [Authentication Guide](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#refreshing-access-tokens).
+
+
+
