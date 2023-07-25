@@ -56,15 +56,13 @@ Once you are a developer for a CJA product profile, you can create an API client
 
 Adobe offers two primary methods to authenticate:
 
-
 * **OAuth User**: Use your own account to authenticate with the API. See [OAuth User Authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/) in the Adobe Developer Authentication user guide.
-
+  
 * **OAuth Server to Server**: Use a server-to-server account to authenticate with the API. See [OAuth Server to Server Authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/) in the Adobe Developer Authentication user guide.
 
 JWT authentication is deprecated and will only be supported until January 1, 2025. Current integrations using JWT will need to [migrate](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/migration/) to OAuth Server to Server prior to January 1, 2025. 
 
 Choose your desired authentication method, and complete any remaining steps to finish the API client wizard, as described in the previous section.
-
 
 To refresh authentication tokens, see the [Authentication Guide](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#refreshing-access-tokens).
 
