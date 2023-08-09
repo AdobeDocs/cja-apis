@@ -81,7 +81,6 @@ The above example shows the ID and name of six dimensions for a specified datavi
 
 The GET multiple dimensions endpoints includes one request path parameter (`dataviewId`) and three optional query parameters, as shown below:
 
-
 | Parameter | Req/Opt | Type | Description |
 | --- | --- | -- | --|
 | `dataviewId` | required | string | The ID of the dataview containing the dimension |
@@ -322,7 +321,6 @@ The required request parameters for retrieving a single dimension should be spec
 | `dimensionId` | required | string | The ID of the dimension |
 | `locale` | optional | string | The language to use in the response |
 | `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionById_1) |
-
 
 ### Response parameters
 
