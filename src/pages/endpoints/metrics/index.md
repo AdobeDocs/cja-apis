@@ -146,7 +146,7 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 
 ## Retrieve a single metric
 
-You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint. 
+You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint.
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics/{metricId}`
 
