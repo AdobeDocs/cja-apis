@@ -77,11 +77,9 @@ The above example request shows a request that includes a required `dataviewId` 
 
 The above example shows the ID and name of six metrics for a specified dataview.
 
-
 ### Request parameters
 
 The GET multiple metrics endpoints includes one request path parameter (`dataviewId`) and three optional query parameters, as shown below:
-
 
 | Parameter | Req/Opt | Type | Description |
 | --- | --- | -- | --|
@@ -162,7 +160,6 @@ The required request parameters for retrieving a single metric should be specifi
 | `dimensionId` | required | string | The ID of the dimension |
 | `locale` | optional | string | The language to use in the response |
 | `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionById_1) |
-
 
 <CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
@@ -322,10 +319,3 @@ The response parameters for retrieving a single metric are the same as for retri
   "isDeleted": true
 }
 ```
-
-
-
-
-
-
-
