@@ -1,15 +1,15 @@
 ---
-title: CJA Dimensions APIs
-description: Retrieve CJA dimensions information using the API.
+title: CJA Metrics APIs
+description: Retrieve CJA metrics information using the API.
 ---
 
-# Dimensions API
+# Metrics API
 
-The CJA Dimensions APIs allow you to retrieve dimensions programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI.
+The CJA Metrics APIs allow you to retrieve metrics programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI.
 
-## Retrieve multiple dimensions
+## Retrieve multiple metrics
 
-Retrieve a list of dimensions for a specified dataview ID
+Retrieve a list of metrics for a specified dataview ID
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions`
 
@@ -22,7 +22,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions?includeType=shared" \
+curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/metrics?includeType=shared" \
     -H "x-api-key: {CLIENTID}" \
     -H "x-gw-ims-org-id: {IMSORG}" \
     -H "Authorization: Bearer {ACCESSTOKEN}"
@@ -69,28 +69,28 @@ curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions?include
 }
 ```
 
-#### Request example details
+### Request example details
 
 The above example request shows a request that includes a required `dataviewId` in the path. It also includes a query parameter for `includeType` values that are `shared`.
 
 #### Response example details
 
-The above example shows the ID and name of six dimensions for a specified dataview.
+The above example shows the ID and name of six metrics for a specified dataview.
 
 ### Request parameters
 
-The GET multiple dimensions endpoints includes one request path parameter (`dataviewId`) and three optional query parameters, as shown below:
+The GET multiple metrics endpoints includes one request path parameter (`dataviewId`) and three optional query parameters, as shown below:
 
 | Parameter | Req/Opt | Type | Description |
 | --- | --- | -- | --|
-| `dataviewId` | required | string | The ID of the dataview containing the dimension |
+| `dataviewId` | required | string | The ID of the dataview containing the metric |
 | `includeType` | optional | array of strings | A comma-delimited list of include types |
 | `locale` | optional | string | The language to use in the response |
-| `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionById_1) |
+| `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Metrics-API/operation/getMetricsForDataview_1) |
 
 ### Response parameters
 
-The **Retrieve multiple dimensions** endpoint includes the following response parameters:
+The **Retrieve multiple metrics** endpoint includes the following response parameters:
 
 | Parameter | Type | Description |
 | --- | --- | -- |
@@ -144,28 +144,41 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 | `persistenceSetting` | object | The settings for persistence, including `enabled`, `allocationModel`, and `lookback`. For the complete data model on these settings, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
 | `isDeleted` | boolean | Whether the dimension is deleted |
 
-## Retrieve a single dimension
+## Retrieve a single metric
 
-You can retrieve details of a single dimension if you know the dimension ID. You can find the dimension ID by using the multiple dimensions endpoint.
+You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint.
 
-`GET https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions/{dimensionId}`
+`GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics/{metricId}`
 
-### Request and response examples
+### Request parameters
 
-Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
+The required request parameters for retrieving a single metric should be specified in the path. The optional parameters should be specified as query parameters.
+
+| Parameter | Req/Opt | Type | Description |
+| --- | --- | -- | --|
+| `dataviewId` | required | string | The ID of the dataview containing the dimension |
+| `dimensionId` | required | string | The ID of the dimension |
+| `locale` | optional | string | The language to use in the response |
+| `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionById_1) |
 
 <CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
-#### Request
+### Example request
 
 ```sh
-curl -X GET "https://cja.adobe.io/data/dataviews/62437d/dimesions/variables/daterangeyear" \
+curl -X GET "https://cja.adobe.io/data/dataviews/62437d/metrics/variables/daterangeyear" \
     -H "x-api-key: {CLIENTID}" \
     -H "x-gw-ims-org-id: {IMSORG}" \
     -H "Authorization: Bearer {ACCESSTOKEN}"
 ```
 
-#### Response
+The above example shows a request for information associated with the `daterangeyear` metric in the `62437d` data view.
+
+### Response parameters
+
+The response parameters for retrieving a single metric are the same as for retrieving multiple metrics. See the table above for a description of each parameter.
+
+### Example response
 
 ```json
 {
@@ -306,22 +319,3 @@ curl -X GET "https://cja.adobe.io/data/dataviews/62437d/dimesions/variables/date
   "isDeleted": true
 }
 ```
-
-#### Request example details
-
-The above example shows a request for information associated with the `daterangeyear` dimension in the `62437d` data view.
-
-### Request parameters
-
-The required request parameters for retrieving a single dimension should be specified in the path. The optional parameters should be specified as query parameters.
-
-| Parameter | Req/Opt | Type | Description |
-| --- | --- | -- | --|
-| `dataviewId` | required | string | The ID of the dataview containing the dimension |
-| `dimensionId` | required | string | The ID of the dimension |
-| `locale` | optional | string | The language to use in the response |
-| `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionById_1) |
-
-### Response parameters
-
-The response parameters for retrieving a single dimension are the same as for retrieving multiple dimensions. See the table above for a description of each parameter.
