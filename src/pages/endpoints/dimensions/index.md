@@ -146,7 +146,7 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 
 ## Retrieve a single dimension
 
-You can retrieve details of a single dimension if you know the dimension ID. You can find the dimension ID by using the multiple dimensions endpoint. 
+You can retrieve details of a single dimension if you know the dimension ID. You can find the dimension ID by using the multiple dimensions endpoint.
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions/{dimensionId}`
 
