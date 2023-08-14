@@ -5,13 +5,20 @@ description: Retrieve CJA metrics information using the API.
 
 # Metrics API
 
-The CJA Metrics APIs allow you to retrieve metrics programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI.
+The CJA Metrics APIs allow you to retrieve metrics programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI. See [Metrics](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-components/apply-create-metrics.html) in the Customer Journey Analytics guide for more information.
+
+The endpoints described in this guide are routed through analytics.adobe.io. To use them, you will need to first create a client with access to Customer Journey Analytics APIs. For more information, refer to [Getting started with the Customer Journey Analytics API](https://developer.adobe.com/cja-apis/docs/getting-started/).
+
+This guide includes instructions for using the following endpoints:
+
+* GET multiple metrics: Retrieves a list of metrics for a specified dataview ID
+* GET metric by ID: Retrieves information for a single metric from a dataview
 
 ## Retrieve multiple metrics
 
-Retrieve a list of metrics for a specified dataview ID
+Use this endpoint to retrieve a list of metrics for a specified dataview ID.
 
-`GET https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions`
+`GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics`
 
 ### Request and response examples
 
@@ -22,7 +29,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/metrics?includeType=shared" \
+curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/metrics" \
     -H "x-api-key: {CLIENTID}" \
     -H "x-gw-ims-org-id: {IMSORG}" \
     -H "Authorization: Bearer {ACCESSTOKEN}"
@@ -34,48 +41,68 @@ curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/metrics?includeTyp
 {
     "content": [
         {
-            "id": "variables/daterangeweek",
-            "name": "Week"
+            "id": "metrics/adobe_firsttimesessions",
+            "name": "First-time Sessions",
+            "dataSetType": "event",
+            "sourceFieldType": "integer",
+            "hasData": true,
+            "derivedFieldCompatible": true
         },
         {
-            "id": "variables/daterangemonth",
-            "name": "Month"
+            "id": "metrics/adobe_returnsessions",
+            "name": "Return Sessions",
+            "dataSetType": "event",
+            "sourceFieldType": "integer",
+            "hasData": true,
+            "derivedFieldCompatible": true
         },
         {
-            "id": "variables/daterangefifteenminute",
-            "name": "15 Minute"
+            "id": "metrics/visitors",
+            "name": "People",
+            "dataSetType": "event",
+            "hasData": true,
+            "derivedFieldCompatible": false
         },
         {
-            "id": "variables/daterangehour",
-            "name": "Hour"
+            "id": "metrics/visits",
+            "name": "Sessions",
+            "dataSetType": "event",
+            "hasData": true,
+            "derivedFieldCompatible": false
         },
-        {
-            "id": "variables/daterangeyear",
-            "name": "Year"
-        },
-        {
-            "id": "variables/daterangeday",
-            "name": "Day"
-        }
-    ],
-    "totalElements": 6,
+           ],
+    "totalElements": 4,
     "totalPages": 1,
     "number": 0,
-    "numberOfElements": 6,
+    "numberOfElements": 4,
     "firstPage": true,
     "lastPage": true,
     "sort": null,
-    "size": 6
+    "size": 4
 }
 ```
 
 ### Request example details
 
-The above example request shows a request that includes a required `dataviewId` in the path. It also includes a query parameter for `includeType` values that are `shared`.
+The above example shows a request for all metrics of the required `dataviewId` parameter, as specified in the path.
 
 #### Response example details
 
-The above example shows the ID and name of six metrics for a specified dataview.
+The above example shows the ID and name of the following four metrics for the specified dataview:
+
+* First-time Sessions
+* Return Sessions
+* People
+* Sessions
+
+ It also includes the following information:
+
+The [`dataSetType`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-connections/create-connection.html#dataset-types) for all four parameters is `event.`
+
+The value for  four metrics 
+
+
+
 
 ### Request parameters
 
