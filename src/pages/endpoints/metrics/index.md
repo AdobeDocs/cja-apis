@@ -99,10 +99,7 @@ The above example shows the ID and name of the following four metrics for the sp
 
 The [`dataSetType`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-connections/create-connection.html#dataset-types) for all four parameters is `event.`
 
-The value for  four metrics 
-
-
-
+The value for  four metrics
 
 ### Request parameters
 
