@@ -88,7 +88,7 @@ The above example shows a request for all metrics of the required `dataviewId` p
 
 #### Response example details
 
-The above example shows the ID and name of the following four metrics for the specified dataview:
+The above example shows the following names of the four metrics returned for the specified dataview:
 
 * First-time Sessions
 * Return Sessions
@@ -97,9 +97,9 @@ The above example shows the ID and name of the following four metrics for the sp
 
  It also includes the following information:
 
-The [`dataSetType`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-connections/create-connection.html#dataset-types) for all four parameters is `event.`
+* The [`dataSetType`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-connections/create-connection.html#dataset-types) for all four parameters is `event.`
 
-The value for  four metrics
+* The metric IDs, the value for the [`derivedFieldCompatible`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-dataviews/derived-fields.html?lang=en#:~:text=Derived%20fields%20are%20an%20important,through%20a%20customizable%20rule%20builder.) parameter, and the `hasData` value--indicating whether the metric has data associated with it.
 
 ### Request parameters
 
@@ -118,9 +118,9 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 
 | Parameter | Type | Description |
 | --- | --- | -- |
-| `id` | string | Dimension ID |
-| `name` | string | Dimension name |
-| `description` | string | Contents of dimension description field in report|
+| `id` | string | Metric ID |
+| `name` | string | Metric name |
+| `description` | string | Contents of metric description field in report|
 | `sourceFieldId` | string | ID of source field |
 | `sourceFieldName` | string | Name of source field |
 | `storageId` | string | ID of storage |
@@ -129,22 +129,22 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 | `schemaType` | string | Type of schema |
 | `sourceFieldType` | string | Type of source field |
 | `tableName` | string | Name of table |
-| `type` | string | Dimension data type that is listed as an `enum` of one of the following: `string`, `boolean`, `int`, `decimal`, `currency`, `percent`, `time`, `enum`, and `ordered_enum`.
+| `type` | string | Metric data type that is listed as an `enum` of one of the following: `string`, `boolean`, `int`, `decimal`, `currency`, `percent`, `time`, `enum`, and `ordered_enum`.
 | `required` | boolean | Whether it is required  |
-| `hideFromReporting` | boolean | Whether the dimension is hidden in reports  |
+| `hideFromReporting` | boolean | Whether the metric is hidden in reports  |
 | `schemaPath` | string | Path of schema  |
-| `hasData` | boolean | Whether the dimension contains data  |
-| `segmentable` | boolean | Whether the dimension is segmentable |
-| `favorite` | boolean | Whether the dimension is tagged as a favorite |
-| `approved` | boolean | Whether the dimension is approved |
-| `tags` | array of objects | Contains `property` objects that contain data associated with the dimension. For example, `property1`, `property2`, etc. each contain data in key-value pairs for the dimension. |
-| `shares` | array of objects | Contains `property` objects that contain data associated with the dimension. For example, `property1`, `property2`, etc. each contain data in key-value pairs for the dimension. |
-| `usageSummary` | array of objects | Contains `property` objects that contain data associated with the dimension. For example, `property1`, `property2`, etc. each contain data in key-value pairs for the dimension. |
-| `notFound` | boolean | Whether the dimension is found |
-| `hidden` | boolean | Whether the dimension is hidden |
-| `fromGlobalLookup` | boolean | Whether the dimension is sourced from global lookup |
-| `multiValued` | boolean | Whether the dimension has mutliple values |
-| `includeExcludeSetting` | object | Shows settings specified for dimension retrieval. This includes the following: `caseSensitive`, `match`, `type`, `rules` and `enabled`. These settings are described in the following rows. |
+| `hasData` | boolean | Whether the metric contains data  |
+| `segmentable` | boolean | Whether the metric is segmentable |
+| `favorite` | boolean | Whether the metric is tagged as a favorite |
+| `approved` | boolean | Whether the metric is approved |
+| `tags` | array of objects | Contains `property` objects that contain data associated with the metric. For example, `property1`, `property2`, etc. each contain data in key-value pairs for the metric. |
+| `shares` | array of objects | Contains `property` objects that contain data associated with the metric. For example, `property1`, `property2`, etc. each contain data in key-value pairs for the metric. |
+| `usageSummary` | array of objects | Contains `property` objects that contain data associated with the metric. For example, `property1`, `property2`, etc. each contain data in key-value pairs for the metric. |
+| `notFound` | boolean | Whether the metric is found |
+| `hidden` | boolean | Whether the metric is hidden |
+| `fromGlobalLookup` | boolean | Whether the metric is sourced from global lookup |
+| `multiValued` | boolean | Whether the metric has mutliple values |
+| `includeExcludeSetting` | object | Shows settings specified for metric retrieval. This includes the following: `caseSensitive`, `match`, `type`, `rules` and `enabled`. These settings are described in the following rows. |
 | `caseSensitive` | boolean | Whether the dimension is queried as case sensitive. This is contained in the `includeExcludeSetting` response object. |
 | `match` | string | The logical operator specified: `and`, or `or` (both type `enum`). This is contained in the `includeExcludeSetting` response object. |
 | `type` | string | The type specified: `string`, `numeric` or `date` (all type `enum`). This is contained in the `includeExcludeSetting` response object. |
