@@ -99,7 +99,7 @@ The above example shows the following names of the four metrics returned for the
 
 * The [`dataSetType`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-connections/create-connection.html#dataset-types) for all four parameters is `event.`
 
-* The metric IDs, the value for the [`derivedFieldCompatible`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-dataviews/derived-fields.html?lang=en#:~:text=Derived%20fields%20are%20an%20important,through%20a%20customizable%20rule%20builder.) parameter, and the `hasData` value--indicating whether the metric has data associated with it. 
+* The metric IDs, the value for the [`derivedFieldCompatible`](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-dataviews/derived-fields.html?lang=en#:~:text=Derived%20fields%20are%20an%20important,through%20a%20customizable%20rule%20builder.) parameter, and the `hasData` value--indicating whether the metric has data associated with it.
 
 ### Request parameters
 
