@@ -145,32 +145,32 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 | `fromGlobalLookup` | boolean | Whether the metric is sourced from global lookup |
 | `multiValued` | boolean | Whether the metric has mutliple values |
 | `includeExcludeSetting` | object | Shows settings specified for metric retrieval. This includes the following: `caseSensitive`, `match`, `type`, `rules` and `enabled`. These settings are described in the following rows. |
-| `caseSensitive` | boolean | Whether the dimension is queried as case sensitive. This is contained in the `includeExcludeSetting` response object. |
+| `caseSensitive` | boolean | Whether the metric is queried as case sensitive. This is contained in the `includeExcludeSetting` response object. |
 | `match` | string | The logical operator specified: `and`, or `or` (both type `enum`). This is contained in the `includeExcludeSetting` response object. |
 | `type` | string | The type specified: `string`, `numeric` or `date` (all type `enum`). This is contained in the `includeExcludeSetting` response object. |
 | `rules` | array of objects | Contains the rules specified for the query: This includes `string` and `value` (both type `string`). This is contained in the `includeExcludeSetting` response object. |
-| `enabled` | boolean | Whether the query specifies that the dimension is enabled. This is contained in the `includeExcludeSetting` response object. |
+| `enabled` | boolean | Whether the query specifies that the metric is enabled. This is contained in the `includeExcludeSetting` response object. |
 | `fieldDefinition` | array of objects | Shows field definitions for `func`, `id`, `field`, `label`, `branches`, `oberon-storage-type`, `oberon-table`, `oberon-field`, `oberon-storage-id`, `case-sensitive`, and `mapped-type`. These definitions are described in the following rows. |
 | `func` | string | The function of the field, including options: `raw_field`, `match` or `floor` (all type `enum`). This is contained in the `fieldDefinition` response object. |
 | `id` | string | The ID of the field. This is contained in the `fieldDefinition` response object. |
 | `field` | string | The field associated with the `fieldDefinition`. This is contained in the `fieldDefinition` response object. |
 | `label` | string | The label. This is contained in the `fieldDefinition` response object. |
-| `branches` | array of objects | Shows branches for `pred` and `map-to`.  This is contained in the `fieldDefinition` response object. For the complete data model on  `pred` objects and parameters, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
+| `branches` | array of objects | Shows branches for `pred` and `map-to`.  This is contained in the `fieldDefinition` response object. For the complete data model on  `pred` objects and parameters, see the [CJA Metrics API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Metrics-API/operation/getMetricsForDataview_1). |
 | `oberon-storage-type` | string | The type used in oberon storage. This is contained in the `fieldDefinition` response object. |
 | `oberon-table` | string | The table used in oberon. This is contained in the `fieldDefinition` response object. |
 | `oberon-field` | string | The field in oberon. This is contained in the `fieldDefinition` response object. |
 | `oberon-storage-id` | string | The ID associated with oberon storage. This is contained in the `fieldDefinition` response object. |
 | `case-sensitive` | boolean | Whether the `fieldDefinition` is case-sensitive. This is contained in the `fieldDefinition` response object. |
 | `mapped-type` | string | The type used for mapping. This is contained in the `fieldDefinition` response object. |
-| `bucketingSetting` | object | The setting used for bucketing, including options `bucketSetting` and `enabled`. For the complete data model on these settings, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
-| `noValueOptionsSetting` | object | The options setting used for dimensions with no value, including `option` and `value` |
-| `defaultDimensionSort` | boolean | Whether sorting of dimensions is set for default |
-| `persistenceSetting` | object | The settings for persistence, including `enabled`, `allocationModel`, and `lookback`. For the complete data model on these settings, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
-| `isDeleted` | boolean | Whether the dimension is deleted |
+| `countType` | string | Contains the enums `instances` and `values`. |
+| `formatSetting` | object | The options for formatting some metrics. Includes `polarity`, `formatType`, `decimalPlaces`, and `currency`. For the complete data model on these settings, see the [CJA Metrics API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Metrics-API/operation/getMetricsForDataview_1). |
+| `attributionSetting` | object | The options for setting attribution. Includes `enabled`, `attributionModel`, and `lookback`. For the complete data model on these settings, see the [CJA Metrics API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Metrics-API/operation/getMetricsForDataview_1). |
+| `precision` | int32 | The number of digits allowed for numeric parameters |
+| `isDeleted` | boolean | Whether the metric is deleted |
 
 ## Retrieve a single metric
 
-You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint.
+You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint, as described above.
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics/{metricId}`
 
@@ -181,9 +181,9 @@ The required request parameters for retrieving a single metric should be specifi
 | Parameter | Req/Opt | Type | Description |
 | --- | --- | -- | --|
 | `dataviewId` | required | string | The ID of the dataview containing the dimension |
-| `dimensionId` | required | string | The ID of the dimension |
+| `metricId` | required | string | The ID of the metric. When specifying, do not include the `metrics/` prefix. For example, instead of `metrics/visitors`, ues only `visitors` for the ID |
 | `locale` | optional | string | The language to use in the response |
-| `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionById_1) |
+| `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Metrics-API/operation/getMetricById_1) |
 
 <CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
@@ -196,11 +196,7 @@ curl -X GET "https://cja.adobe.io/data/dataviews/62437d/metrics/variables/datera
     -H "Authorization: Bearer {ACCESSTOKEN}"
 ```
 
-The above example shows a request for information associated with the `daterangeyear` metric in the `62437d` data view.
-
-### Response parameters
-
-The response parameters for retrieving a single metric are the same as for retrieving multiple metrics. See the table above for a description of each parameter.
+The above example shows a request for information associated with the `visitors` metric in the `62437d` data view.
 
 ### Example response
 
@@ -343,3 +339,7 @@ The response parameters for retrieving a single metric are the same as for retri
   "isDeleted": true
 }
 ```
+
+### Response parameters
+
+The response parameters for retrieving a single metric are the same as for retrieving multiple metrics. See the table above for a description of each parameter.
