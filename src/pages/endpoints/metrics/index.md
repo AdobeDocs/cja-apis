@@ -12,7 +12,7 @@ The endpoints described in this guide are routed through analytics.adobe.io. To 
 This guide includes instructions for using the following endpoints:
 
 * GET multiple metrics: Retrieves a list of metrics for a specified dataview ID
-* GET metric by ID: Retrieves information for a single metric from a dataview
+* GET a single metric: Retrieves information for a single metric from a dataview
 
 ## Retrieve multiple metrics
 

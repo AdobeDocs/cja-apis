@@ -5,11 +5,19 @@ description: Retrieve CJA dimensions information using the API.
 
 # Dimensions API
 
-The CJA Dimensions APIs allow you to retrieve dimensions programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI.
+The CJA Dimensions APIs allow you to retrieve dimensions programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI. See [Dimensions](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-components/dimensions/view-dimensions.html) in the Customer Journey Analytics guide for more information.
+
+The endpoints described in this guide are routed through analytics.adobe.io. To use them, you will need to first create a client with access to Customer Journey Analytics APIs. For more information, refer to [Getting started with the Customer Journey Analytics API](https://developer.adobe.com/cja-apis/docs/getting-started/).
+
+This guide includes instructions for using the following endpoints:
+
+* GET multiple dimensions: Retrieves a list of metrics for a specified dataview ID
+* GET a single dimension: Retrieves information for a single metric from a dataview
+
 
 ## Retrieve multiple dimensions
 
-Retrieve a list of dimensions for a specified dataview ID
+Use this endpoint to retrieve a list of dimensions for a specified dataview ID
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions`
 
@@ -106,10 +114,10 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 | `sourceFieldType` | string | Type of source field |
 | `tableName` | string | Name of table |
 | `type` | string | Dimension data type that is listed as an `enum` of one of the following: `string`, `boolean`, `int`, `decimal`, `currency`, `percent`, `time`, `enum`, and `ordered_enum`.
-| `required` | boolean | Whether it is required  |
-| `hideFromReporting` | boolean | Whether the dimension is hidden in reports  |
-| `schemaPath` | string | Path of schema  |
-| `hasData` | boolean | Whether the dimension contains data  |
+| `required` | boolean | Whether it is required |
+| `hideFromReporting` | boolean | Whether the dimension is hidden in reports |
+| `schemaPath` | string | Path of schema |
+| `hasData` | boolean | Whether the dimension contains data |
 | `segmentable` | boolean | Whether the dimension is segmentable |
 | `favorite` | boolean | Whether the dimension is tagged as a favorite |
 | `approved` | boolean | Whether the dimension is approved |
@@ -119,7 +127,7 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 | `notFound` | boolean | Whether the dimension is found |
 | `hidden` | boolean | Whether the dimension is hidden |
 | `fromGlobalLookup` | boolean | Whether the dimension is sourced from global lookup |
-| `multiValued` | boolean | Whether the dimension has mutliple values |
+| `multiValued` | boolean | Whether the dimension has multiple values |
 | `includeExcludeSetting` | object | Shows settings specified for dimension retrieval. This includes the following: `caseSensitive`, `match`, `type`, `rules` and `enabled`. These settings are described in the following rows. |
 | `caseSensitive` | boolean | Whether the dimension is queried as case sensitive. This is contained in the `includeExcludeSetting` response object. |
 | `match` | string | The logical operator specified: `and`, or `or` (both type `enum`). This is contained in the `includeExcludeSetting` response object. |
@@ -131,7 +139,7 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 | `id` | string | The ID of the field. This is contained in the `fieldDefinition` response object. |
 | `field` | string | The field associated with the `fieldDefinition`. This is contained in the `fieldDefinition` response object. |
 | `label` | string | The label. This is contained in the `fieldDefinition` response object. |
-| `branches` | array of objects | Shows branches for `pred` and `map-to`.  This is contained in the `fieldDefinition` response object. For the complete data model on  `pred` objects and parameters, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
+| `branches` | array of objects | Shows branches for `pred` and `map-to`.  This is contained in the `fieldDefinition` response object. For the complete data model on `pred` objects and parameters, see the [CJA Dimensions API reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Dimensions-API/operation/getDimensionsForDataview_1). |
 | `oberon-storage-type` | string | The type used in oberon storage. This is contained in the `fieldDefinition` response object. |
 | `oberon-table` | string | The table used in oberon. This is contained in the `fieldDefinition` response object. |
 | `oberon-field` | string | The field in oberon. This is contained in the `fieldDefinition` response object. |
