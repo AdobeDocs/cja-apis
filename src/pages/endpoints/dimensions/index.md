@@ -14,7 +14,6 @@ This guide includes instructions for using the following endpoints:
 * GET multiple dimensions: Retrieves a list of metrics for a specified dataview ID
 * GET a single dimension: Retrieves information for a single metric from a dataview
 
-
 ## Retrieve multiple dimensions
 
 Use this endpoint to retrieve a list of dimensions for a specified dataview ID
