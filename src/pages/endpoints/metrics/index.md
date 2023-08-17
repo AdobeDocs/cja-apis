@@ -84,11 +84,11 @@ curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/metrics" \
 
 ### Request example details
 
-The above example shows a request for all metrics of the required `dataviewId` parameter, as specified in the path.
+The example above shows a request for all metrics of the required `dataviewId` parameter, as specified in the path.
 
-#### Response example details
+### Response example details
 
-The above example shows the following names of the four metrics returned for the specified dataview:
+The response example above shows the following names of the four metrics returned for the specified dataview:
 
 * First-time Sessions
 * Return Sessions
@@ -130,10 +130,10 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 | `sourceFieldType` | string | Type of source field |
 | `tableName` | string | Name of table |
 | `type` | string | Metric data type that is listed as an `enum` of one of the following: `string`, `boolean`, `int`, `decimal`, `currency`, `percent`, `time`, `enum`, and `ordered_enum`.
-| `required` | boolean | Whether it is required  |
-| `hideFromReporting` | boolean | Whether the metric is hidden in reports  |
-| `schemaPath` | string | Path of schema  |
-| `hasData` | boolean | Whether the metric contains data  |
+| `required` | boolean | Whether it is required |
+| `hideFromReporting` | boolean | Whether the metric is hidden in reports |
+| `schemaPath` | string | Path of schema |
+| `hasData` | boolean | Whether the metric contains data |
 | `segmentable` | boolean | Whether the metric is segmentable |
 | `favorite` | boolean | Whether the metric is tagged as a favorite |
 | `approved` | boolean | Whether the metric is approved |
@@ -143,7 +143,7 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 | `notFound` | boolean | Whether the metric is found |
 | `hidden` | boolean | Whether the metric is hidden |
 | `fromGlobalLookup` | boolean | Whether the metric is sourced from global lookup |
-| `multiValued` | boolean | Whether the metric has mutliple values |
+| `multiValued` | boolean | Whether the metric has multiple values |
 | `includeExcludeSetting` | object | Shows settings specified for metric retrieval. This includes the following: `caseSensitive`, `match`, `type`, `rules` and `enabled`. These settings are described in the following rows. |
 | `caseSensitive` | boolean | Whether the metric is queried as case sensitive. This is contained in the `includeExcludeSetting` response object. |
 | `match` | string | The logical operator specified: `and`, or `or` (both type `enum`). This is contained in the `includeExcludeSetting` response object. |
@@ -181,7 +181,7 @@ The required request parameters for retrieving a single metric should be specifi
 | Parameter | Req/Opt | Type | Description |
 | --- | --- | -- | --|
 | `dataviewId` | required | string | The ID of the dataview containing the dimension |
-| `metricId` | required | string | The ID of the metric. When specifying, do not include the `metrics/` prefix. For example, instead of `metrics/visitors`, ues only `visitors` for the ID |
+| `metricId` | required | string | The ID of the metric. When specifying, do not include the `metrics/` prefix. For example, instead of `metrics/visitors`, use only `visitors` for the ID |
 | `locale` | optional | string | The language to use in the response |
 | `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Metrics-API/operation/getMetricById_1) |
 
@@ -343,3 +343,7 @@ The above example shows a request for information associated with the `visitors`
 ### Response parameters
 
 The response parameters for retrieving a single metric are the same as for retrieving multiple metrics. See the table above for a description of each parameter.
+
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).

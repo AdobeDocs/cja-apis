@@ -325,3 +325,7 @@ The required request parameters for retrieving a single dimension should be spec
 ### Response parameters
 
 The response parameters for retrieving a single dimension are the same as for retrieving multiple dimensions. See the table above for a description of each parameter.
+
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
