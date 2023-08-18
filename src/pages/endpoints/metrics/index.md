@@ -16,7 +16,7 @@ This guide includes instructions for using the following endpoints:
 
 ## Retrieve multiple metrics
 
-Use this endpoint to retrieve a list of metrics for a specified dataview ID.
+Use this endpoint to retrieve a single metric for a specified dataview ID.
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics`
 
@@ -170,7 +170,7 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 
 ## Retrieve a single metric
 
-You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint, as described above. 
+You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint, as described above.
 
 Use this endpoint to retrieve a list of metrics for a specified dataview ID.
 
