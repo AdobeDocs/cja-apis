@@ -16,7 +16,7 @@ This guide includes instructions for using the following endpoints:
 
 ## Retrieve multiple metrics
 
-Use this endpoint to retrieve a list of metrics for a specified dataview ID.
+Use this endpoint to retrieve a single metric for a specified dataview ID.
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics`
 
@@ -172,7 +172,48 @@ The **Retrieve multiple metrics** endpoint includes the following response param
 
 You can retrieve details of a single metric if you know the metric ID. You can find the metric ID by using the multiple metric endpoint, as described above.
 
+Use this endpoint to retrieve a list of metrics for a specified dataview ID.
+
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics/{metricId}`
+
+### Request and response examples
+
+Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
+
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+
+#### Request
+
+```sh
+curl -X GET "https://cja.adobe.io/data/dataviews/dv_64c7cf/metrics/visits" \
+    -H "x-api-key: {CLIENTID}" \
+    -H "x-gw-ims-org-id: {GLOBALCOMPANYID}" \
+    -H "Authorization: Bearer {ACCESSTOKEN}"
+```
+
+#### Response
+
+```json
+{
+    "id": "metrics/visits",
+    "name": "Sessions",
+    "dataSetType": "event",
+    "hasData": true,
+    "derivedFieldCompatible": false
+}
+```
+
+### Request example details
+
+The request example above shows a request for information associated with the `visits` metric in the `dv_64c7cf` data view.
+
+### Response example details
+
+The example response above shows information for the `visits` metric in the `dv_64c7cf` data view, including the following:
+
+* The metric name is `Sessions`.
+* The setting for the metric data type is `event`.
+* The metric has data associated with it, but is not defined as a [derived field](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-dataviews/derived-fields.html).
 
 ### Request parameters
 
@@ -184,161 +225,6 @@ The required request parameters for retrieving a single metric should be specifi
 | `metricId` | required | string | The ID of the metric. When specifying, do not include the `metrics/` prefix. For example, instead of `metrics/visitors`, use only `visitors` for the ID |
 | `locale` | optional | string | The language to use in the response |
 | `expansion` | optional | array of strings | A comma-delimited list of additional fields to include in the response. For a complete list of these fields see the [reference.](https://developer.adobe.com/cja-apis/docs/api/#tag/Metrics-API/operation/getMetricById_1) |
-
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
-
-### Example request
-
-```sh
-curl -X GET "https://cja.adobe.io/data/dataviews/62437d/metrics/variables/daterangeyear" \
-    -H "x-api-key: {CLIENTID}" \
-    -H "x-gw-ims-org-id: {IMSORG}" \
-    -H "Authorization: Bearer {ACCESSTOKEN}"
-```
-
-The above example shows a request for information associated with the `visitors` metric in the `62437d` data view.
-
-### Example response
-
-```json
-{
-  "id": "string",
-  "name": "string",
-  "description": "string",
-  "sourceFieldId": "string",
-  "sourceFieldName": "string",
-  "storageId": "string",
-  "dataSetIds": [
-    "string"
-  ],
-  "dataSetType": "EVENT",
-  "schemaType": "string",
-  "sourceFieldType": "string",
-  "tableName": "string",
-  "type": "STRING",
-  "required": true,
-  "hideFromReporting": true,
-  "schemaPath": "string",
-  "hasData": true,
-  "segmentable": true,
-  "favorite": true,
-  "approved": true,
-  "tags": [
-    {
-      "property1": {},
-      "property2": {}
-    }
-  ],
-  "shares": [
-    {
-      "property1": {},
-      "property2": {}
-    }
-  ],
-  "usageSummary": {
-    "property1": {},
-    "property2": {}
-  },
-  "notFound": true,
-  "hidden": true,
-  "fromGlobalLookup": true,
-  "multiValued": true,
-  "includeExcludeSetting": {
-    "caseSensitive": true,
-    "match": "and",
-    "type": "string",
-    "rules": [
-      {
-        "clause": "string",
-        "value": "string"
-      }
-    ],
-    "enabled": true
-  },
-  "fieldDefinition": [
-    {
-      "func": "RAW_FIELD",
-      "id": "string",
-      "field": "string",
-      "label": "string",
-      "branches": [
-        {
-          "pred": {
-            "func": "AND",
-            "preds": [
-              {}
-            ],
-            "pred": {},
-            "val": {}
-          },
-          "map-to": {}
-        }
-      ],
-      "oberon-storage-type": "string",
-      "oberon-table": "string",
-      "oberon-field": "string",
-      "oberon-storage-id": "string",
-      "case-sensitive": true,
-      "mapped-type": "string"
-    }
-  ],
-  "bucketingSetting": {
-    "bucketSettings": [
-      {
-        "from": 0,
-        "to": 0
-      }
-    ],
-    "enabled": true
-  },
-  "noValueOptionsSetting": {
-    "option": "string",
-    "value": "string"
-  },
-  "defaultDimensionSort": true,
-  "persistenceSetting": {
-    "enabled": true,
-    "allocationModel": {
-      "func": "ALLOCATION_FIRST_TOUCH",
-      "expiration": {
-        "func": "afterEvents",
-        "events": [
-          "string"
-        ],
-        "granularity": "string",
-        "numPeriods": 0,
-        "context": "string"
-      },
-      "lookbackExpiration": {
-        "func": "string",
-        "granularity": "string",
-        "numPeriods": 0
-      },
-      "merchandising": {
-        "func": "nonMerchandising",
-        "bindingCriteria": {
-          "func": "always",
-          "bindingEvents": [
-            "string"
-          ]
-        }
-      },
-      "context": "string",
-      "firstWeight": 0,
-      "middleWeight": 0,
-      "lastWeight": 0,
-      "halfLifeNumPeriods": 0,
-      "halfLifeGranularity": "string"
-    },
-    "lookback": {
-      "func": "string",
-      "granularity": "string",
-      "numPeriods": 0
-    }
-  },
-  "isDeleted": true
-}
-```
 
 ### Response parameters
 

@@ -31,7 +31,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions?includeType=shared" \
     -H "x-api-key: {CLIENTID}" \
-    -H "x-gw-ims-org-id: {IMSORG}" \
+    -H "x-gw-ims-org-id: {GLOBALCOMPANYID}" \
     -H "Authorization: Bearer {ACCESSTOKEN}"
 ```
 
@@ -154,6 +154,8 @@ The **Retrieve multiple dimensions** endpoint includes the following response pa
 ## Retrieve a single dimension
 
 You can retrieve details of a single dimension if you know the dimension ID. You can find the dimension ID by using the multiple dimensions endpoint.
+
+Use this endpoint to retrieve a single dimension.
 
 `GET https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions/{dimensionId}`
 
