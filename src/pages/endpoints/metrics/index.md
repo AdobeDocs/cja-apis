@@ -18,7 +18,7 @@ This guide includes instructions for using the following endpoints:
 
 Use this endpoint to retrieve a single metric for a specified dataview ID.
 
-`GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics`
+`GET https://cja.adobe.io/data/dataviews/{DATAVIEW-ID}/metrics`
 
 ### Request and response examples
 
@@ -29,10 +29,10 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/metrics" \
-    -H "x-api-key: {CLIENTID}" \
-    -H "x-gw-ims-org-id: {IMSORG}" \
-    -H "Authorization: Bearer {ACCESSTOKEN}"
+curl -X GET "https://cja.adobe.io/data/dataviews/{DATAVIEW_ID}/metrics" \
+    -H "x-api-key: {CLIENT_ID}" \
+    -H "x-gw-ims-org-id: {GLOBAL_COMPANY_ID}" \
+    -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
 #### Response
@@ -174,7 +174,7 @@ You can retrieve details of a single metric if you know the metric ID. You can f
 
 Use this endpoint to retrieve a list of metrics for a specified dataview ID.
 
-`GET https://cja.adobe.io/data/dataviews/{dataviewId}/metrics/{metricId}`
+`GET https://cja.adobe.io/data/dataviews/{DATAVIEW_ID}/metrics/{METRIC_ID}`
 
 ### Request and response examples
 
@@ -186,9 +186,9 @@ Click the **Request** tab in the following example to see a cURL request for thi
 
 ```sh
 curl -X GET "https://cja.adobe.io/data/dataviews/dv_64c7cf/metrics/visits" \
-    -H "x-api-key: {CLIENTID}" \
-    -H "x-gw-ims-org-id: {GLOBALCOMPANYID}" \
-    -H "Authorization: Bearer {ACCESSTOKEN}"
+    -H "x-api-key: {CLIENT_ID}" \
+    -H "x-gw-ims-org-id: {GLOBAL_COMPANY_ID}" \
+    -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
 #### Response
