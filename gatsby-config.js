@@ -126,6 +126,10 @@ module.exports = {
             path: '/endpoints/dateranges/'
           },
           {
+            title: 'Dimensions',
+            path: '/endpoints/dimensions/'
+          },
+          {
             title: 'Filters',
             path: '/endpoints/filters/',
             pages: [
@@ -134,6 +138,10 @@ module.exports = {
                 path: '/endpoints/filters/validate/'
               }
             ]
+          },
+          {
+            title: 'Metrics',
+            path: '/endpoints/metrics/'
           },
           {
             title: 'Projects',
