@@ -29,10 +29,10 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions?includeType=shared" \
-    -H "x-api-key: {CLIENTID}" \
-    -H "x-gw-ims-org-id: {GLOBALCOMPANYID}" \
-    -H "Authorization: Bearer {ACCESSTOKEN}"
+curl -X GET "https://cja.adobe.io/data/dataviews/{DATAVIEW_ID}/dimensions?includeType=shared" \
+    -H "x-api-key: {CLIENT_ID}" \
+    -H "x-gw-ims-org-id: {GLOBAL_COMPANY_ID}" \
+    -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
 #### Response
@@ -157,7 +157,7 @@ You can retrieve details of a single dimension if you know the dimension ID. You
 
 Use this endpoint to retrieve a single dimension.
 
-`GET https://cja.adobe.io/data/dataviews/{dataviewId}/dimensions/{dimensionId}`
+`GET https://cja.adobe.io/data/dataviews/{DATAVIEW_ID}/dimensions/{dimensionId}`
 
 ### Request and response examples
 
@@ -318,7 +318,7 @@ curl -X GET "https://cja.adobe.io/data/dataviews/62437d/dimesions/variables/date
 
 #### Request example details
 
-The above example shows a request for information associated with the `daterangeyear` dimension in the `62437d` data view.
+The above example shows a request for information associated with the `daterangeyear` dimension in the `62437d` dataview.
 
 ### Request parameters
 
