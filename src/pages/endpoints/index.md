@@ -37,6 +37,12 @@ Retrieve, update, or create data views.
 
 <DiscoverBlock slots="link, text"/>
 
+[Dimensions API](dimensions/index.md)
+
+Retrieve dimensions information.
+
+<DiscoverBlock slots="link, text"/>
+
 [Filters API](filters/index.md)
 
 Retrieve, update, or create filters.
@@ -52,6 +58,12 @@ Retrieve data from a data view.
 [Date Range API](dateranges/index.md)
 
 Retrieve, update, or create date ranges.
+
+<DiscoverBlock slots="link, text"/>
+
+[Metrics API](metrics/index.md)
+
+Retrieve metrics information.
 
 <DiscoverBlock slots="link, text"/>
 
