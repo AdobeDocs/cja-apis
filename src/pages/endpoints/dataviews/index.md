@@ -2,6 +2,7 @@
 title: Dataviews APIs
 description: Manage CJA dataviews through APIs
 ---
+
 # Data views
 
 * GET multiple data views: Retrieves a list of data views for a specified company
@@ -18,7 +19,7 @@ Use this endpoint to retrieve multiple data views associated with a company.
 
 `GET https://cja.adobe.io/data/dataviews`
 
-### Request and Response Examples
+### Request and response Examples
 
 Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
 
@@ -27,9 +28,9 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -L 'https://cja.adobe.io/data/dataviews?expansion=name%2Cowner%2Corganization%2Cdescription&limit=3&page=0' \
+curl 'https://cja.adobe.io/data/dataviews?expansion=name%2Cowner%2Corganization%2Cdescription&limit=3&page=0' \
 -H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {GLOBAL_COMPANY_ID}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'
 ```
 
@@ -101,12 +102,12 @@ The example above requests the following:
 
 The example response above shows the following:
 
-* The the first result, `Example 1 Data View` is the data view `name`; `Example name 1` is the `name` of the `owner`; and `Campaign list 1` is `description`. These values are returned as requested expansion parameters.
+* The the first result, `Example 1 Data View` is the data view `name`; `Example name 1` is the `name` of the `owner`; and `Campaign list 1` is the `description`. These values are returned as requested expansion parameters.
 * The IDs for the data veiws are `dv_1de9ac146e674b139222222`, `dv_2de9ac146e674b139222223`, and `dv_3de9ac146e674b139222224`.
-* the `"number": 0` refers to the displayed page, or the first page.
-* the `numberOfElements` confirms our request that the results displayed per page is `3`.
-* the `totalElements` of all the dataviews for the specified organization is `1170`.
-* the `totalPages` of data views is `390` when the `numberOfElements` per page is `3`.
+* The `"number": 0` refers to the displayed page, or the first page.
+* The `numberOfElements` confirms our request that the results displayed per page is `3`.
+* The `totalElements` of all the dataviews for the specified organization is `1170`.
+* The `totalPages` of data views is `390` where the `numberOfElements` per page is `3`.
 
 ### Request Parameters
 
@@ -118,10 +119,10 @@ The example response above shows the following:
 | `externalParentIds` | optional | string | Comma-delimited list of external parent IDs that limit the response |
 | `dataViewIds` | optional | string | Comma-delimited list of data view IDs that limit the response |
 | `includeType` | optional | string | Include additional data views not owned by user |
-| `cached` | optional | boolean | If it returns cached results. The default value is `true`. |
+| `cached` | optional | boolean | Whether it returns cached results. The default value is `true`. |
 | `limit` | optional | integer | Number of results per page |
 | `page` | optional | integer | The page number to be displayed. The first page is `0`. |
-| `sortDirection` | optional | string | Sort direction (ASC or DESC) |
+| `sortDirection` | optional | string | Sort direction (`ASC` or `DESC`) |
 | `sortProperty` | optional | string | Property to sort by. Only `modifiedDate` and `id` are currently allowed. The default value is `id`. |
 
 ### Response Parameters
@@ -129,24 +130,24 @@ The example response above shows the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | `content` | container | The data views requested. Contains the `name`, `description`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modifiedDate`, `createdDate`, `organization`, `modifiedBy`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, `containerNames`, and `id` parameters. |
-| `name` | string | The name of a Data View |
-| `description` | string | The description of a Data View |
-| `owner` | container | The owner of a Data View. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | string | The IMS user ID of the owner of a dataview |
-| `name` | string | The name of the owner of a dataview |
-| `isDeleted` | boolean | If the data view is deleted |
+| `name` | string | The name of a data view |
+| `description` | string | The description of a data view |
+| `owner` | container | The owner of a data view. Contains the `imsUserId` and `name` parameters. |
+| `imsUserId` | string | The IMS user ID of the owner of a data view |
+| `name` | string | The name of the owner of a data view |
+| `isDeleted` | boolean | Whether the data view is deleted |
 | `parentDataGroupId` | string | Filters data views by a single parent data group ID |
 | `segmentList` | array of strings |  |
-| `currentTimezoneOffset` | integer |  |
+| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
 | `timezoneDesignator` | string | The timezone used by the data view |
 | `modifiedDate` | string | The date the data view was last modified |
 | `createdDate` | string | The date the data view was created |
 | `organization` | string | The organization the data view belongs to |
 | `modifiedBy` | string | Who modified the data view |
-| `curationEnabled` | boolean |  |
+| `curationEnabled` | boolean | Whether the data view is enabled for curation  |
 | `recentRecordedAccess` | string | The most recent recorded access of the data view |
 | `sessionDefinition` | conatiner | The parameters that define a session. Contains the `numPeriods`, `granularity`, `func`, and `events` parameters. |
-| `numPeriods` | integer | |
+| `numPeriods` | integer | The number of time periods |
 | `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
 | `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS` |
 | `events` | array of strings |  |
@@ -160,13 +161,13 @@ The example response above shows the following:
 | `id` | string | The ID of the given data view |
 | `pageable` | container | Contains the `sort`, `paged`, `unpaged`, `pageNumber`, `pageSize`, and `offset` parameters |
 | `sort` | container | Contains the `sorted`, `unsorted`, and `empty` parameters |
-| `sorted` | boolean |  |
-| `unsorted` | boolean |  |
-| `empty` | boolean |  |
-| `paged` | boolean |  |
-| `unpaged` | boolean |  |
-| `pageNumber` | integer |  |
-| `pageSize` | integer |  |
+| `sorted` | boolean | Whether the data is sorted |
+| `unsorted` | boolean | Whether the data is unsorted |
+| `empty` | boolean | Whether the container is empty |
+| `paged` | boolean | Whether the results are paged |
+| `unpaged` | boolean | Whether the results are unpaged |
+| `pageNumber` | integer | The page number for the result |
+| `pageSize` | integer | The size of the page |
 | `offset` | integer |  |
 | `totalElements` | integer | The number of data sets belonging to the organization |
 | `totalPages` | integer | The number of pages able to be displayed with the chosen filters |
@@ -193,7 +194,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -L 'https://cja.adobe.io/data/dataviews/dv_150a049f5d02785bacxxxxxx?expansion=name%2Cowner%2Cdescription%2CparentDataGroupId%2CtimezoneDesignator%2CexternalData' \
 -H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {GLOBAL_COMPANY_ID}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'
 ```
 
@@ -252,14 +253,14 @@ The example response above shows the following for data view `dv_150a049f5d02785
 | `isDeleted` | boolean | If the data view is deleted |
 | `parentDataGroupId` | string | The data group ID associated with the data view |
 | `segmentList` | array of strings |  |
-| `currentTimezoneOffset` | integer |  |
+| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
 | `timezoneDesignator` | string | The timezone used by the data view |
 | `modifiedDate` | string | The date the data view was last modified |
 | `createdDate` | string | The date the data view was created |
 | `organization` | string | The organization the data view belongs to |
 | `modifiedBy` | string | Who last modified the data view |
-| `curationEnabled` |  boolean |  |
-| `recentRecordedAccess` | string |  |
+| `curationEnabled` |  boolean | Whether the data view is enabled for curation |
+| `recentRecordedAccess` | string | The most recent recorded access of the data view |
 | `sessionDefinition` | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
 | `numPeriods` | integer |  |
 | `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
@@ -291,7 +292,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -L 'https://cja.adobe.io/data/dataviews/validate' \
 -H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {GLOBAL_COMPANY_ID}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -350,35 +351,35 @@ The request parameters are dependent upon the structure supplied for validation.
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| `name` |  | string | The name of the data view |
-| `description` |  | string | The description of a data view |
-| `owner` |  | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` |  | string | The IMS user ID of the owner of a data view |
-| `name` |  | string | The name of the owner of a data view |
-| `isDeleted` |  | boolean | If the data view is deleted |
-| `parentDataGroupId` |  | string | The data group ID associated with the data view |
-| `segmentList` | | array of strings |  |
-| `currentTimezoneOffset` | | integer |  |
-| `timezoneDesignator` | | string | The timezone used by the data view |
-| `modifiedDate` | | string | The date the data view was last modified |
-| `createdDate` | | string | The date the data view was created |
-| `organization` | | string | The organization the data view belongs to |
-| `modifiedBy` | | string | Who last modified the data view |
-| `curationEnabled` |  | boolean |  |
-| `recentRecordedAccess` |  | string |  |
-| `sessionDefinition` |  | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` |  | integer |  |
-| `granularity` |  | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` |  | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `events` |  | array of strings |  |
-| `externalData` |  | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` |  | string |  |
-| `externalParentId` |  | string | The ID of the parent data group used by the data view |
-| `containerNames` |  | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | | string | The name of the event container |
-| `session` | | string | The name of the session container |
-| `people` | | string | The name of the people container |
-| `id` | | string | The ID of the data view |
+| `name` | optional | string | The name of the data view |
+| `description` | optional | string | The description of a data view |
+| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
+| `name` | optional | string | The name of the owner of a data view |
+| `isDeleted` | optional | boolean | If the data view is deleted |
+| `parentDataGroupId` | optional | string | The data group ID associated with the data view |
+| `segmentList` | optional | array of strings |  |
+| `currentTimezoneOffset` | optional | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
+| `timezoneDesignator` | optional | string | The timezone used by the data view |
+| `modifiedDate` | optional | string | The date the data view was last modified |
+| `createdDate` | optional | string | The date the data view was created |
+| `organization` | optional | string | The organization the data view belongs to |
+| `modifiedBy` |optional | string | Who last modified the data view |
+| `curationEnabled` | optional  | boolean | Whether curation is enabled for the data view  |
+| `recentRecordedAccess` | optional | string | The most recent recorded access of the data view |
+| `sessionDefinition` | optional | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
+| `numPeriods` | optional | integer | The number of time periods |
+| `granularity` | optional | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
+| `func` | optional | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
+| `events` | optional | array of strings |  |
+| `externalData` | optional | container | Contains the `externalId`, and `externalParentId` parameters |
+| `externalId` | optional | string |  |
+| `externalParentId` | optional | string | The ID of the parent data group used by the data view |
+| `containerNames` | optional | container | Contains the `event`, `session`, and `people` parameters |
+| `event` | optional | string | The name of the event container |
+| `session` | optional | string | The name of the session container |
+| `people` | optional | string | The name of the people container |
+| `id` | optional | string | The ID of the data view |
 
 
 ### Response Parameters
@@ -406,7 +407,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -L 'https://cja.adobe.io/data/dataviews?expansion=name%2Cdescription%2CparentDataGroupId%2CcurrentTimezoneOffset%2CtimezoneDesignator%2Corganization%2CsessionDefinition%2CexternalData' \
 -H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {GLOBAL_COMPANY_ID}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -483,69 +484,39 @@ The response example above shows the following:
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| `name` |  | string | The name of the data view |
-| `description` |  | string | The description of a data view |
-| `owner` |  | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` |  | string | The IMS user ID of the owner of a data view |
-| `name` |  | string | The name of the owner of a data view |
-| `isDeleted` |  | boolean | If the data view is deleted |
-| `parentDataGroupId` |  | string | The data group ID associated with the data view |
-| `segmentList` | | array of strings |  |
-| `currentTimezoneOffset` | | integer |  |
-| `timezoneDesignator` | | string | The timezone used by the data view |
-| `modifiedDate` | | string | The date the data view was last modified |
-| `createdDate` | | string | The date the data view was created |
-| `organization` | | string | The organization the data view belongs to |
-| `modifiedBy` | | string | Who last modified the data view |
-| `curationEnabled` |  | boolean |  |
-| `recentRecordedAccess` |  | string |  |
-| `sessionDefinition` |  | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` |  | integer |  |
-| `granularity` |  | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` |  | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `events` |  | array of strings |  |
-| `externalData` |  | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` |  | string |  |
-| `externalParentId` |  | string | The ID of the parent data group used by the data view |
-| `containerNames` |  | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | | string | The name of the event container |
-| `session` | | string | The name of the session container |
-| `people` | | string | The name of the people container |
-| `id` | | string | The ID of the data view |
+| `name` | loptional | string | The name of the data view |
+| `description` | optional | string | The description of a data view |
+| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
+| `name` | optional | string | The name of the owner of a data view |
+| `isDeleted` | optional | boolean | If the data view is deleted |
+| `parentDataGroupId` | optional | string | The data group ID associated with the data view |
+| `segmentList` | optional | array of strings |  |
+| `currentTimezoneOffset` | optional | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
+| `timezoneDesignator` | optional | string | The timezone used by the data view |
+| `modifiedDate` | optional | string | The date the data view was last modified |
+| `createdDate` | optional | string | The date the data view was created |
+| `organization` | optional | string | The organization the data view belongs to |
+| `modifiedBy` | optional | string | Who last modified the data view |
+| `curationEnabled` | optional | boolean | Whether the curation is enabled for the data view |
+| `recentRecordedAccess` | optional | string | The most recent recorded access of the data view |
+| `sessionDefinition` | optional | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
+| `numPeriods` | optional | integer | The number of time periods |
+| `granularity` | optional | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
+| `func` | optional | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
+| `events` | optional | array of strings |  |
+| `externalData` | optional | container | Contains the `externalId`, and `externalParentId` parameters |
+| `externalId` | optional | string |  |
+| `externalParentId` | optional | string | The ID of the parent data group used by the data view |
+| `containerNames` | optional | container | Contains the `event`, `session`, and `people` parameters |
+| `event` | optional | string | The name of the event container |
+| `session` | optional | string | The name of the session container |
+| `people` | optional | string | The name of the people container |
+| `id` | optional | string | The ID of the data view |
 
 ### Response Parameters
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `name` | string | The name of the data view |
-| `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | string | The IMS user ID of the owner of a data view |
-| `name` | string | The name of the owner of a data view |
-| `isDeleted` | boolean | If the data view is deleted |
-| `parentDataGroupId` | string | The data group ID associated with the data view |
-| `segmentList` | array of strings |  |
-| `currentTimezoneOffset` | integer |  |
-| `timezoneDesignator` | string | The timezone used by the data view |
-| `modifiedDate` | string | The date the data view was last modified |
-| `createdDate` | string | The date the data view was created |
-| `organization` | string | The organization the data view belongs to |
-| `modifiedBy` | string | Who last modified the data view |
-| `curationEnabled` |  boolean |  |
-| `recentRecordedAccess` | string |  |
-| `sessionDefinition` | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | integer |  |
-| `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `events` | array of strings |  |
-| `externalData` | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` | string |  |
-| `externalParentId` | string | The ID of the parent data group used by the data view |
-| `containerNames` | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | string | The name of the event container |
-| `session` | string | The name of the session container |
-| `people` | string | The name of the people container |
-| `id` | string | The ID of the data view |
+The response parameters are the same as the request parameters. See the preceding table for descriptions.
 
 ## PUT Copy a data view
 
@@ -564,7 +535,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -X PUT 'https://cja.adobe.io/data/dataviews/copy/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cdescription%2Cowner%2CcreatedDate' \
 -H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {GLOBAL_COMPANY_ID}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
 ```
 
@@ -621,16 +592,16 @@ The example response above shows the following information:
 | `isDeleted` | boolean | If the data view is deleted |
 | `parentDataGroupId` | string | The data group ID associated with the data view |
 | `segmentList` | array of strings |  |
-| `currentTimezoneOffset` | integer |  |
+| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
 | `timezoneDesignator` | string | The timezone used by the data view |
 | `modifiedDate` | string | The date the data view was last modified |
 | `createdDate` | string | The date the data view was created |
 | `organization` | string | The organization the data view belongs to |
 | `modifiedBy` | string | Who last modified the data view |
-| `curationEnabled` |  boolean |  |
-| `recentRecordedAccess` | string |  |
+| `curationEnabled` |  boolean | Whether curation is enabled for the data view |
+| `recentRecordedAccess` | string | The most recent recorded access for the data view |
 | `sessionDefinition` | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | integer |  |
+| `numPeriods` | integer | The number of time periods |
 | `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
 | `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
 | `events` | array of strings |  |
@@ -662,7 +633,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl PUT 'https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cmodified' \
 -H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {GLOBAL_COMPANY_ID}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
 -H 'Content-Type: application/json' \
 -d '{
@@ -716,36 +687,36 @@ The example response above shows the following:
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
 | `dataViewId` | required | string | The Data View ID to update |
-| `expansion` |  | string | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
-| `name` |  | string | The name of the data view |
-| `description` |  | string | The description of a data view |
-| `owner` |  | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` |  | string | The IMS user ID of the owner of a data view |
-| `name` |  | string | The name of the owner of a data view |
-| `isDeleted` |  | boolean | If the data view is deleted |
-| `parentDataGroupId` |  | string | The data group ID associated with the data view |
-| `segmentList` | | array of strings |  |
-| `currentTimezoneOffset` | | integer |  |
-| `timezoneDesignator` | | string | The timezone used by the data view |
-| `modifiedDate` | | string | The date the data view was last modified |
-| `createdDate` | | string | The date the data view was created |
-| `organization` | | string | The organization the data view belongs to |
-| `modifiedBy` | | string | Who last modified the data view |
-| `curationEnabled` |  | boolean |  |
-| `recentRecordedAccess` |  | string |  |
-| `sessionDefinition` |  | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` |  | integer |  |
-| `granularity` |  | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` |  | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `events` |  | array of strings |  |
-| `externalData` |  | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` |  | string |  |
-| `externalParentId` |  | string | The ID of the parent data group used by the data view |
-| `containerNames` |  | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | | string | The name of the event container |
-| `session` | | string | The name of the session container |
-| `people` | | string | The name of the people container |
-| `id` | | string | The ID of the data view |
+| `expansion` | optional | string | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
+| `name` | optional | string | The name of the data view |
+| `description` | optional | string | The description of a data view |
+| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
+| `name` | optional | string | The name of the owner of a data view |
+| `isDeleted` | optional | boolean | If the data view is deleted |
+| `parentDataGroupId` | optional | string | The data group ID associated with the data view |
+| `segmentList` | optional | array of strings |  |
+| `currentTimezoneOffset` | optional | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero  |
+| `timezoneDesignator` | optional | string | The timezone used by the data view |
+| `modifiedDate` | optional | string | The date the data view was last modified |
+| `createdDate` | optional | string | The date the data view was created |
+| `organization` | optional | string | The organization the data view belongs to |
+| `modifiedBy` | optional | string | Who last modified the data view |
+| `curationEnabled` | optional | boolean | Whether curation is enabled for the data view |
+| `recentRecordedAccess` | optional | string | The most recent recorded acces for the data view |
+| `sessionDefinition` | optional | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
+| `numPeriods` | optional | integer | The number of time periods |
+| `granularity` | optional | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
+| `func` | optional | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
+| `events` | optional | array of strings |  |
+| `externalData` | optional | container | Contains the `externalId`, and `externalParentId` parameters |
+| `externalId` | optional | string |  |
+| `externalParentId` | optional | string | The ID of the parent data group used by the data view |
+| `containerNames` | optional | container | Contains the `event`, `session`, and `people` parameters |
+| `event` | optional | string | The name of the event container |
+| `session` | optional | string | The name of the session container |
+| `people` | optional | string | The name of the people container |
+| `id` | optional | string | The ID of the data view |
 
 ### Response Parameters
 
@@ -759,16 +730,16 @@ The example response above shows the following:
 | `isDeleted` | boolean | If the data view is deleted |
 | `parentDataGroupId` | string | The data group ID associated with the data view |
 | `segmentList` | array of strings |  |
-| `currentTimezoneOffset` | integer |  |
+| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
 | `timezoneDesignator` | string | The timezone used by the data view |
 | `modifiedDate` | string | The date the data view was last modified |
 | `createdDate` | string | The date the data view was created |
 | `organization` | string | The organization the data view belongs to |
 | `modifiedBy` | string | Who last modified the data view |
-| `curationEnabled` |  boolean |  |
-| `recentRecordedAccess` | string |  |
+| `curationEnabled` |  boolean | Whether curation is enabled for the data view |
+| `recentRecordedAccess` | string | The most recent recorded access for the data view |
 | `sessionDefinition` | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | integer |  |
+| `numPeriods` | integer | The number of time periods |
 | `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
 | `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
 | `events` | array of strings |  |
@@ -798,7 +769,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -X DELETE 'https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx' \
 -H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {GLOBAL_COMPANY_ID}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
 ```
 
