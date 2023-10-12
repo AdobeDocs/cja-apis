@@ -108,18 +108,8 @@ module.exports = {
             ]
           },
           {
-            title: 'Data groups',
-            path: '/endpoints/datagroups/',
-            pages: [
-              {
-                title: 'Data views',
-                path: '/endpoints/datagroups/dataviews/'
-              },
-              {
-                title: 'Dimensions and metrics',
-                path: '/endpoints/datagroups/data/'
-              }
-            ]
+            title: 'Data views',
+            path: '/endpoints/datagroups/dataviews'
           },
           {
             title: 'Date Ranges',
