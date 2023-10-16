@@ -109,7 +109,7 @@ module.exports = {
           },
           {
             title: 'Data views',
-            path: '/endpoints/datagroups/dataviews'
+            path: '/endpoints/dataviews'
           },
           {
             title: 'Date Ranges',
