@@ -1,38 +1,22 @@
 ---
 title: Connections APIs
-description: Retrieve CJA connections through APIs
+description: Manage CJA connections through APIs
 ---
 
 # Connections
 
-* [GET multiple connections](#get-multiple-connections): Retrieves a list of connections for a specified company
-* [GET a single connection](#get-a-single-connection): Retrieves information for a single connection
+This guide includes instructions for using the following endpoints:
 
-## GET multiple connections
+* GET connection by ID: Retrieve a specific connection by connection ID
+* GET all connections: Retrieve all connections for an organization
 
+## GET connection by ID
 
----
-title: Dataviews APIs
-description: Manage CJA data views through APIs
----
+Use this endpoint to retrieve the data for a specific connection by using the connection ID.
 
-# Data views
+`GET https://cja.adobe.io/data/connections/{CONNECTION_ID}`
 
-* [GET multiple data views](#get-multiple-data-views): Retrieves a list of data views for a specified company
-* [GET a single data view](#get-a-single-data-view): Retrieves information for a single data view
-* [POST validate a data view](#post-validate-a-data-view): Checks a data view for correct fields before creating
-* [POST create a data view](#post-create-a-data-view): Creates a data view with a JSON payload for a specified company
-* [PUT copy a data view](#put-copy-a-data-view): Copies a data view
-* [PUT modify a data view](#put-modify-a-data-view): Modifies or updates a data view with new data
-* [DELETE a data view](#delete-a-data-view): Removes a data view
-
-## GET multiple data views
-
-Use this endpoint to retrieve multiple data views associated with a company.
-
-`GET https://cja.adobe.io/data/dataviews`
-
-### Request and response examples
+### Request and Response Examples
 
 Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
 
@@ -41,7 +25,179 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl 'https://cja.adobe.io/data/dataviews?expansion=name%2Cowner%2Corganization%2Cdescription&limit=3&page=0' \
+curl 'https://cja.adobe.io/data/connections/dg_b008fd39-2437-4d00-88fd-3924XXXXXXXX?expansion=name%2Cdescription%2Cowner%2CdataSets%2CexternalData%2CschemaInfo' \
+-H 'x-api-key: {API_KEY}' \
+-H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
+-H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'
+```
+
+#### Response
+
+```JSON
+{
+    "name": "Test Connection",
+    "description": "A test connection.",
+    "owner": {
+        "imsUserId": "{IMS_USER_ID}",
+        "ownerId": "{OWNER_ID}",
+        "name": null,
+        "type": "imsUser"
+    },
+    "dataSets": [
+        {
+            "dataSetId": "5f24c4f6ecffd1XXXXXXXXXX",
+            "domain": "catalog",
+            "type": "event",
+            "timestampId": "timestamp",
+            "visitorId": "_exampleorg.team.id",
+            "identityNamespace": "teamid",
+            "usePrimaryIdNamespace": false,
+            "identityMap": false,
+            "name": "Test Dataset",
+            "schemaInfo": {
+                "schemaId": "https://ns.adobe.com/exampleorg/schemas/105f3200745a921d8bee745227760b0cd8c305XXXXXXXXXX",
+                "schemaName": "Example Schema"
+            },
+            "streaming": true
+        }
+    ],
+    "externalData": {
+        "externalId": "b008fd39-2437-4d00-88fd-3924XXXXXXXX"
+    },
+    "idWithoutPrefix": "b008fd39-2437-4d00-88fd-3924XXXXXXXX",
+    "id": "dg_b008fd39-2437-4d00-88fd-3924XXXXXXXX"
+}
+```
+
+#### Request Example Details
+
+The example above requests the following:
+
+* The information about the connection with the ID `dg_b008fd39-2437-4d00-88fd-3924XXXXXXXX`.
+* The `dataSets` associated with the connection.
+* The `schemaInfo` associated with the data set.
+
+#### Response Example Details
+
+The example response above shows the following:
+
+* The `dataSetId` used by the connection is `5f24c4f6ecffd1XXXXXXXXXX`.
+* The `type` of data set used is `event`.
+* The name of the schema used by the data set is `Example Schema`.
+* The connection `id` is `dg_b008fd39-2437-4d00-88fd-3924XXXXXXXX`.
+
+### Request Parameters
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| `connectionId` | required | string | The connection ID to lookup |
+| `expansion` |  | string | Comma-delimited list of additional fields to include in the response. Includes the enums: `name`, `description`, `owner`, `isDeleted`, `isDisabled`, `dataSets`, `createdDate`, `modified`, `caseSensitive`, `organization`, `components`, `numDailyEvents`, `externalData`, `backfillEnabled`, `granularBackfills`, `granularStreaming`, `backfillsSummaryConnection`, `backfillsSummaryDataSets`, `dataSetLastIngested`, `sandboxName`, `sandboxId`, `fieldsId`, `floatPrecision`, `dataRetentionMonths`, `validationErrors`, `resolveIdentityNamespace`, `stitchedDataSets`, `ownerFullName`, `schemaInfo`, `tags`. |
+| `locale` |  | string | A specified locale |
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `name` | string | The connection name |
+| `description` | string | The description of the connection |
+| `owner` | container | The details of the owner of the connection. Contains the `imsUserId`, `ownerId`, `name`, and `type` parameters. |
+| `imsUserId` | string | The IMS user ID of the owner |
+| `ownerId` | string | The ID of the owner |
+| `name` | string | The name of the owner |
+| `type` | string | The type of user that owns the connection |
+| `dataSets` | container | The information related to the data sets. Contains the `dataSetId`, `domain`, `type`, `timestampId`, `visitorId`, `lookupKeyField`, `lookupParentFields`, `lookupParentDataSetId`, `lookupParentDataSetType`, `identityNamespace`, `usePrimaryIdNamespace`, `identityMap`, `name`, `schemaInfo`, `streaming`, `backfillSummary`, `lastIngestedTime`, `streamingEnabledAt`, `identityNamespaceCol`, and `dataSourceType` parameters. |
+| `dataSetId` | string | The data set ID |
+| `domain` | string | The domain of the data set |
+| `type` | string | The type of data set |
+| `timestampId` | string | The ID used for the timestamp |
+| `visitorId` | string | The visitor ID |
+| `lookupKeyField` | string | The key field used by a lookup data set. This field only applies to a lookup data set. |
+| `lookupParentFields` | string | The parent fields used by a lookup data set. This field only applies to a lookup data set. |
+| `lookupParentDataSetId` | string | The parent data set ID used by a lookup data set. This field only applies to a lookup data set. |
+| `lookupParentDataSetType` | string | The type of parent data set used by a lookup data set. This field only applies to a lookup data set. |
+| `identityNamespace` | string | The namespace used by the connection. Please reference the [Create a Connection](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-connections/create-connection.html) documentation for more information regarding Namespaces and Identity Map. |
+| `usePrimaryIdNamespace` | boolean | Whether the primary ID namespace is used |
+| `identityMap` | boolean | Whether the identity map is used |
+| `name` | string | The name of the data set |
+| `schemaInfo` | container | The information of the given schema. Contains the `schemaId`, `schemaName`, and `schemaRef` parameters. |
+| `schemaId` | string | The schema ID |
+| `schemaName` | string | The schema name |
+| `schemaRef` | container | Contains the `id`, and `contentType` parameters. |
+| `id` | string | The ID |
+| `contentType` | string | The type of content |
+| `backfills` | container | Backfills that have been performed with the data. Contains the `id`, `dataSetId`, `status`, `startDate`, `endDate`, `createdDate`, and `allData` parameters. |
+| `id` | string | The ID of the backfill |
+| `dataSetId` | string | The data set ID |
+| `status` | string | The status of the backfill |
+| `startDate` | string | The starting date of the backfilled data |
+| `endDate` | string | The ending date of the backfilled data |
+| `createdDate` | string | The date the backfill was created |
+| `allData` | boolean | Whether all data is displayed |
+| `streaming` | boolean | Whether streaming is enabled |
+| `backfillSummary` | container | A summary of all attempted backfills. Contains the `total`, `failed`, `inProgress`, `completed`, and `invalid` parameters. |
+| `total` | integer | The number of backfills attempted |
+| `failed` | integer | The number of backfills that failed |
+| `inProgress` | integer | The number of backfills in progress |
+| `completed` | integer | The number of backfills completed |
+| `invalid` | boolean | The number of invalid backfills |
+| `lastIngestedTime` | string |  |
+| `streamingEnabledAt` | string |  |
+| `identityNamespaceCol` | string |  |
+| `dataSourceType` | container | Information about the data source type. Contains the `id`, `type`, and `description` parameters. |
+| `id` | string | The ID of the data source |
+| `type` | string | The type of the data source |
+| `description` | string | The description of the data source |
+| `identityNamespaceData` | container | Contains the `dataSetId`, `domain`, `identityNamespace`, `usePrimaryIdNamespace`, `identityMap`, and `identityNamespaceCol` parameters. |
+| `dataSetId` | string | The data set ID |
+| `domain` | string |  |
+| `identityNamespaceCol` | string |  |
+| `modifiedDate` | string | The date when the connection was last modified |
+| `createdDate` | string | The date the connection was created |
+| `organization` | string | The org ID the connection belongs to |
+| `modifiedBy` | string | The user ID of the person who last modified the connection |
+| `modifiedByFullName` | string | The name of the person who last modified the connection |
+| `caseSensitive` | boolean | Whether the connection is case sensitive |
+| `numDailyEvents` | integer | The number of daily events associated with the connection |
+| `externalData` | container | External data associated with the connection. Contains the `externalId`, and `externalParentId` parameters. |
+| `externalId` | string | The external ID of the connection |
+| `externalParentId` | string | The external ID of the connection |
+| `backfillEnabled` | boolean | Whether backfill is enabled |
+| `sandboxId` | string | The sandbox ID |
+| `sandboxName` | string | The sandbox name |
+| `fieldsId` | string | The fields ID |
+| `floatPrecision` | integer | The float precision |
+| `dataRetentionMonths` | integer | For how many months data is retained prior to being removed |
+| `connectionValidationErrors` | container | Any errors associated with the connection validation. Contains the `errorCode`, `dataSetId`, `dataSetName`, `disallowedField`, and `missingField` parameters. |
+| `errorCode` | string | A given error code |
+| `dataSetId` | string | The data set ID |
+| `dataSetName` | string | The data set name |
+| `disallowedField` | string | A field that is not allowed |
+| `missingField` | string | A field that is missing |
+| `backfillSummary` | container | A summary of all attempted backfills. Contains the `total`, `failed`, `inProgress`, `completed`, and `invalid` parameters. |
+| `total` | integer | The number of backfills attempted |
+| `failed` | integer | The number of backfills that failed |
+| `inProgress` | integer | The number of backfills in progress |
+| `completed` | integer | The number of backfills completed |
+| `invalid` | boolean | The number of invalid backfills |
+| `idWithoutPrefix` | string | The ID of the connection without the `dg_` prefix |
+| `id` | string | The connection ID |
+
+## GET all connections
+
+Use this endpoint to retrieve all of the connections associated with an organization.
+
+`GET https://cja.adobe.io/data/connections`
+
+### Request and Response Examples
+
+Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
+
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+
+#### Request
+
+```sh
+curl 'https://cja.adobe.io/data/connections?expansion=name%2Cdescription%2Cowner%2CdataSets&limit=2&sortDirection=DESC' \
 -H 'x-api-key: {API_KEY}' \
 -H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
 -H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'
@@ -53,755 +209,196 @@ curl 'https://cja.adobe.io/data/dataviews?expansion=name%2Cowner%2Corganization%
 {
     "content": [
         {
-            "name": "Example 1 Data View",
-            "description": "Campaign list 1",
+            "name": "Test Connection",
+            "description": "A test connection.",
             "owner": {
                 "imsUserId": "{IMS_USER_ID}",
                 "ownerId": "{OWNER_ID}",
-                "name": "Example name 1",
+                "name": null,
                 "type": "imsUser"
             },
-            "organization": "{IMS_ORG_ID}",
-            "systemUserOwned": false,
-            "id": "dv_1de9ac146e674b139222222"
+            "dataSets": [
+                {
+                    "dataSetId": "5f24c4f6ecffd1XXXXXXXXXX",
+                    "domain": "catalog",
+                    "type": "event",
+                    "timestampId": "timestamp",
+                    "visitorId": "_exampleorg.team.id",
+                    "identityNamespace": "teamid",
+                    "usePrimaryIdNamespace": false,
+                    "identityMap": false,
+                    "name": "Test Dataset",
+                    "streaming": true
+                }
+            ],
+            "idWithoutPrefix": "b008fd39-2437-4d00-88fd-3924XXXXXXXX",
+            "id": "dg_b008fd39-2437-4d00-88fd-3924XXXXXXXX"
         },
         {
-            "name": "Example 2 Data View",
-            "description": "Campaign list 2",
+            "name": "test123",
+            "description": "",
             "owner": {
                 "imsUserId": "{IMS_USER_ID}",
                 "ownerId": "{OWNER_ID}",
-                "name": "Example name 2",
+                "name": null,
                 "type": "imsUser"
             },
-            "organization": "{IMS_ORG_ID}",
-            "systemUserOwned": false,
-            "id": "dv_2de9ac146e674b139222223"
-        },
-        {
-            "name": "Example 3 Data View",
-            "description": "Campaign list 3",
-            "owner": {
-                "imsUserId": "{IMS_USER_ID}",
-                "ownerId": "{OWNER_ID}",
-                "name": "Example name 3",
-                "type": "imsUser"
-            },
-            "organization": "{IMS_ORG_ID}",
-            "systemUserOwned": false,
-            "id": "dv_3de9ac146e674b139222224"
+            "dataSets": [
+                {
+                    "dataSetId": "5f1873caa73caaXXXXXXXXXX",
+                    "domain": "catalog",
+                    "type": "event",
+                    "timestampId": "timestamp",
+                    "visitorId": "_id",
+                    "identityNamespace": "Email",
+                    "usePrimaryIdNamespace": false,
+                    "identityMap": false,
+                    "name": "analytics_services_functional_testing_object_event",
+                    "streaming": true
+                }
+            ],
+            "idWithoutPrefix": "7110bb3e-76ce-4201-90bb-3e76XXXXXXXX",
+            "id": "dg_7110bb3e-76ce-4201-90bb-3e76XXXXXXXX"
         }
     ],
     "number": 0,
-    "totalElements": 1170,
-    "totalPages": 390,
-    "numberOfElements": 3,
+    "totalElements": 573,
+    "totalPages": 287,
+    "numberOfElements": 2,
     "firstPage": true,
     "lastPage": false,
     "sort": null,
-    "size": 3
+    "size": 2
 }
 ```
 
-### Request example details
+#### Request Example Details
 
 The example above requests the following:
 
-* The `expansion` parameter values for name, owner, organization, and description of the data views to be included in the response.
-* The `limit` of results per page to be `3`.
-* The first `page` to be shown is `0`.
+* The `dataSets` associated with the connection to be displayed.
+* The `limit` of connections per page is `2`.
+* The `sortDirection` to be `DESC`, or descending.
 
-### Response example details
+#### Response Example Details
 
 The example response above shows the following:
 
-* The first result, `Example 1 Data View` is the data view `name`; `Example name 1` is the `name` of the `owner`; and `Campaign list 1` is the `description`. These values are returned as requested expansion parameters.
-* The IDs for the data views are `dv_1de9ac146e674b139222222`, `dv_2de9ac146e674b139222223`, and `dv_3de9ac146e674b139222224`.
-* The `"number": 0` refers to the displayed page, or the first page.
-* The `numberOfElements` confirms our request that the results displayed per page is `3`.
-* The `totalElements` of all the data views for the specified organization is `1170`.
-* The `totalPages` of data views is `390` where the `numberOfElements` per page is `3`.
+* The `dataSetId` used by the connections are `5f24c4f6ecffd1XXXXXXXXXX` and `5f1873caa73caaXXXXXXXXXX`.
+* The `type` of data set used by both connections is `event`.
+* The names of the data sets are `Test Dataset` and `analytics_services_functional_testing_object_event`.
+* The `id` of the connections are `dg_b008fd39-2437-4d00-88fd-3924XXXXXXXX` and `dg_7110bb3e-76ce-4201-90bb-3e76XXXXXXXX`.
+* The total number of connections for the org, shown as `totalElements`, are `573`.
 
-### Request parameters
+### Request Parameters
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| `expansion` | optional | string | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
-| `parentDataGroupId` | optional | string | Filters data views by a single parent data group ID |
-| `externalIds` | optional | string | Comma-delimited list of external IDs that limit the response |
-| `externalParentIds` | optional | string | Comma-delimited list of external parent IDs that limit the response |
-| `dataViewIds` | optional | string | Comma-delimited list of data view IDs that limit the response |
-| `includeType` | optional | string | Include additional data views not owned by user |
-| `cached` | optional | boolean | Whether it returns cached results. The default value is `true`. |
-| `limit` | optional | integer | Number of results per page |
-| `page` | optional | integer | The page number to be displayed. The first page is `0`. |
-| `sortDirection` | optional | string | Sort direction (`ASC` or `DESC`) |
-| `sortProperty` | optional | string | Property to sort by. Only `modifiedDate` and `id` are currently allowed. The default value is `id`. |
+| `dataSetIds` |  | string | Comma-delimited list of dataSet IDs to limit the response with |
+| `connectionIds` |  | string | Comma-delimited list of connection IDs to limit the response with |
+| `sandboxId` |  | string | Filter by sandbox ID |
+| `sandboxName` |  | string | Filter by sandbox name |
+| `expansion` |  | string | Comma-delimited list of additional fields to include on response. Includes the enums: `name`, `description`, `owner`, `isDeleted`, `isDisabled`, `dataSets`, `createdDate`, `modified`, `caseSensitive`, `organization`, `components`, `numDailyEvents`, `externalData`, `backfillEnabled`, `granularBackfills`, `granularStreaming`, `backfillsSummaryConnection`, `backfillsSummaryDataSets`, `dataSetLastIngested`, `sandboxName`, `sandboxId`, `fieldsId`, `floatPrecision`, `dataRetentionMonths`, `validationErrors`, `resolveIdentityNamespace`, and `stitchedDataSets`. |
+| `includeType` |  | string | Additional connections to include |
+| `cached` |  | boolean | Whether cached results are returned |
+| `locale` |  | string | A specified locale |
+| `limit` |  | integer | Number of results returned per page |
+| `page` |  | integer | The page returned. The first page is `0`. |
+| `sortDirection` |  | string | Sorting direction. Includes the enums: `ASC`, `DESC`. |
+| `sortProperty` |  | string | The property to sort by. Included the enums: `modifiedDate`, and `id`. |
 
-### Response parameters
+### Response Parameters
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `content` | container | The data views requested. Contains the `name`, `description`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modifiedDate`, `createdDate`, `organization`, `modifiedBy`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, `containerNames`, and `id` parameters. |
-| `name` | string | The name of a data view |
-| `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId` and `name` parameters. |
-| `imsUserId` | string | The IMS user ID of the owner of a data view |
-| `name` | string | The name of the owner of a data view |
-| `isDeleted` | boolean | Whether the data view is deleted |
-| `parentDataGroupId` | string | Filters data views by a single parent data group ID |
-| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
-| `timezoneDesignator` | string | The time zone used by the data view |
-| `modifiedDate` | string | The date the data view was last modified |
-| `createdDate` | string | The date the data view was created |
-| `organization` | string | The organization the data view belongs to |
-| `modifiedBy` | string | Who modified the data view |
-| `curationEnabled` | boolean | Whether the data view is enabled for curation  |
-| `recentRecordedAccess` | string | The most recent recorded access of the data view |
-| `sessionDefinition` | conatiner | The parameters that define a session. Contains the `numPeriods`, `granularity`, `func`, and `events` parameters. |
-| `numPeriods` | integer | The number of time periods |
-| `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS` |
-| `externalData` | container | The IDs of external entities linked to the data view. Contains the `externalParentId`, and `externalId` parameters.|
-| `externalId` | string | The external ID |
-| `externalParentId` | string | The ID of the parent data group used by the data view |
-| `containerNames` | container | Optional names to replace the default container names. Contains the `event`, `session`, and `people` parameters. |
-| `event` | string | The name of the event container |
-| `session` | string | The name of the session container |
-| `people` | string | The name of the people container |
-| `id` | string | The ID of the given data view |
-| `pageable` | container | Contains the `sort`, `paged`, `unpaged`, `pageNumber`, `pageSize`, and `offset` parameters |
-| `sort` | container | Contains the `sorted`, `unsorted`, and `empty` parameters |
-| `sorted` | boolean | Whether the data is sorted |
-| `unsorted` | boolean | Whether the data is unsorted |
-| `empty` | boolean | Whether the container is empty |
-| `paged` | boolean | Whether the results are paged |
-| `unpaged` | boolean | Whether the results are unpaged |
-| `pageNumber` | integer | The page number for the result |
-| `pageSize` | integer | The size of the page |
-| `offset` | integer | Excludes from the response the specified number of items |
-| `totalElements` | integer | The number of data sets belonging to the organization |
-| `totalPages` | integer | The number of pages able to be displayed with the chosen filters |
-| `lastPage` | boolean | Whether the shown page is the last page of data sets |
-| `firstPage` | boolean | Whether the shown page is the first page of data sets |
-| `numberOfElements` | integer | The number of data sets displayed per page |
-| `size` | integer | The number of data sets displayed per page |
-| `number` | integer | The page number being displayed. The first page is `0`. |
-
-## GET a single data view
-
-Use this endpoint to retrieve data associated with a specific data view.
-
-`GET https://cja.adobe.io/data/dataviews/{DATA_VIEW_ID}`
-
-### Request and response examples
-
-Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
-
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
-
-#### Request
-
-```sh
-curl -L 'https://cja.adobe.io/data/dataviews/dv_150a049f5d02785bacxxxxxx?expansion=name%2Cowner%2Cdescription%2CparentDataGroupId%2CtimezoneDesignator%2CexternalData' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'
-```
-
-#### Response
-
-```JSON
-{
-    "name": "Example Data View 1",
-    "description": "Example Data View",
-    "owner": {
-        "imsUserId": "{IMS_USER_ID}",
-        "ownerId": "{OWNER_ID}",
-        "name": "Example name 1",
-        "type": "imsUser"
-    },
-    "parentDataGroupId": "dg_c590c1e0-0cb0-11ea-a9a5-19370exxxxxx",
-    "timezoneDesignator": "US/Mountain",
-    "externalData": {
-        "externalParentId": "c590c1e0-0cb0-11ea-a9a5-19370exxxxxx"
-    },
-    "id": "dv_150a049f5d02785bacxxxxxx"
-}
-```
-
-### Request example details
-
-The example above requests the `expansion` parameter values for `name`, `owner`, `description`, `parentDataGroupId`, `timezoneDesignator`, and `externalData` for data view `dv_150a049f5d02785bacxxxxxx`.
-
-### Response example details
-
-The example response above shows the following for data view `dv_150a049f5d02785bacxxxxxx`:
-
-* `Example Data View 1` as the `name`.
-* `Example Data View` as the `description`.
-* `Example name 1` as the `name` for the `owner`.
-* `dg_c590c1e0-0cb0-11ea-a9a5-19370exxxxxx` as the `parentDataGroupId`.
-* `US/Mountain` as the `timezoneDesignator`.
-* `c590c1e0-0cb0-11ea-a9a5-19370exxxxxx` as the`externalData`.
-
-### Request parameters
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| `dataViewId` | required | string | The Data View ID to lookup |
-| `expansion` |  | array of strings | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
-
-### Response parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `name` | string | The name of the data view |
-| `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | string | The IMS user ID of the owner of a data view |
-| `name` | string | The name of the owner of a data view |
-| `isDeleted` | boolean | If the data view is deleted |
-| `parentDataGroupId` | string | The data group ID associated with the data view |
-| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
-| `timezoneDesignator` | string | The time zone used by the data view |
-| `modifiedDate` | string | The date the data view was last modified |
-| `createdDate` | string | The date the data view was created |
-| `organization` | string | The organization the data view belongs to |
-| `modifiedBy` | string | Who last modified the data view |
-| `curationEnabled` | boolean | Whether the data view is enabled for curation |
-| `recentRecordedAccess` | string | The most recent recorded access of the data view |
-| `sessionDefinition` | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | integer | The number of time periods |
-| `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `externalData` | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` | string | The external ID |
-| `externalParentId` | string | The ID of the parent data group used by the data view |
-| `containerNames` | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | string | The name of the event container |
-| `session` | string | The name of the session container |
-| `people` | string | The name of the people container |
-| `id` | string | The ID of the data view |
-
-## POST Validate a data view
-
-Use this endpoint to validate a data view structure before using other POST or PUT methods. You can use this as a check to make sure your current data structure is valid before it is final.   
-
-`POST https://cja.adobe.io/data/dataviews/validate`
-
-### Request and response examples
-
-Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
-
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
-
-#### Request
-
-```sh
-curl -L 'https://cja.adobe.io/data/dataviews/validate' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
--H 'Content-Type: application/json' \
---data-raw '{
-    "name": "testView",
-    "description": "A Test Data View",
-    "owner": {
-        "imsUserId": "{IMS_USER_ID}",
-        "ownerId": "{OWNER_ID}",
-        "name": "null null",
-        "type": "imsUser"
-    },
-    "isDeleted": false,
-    "parentDataGroupId": "{PARENT_DATA_GROUP_ID}",
-    "organization": "{IMS_ORG_ID}",
-    "modifiedBy": "{IMS_USER_ID}",
-    "sessionDefinition": [
-        {
-            "numPeriods": 15,
-            "granularity": "minute",
-            "func": "inactivity",
-            "events": [
-                "string"
-            ]
-        }
-    ],
-    "externalData": {
-        "externalParentId": "{EXTERNAL_PARENT_ID}"
-    }
-}'
-```
-
-#### Response
-
-```JSON
-{
-    "valid": false,
-    "message": "The following fields are required: [timezoneDesignator] "
-}
-```
-
-### Request example details
-
-The example above requests a validation for the data structure shown in the body of the request. No data view ID is supplied.
-
-### Response example details
-
-The example above shows a `false` response for an invalid data structure. The message includes the missing field `timeZoneDesignator` required for a valid structure. If a structure is valid, it returns the following: 
-```
-{
-    "valid": true,
-}
-```
-### Request parameters
-
-The request parameters are dependent upon the structure supplied for validation. The following table shows the parameters shown in the example data structure.
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| `name` | optional | string | The name of the data view |
-| `description` | optional | string | The description of a data view |
-| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
-| `name` | optional | string | The name of the owner of a data view |
-| `isDeleted` | optional | boolean | If the data view is deleted |
-| `parentDataGroupId` | optional | string | The data group ID associated with the data view |
-| `currentTimezoneOffset` | optional | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
-| `timezoneDesignator` | optional | string | The time zone used by the data view |
-| `modifiedDate` | optional | string | The date the data view was last modified |
-| `createdDate` | optional | string | The date the data view was created |
-| `organization` | optional | string | The organization the data view belongs to |
-| `modifiedBy` |optional | string | Who last modified the data view |
-| `curationEnabled` | optional | boolean | Whether curation is enabled for the data view  |
-| `recentRecordedAccess` | optional | string | The most recent recorded access of the data view |
-| `sessionDefinition` | optional | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | optional | integer | The number of time periods |
-| `granularity` | optional | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | optional | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `externalData` | optional | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` | optional | string | The external ID |
-| `externalParentId` | optional | string | The ID of the parent data group used by the data view |
-| `containerNames` | optional | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | optional | string | The name of the event container |
-| `session` | optional | string | The name of the session container |
-| `people` | optional | string | The name of the people container |
-| `id` | optional | string | The ID of the data view |
-
-
-### Response parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `valid` | boolean | If the data view is valid |
-| `message` | string | Any issues with the provided data view |
-| `validator_version` | string | The validator version |
-
-## POST create a data view
-
-Use this endpoint to create a data view using a JSON payload.
-
-`POST https://cja.adobe.io/data/dataviews`
-
-### Request and response examples
-
-Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
-
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
-
-#### Request
-
-```sh
-curl -L 'https://cja.adobe.io/data/dataviews?expansion=name%2Cdescription%2CparentDataGroupId%2CcurrentTimezoneOffset%2CtimezoneDesignator%2Corganization%2CsessionDefinition%2CexternalData' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
--H 'Content-Type: application/json' \
---data-raw '{
-  "name": "testView",
-  "description": "Test Data View",
-  "parentDataGroupId": "dg_xxxxxxx-0cb0-11ea-a9a5-xxxxxxxxxxx",
-  "timezoneDesignator": "US/Mountain",
-  "sessionDefinition": [
-    {
-      "numPeriods": 15,
-      "granularity": "MINUTE",
-      "func": "INACTIVITY",
-      "events": [
-        "string"
-      ]
-    }
-  ],
-  "organization": "{IMS_ORG_ID}",
-  "externalData": {
-    "externalParentId": "xxxxxxx-0cb0-11ea-a9a5-xxxxxxxxxxx"
-  }
-}'
-```
-
-#### Response
-
-```JSON
-{
-    "name": "testView",
-    "description": "Test Data View",
-    "parentDataGroupId": "dg_xxxxxxx-0cb0-11ea-a9a5-xxxxxxxxxxx",
-    "currentTimezoneOffset": -6.0,
-    "timezoneDesignator": "US/Mountain",
-    "organization": "{IMS_ORG_ID}",
-    "sessionDefinition": [
-        {
-            "numPeriods": 15,
-            "granularity": "minute",
-            "func": "inactivity",
-            "events": [
-                "string"
-            ]
-        }
-    ],
-    "externalData": {
-        "externalParentId": "{EXTERNAL_PARENT_ID}"
-    },
-    "id": "dv_650a049f5d02785bacxxxxxx"
-}
-```
-
-### Request example details
-
-The example above requests the following:
-
-* Specifies the `name` of the data view as `testView`.
-* The `parentDataGroupId` is specified as `dg_xxxxxxx-0cb0-11ea-a9a5-xxxxxxxxxxx`.
-* Specifies the `sessionDefinition` to consist of `15` one-minute periods of `inactivity` before ending.
-
-### Response example details
-
-The response example above shows the following:
-
-* The `id` of the created data view is `dv_650a049f5d02785bacxxxxxx`.
-* A confirmation of the `sessionDefinition` parameter values, as described in the request details.
-
-### Request parameters
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| `expansion` | optional | string | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
-
-#### Request body
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| `name` | optional | string | The name of the data view |
-| `description` | optional | string | The description of a data view |
-| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
-| `name` | optional | string | The name of the owner of a data view |
-| `isDeleted` | optional | boolean | If the data view is deleted |
-| `parentDataGroupId` | optional | string | The data group ID associated with the data view |
-| `currentTimezoneOffset` | optional | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
-| `timezoneDesignator` | optional | string | The timezone used by the data view |
-| `modifiedDate` | optional | string | The date the data view was last modified |
-| `createdDate` | optional | string | The date the data view was created |
-| `organization` | optional | string | The organization the data view belongs to |
-| `modifiedBy` | optional | string | Who last modified the data view |
-| `curationEnabled` | optional | boolean | Whether the curation is enabled for the data view |
-| `recentRecordedAccess` | optional | string | The most recent recorded access of the data view |
-| `sessionDefinition` | optional | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | optional | integer | The number of time periods |
-| `granularity` | optional | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | optional | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `externalData` | optional | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` | optional | string | The external ID |
-| `externalParentId` | optional | string | The ID of the parent data group used by the data view |
-| `containerNames` | optional | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | optional | string | The name of the event container |
-| `session` | optional | string | The name of the session container |
-| `people` | optional | string | The name of the people container |
-| `id` | optional | string | The ID of the data view |
-
-### Response parameters
-
-The response parameters are the same as the request parameters. See the preceding table for descriptions.
-
-## PUT Copy a data view
-
-Use this endpoint to copy a data view.
-
-`PUT https://cja.adobe.io/data/dataviews/copy/{DATA_VIEW_ID}`
-
-### Request and response examples
-
-Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
-
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
-
-#### Request
-
-```sh
-curl -X PUT 'https://cja.adobe.io/data/dataviews/copy/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cdescription%2Cowner%2CcreatedDate' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
-```
-
-#### Response
-
-```JSON
-{
-    "name": "testView (Copy)",
-    "description": "A test data view",
-    "owner": {
-        "imsUserId": "Copy_requester@example.com",
-        "ownerId": "Copy_requester@example.com",
-        "name": "null null",
-        "type": "imsUser"
-    },
-    "createdDate": "20XX-09-19T20:20:11Z",
-    "componentType": "dataView",
-    "id": "dv_111b123g4e63481redxxxxxx"
-}
-```
-
-### Request example details
-
-The example above shows the following information:
-
-* A request to copy the data view `dv_650a049f5d02785bacxxxxxx`.
-* A request to return the `name`, `description`, `owner`, and `createdDate` of the successful copy.
-
-### Response example details
-
-The example response above shows the following information:
-
-* The name of the new copy is the same as the original with `(Copy)` added to it.
-* The `description` is the same as the original.
-* The `imsUserId` and `ownerId` reflect the information of the user requesting the copy. The original `owner` information does not persist to the copy.
-* The new data view ID `dv_111b123g4e63481redxxxxxx` is provided for the copy. 
-
-### Request parameters
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| `dataViewId` | required | string | The Data View ID to copy |
-| `expansion` |  | array of strings | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
-
-### Response parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `name` | string | The name of the data view |
-| `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | string | The IMS user ID of the owner of a data view |
-| `name` | string | The name of the owner of a data view |
-| `isDeleted` | boolean | If the data view is deleted |
-| `parentDataGroupId` | string | The data group ID associated with the data view |
-| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
-| `timezoneDesignator` | string | The time zone used by the data view |
-| `modifiedDate` | string | The date the data view was last modified |
-| `createdDate` | string | The date the data view was created |
-| `organization` | string | The organization the data view belongs to |
-| `modifiedBy` | string | Who last modified the data view |
-| `curationEnabled` |  boolean | Whether curation is enabled for the data view |
-| `recentRecordedAccess` | string | The most recent recorded access for the data view |
-| `sessionDefinition` | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | integer | The number of time periods |
-| `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `externalData` | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` | string | The external ID |
-| `externalParentId` | string | The ID of the parent data group used by the data view |
-| `containerNames` | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | string | The name of the event container |
-| `session` | string | The name of the session container |
-| `people` | string | The name of the people container |
-| `id` | string | The ID of the data view |
-
-## PUT Modify a data view
-
-Use this endpoint to modify a data view by sending a JSON structure containing the values to be changed.
-
-`PUT https://cja.adobe.io/data/dataviews/{DATA_VIEW_ID}`
-
-### Request and response examples
-
-In the following examples, the `dv_650a049f5d02785bacxxxxxx` data view created above is modified so that the `numPeriods` in `sessionDefinition` is set to `30` instead of `15`.
-
-Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
-
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
-
-#### Request
-
-```sh
-curl PUT 'https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cmodified' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
--H 'Content-Type: application/json' \
--d '{
-  "sessionDefinition": [
-    {
-      "numPeriods": 30,
-      "granularity": "MINUTE",
-      "func": "INACTIVITY",
-      "events": [
-        "string"
-      ]
-    }
-  ]
-}'
-```
-
-#### Response
-
-```JSON
-{
-    "name": "testView",
-    "sessionDefinition": [
-        {
-            "numPeriods": 30,
-            "granularity": "minute",
-            "func": "inactivity",
-            "events": [
-                "string"
-            ]
-        }
-    ],
-    "id": "dv_650a049f5d02785bacxxxxxx",
-    "modifiedDate": "2023-09-19T20:32:20Z",
-    "modifiedBy": "{IMS_USER_ID}"
-}
-```
-
-### Request example details
-
-The example request above modifies the `numPerioPeriods` in the data view `dv_650a049f5d02785bacxxxxxx` to `30` minute periods of `inactivity` before ending.
-
-### Response example details
-
-The example response above shows the following:
-
-* The updated `numPeriods` value of `30` in the `sessionDefintion` for the data view.
-* The `name` of the data view and the modification details, as specified in the request.
-
-### Request parameters
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| `dataViewId` | required | string | The Data View ID to update |
-| `expansion` | optional | string | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
-| `name` | optional | string | The name of the data view |
-| `description` | optional | string | The description of a data view |
-| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
-| `name` | optional | string | The name of the owner of a data view |
-| `isDeleted` | optional | boolean | If the data view is deleted |
-| `parentDataGroupId` | optional | string | The data group ID associated with the data view |
-| `currentTimezoneOffset` | optional | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
-| `timezoneDesignator` | optional | string | The time zone used by the data view |
-| `modifiedDate` | optional | string | The date the data view was last modified |
-| `createdDate` | optional | string | The date the data view was created |
-| `organization` | optional | string | The organization the data view belongs to |
-| `modifiedBy` | optional | string | Who last modified the data view |
-| `curationEnabled` | optional | boolean | Whether curation is enabled for the data view |
-| `recentRecordedAccess` | optional | string | The most recent recorded access for the data view |
-| `sessionDefinition` | optional | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | optional | integer | The number of time periods |
-| `granularity` | optional | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | optional | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `events` | optional | array of strings |  |
-| `externalData` | optional | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` | optional | string | The external ID |
-| `externalParentId` | optional | string | The ID of the parent data group used by the data view |
-| `containerNames` | optional | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | optional | string | The name of the event container |
-| `session` | optional | string | The name of the session container |
-| `people` | optional | string | The name of the people container |
-| `id` | optional | string | The ID of the data view |
-
-### Response parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `name` | string | The name of the data view |
-| `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
-| `imsUserId` | string | The IMS user ID of the owner of a data view |
-| `name` | string | The name of the owner of a data view |
-| `isDeleted` | boolean | If the data view is deleted |
-| `parentDataGroupId` | string | The data group ID associated with the data view |
-| `currentTimezoneOffset` | integer | The UTC time offset, expressed as the number of hours and minutes less than or more than zero |
-| `timezoneDesignator` | string | The time zone used by the data view |
-| `modifiedDate` | string | The date the data view was last modified |
-| `createdDate` | string | The date the data view was created |
-| `organization` | string | The organization the data view belongs to |
-| `modifiedBy` | string | Who last modified the data view |
-| `curationEnabled` | boolean | Whether curation is enabled for the data view |
-| `recentRecordedAccess` | string | The most recent recorded access for the data view |
-| `sessionDefinition` | container | Contains the `numPeriods`, `granularity`, `func`, and `events` parameters |
-| `numPeriods` | integer | The number of time periods |
-| `granularity` | string | A defined period of time. Includes the following enums: `MINUTE`, `HOUR`, `DAY`, and `WEEK`. |
-| `func` | string | Includes the enums: `INACTIVITY`, and `BEFORE_EVENTS`. |
-| `events` | array of strings |  |
-| `externalData` | container | Contains the `externalId`, and `externalParentId` parameters |
-| `externalId` | string | The external ID |
-| `externalParentId` | string | The ID of the parent data group used by the data view |
-| `containerNames` | container | Contains the `event`, `session`, and `people` parameters |
-| `event` | string | The name of the event container |
-| `session` | string | The name of the session container |
-| `people` | string | The name of the people container |
-| `id` | string | The ID of the data view |
-
-## DELETE a data view
-
-Use this endpoint to remove a data view.
-
-`DELETE https://cja.adobe.io/data/dataviews/{DATA_VIEW_ID}`
-
-### Request and response examples
-
-Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
-
-<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
-
-#### Request
-
-```sh
-curl -X DELETE 'https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
-```
-
-#### Response
-
-```JSON
-{
-    "result": "success"
-}
-```
-
-### Request example details
-
-The example request above uses the DELETE method to remove the data view `dv_650a049f5d02785bacxxxxxx`.
-
-### Response example details
-
-The example response above shows the DELETE was a `success`.
-
-### Request parameters
-
-| Name | Required | Type | Description |
-| --- | --- | --- | --- |
-| `dataViewId` | required | string | The data view ID to delete |
-
-### Response parameters
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `result` | sting | The result of the delete request |
-| `message` | string | A message associated with the result |
-
-## GET a single connection
-
+| `name` | string | The connection name |
+| `description` | string | The description of the connection |
+| `owner` | container | The details of the owner of the connection. Contains the `imsUserId`, `ownerId`, `name`, and `type` parameters. |
+| `imsUserId` | string | The IMS user ID of the owner |
+| `ownerId` | string | The ID of the owner |
+| `name` | string | The name of the owner |
+| `type` | string | The type of user that owns the connection |
+| `dataSets` | container | The information related to the data sets. Contains the `dataSetId`, `domain`, `type`, `timestampId`, `visitorId`, `lookupKeyField`, `lookupParentFields`, `lookupParentDataSetId`, `lookupParentDataSetType`, `identityNamespace`, `usePrimaryIdNamespace`, `identityMap`, `name`, `schemaInfo`, `streaming`, `backfillSummary`, `lastIngestedTime`, `streamingEnabledAt`, `identityNamespaceCol`, and `dataSourceType` parameters. |
+| `dataSetId` | string | The data set ID |
+| `domain` | string | The domain of the data set |
+| `type` | string | The type of data set |
+| `timestampId` | string | The ID used for the timestamp |
+| `visitorId` | string | The visitor ID |
+| `lookupKeyField` | string | The key field used by a lookup data set. This field only applies to a lookup data set. |
+| `lookupParentFields` | string | The parent fields used by a lookup data set. This field only applies to a lookup data set. |
+| `lookupParentDataSetId` | string | The parent data set ID used by a lookup data set. This field only applies to a lookup data set. |
+| `lookupParentDataSetType` | string | The type of parent data set used by a lookup data set. This field only applies to a lookup data set. |
+| `identityNamespace` | string | The namespace used by the connection. Please reference the [Create a Connection](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-connections/create-connection.html) documentation for more information regarding Namespaces and Identity Map. |
+| `usePrimaryIdNamespace` | boolean | Whether the primary ID namespace is used |
+| `identityMap` | boolean | Whether the identity map is used |
+| `name` | string | The name of the data set |
+| `schemaInfo` | container | The information of the given schema. Contains the `schemaId`, `schemaName`, and `schemaRef` parameters. |
+| `schemaId` | string | The schema ID |
+| `schemaName` | string | The schema name |
+| `schemaRef` | container | Contains the `id`, and `contentType` parameters. |
+| `id` | string | The ID |
+| `contentType` | string | The type of content |
+| `backfills` | container | Backfills that have been performed with the data. Contains the `id`, `dataSetId`, `status`, `startDate`, `endDate`, `createdDate`, and `allData` parameters. |
+| `id` | string | The ID of the backfill |
+| `dataSetId` | string | The data set ID |
+| `status` | string | The status of the backfill |
+| `startDate` | string | The starting date of the backfilled data |
+| `endDate` | string | The ending date of the backfilled data |
+| `createdDate` | string | The date the backfill was created |
+| `allData` | boolean | Whether all data is displayed |
+| `streaming` | boolean | Whether streaming is enabled |
+| `backfillSummary` | container | A summary of all attempted backfills. Contains the `total`, `failed`, `inProgress`, `completed`, and `invalid` parameters. |
+| `total` | integer | The number of backfills attempted |
+| `failed` | integer | The number of backfills that failed |
+| `inProgress` | integer | The number of backfills in progress |
+| `completed` | integer | The number of backfills completed |
+| `invalid` | boolean | The number of invalid backfills |
+| `lastIngestedTime` | string |  |
+| `streamingEnabledAt` | string |  |
+| `identityNamespaceCol` | string |  |
+| `dataSourceType` | container | Information about the data source type. Contains the `id`, `type`, and `description` parameters. |
+| `id` | string | The ID of the data source |
+| `type` | string | The type of the data source |
+| `description` | string | The description of the data source |
+| `identityNamespaceData` | container | Contains the `dataSetId`, `domain`, `identityNamespace`, `usePrimaryIdNamespace`, `identityMap`, and `identityNamespaceCol` parameters. |
+| `dataSetId` | string | The data set ID |
+| `domain` | string |  |
+| `identityNamespaceCol` | string |  |
+| `modifiedDate` | string | The date when the connection was last modified |
+| `createdDate` | string | The date the connection was created |
+| `organization` | string | The org ID the connection belongs to |
+| `modifiedBy` | string | The user ID of the person who last modified the connection |
+| `modifiedByFullName` | string | The name of the person who last modified the connection |
+| `caseSensitive` | boolean | Whether the connection is case sensitive |
+| `numDailyEvents` | integer | The number of daily events associated with the connection |
+| `externalData` | container | External data associated with the connection. Contains the `externalId`, and `externalParentId` parameters. |
+| `externalId` | string | The external ID of the connection |
+| `externalParentId` | string | The external ID of the connection |
+| `backfillEnabled` | boolean | Whether backfill is enabled |
+| `sandboxId` | string | The sandbox ID |
+| `sandboxName` | string | The sandbox name |
+| `fieldsId` | string | The fields ID |
+| `floatPrecision` | integer | The float precision |
+| `dataRetentionMonths` | integer | For how many months data is retained prior to being removed |
+| `connectionValidationErrors` | container | Any errors associated with the connection validation. Contains the `errorCode`, `dataSetId`, `dataSetName`, `disallowedField`, and `missingField` parameters. |
+| `errorCode` | string | A given error code |
+| `dataSetId` | string | The data set ID |
+| `dataSetName` | string | The data set name |
+| `disallowedField` | string | A field that is not allowed |
+| `missingField` | string | A field that is missing |
+| `backfillSummary` | container | A summary of all attempted backfills. Contains the `total`, `failed`, `inProgress`, `completed`, and `invalid` parameters. |
+| `total` | integer | The number of backfills attempted |
+| `failed` | integer | The number of backfills that failed |
+| `inProgress` | integer | The number of backfills in progress |
+| `completed` | integer | The number of backfills completed |
+| `invalid` | boolean | The number of invalid backfills |
+| `idWithoutPrefix` | string | The ID of the connection without the `dg_` prefix |
+| `id` | string | The connection ID |
+| `number` | integer | The page number returned |
+| `totalElements` | integer | The number of connections |
+| `totalPages` | integer | The number of pages to be displayed with the current settings |
+| `numberOfElements` | integer | The number of connections displayed per page |
+| `firstPage` | boolean | Whether the first page is displayed |
+| `lastPage` | boolean | Whether the last page is displayed |
+| `sort` |  | Whether a sort is applied |
+| `size` | integer | The number of connections displayed on the current page |
