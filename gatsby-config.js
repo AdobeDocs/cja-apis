@@ -108,6 +108,10 @@ module.exports = {
             ]
           },
           {
+            title: 'Connections',
+            path: '/endpoints/connections'
+          },
+          {
             title: 'Data views',
             path: '/endpoints/dataviews'
           },
