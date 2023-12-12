@@ -31,7 +31,7 @@ Retrieve, update, or create calculated metrics.
 
 <DiscoverBlock slots="link, text"/> 
 
-[Connections API](dataviews/index.md)
+[Connections API](connections/index.md)
 
 Retrieve connections information.
 
