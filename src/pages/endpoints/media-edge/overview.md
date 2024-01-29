@@ -39,7 +39,7 @@ The following table shows a possible Adobe API service for various media analyti
 
 The following graphic shows the data flows for the two API services:
 
-![Media analytics data flows](../assets/edge-api-dataflow.png)
+Media analytics data flows link
 
 ## Next steps
 
