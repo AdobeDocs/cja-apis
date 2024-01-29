@@ -139,12 +139,12 @@ module.exports = {
            pages: [
               {
                 title: 'Overview',
-                path: '/endpoints/media-edge/overview/'
-              },
+                path: '/endpoints/media-edge/index/'
+              }
               {
                 title: 'Getting started',
                 path: '/endpoints/media-edge/getting-started/'
-              },
+              }
               {
                 title: 'Trouble-shooting',
                 path: '/endpoints/media-edge/troubleshooting'
