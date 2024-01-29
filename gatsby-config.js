@@ -148,11 +148,11 @@ module.exports = {
               {
                 title: 'Trouble-shooting',
                 path: '/endpoints/media-edge/troubleshooting'
-              }
+              },
              {
                 title: 'Open API Specification',
                 path: '/endpoints/media-edge/swagger'
-              }
+              },
             ]
           },
           {
