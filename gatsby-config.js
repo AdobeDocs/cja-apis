@@ -140,11 +140,11 @@ module.exports = {
               {
                 title: 'Overview',
                 path: '/endpoints/media-edge/overview/'
-              },
+              }
               {
                 title: 'Getting started',
                 path: '/endpoints/media-edge/getting-started/'
-              },
+              }
               {
                 title: 'Trouble-shooting',
                 path: '/endpoints/media-edge/troubleshooting'
