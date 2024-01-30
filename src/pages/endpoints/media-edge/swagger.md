@@ -1,16 +1,13 @@
 ---
 solution: Analytics and CJA
 title: Media Edge Open API specification
-description: YAML Open API Specification for Media Edge, or "Swagger" refe
----
+description: YAML Open API Specification for Media Edge
 
 # Using the Open API Specification file for Media Edge APIs
 
 This document includes a YAML Open API Specification for Media Edge.
 
-+++ Select to view and copy Open API Specification
-
-```
+```yaml
 {
   "openapi": "3.0.1",
   "info": {
