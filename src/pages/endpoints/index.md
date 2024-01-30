@@ -28,7 +28,7 @@ Retrieve audit logs to understand how individuals in your organization use Custo
 
 Retrieve, update, or create calculated metrics.
 
-<DiscoverBlock slots="link, text"/> 
+<DiscoverBlock slots="link, text"/>
 
 [Connections API](connections/index.md)
 
