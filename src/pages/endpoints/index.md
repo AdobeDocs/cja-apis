@@ -10,7 +10,7 @@ description: Learn how to use the endpoints that the Customer Journey Analytics 
 
 Once you have followed the [Getting started](../getting-started/index.md) guide, you can send requests to any of the following endpoints:
 
-<DiscoverBlock slots="link, text"/> 
+<DiscoverBlock slots="link, text"/>
 
 [Annotations API](annotations/index.md)
 
@@ -22,7 +22,7 @@ Retrieve, update, or create annotations.
 
 Retrieve audit logs to understand how individuals in your organization use Customer Journey Analytics.
 
-<DiscoverBlock slots="link, text"/> 
+<DiscoverBlock slots="link, text"/>
 
 [Calculated metrics API](calculatedmetrics/index.md)
 
@@ -34,7 +34,7 @@ Retrieve, update, or create calculated metrics.
 
 Retrieve connections information.
 
-<DiscoverBlock slots="link, text"/> 
+<DiscoverBlock slots="link, text"/>
 
 [Data views API](dataviews/index.md)
 
