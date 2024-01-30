@@ -11,16 +11,15 @@ This guide provides trouble-shooting instructions for handling errors and for ob
 
 To help troubleshoot unsuccessful responses, errors are accompanied by a response body containing an error object. In this case, the response body contains problem details, as defined by [RFC 7807 Problem Details for HTTP APIs](https://datatracker.ietf.org/doc/html/rfc7807). To improve the API user experience, the problem details are descriptive (the details of the array keys are displayed using JsonPath to the missing or invalid field). They are also cumulative (all invalid fields will be reported in the same request).
 
-
 ## Validating session starts
 
-Most problems with Session Start requests result in a 207 Multi-Status response.
-The payload is similar to [Server API](../error-handling.md)'s non-fatal errors. All
+Most problems with Session start requests result in a 207 Multi-Status response.
+The payload is similar to a [Server API](https://experienceleague.adobe.com/docs/experience-platform/edge-network-server-api/error-handling.html) non-fatal error. All
 Media Analytics errors have the following type:  `https://ns.adobe.com/aep/errors/va-edge-0XXX-XXX`. The numbers displayed in the response correspond to the error status.
 
-The following example shows a response body for a Session Start request that both lacks a mandatory field and has an invalid one.
+The following example shows a response body for a Session start request that both lacks a mandatory field and has an invalid one.
 
-```
+```json
 {
     "requestId": "d4be4f91-a535-41e7-80c6-bdd031d3a365",
     "handle": [
@@ -65,7 +64,7 @@ For event requests, the Media Edge API service includes additional checks that a
 
 The following example shows an `eventType` mismatch with an `adBreakStart` payload sent to `ee/va/v1/chapterStart`:
 
-```
+```json
 {
     "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
     "status": 400,
@@ -79,7 +78,7 @@ The following example shows an `eventType` mismatch with an `adBreakStart` paylo
 
 The following example shows an additonal Media Edge API check finding a `chapterStart` call missing `chapterDetails` info:
 
-```
+```json
 {
     "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
     "status": 400,
@@ -110,7 +109,6 @@ The following table provides instruction for handling status response errors:
 | 502 Bad gateway | This error code Indicates that the server, while acting as a gateway, received an invalid response from upstream servers. This can happen due to network issues between servers. The temporary network issue can resolve itself, so retrying the request may resolve the issue. |
 | 503 Service unavailable | This error code indicates that the service is temporarily unavailable. This can happen during maintenance periods. Recipients of `503` errors can retry the request, but should also follow the **Retry-After** header instructions. |
 
-
 ## Queueing events when session responses are slow
 
 After starting a media tracking session, the media player may fire before the Session Start response returns (with the Session ID parameter) from the backend. If this occurs, your app must queue any tracking events that arrive between the Session start request and its response. When the Sessions response arrives, you should first process any queued events, then you can start processing live events.
@@ -119,9 +117,8 @@ For best results, check the Reference Player in your distribution for instructio
 
 The following example shows a method for processing events prior to receiving a Session ID:
 
-
-```
-// For event payload format, see "Request body" sections of "Session Start Request", "Event Requests" respectively.  *
+```js
+// For event payload format, see "Request body" sections of "Session start request", "Event requests" respectively.  *
  
 VideoPlayer.prototype._collectEvent = function(event) {
     var sessionID = event.events[0].xdm.mediaCollection.sessionID

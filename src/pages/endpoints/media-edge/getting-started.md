@@ -30,9 +30,9 @@ Each event has its own endpoint. All Media Edge API endpoints are POST methods, 
 
 This guide shows how to track the following events after starting the session:
 
-* [Buffer Start](#buffer-start-event-request)
-* [Play](#play-event-request)
-* [Session Complete](#session-complete-event-request)
+* Buffer start
+* Play
+* Session \complete
 
 ## Implementing the API {#implement-api}
 
@@ -285,4 +285,4 @@ The following table shows the possible response codes resulting from Media Edge 
 ## More help on this feature
 
 * [Media Edge Troubleshooting guide](troubleshooting.md)
-* [Media Edge API overview](overview.md)
+* [Media Edge API overview](index.md)
