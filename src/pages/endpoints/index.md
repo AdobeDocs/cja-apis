@@ -53,7 +53,7 @@ Retrieve dimensions information.
 
 Retrieve, update, or create filters.
 
-[Media edge API](media-edge/index.md)
+[Media Edge API](media-edge/index.md)
 
 Track media events within the framework of XDM.
 
