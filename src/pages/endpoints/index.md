@@ -55,7 +55,7 @@ Retrieve, update, or create filters.
 
 [Media edge API](media-edge/index.md)
 
-Track media events from the network edge and within the framework of XDM.
+Track media events within the framework of XDM.
 
 <DiscoverBlock slots="link, text"/>
 
