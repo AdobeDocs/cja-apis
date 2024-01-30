@@ -6,7 +6,6 @@ keywords:
 title: Endpoint guides
 description: Learn how to use the endpoints that the Customer Journey Analytics API offers.
 ---
-
 # Endpoint guides
 
 Once you have followed the [Getting started](../getting-started/index.md) guide, you can send requests to any of the following endpoints:
@@ -53,7 +52,7 @@ Retrieve dimensions information.
 
 Retrieve, update, or create filters.
 
-[Media edge API](media-edge/index.md)
+[Media Edge API](media-edge/index.md)
 
 Track media events within the framework of XDM.
 
