@@ -13,7 +13,6 @@ Media Edge APIs are built on the Adobe Experience Platform to provide media even
 
 * With [Adobe Journey Optimizer](https://experienceleague.adobe.com/docs/journey-optimizer/using/get-started/get-started.html), customers can optimize omnichannel campaigns and automate journeys with media consumption signals.
 
-
 ## Optimizing media tracking data flows
 
 Both [Media Collection APIs](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/streaming-media-apis/mc-api-overview.html#media-tracking-data-flows) and Media Edge APIs provide media tracking data as RESTful services. But using the Media Edge service has the following advantages:
@@ -33,13 +32,7 @@ The following table shows a possible Adobe API service for various media analyti
 | Adobe Analytics + Adobe Experience Platform solution | Media Edge |
 | Adobe Analytics only (already tracking) | Media Collection |
 
->[!NOTE]
->
-> The Media Collection API service for Analytics still receives XDM data, but is not optimized for it to the extent that Media Edge service is. Depending on the data sent from the Media Player, some Analytics-only data can also be routed through the Media Edge API service. 
-
-The following graphic shows the data flows for the two API services:
-
-Media analytics data flows link
+The Media Collection API service for Analytics still receives XDM data, but is not optimized for it to the extent that Media Edge service is. Depending on the data sent from the Media Player, some Analytics-only data can also be routed through the Media Edge API service. 
 
 ## Next steps
 
