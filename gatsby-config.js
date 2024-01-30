@@ -138,10 +138,6 @@ module.exports = {
             path: '/endpoints/media-edge/',
            pages: [
               {
-                title: 'Overview',
-                path: '/endpoints/media-edge/index/'
-              },
-              {
                 title: 'Getting started',
                 path: '/endpoints/media-edge/getting-started/'
               },
