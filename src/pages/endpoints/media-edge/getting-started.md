@@ -32,7 +32,7 @@ This guide shows how to track the following events after starting the session:
 
 * Buffer start
 * Play
-* Session \complete
+* Session complete
 
 ## Implementing the API {#implement-api}
 
@@ -46,7 +46,6 @@ Apart from minor differences in the model and paths called, the Media Edge API h
 ## Authorization {#authorization}
 
 Currently, Media Edge APIs do not require Authorization headers in their requests.
-
 
 ## Starting the session {#start-session}
 
@@ -199,7 +198,6 @@ In the example request above, the same `sessionId` that is returned in the previ
 The successful respone indicates a status of 200 and does not include any content.
 
 For more information on the Buffer Start endpoint parameters and examples, see the [Media Edge Swagger](swagger.md) file.
-
 
 ## Play event request {#play-event}
 
