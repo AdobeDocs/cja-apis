@@ -45,7 +45,6 @@ jobs:
       ################################
       # Run Linters against code base #
       ################################
-      - name: Lint Code Base
         #
         # Use full version number to avoid cases when a next
         # released version is buggy
