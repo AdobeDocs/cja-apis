@@ -14,8 +14,8 @@ To help troubleshoot unsuccessful responses, errors are accompanied by a respons
 
 ## Validating session starts
 
-Most problems with Session Start requests result in a 207 Multi-Status response.
-The payload is similar to [Server API](../error-handling.md)'s non-fatal errors. All
+Most problems with Session start requests result in a 207 Multi-Status response.
+The payload is similar to a [Server API](https://experienceleague.adobe.com/docs/experience-platform/edge-network-server-api/error-handling.html) non-fatal error. All
 Media Analytics errors have the following type:  `https://ns.adobe.com/aep/errors/va-edge-0XXX-XXX`. The numbers displayed in the response correspond to the error status.
 
 The following example shows a response body for a Session Start request that both lacks a mandatory field and has an invalid one.
