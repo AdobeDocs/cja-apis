@@ -2,6 +2,7 @@
 solution: Analytics and CJA
 title: Media Edge Open API specification
 description: YAML Open API Specification for Media Edge
+---
 
 # Using the Open API Specification file for Media Edge APIs
 
