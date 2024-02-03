@@ -1,14 +1,14 @@
 ---
 solution: Analytics and CJA
 title: Media Edge Open API specification
-description: YAML Open API Specification for Media Edge
+description: JSON Open API Specification for Media Edge
 ---
 
 # Using the Open API Specification file for Media Edge APIs
 
-This document includes a YAML Open API Specification for Media Edge.
+This document includes a JSON Open API Specification for Media Edge.
 
-```yaml
+```json
 {
   "openapi": "3.0.1",
   "info": {
