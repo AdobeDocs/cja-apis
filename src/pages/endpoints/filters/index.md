@@ -13,6 +13,10 @@ The Filters APIs allow you to retrieve, update, or create filters programmatical
 
 You can call the `/filters` endpoint to add, edit or delete filters.
 
+<InlineAlert variant="info" slots="text" />
+
+Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
+
 ## Retrieve a list of filters
 
 In CJA, you can navigate to **Components** > **Filters** and see a list of filters that you created or others have shared. This call is helpful to identify the ID's of desired filters.
