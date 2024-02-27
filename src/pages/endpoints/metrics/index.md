@@ -9,6 +9,10 @@ The CJA Metrics APIs allow you to retrieve metrics programmatically through Adob
 
 The endpoints described in this guide are routed through analytics.adobe.io. To use them, you will need to first create a client with access to Customer Journey Analytics APIs. For more information, refer to [Getting started with the Customer Journey Analytics API](https://developer.adobe.com/cja-apis/docs/getting-started/).
 
+<InlineAlert variant="info" slots="text" />
+
+Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
+
 This guide includes instructions for using the following endpoints:
 
 * GET multiple metrics: Retrieves a list of metrics for a specified dataview ID
@@ -31,7 +35,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -X GET "https://cja.adobe.io/data/dataviews/{DATAVIEW_ID}/metrics" \
     -H "x-api-key: {CLIENT_ID}" \
-    -H "x-gw-ims-org-id: {GLOBAL_COMPANY_ID}" \
+    -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
     -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
@@ -187,7 +191,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -X GET "https://cja.adobe.io/data/dataviews/dv_64c7cf/metrics/visits" \
     -H "x-api-key: {CLIENT_ID}" \
-    -H "x-gw-ims-org-id: {GLOBAL_COMPANY_ID}" \
+    -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
     -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
