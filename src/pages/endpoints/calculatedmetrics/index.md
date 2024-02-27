@@ -13,6 +13,10 @@ The Calculated metrics APIs allow you to retrieve, update, or create calculated 
 
 You can call the `/calculatedmetrics/` endpoint to add, edit or delete calculated metrics.
 
+<InlineAlert variant="info" slots="text" />
+
+Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
+
 ## Retrieve a list of calculated metrics
 
 In CJA, you can navigate to **Components** > **Calculated metrics** and see a list of calculated metrics that you created or others have shared. This call is helpful to identify the ID's of desired calculated metrics.
