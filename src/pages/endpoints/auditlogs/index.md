@@ -11,6 +11,10 @@ description: Get a list of audit logs using the API.
 
 The Audit Log API allows you to retrieve a list of audit log records using a `GET` or `POST` method through Adobe Developer. The `GET` endpoint provides a way to add filters through query string parameters. The `POST` endpoint offers greater flexibility to your search criteria.
 
+<InlineAlert variant="info" slots="text" />
+
+Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
+
 ## Get Audit Logs
 
 The `GET` endpoint is designed for use when few or no filters are needed. If filters are included by adding query string parameters, each query string parameter filters the list of audit logs using an 'AND' condition.
