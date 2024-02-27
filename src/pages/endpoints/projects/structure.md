@@ -10,6 +10,10 @@ description: Understanding a workspace project structure
 # Project Definition Data Structure
 The project definition data structure is used to communicate project rules to the API. This data structure defines the raw logic that is used to layout a workspace project. The project definition is a hierarchical data structure of workspaces, panels, and other properties that are used to define the project. Workspace in the CJA UI defines these rules and can be a useful tool for creating and understanding how projects are structured.
 
+<InlineAlert variant="info" slots="text" />
+
+Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
+
 ## Example
 
 The following example is a very simple report to show all visits noted under a specific report suite for the last month.  As you can see, even though it's a very simple report, the definition is very large.  It is suggested that creating Workspace Projects be done in the CJA UI, and the `/projects` endpoints be used to update or copy projects in simple ways.
