@@ -35,7 +35,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -X GET "https://cja.adobe.io/data/dataviews/{DATAVIEW_ID}/dimensions?includeType=shared" \
     -H "x-api-key: {CLIENT_ID}" \
-    -H "x-gw-ims-org-id: {GLOBAL_COMPANY_ID}" \
+    -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
     -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
@@ -174,7 +174,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 ```sh
 curl -X GET "https://cja.adobe.io/data/dataviews/62437d/dimesions/variables/daterangeyear" \
     -H "x-api-key: {CLIENTID}" \
-    -H "x-gw-ims-org-id: {IMSORG}" \
+    -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
     -H "Authorization: Bearer {ACCESSTOKEN}"
 ```
 
