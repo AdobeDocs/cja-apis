@@ -62,11 +62,11 @@ The following actions and playhead diagrams show the differences in time during 
 
 ### Playhead diagram
 
-![Playhead diagram](../../../images/bufferpause-playhead.png)
+![Playhead diagram](../../images/bufferpause-playhead.png)
 
 ### Actions diagram
 
-![Action diagram](../../../images/bufferpause-diagram.png)
+![Action diagram](../../images/bufferpause-diagram.png)
 
 Each number in the previous diagram (1-9) corresponds to an action and its request endpoint shown in the **Timeline summary table**, as well as to the **Detailed descriptions** below.
 
