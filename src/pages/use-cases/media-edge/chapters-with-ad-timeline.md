@@ -63,17 +63,17 @@ The following action and playhead diagrams show the differences in time during a
 
 #### Action diagram
 
-![Action diagram](../../../images/timeline-diagram.png)
+![Action diagram](../../images/timeline-diagram.png)
 
 #### Playhead diagram
 
-![Playhead diagram](../../../images/playhead-diagram.png)
+![Playhead diagram](../../images/playhead-diagram.png)
 
 ## Timeline of actions
 
 The following diagram shows a timeline of actions for this example session. Each number (1-18) represents an action and its request endpoint. These numbers also correspond to event descriptions in both the **Timeline summary table** and the **Detailed descriptions** section below.
 
-![Action timeline](../../../images/ad-break-action.png)
+![Action timeline](../../images/ad-break-action.png)
 
 ### Timeline summary table
 
