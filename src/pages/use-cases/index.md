@@ -13,12 +13,10 @@ The Customer Journey Analytics API use cases presented below provide instruction
 
 ## Media Edge API timeline use cases
 
-Media Edge API timeline use cases describe how to track media session scenarios with the following events:
+Media Edge APIs are built on the Adobe Experience Platform to provide media event tracking data within the framework of [XDM schemas](https://experienceleague.adobe.com/docs/experience-platform/xdm/home.html#:~:text=Experience%20Data%20Model%20(XDM)%2C,the%20power%20of%20digital%20experiences). Media Edge API timeline use cases describe how to track media session scenarios with the following events:
 
 * [Two chapters separated by an ad break](https://developer.adobe.com/cja-apis/docs/use-cases/media-edge/chapters-with-ad-timeline/)
 * [A Buffer state and a pause](https://developer.adobe.com/cja-apis/docs/use-cases/media-edge/buffer-and-pause-timeline/)
-
-Media Edge APIs are built on the Adobe Experience Platform to provide media event tracking data within the framework of [XDM schemas](https://experienceleague.adobe.com/docs/experience-platform/xdm/home.html#:~:text=Experience%20Data%20Model%20(XDM)%2C,the%20power%20of%20digital%20experiences). For more information, see the [Media Edge API overview](https://experienceleague.adobe.com/docs/experience-platform/edge-network-server-api/media-edge-apis/overview.html).
 
 <InlineAlert variant="info" slots="text" />
 
@@ -26,8 +24,8 @@ Adobe may add optional request and response members (name/value pairs) to existi
 
 For more information:
 
-[Media Edge API overview](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/)
-[Media Edge API getting started](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/getting-started/)
-[Media Edge API troubleshooting](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/getting-started/)
+* [Media Edge API overview](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/)
+* [Media Edge API getting started](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/getting-started/)
+* [Media Edge API troubleshooting](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/getting-started/)
 
 
