@@ -74,7 +74,7 @@ Each number in the previous diagram (1-9) corresponds to an action and its reque
 
 The following table shows a timeline of actions to be tracked for this use case. Each row summarizes the action and the request endpoint. Each action is described in more detail with payloads below the table. The **Client Request** column shows the final path parameter and other parameters required to include in the call.
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 1 | The auto-play function occurs, or the play button is pressed, and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
 | 2 | The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
@@ -100,7 +100,7 @@ The description of each action, together with the payload sent to Media Edge API
 
 #### 1. Start play
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 1 | The auto-play function occurs, or play button is pressed, and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
 
@@ -129,7 +129,7 @@ This call signals the intention of the user to play a video. The player state is
 
 #### 2. [Ping event timer](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/analytics-only/streaming-media-apis/mc-api-impl/mc-api-sed-pings.html)
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 2 | The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
 
@@ -137,7 +137,7 @@ The application starts the ping timer. A call is not sent for this event, but th
 
 #### 3. Track buffer start
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 3 | Tracks the buffer start | 1 | 1 | `/bufferStart?configId=<datastreamID>` |
 
@@ -158,7 +158,7 @@ Player enters the `buffering` state. Because content is not being played the pla
 
 #### 4. Track buffer end
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 4 | Tracks the end of the buffer and a play event is sent | 4 | 1 | `/play?configId=<datastreamID>` |
 
@@ -179,7 +179,7 @@ Player buffering ends after 3 seconds so a `play` call is sent to put the player
 
 #### 5. Ping
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 5 | Sends a ping | 10 | 7 | `/ping?configId=<datastreamID>` |
 
@@ -200,7 +200,7 @@ A ping call is sent to the backend every 10 seconds.
 
 #### 6. User pauses
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 6 | User presses `pause` | 15 | 12 | `/pauseStart?configId=<datastreamID>` |
 
@@ -221,7 +221,7 @@ The user pauses the video. This moves the play state to `paused`.
 
 #### 7. Ping
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 7 | Sends a ping | 20 | 12 | `/ping?configId=<datastreamID>` |
 
@@ -242,7 +242,7 @@ A ping call is sent to the backend every 10 seconds. The player remains in a `pa
 
 #### 8. User presses play
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 8 | User presses `play` to resume the main content | 24 | 12 | `/play?configId=<datastreamID>` |
 
@@ -263,7 +263,7 @@ The user presses `play`. This moves the play state to `playing`. There is no nee
 
 #### 9. User closes player
 
-| # | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
+| Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
 | 9 | User closes the app without watching the content to the end | 29 | 17 | `/sessionEnd?configId=<datastreamID>` |
 
