@@ -76,15 +76,15 @@ The following table shows a timeline of actions to be tracked for this use case.
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 |---| ----- |---|---| ----- |
-| 1 | The auto-play function occurs, or the play button is pressed, and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
-| 2 | The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
-| 3 | Tracks the buffer start | 1 | 1 | `/bufferStart?configId=<datastreamID>` |
-| 4 | Tracks the end of the buffer and a play event is sent | 4 | 1 | `/play?configId=<datastreamID>` |
-| 5 | Sends a ping | 10 | 7 | `/ping?configId=<datastreamID>` |
-| 6 | User presses `pause` | 15 | 12 | `/pauseStart?configId=<datastreamID>` |
-| 7 | Sends a ping | 20 | 12 | `/ping?configId=<datastreamID>` |
-| 8 | User presses `play` to resume the main content | 24 | 12 | `/play?configId=<datastreamID>` |
-| 9 | User closes the app without watching the content to the end | 29 | 17 | `/sessionEnd?configId=<datastreamID>` |
+|1| The auto-play function occurs, or the play button is pressed, and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
+|2| The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
+|3| Tracks the buffer start | 1 | 1 | `/bufferStart?configId=<datastreamID>` |
+|4| Tracks the end of the buffer and a play event is sent | 4 | 1 | `/play?configId=<datastreamID>` |
+|5| Sends a ping | 10 | 7 | `/ping?configId=<datastreamID>` |
+|6| User presses `pause` | 15 | 12 | `/pauseStart?configId=<datastreamID>` |
+|7| Sends a ping | 20 | 12 | `/ping?configId=<datastreamID>` |
+|8| User presses `play` to resume the main content | 24 | 12 | `/play?configId=<datastreamID>` |
+|9| User closes the app without watching the content to the end | 29 | 17 | `/sessionEnd?configId=<datastreamID>` |
 
 <InlineAlert variant="info" slots="text" />
 
@@ -97,6 +97,10 @@ For media tracking, you must fire ping events every 10 seconds, tracked in real-
 #### Detailed description of actions
 
 The description of each action, together with the payload sent to Media Edge API are presented below.
+
+<InlineAlert variant="info" slots="text" />
+
+The `timestamp` values in the payload examples below are generic for the year, month, and day, but show specific hours, minutes, seconds, and milliseconds. This is to show how the values correspond to the progressing events. 
 
 #### 1. Start play
 
