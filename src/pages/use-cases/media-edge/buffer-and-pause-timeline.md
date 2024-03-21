@@ -75,16 +75,16 @@ Each number in the previous diagram (1-9) corresponds to an action and its reque
 The following table shows a timeline of actions to be tracked for this use case. Each row summarizes the action and the request endpoint. Each action is described in more detail with payloads below the table. The **Client Request** column shows the final path parameter and other parameters required to include in the call.
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
-|---| ----- |---|---| ----- |
-|1| The auto-play function occurs, or the play button is pressed, and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
-|2| The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
-|3| Tracks the buffer start | 1 | 1 | `/bufferStart?configId=<datastreamID>` |
-|4| Tracks the end of the buffer and a play event is sent | 4 | 1 | `/play?configId=<datastreamID>` |
-|5| Sends a ping | 10 | 7 | `/ping?configId=<datastreamID>` |
-|6| User presses `pause` | 15 | 12 | `/pauseStart?configId=<datastreamID>` |
-|7| Sends a ping | 20 | 12 | `/ping?configId=<datastreamID>` |
-|8| User presses `play` to resume the main content | 24 | 12 | `/play?configId=<datastreamID>` |
-|9| User closes the app without watching the content to the end | 29 | 17 | `/sessionEnd?configId=<datastreamID>` |
+| --- | --- | --- | --- | --- |
+| 1 | The auto-play function occurs, or the play button is pressed, and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
+| 2 | The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
+| 3 | Tracks the buffer start | 1 | 1 | `/bufferStart?configId=<datastreamID>` |
+| 4 | Tracks the end of the buffer and a play event is sent | 4 | 1 | `/play?configId=<datastreamID>` |
+| 5 | Sends a ping | 10 | 7 | `/ping?configId=<datastreamID>` |
+| 6 | User presses `pause` | 15 | 12 | `/pauseStart?configId=<datastreamID>` |
+| 7 | Sends a ping | 20 | 12 | `/ping?configId=<datastreamID>` |
+| 8 | User presses `play` to resume the main content | 24 | 12 | `/play?configId=<datastreamID>` |
+| 9 | User closes the app without watching the content to the end | 29 | 17 | `/sessionEnd?configId=<datastreamID>` |
 
 <InlineAlert variant="info" slots="text" />
 
@@ -100,7 +100,8 @@ The description of each action, together with the payload sent to Media Edge API
 
 <InlineAlert variant="info" slots="text" />
 
-The `timestamp` values in the payload examples below are generic for the year, month, and day, but show specific hours, minutes, seconds, and milliseconds. This is to show how the values correspond to the progressing events. 
+The `timestamp` values in the payload examples below are generic for the year, month, and day, but show specific hours, minutes, seconds, and milliseconds. This is to show how the values correspond to the progressing events. The session starts with the following `timestamp` value: `YYYY-MM-DDT02:00:00.000Z`
+
 
 #### 1. Start play
 
@@ -152,7 +153,7 @@ Player enters the `buffering` state. Because content is not being played the pla
 ```json
 {
   "eventType": "media.bufferStart",
-  "timestamp": "YYYY-MM-DDT02:00:01Z",
+  "timestamp": "YYYY-MM-DDT02:00:01.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 0
@@ -173,7 +174,7 @@ Player buffering ends after 3 seconds so a `play` call is sent to put the player
 ```json
 {
   "eventType": "media.play",
-  "timestamp": "YYYY-MM-DDT02:00:04Z",
+  "timestamp": "YYYY-MM-DDT02:00:04.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 1
@@ -194,7 +195,7 @@ A ping call is sent to the backend every 10 seconds.
 ```json
 {
   "eventType": "media.ping",
-  "timestamp": "YYYY-MM-DDT02:00:10Z",
+  "timestamp": "YYYY-MM-DDT02:00:10.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 7
@@ -215,7 +216,7 @@ The user pauses the video. This moves the play state to `paused`.
 ```json
 {
   "eventType": "media.pauseStart",
-  "timestamp": "YYYY-MM-DDT02:00:15Z",
+  "timestamp": "YYYY-MM-DDT02:00:15.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 12
@@ -236,7 +237,7 @@ A ping call is sent to the backend every 10 seconds. The player remains in a `pa
 ```json
 {
   "eventType": "media.ping",
-  "timestamp": "YYYY-MM-DDT02:00:20Z",
+  "timestamp": "YYYY-MM-DDT02:00:20.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 12
@@ -257,7 +258,7 @@ The user presses `play`. This moves the play state to `playing`. There is no nee
 ```json
 {
   "eventType": "media.play",
-  "timestamp": "YYYY-MM-DDT02:00:24Z",
+  "timestamp": "YYYY-MM-DDT02:00:24.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 12
