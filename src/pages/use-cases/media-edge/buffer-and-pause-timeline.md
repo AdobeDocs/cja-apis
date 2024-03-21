@@ -75,7 +75,7 @@ Each number in the previous diagram (1-9) corresponds to an action and its reque
 The following table shows a timeline of actions to be tracked for this use case. Each row summarizes the action and the request endpoint. Each action is described in more detail with payloads below the table. The **Client Request** column shows the final path parameter and other parameters required to include in the call.
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
-| --- | --- | --- | --- | --- |
+| --- | ----- | --- | --- | ----- |
 | 1 | The auto-play function occurs, or the play button is pressed, and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
 | 2 | The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
 | 3 | Tracks the buffer start | 1 | 1 | `/bufferStart?configId=<datastreamID>` |
