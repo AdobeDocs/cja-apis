@@ -94,13 +94,13 @@ The events sent are ordered based on the timestamp at which they were sent. If t
 
 For media tracking, you must fire ping events every 10 seconds, tracked in real-time, beginning after 10 seconds have elapsed from the session start. This must happen regardless of other API events that you have sent. 
 
-#### Detailed description of actions
+### Detailed description of actions
 
-The description of each action, together with the payload sent to Media Edge API are presented below.
+Each timeline action shown in the previous table is described in detail below. Each description includes the payload that is sent as part of a Media Edge API request.
 
 <InlineAlert variant="info" slots="text" />
 
-The `timestamp` values in the payload examples below are generic for the year, month, and day, but show specific hours, minutes, seconds, and milliseconds. This is to show how the values correspond to the progressing events. The session starts with the following `timestamp` value: `YYYY-MM-DDT02:00:00.000Z`
+The `timestamp` values in the payload examples below are generic for the year, month, and day, but show specific hours, minutes, seconds, and milliseconds. This is to show how the values correspond to the progressing events. The session starts with the following `timestamp` value: `YYYY-MM-DDT02:00:00.000Z`.
 
 
 #### 1. Start play

@@ -112,6 +112,10 @@ For media tracking, you must fire ping events every 10 seconds, tracked in real-
 
 Each timeline action shown in the previous table is described in detail below. Each description includes the payload that is sent as part of a Media Edge API request.
 
+<InlineAlert variant="info" slots="text" />
+
+The `timestamp` values in the payload examples below are generic for the year, month, and day, but show specific hours, minutes, seconds, and milliseconds. This is to show how the values correspond to the progressing events. The session starts with the following `timestamp` value: `YYYY-MM-DDT02:00:00.000Z`.
+
 #### 1. Session start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
@@ -161,7 +165,7 @@ Tracking enters the *playing* state using the `play` event.
 ```json
 {
   "eventType": "media.play",
-  "timestamp": "YYYY-0MM-DDT02:00:00Z",
+  "timestamp": "YYYY-0MM-DDT02:00:00.001Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 0
@@ -182,7 +186,7 @@ Tracks the start `Chapter 1`.
 ```json
 {
   "eventType": "media.chapterStart",
-  "timestamp": "YYYY-MM-DDT02:00:01Z",
+  "timestamp": "YYYY-MM-DDT02:00:01.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 1,
@@ -209,7 +213,7 @@ A ping call is sent to the back-end every 10 seconds.
 ```json
 {
   "eventType": "media.ping",
-  "timestamp": "YYYY-MM-DDT02:00:10Z",
+  "timestamp": "YYYY-MM-DDT02:00:10.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 10
@@ -230,7 +234,7 @@ A ping call is sent to the back-end every 10 seconds.
 ```json
 {
   "eventType": "media.chapterComplete",
-  "timestamp": "YYYY-MM-DDT02:00:15Z",
+  "timestamp": "YYYY-MM-DDT02:00:15.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15
@@ -251,7 +255,7 @@ Ad break starts. It will contain two ads.
 ```json
 {
   "eventType": "media.adBreakStart",
-  "timestamp": "YYYY-MM-DDT02:00:16Z",
+  "timestamp": "YYYY-MM-DDT02:00:15.001Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15,
@@ -277,7 +281,7 @@ Ad break starts. It will contain two ads.
 ```json
 {
   "eventType": "media.adStart",
-  "timestamp": "YYYY-MM-DDT02:00:16Z",
+  "timestamp": "YYYY-MM-DDT02:00:15.002Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15,
@@ -321,7 +325,7 @@ A ping call is sent to the back-end every 10 seconds. In this particular case, t
 ```json
 {
   "eventType": "media.ping",
-  "timestamp": "YYYY-MM-DDT02:00:20Z",
+  "timestamp": "YYYY-MM-DDT02:00:20.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15
@@ -332,7 +336,7 @@ A ping call is sent to the back-end every 10 seconds. In this particular case, t
 ```json
 {
   "eventType": "media.ping",
-  "timestamp": "YYYY-MM-DDT02:00:30Z",
+  "timestamp": "YYYY-MM-DDT02:00:30.00Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15
@@ -353,7 +357,7 @@ The completion of `Ad 1` is tracked. On the backend, this call also generates a 
 ```json
 {
   "eventType": "media.adComplete",
-  "timestamp": "YYYY-MM-DDT02:00:31Z",
+  "timestamp": "YYYY-MM-DDT02:00:31.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15
@@ -374,7 +378,7 @@ The completion of `Ad 1` is tracked. On the backend, this call also generates a 
 ```json
 {
   "eventType": "media.adStart",
-  "timestamp": "YYYY-MM-DDT02:00:31Z",
+  "timestamp": "YYYY-MM-DDT02:00:31.001Z",
   "mediaCollection": {
     "playhead": 0,
     "sessionID": "{SID}",
@@ -408,7 +412,7 @@ A ping call is sent to the backend every 10 seconds. In this scenario, at timeli
 ```json
 {
   "eventType": "media.ping",
-  "timestamp": "YYYY-MM-DDT02:00:40Z",
+  "timestamp": "YYYY-MM-DDT02:00:40.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15
@@ -429,7 +433,7 @@ The completion of `Ad 2` is tracked. On the backend, this call also generates a 
 ```json
 {
   "eventType": "media.adComplete",
-  "timestamp": "YYYY-MM-DDT02:00:43Z",
+  "timestamp": "YYYY-MM-DDT02:00:43.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15
@@ -450,7 +454,7 @@ The completion of the ad break is tracked.
 ```json
 {
   "eventType": "media.adBreakComplete",
-  "timestamp": "YYYY-MM-DDT02:00:43Z",
+  "timestamp": "YYYY-MM-DDT02:00:43.001Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15
@@ -471,7 +475,7 @@ The start of `Chapter 2` is tracked directly after the completion of the ad brea
 ```json
 {
   "eventType": "media.chapterStart",
-  "timestamp": "YYYY-MM-DDT02:00:44Z",
+  "timestamp": "YYYY-MM-DDT02:00:43.002Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 15,
@@ -498,7 +502,7 @@ A ping call is sent to the backend every 10 seconds.
 ```json
 {
   "eventType": "media.ping",
-  "timestamp": "YYYY-MM-DDT02:00:50Z",
+  "timestamp": "YYYY-MM-DDT02:00:50.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 22
@@ -519,7 +523,7 @@ The completion of `Chapter 2` is tracked.
 ```json
 {
   "eventType": "media.chapterComplete",
-  "timestamp": "YYYY-MM-DDT02:00:54Z",
+  "timestamp": "YYYY-MM-DDT02:00:54.000Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 26
@@ -540,7 +544,7 @@ The completion of `Chapter 2` is tracked.
 ```json
 {
   "eventType": "media.sessionComplete",
-  "timestamp": "YYYY-MM-DDT02:00:55Z",
+  "timestamp": "YYYY-MM-DDT02:00:54.001Z",
   "mediaCollection": {
     "sessionID": "{SID}",
     "playhead": 26
