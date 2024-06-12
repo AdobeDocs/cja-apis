@@ -6,5 +6,5 @@ keywords:
   - API Documentation
   - CJA API Reference
   - CJA API Swagger
-<RedoclyAPIBlock src="/cja-apis/swagger.json"/>
 ---
+<RedoclyAPIBlock src="/cja-apis/swagger.json"/>
