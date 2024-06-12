@@ -23,6 +23,5 @@ Before following this guide, make sure that you are prepared with all requiremen
 Once you have met all prerequisites, follow the steps below to submit a basic API call. You can then use the [Endpoints guides](/src/pages/endpoints/index.md) to submit the desired API calls in your project.
 
 1. [Download and install Postman](https://www.postman.com/downloads/). Follow the install prompts, then open the application once installed.
-2. Click **File** > **New**, which opens a modal window. Select **Request**.
-3. Give your request a name, and create a collections folder to save it in.
-4. 
+1. Select [Show me how](https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/) in the left pane. This will open a new browser window, explaining how to send your first API request using [!DNL Postman].
+1. Follow this guide and after successfully having send the Postman example request (`https://postman-echo.com/get`), try one of the API requests from the [Endpoints guides](/src/pages/endpoints/index.md).
