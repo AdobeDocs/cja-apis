@@ -14735,13 +14735,6 @@
             "description": "IMS User Access Token",
             "required": true,
             "schema": {}
-          },
-          {
-            "name": "x-gw-ims-org-id",
-            "in": "header",
-            "description": "IMS Organization ID",
-            "required": true,
-            "schema": {}
           }
         ],
         "responses": {
@@ -14782,13 +14775,6 @@
             "name": "x-user-auth",
             "in": "header",
             "description": "IMS User Access Token",
-            "required": true,
-            "schema": {}
-          },
-          {
-            "name": "x-gw-ims-org-id",
-            "in": "header",
-            "description": "IMS Organization ID",
             "required": true,
             "schema": {}
           },
