@@ -20,6 +20,15 @@
         "operationId": "getCurrentUser",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "expansion",
             "in": "query",
             "description": "Comma-delimited list of additional metadata fields to include on response.",
@@ -120,6 +129,15 @@
         "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *reportSuiteName*: Also return the friendly Report Suite name for the RSID\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
         "operationId": "findOneCalculatedMetric_1",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "id",
             "in": "path",
@@ -628,6 +646,15 @@
         "description": "The following fields can be modified through this endpoint: <br><b>name, description, definition, owner, rsid</b>\nExample \"defintion\" for use in testing API below (\"Visits per visitor\"):<br>\n\"definition\": {\r\n      \"formula\": {\r\n        \"func\": \"divide\",\r\n        \"col1\": {\r\n          \"func\": \"metric\",\r\n          \"name\": \"metrics/visits\",\r\n          \"description\": \"Visits\"\r\n        },\r\n        \"col2\": {\r\n          \"func\": \"metric\",\r\n          \"name\": \"metrics/visitors\",\r\n          \"description\": \"Unique Visitors\"\r\n        }\r\n      },\r\n      \"func\": \"calc-metric\",\r\n      \"version\": [\r\n        1,\r\n        0,\r\n        0\r\n      ]\r\n    }<br><br>Response will be the newly modified calculated metric object after the update request completes.<br><br><b><span style=\"text-decoration: underline;\">CalculatedMetricResponse</span></b><br>A calculated metric response will always include these default items:* id, name, description, rsid, owner* \n\nOther attributes can be optionally requested through the 'expansion' field as defined/documented in the GET endpoints (see GET \"/calculatedmetrics\" or GET \"/calculatedmetrics/{id}\" for more documentation).",
         "operationId": "calculatedmetrics_updateCalculatedMetric",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "expansion",
             "in": "query",
@@ -1558,6 +1585,15 @@
         "operationId": "calculatedmetrics_deleteCalculatedMetric",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "The calculated metric ID to be deleted",
@@ -1672,6 +1708,15 @@
         "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *reportSuiteName*: Also return the friendly Report Suite name for the RSID\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
         "operationId": "findCalculatedMetrics_1",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "expansion",
             "in": "query",
@@ -2407,6 +2452,15 @@
         "operationId": "calculatedmetrics_getCalculatedMetricFunctions",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "locale",
             "in": "query",
             "description": "Locale",
@@ -2587,6 +2641,15 @@
         "summary": "Retrieve a calculated metric function by id",
         "operationId": "calculatedmetrics_getCalculatedMetricFunction",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "id",
             "in": "path",
@@ -2839,6 +2902,15 @@
         "summary": "Validate a calculated metric definition",
         "operationId": "calculatedmetrics_validateCalculatedMetric",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "locale",
             "in": "query",
@@ -3591,6 +3663,15 @@
         "operationId": "findAllForCurrentUser_3",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "includeType",
             "in": "query",
             "description": "Include additional shares not owned by the user",
@@ -3698,6 +3779,15 @@
         "description": "Create one/many shares for one/many components at once. For each component object in the passed list, the given shares will replace the current set of shares for each component. For example, if one of the components was previously shared with additional users, and that share is not passed in here, it will no longer be shared with them.<br>",
         "operationId": "modifyShares_1",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "locale",
             "in": "query",
@@ -3816,6 +3906,15 @@
         "operationId": "getShare_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "The share ID to return details for",
@@ -3897,6 +3996,15 @@
         "operationId": "deleteShare_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "The shareId to be deleted",
@@ -3951,6 +4059,15 @@
         "operationId": "findAllSharesToCurrentUser_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "componentType",
             "in": "query",
             "description": "ComponentType to return",
@@ -3986,6 +4103,15 @@
         "summary": "search for shares for several components at once",
         "operationId": "searchComponentTags_1",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "locale",
             "in": "query",
@@ -4131,6 +4257,15 @@
         "operationId": "findAllForCompany_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Number of results per page",
@@ -4200,6 +4335,17 @@
         "summary": "Saves the given tag(s) for the current user's company",
         "description": "Allows creation of a new tag and applies that new tag to the passed component",
         "operationId": "saveTagList_1",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          }
+        ],
         "requestBody": {
           "description": "JSON-formatted array of Tag objects containing key-value pairs",
           "content": {
@@ -4292,6 +4438,15 @@
         "operationId": "deleteTagItems_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "componentIds",
             "in": "query",
             "description": "Comma-separated list of componentIds to operate on.",
@@ -4363,6 +4518,15 @@
         "operationId": "getTagById_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "Tag ID to be retrieved",
@@ -4427,6 +4591,15 @@
         "operationId": "deleteTag_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "The tagId to be deleted",
@@ -4474,6 +4647,15 @@
         "summary": "search for tags for several components at once",
         "operationId": "searchComponentTags_3",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "limit",
             "in": "query",
@@ -4582,6 +4764,15 @@
         "operationId": "getTagListByComponentIdAndComponentType_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "componentId",
             "in": "query",
             "description": "The componentId to operate on. Currently this is just the segmentId.",
@@ -4674,6 +4865,15 @@
         "operationId": "getComponentsByTagName_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "tagNames",
             "in": "query",
             "description": "Comma separated list of tag names.",
@@ -4740,6 +4940,17 @@
         "summary": "Tag a component with one or many tags at once. WARNING: Authoritative; deletes/overwrites all pre-existing associations",
         "description": "This endpoint allows many tags at once to be created/deleted. Any tags passed to this endpoint will become the *only* tags for that componentId (all other tags will be removed).",
         "operationId": "saveTagComponentList_1",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          }
+        ],
         "requestBody": {
           "description": "JSON-formatted object containing key-value pairs that conform to the schema",
           "content": {
@@ -4861,6 +5072,15 @@
         "description": "See the [Reporting User Guide](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/reporting-guide.md) for details.",
         "operationId": "runReport_2",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "includeOberonXml",
             "in": "query",
@@ -7163,6 +7383,15 @@
         "operationId": "NonCustomerFacingDoc",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "dataId",
             "in": "query",
             "description": "Data Group or Data View to run the report against",
@@ -7391,6 +7620,15 @@
         "description": "Used to retrieve dimensions for a dataview",
         "operationId": "getDimensionsForDataview_1",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "dataviewId",
             "in": "path",
@@ -8061,6 +8299,15 @@
         "operationId": "getDimensionById_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "dataviewId",
             "in": "path",
             "description": "The id of the DataView the dimension is tied to",
@@ -8723,6 +8970,15 @@
         "operationId": "getMetricsForDataview_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "dataviewId",
             "in": "path",
             "description": "The id of the DataView for which to retrieve Metrics",
@@ -9384,6 +9640,15 @@
         "operationId": "getMetricById_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "dataviewId",
             "in": "path",
             "description": "The id of the DataView the metric is tied to",
@@ -10038,6 +10303,15 @@
         "operationId": "getDataViewsForCompany",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "expansion",
             "in": "query",
             "description": "Comma-delimited list of additional fields to include on response.",
@@ -10526,6 +10800,15 @@
         "description": "Stores the given Data View in the db.",
         "operationId": "createDataView",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "expansion",
             "in": "query",
@@ -11094,6 +11377,15 @@
         "operationId": "getDataViewById",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "dataViewId",
             "in": "path",
             "description": "The Data View id to lookup",
@@ -11469,6 +11761,15 @@
         "description": "Used to update a Data View by id with the given Data View data",
         "operationId": "updateDataViewById",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "dataViewId",
             "in": "path",
@@ -11980,6 +12281,15 @@
         "operationId": "removeDataViewById",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "dataViewId",
             "in": "path",
             "description": "The Data View id to remove",
@@ -12212,6 +12522,15 @@
         "description": "Copy a Data View.",
         "operationId": "copy",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "dataViewId",
             "in": "path",
@@ -12589,6 +12908,17 @@
         "summary": "Validates a data view",
         "description": "Validates a Data View.",
         "operationId": "validate",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          }
+        ],
         "requestBody": {
           "description": "JSON-formatted Object containing key/value pairs for virtual report suite creation.",
           "content": {
@@ -12761,6 +13091,15 @@
         ],
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "connectionId",
             "in": "path",
             "description": "The id of the connection to lookup",
@@ -12841,6 +13180,15 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "dataSetIds",
             "in": "query",
@@ -12997,7 +13345,16 @@
         "description": "Used to retrieve connections for an org based on connectionId or connection name.",
         "operationId": "search_1",
         "produces": ["application/json"],
-        "parameters": [{
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          }, {
           "name": "query",
           "in": "query",
           "description": "Search by connection name or connectionId.",
@@ -13086,6 +13443,15 @@
         "description": "A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
         "operationId": "findAll_1",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "expansion",
             "in": "query",
@@ -13432,6 +13798,15 @@
         },
         "parameters" : [
         {
+          "$ref": "#/components/parameters/authorization"
+        },
+        {
+          "$ref": "#/components/parameters/x-api-key"
+        },
+        {
+          "$ref": "#/components/parameters/x-gw-ims-org-id"
+        },
+        {
           "name": "locale",
           "in": "query",
           "description": "Locale",
@@ -13618,6 +13993,17 @@
         "summary": "Validate a Segment",
         "description": "Returns a segment validation for the segment contained in the post body of the report.",
         "operationId": "segments_validateSegment",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          }
+        ],
         "requestBody": {
           "description": "Segment definition",
           "content": {
@@ -13696,6 +14082,15 @@
         "description": "A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
         "operationId": "findOne_2",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "id",
             "in": "path",
@@ -13909,6 +14304,15 @@
         "description": "The following fields can be modified through this endpoint: <br><b>name, description, definition, owner, rsid, aamStatus</b><br><br>Note: \"aamStatus\" is used to \"publish\" a report suite segment to other products in the Experience Cloud. Description is always required when publishing with aamStatus. The report suite must already be pre-configured for AAM for publishing to succeed (see the \"/segments/aamStatus/\" endpoint for more information). <br>Format for aamStatus object:<br>\"aamStatus\":{\"published\":[\"rsid1\",\"rsid2\"]}<br><br>Example \"defintion\" for use in testing API below (\"Page exists\"):<br>\"definition\":{\"func\":\"segment\",\"container\":{\"func\":\"container\",\"context\":\"hits\",\"pred\":{\"func\":\"exists\",\"description\":\"Page\",\"val\":{\"func\":\"attr\",\"name\":\"variables/page\"}}},\"version\":[1,0,0]}<br><br>Response will be the newly modified segment object after the update request completes.<br><br><b><span style=\"text-decoration: underline;\">SegmentResponse</span></b><br>A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
         "operationId": "updateSegment_2",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "expansion",
             "in": "query",
@@ -14263,6 +14667,15 @@
         "operationId": "deleteSegment_2",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "ID of segment to be deleted",
@@ -14308,6 +14721,15 @@
         "operationId": "searchAuditLogs_1",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "x-user-auth",
             "in": "header",
             "description": "IMS User Access Token",
@@ -14347,6 +14769,15 @@
         "description": "This API returns a filterable list of audit log records.",
         "operationId": "getAuditLogs_1",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "x-user-auth",
             "in": "header",
@@ -14450,7 +14881,17 @@
         "summary" : "Returns a list of dateranges for the user",
         "description" : "This API allows users to store commonly used date ranges so that they can be reused throughout the product.",
         "operationId" : "getDateRanges",
-        "parameters" : [ {
+        "parameters" : [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+        {
           "name": "locale",
           "in": "query",
           "description": "Locale",
@@ -14551,6 +14992,15 @@
         },
         "parameters" : [
         {
+          "$ref": "#/components/parameters/authorization"
+        },
+        {
+          "$ref": "#/components/parameters/x-api-key"
+        },
+        {
+          "$ref": "#/components/parameters/x-gw-ims-org-id"
+        },
+        {
           "name": "locale",
           "in": "query",
           "description": "Locale",
@@ -14599,7 +15049,17 @@
         "summary" : "Retrieves configuration for a DateRange.",
         "description" : "",
         "operationId" : "getDateRange",
-        "parameters" : [ {
+        "parameters" : [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
           "name": "id",
           "in": "path",
           "description": "Date Range ID to be retrieved",
@@ -14666,6 +15126,15 @@
           "required": true
         },
         "parameters" : [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
         {
           "name": "id",
           "in": "path",
@@ -14721,7 +15190,17 @@
         "summary" : "Deletes a DateRange.",
         "description" : "",
         "operationId" : "deleteDateRange",
-        "parameters" : [ {
+        "parameters" : [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
           "name": "id",
           "in": "path",
           "description": "Date Range ID to be deleted",
@@ -14761,6 +15240,15 @@
         "description": "",
         "operationId": "projects_getProject",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "id",
             "in": "path",
@@ -14834,6 +15322,15 @@
         },
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "The Project id for which to retrieve information",
@@ -14895,6 +15392,15 @@
         "operationId": "projects_deleteProject",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "The Project id for which to retrieve information",
@@ -14953,6 +15459,15 @@
         },
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "locale",
             "in": "query",
             "description": "Locale",
@@ -14991,6 +15506,15 @@
         "description": "This Returns the projects list primarily for the Analytics product. ",
         "operationId": "projects_getProjects",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "includeType",
             "in": "query",
@@ -15125,6 +15649,15 @@
           "required": true
         },
         "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
           {
             "name": "expansion",
             "in": "query",
@@ -15754,6 +16287,36 @@
             }
           }
         }
+      }
+    },
+    "parameters": {
+      "authorization": {
+        "name": "Authorization",
+        "in": "header",
+        "description": "The access token which can be copied from your CJA API client integration, prefixed with \"Bearer \". For more information on how to obtain this value, visit the [authentication tutorial](https://developer.adobe.com/cja-apis/docs/getting-started/).",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "x-gw-ims-org-id": {
+        "name": "x-gw-ims-org-id",
+        "in": "header",
+        "description": "The Organization ID which can be copied from your CJA API client integration. For more information on how to obtain this value, visit the [authentication tutorial](https://developer.adobe.com/cja-apis/docs/getting-started/).",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "x-api-key": {
+        "name": "x-api-key",
+        "in": "header",
+        "description": "The API key which can be copied from your CJA API client integration. For more information on how to obtain this value, visit the [authentication tutorial](https://developer.adobe.com/cja-apis/docs/getting-started/).",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+
       }
     }
   }
