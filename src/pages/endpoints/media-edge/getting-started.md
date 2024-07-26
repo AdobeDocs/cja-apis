@@ -65,7 +65,7 @@ Once you have this information, provide the `datastreamId` in the following call
 
 The following example shows a session start cURL request:
 
-```
+```curl
 curl -i --request POST '{uri}/ee/va/v1/sessionStart?configId={dataStreamId}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -109,7 +109,7 @@ Also, the datatypes mapping for `eventType` in the example above are as follows:
 
 The following example shows a successful response for the session start request:
 
-```
+```curl
 HTTP/2 200
 x-request-id: 99603f5c-95cf-49ad-9afb-0ba6c5867fd7
 x-rate-limit-remaining: 599
@@ -172,7 +172,7 @@ The Buffer Start event signals when buffering starts on the media player. Buffer
 
 The following example shows a Buffer Start cURL request:
 
-```
+```curl
 curl -X 'POST' \
   'https://edge.adobedc.net/ee-pre-prd/va/v1/bufferStart' \
   -H 'accept: */*' \
@@ -209,7 +209,7 @@ The Play event is sent when the media player changes its state to "playing" from
 
 The following example shows a Play cURL request:
 
-```
+```curl
 curl -X 'POST' \
   'https://edge.adobedc.net/ee-pre-prd/va/v1/play' \
   -H 'accept: */*' \
@@ -244,7 +244,7 @@ The Session Complete event is sent when the end of the main content is reached. 
 
 The following example shows a Session Complete cURL request:
 
-```
+```curl
 curl -X 'POST' \
   'https://edge.adobedc.net/ee-pre-prd/va/v1/sessionComplete' \
   -H 'accept: */*' \
