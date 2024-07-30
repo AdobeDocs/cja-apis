@@ -146,8 +146,8 @@ module.exports = {
                 path: '/endpoints/media-edge/troubleshooting/'
               },
              {
-                title: 'Open API Specification',
-                path: '/endpoints/media-edge/swagger/'
+                title: 'Create custom metadata',
+                path: '/endpoints/media-edge/custom-metadata/'
               }
             ]
           },
