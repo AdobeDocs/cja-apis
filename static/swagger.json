@@ -16297,7 +16297,7 @@
       "x-api-key": {
         "name": "x-api-key",
         "in": "header",
-        "description": "The API key copied from your CJA API client integration. For more information on how to obtain this value, see [Getting started with the CJA API]](https://developer.adobe.com/cja-apis/docs/getting-started/).",
+        "description": "The API key copied from your CJA API client integration. For more information on how to obtain this value, see [Getting started with the CJA API](https://developer.adobe.com/cja-apis/docs/getting-started/).",
         "required": true,
         "schema": {
           "type": "string"
