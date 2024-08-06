@@ -7,7 +7,7 @@ title: CJA API support
 description: Learn where to ask questions, report bugs, make feature requests, and spark discussions. 
 ---
 
-<Hero slots="heading, text" background="rgb(19, 93, 183)"/>
+<Hero slots="heading, text" background="rgb(154, 23, 34)"/>
 
 # CJA API support
 
