@@ -282,10 +282,6 @@ Each successful API request returns an HTTP 200-level status code that reflects 
 | 200 | Success | A successful `sessionStart` request returns a `200 OK` code with some data in the response, including a Session ID. |
 | 204 | Success | A `204 No Content` code is returned for all successful requests other than the `sessionStart`. |
 
-<InlineAlert variant="info" slots="text" />
-
-If you do not correctly create a custom field group or add a custom field to that group before creating custom metadata in your API request, you will not receive an error in response. The API service has no way of currently verifying that these customizations have been previously created. Make sure you carefully follow the steps as described in [Create schema field groups](https://experienceleague.adobe.com/en/docs/platform-learn/tutorials/schemas/create-schema-field-groups) or your custom metadata will not work and you will not be notified by an error response.
-
 For information on handling 400-level and 500-level errors status errors, see the [Media Edge API trouble-shooting guide](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/troubleshooting/#handling-400-level-and-500-level-errors).
 
 ## More help on this feature
