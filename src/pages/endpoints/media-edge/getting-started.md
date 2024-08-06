@@ -273,16 +273,20 @@ For more information on Session Complete endpoint parameters and examples, see t
 
 By using custom metadata with [Media Edge APIs](index.md), you can create multiple categories of data, including the creation of new dimensions and metrics. For more information, see [Create custom metadata for Media Edge APIs](custom-metadata.md).
 
-## Response codes
+## Successful Media Edge API status codes
 
-The following table shows the possible response codes resulting from Media Edge API requests:
+Each successful API request returns an HTTP 200-level status code that reflects the result, as follows:
 
-| Status | Description |
-| ---------- | --------- |
-| 200 | Session was successfully created |
-| 207 | Problem with one of the services that connect to Edge Network (see more in the [troubleshooting guide](troubleshooting.md)) |
-| 400-level | Bad request |
-| 500-level | Server error |
+| HTTP code | Meaning | Description |
+| --- | --- | --- |
+| 200 | Success | A successful `sessionStart` request returns a `200 OK` code with some data in the response, including a Session ID. |
+| 204 | Success | A `204 No Content` code is returned for all successful requests other than the `sessionStart`. |
+
+<InlineAlert variant="info" slots="text" />
+
+If you do not correctly create a custom field group or add a custom field to that group before creating custom metadata in your API request, you will not receive an error in response. The API service has no way of currently verifying that these customizations have been previously created. Make sure you carefully follow the steps as described in [Create schema field groups](https://experienceleague.adobe.com/en/docs/platform-learn/tutorials/schemas/create-schema-field-groups) or your custom metadata will not work and you will not be notified by an error response.
+
+For information on handling 400-level and 500-level errors status errors, see the [Media Edge API trouble-shooting guide](https://developer.adobe.com/cja-apis/docs/endpoints/media-edge/troubleshooting/#handling-400-level-and-500-level-errors).
 
 ## More help on this feature
 
