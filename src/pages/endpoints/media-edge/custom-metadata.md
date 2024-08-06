@@ -71,11 +71,18 @@ The request example shows the following details:
 
 * The `value` key for the custom metadata is `5791626`.
 
-## Response status codes
+## Media Edge API status codes
 
-* A successful `sessionStart` request returns a `200 OK` code with some data in the response, including a Session ID.
+Each API request returns an HTTP status code that reflects the result, as follows:
 
-* All other successful requests return a `204 No Content` code.
+| HTTP code | Meaning | Description |
+| --- | --- | --- |
+| 200 | Success | A successful `sessionStart` request returns a `200 OK` code with some data in the response, including a Session ID. |
+| 204 | Success | A `204 No Content` code is returned for all successful requests other than the `sessionStart`. |
+| 400 | Bad Request | The request was improperly constructed, missing key information, and/or contained incorrect syntax. This error code could indicate a problem such as a missing required parameter or the supplied data did not pass validation. |
+| 401 | Authentication failed | The request did not pass an authentication check. Your access token may be missing or invalid. Similarly, you may have attempted to access an object that requires administrator permissions. |
+| 403 | Forbidden | The resource was found, but you do not have the right credentials to view it. You might not have the required permissions to access or edit the resource for reasons not applicable to status code 401. |
+| 404 | Not found | The requested resource could not be found on the server. The resource may have been deleted, or the requested path was entered incorrectly. |
 
 <InlineAlert variant="info" slots="text" />
 
