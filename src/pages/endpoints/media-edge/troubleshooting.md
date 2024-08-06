@@ -155,3 +155,11 @@ VideoPlayer.prototype._processPendingEvents function(sessionID) {
     _pendingEvents = [];
 }
 ```
+
+## Custom metadata issues
+
+When using the custom metadata feature with Media Edge APIs, note the following: 
+
+<InlineAlert variant="info" slots="text" />
+
+If you do not correctly create a custom field group or add a custom field to that group before creating custom metadata in your API request, you will not receive an error in response. The API service has no way of currently verifying that these customizations have been previously created. Make sure you carefully follow the steps as described in [Create schema field groups](https://experienceleague.adobe.com/en/docs/platform-learn/tutorials/schemas/create-schema-field-groups) or your custom metadata will not work and you will not be notified by an error response.
