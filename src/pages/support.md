@@ -67,9 +67,9 @@ Submission form to request joining #Measure, an industry-wide slack channel for 
 
 <DiscoverBlock slots="link, text" width="25%"/>
 
-[Measure slack](https://measure.slack.com/messages/adobe-analytics)
+[Measure slack](https://measure.slack.com/messages/adobe-cja)
 
-The #adobe-analytics channel within Measure Slack.
+The #adobe-cja channel within Measure Slack.
 
 <DiscoverBlock slots="image, heading, link, text" width="25%"/>
 
