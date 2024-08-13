@@ -79,6 +79,7 @@ Each successful API request returns an HTTP 200-level status code that reflects 
 | --- | --- | --- |
 | 200 | Success | A successful `sessionStart` request returns a `200 OK` code with some data in the response, including a Session ID. |
 | 204 | Success | A `204 No Content` code is returned for all successful requests other than the `sessionStart`. |
+| 207 | Success | A 207 status is a multi-status response code, returned in scenarios where a client requests multiple operations and at least one is successful and least one other is not successful. In the context of Media Edge APIs, a datastream may have multiple upstreams enabled in Adobe Analytics, Media Analytics, or Customer Journey Analytics. If the request is successful in any one of those upstreams, but not in another, the status code 207 is returned.  The response will also include individual status codes for each part of the request, indicating which operations were successful and which were not. |
 
 <InlineAlert variant="info" slots="text" />
 
