@@ -13102,7 +13102,7 @@
         "x-codegen-request-body-name": "body"
       }
     },
-    "/connections/{connectionId}": {
+    "/data/connections/{connectionId}": {
       "get": {
         "tags": [
           "Connections API"
@@ -13192,7 +13192,7 @@
         }
       }
     },
-    "/connections": {
+    "/data/connections": {
       "get": {
         "tags": [
           "Connections API"
@@ -13362,7 +13362,7 @@
         }
       }
     },
-    "/connections/search": {
+    "/data/connections/search": {
       "get": {
         "tags": ["Connections API"],
         "summary": "Retrieval of connections for an org by connection",
