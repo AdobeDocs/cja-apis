@@ -134,24 +134,6 @@ module.exports = {
             ]
           },
           {
-            title: 'Media Edge',
-            path: '/endpoints/media-edge/',
-           pages: [
-              {
-                title: 'Getting started',
-                path: '/endpoints/media-edge/getting-started/'
-              },
-              {
-                title: 'Trouble-shooting',
-                path: '/endpoints/media-edge/troubleshooting/'
-              },
-             {
-                title: 'Create custom metadata',
-                path: '/endpoints/media-edge/custom-metadata/'
-              }
-            ]
-          },
-          {
             title: 'Metrics',
             path: '/endpoints/metrics/'
           },
