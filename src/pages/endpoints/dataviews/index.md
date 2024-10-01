@@ -798,3 +798,14 @@ The example response above shows the DELETE was a `success`.
 | --- | --- | --- |
 | `result` | sting | The result of the delete request |
 | `message` | string | A message associated with the result |
+
+## Connection Limits
+
+The limits of dataviews per connection for the following products are:
+
+* ARES_Only - 5
+* Customery Journey Analytics Foundation Standalone - 500
+* Customer Journey Analytics Select Standalone - 600
+* Customer Journey Analytics Prime Standalone - 750
+* Customer Journey Analytics Ultimate Standalone - 1000
+* Customer Journey Analytics for Adobe Analtyics S/P/U - 600
