@@ -120,6 +120,81 @@
         }
       }
     },
+    "/configuration/ims/orgs/users": {
+      "get": {
+        "tags": [
+          "Configuration API"
+        ],
+        "summary": "Returns all CJA IMS Users associated with the provided organization",
+        "operationId": "getImsUsers_1",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "images"
+                ]
+              }
+            }
+          },
+          {
+            "name": "useCache",
+            "in": "query",
+            "description": "useCache",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (base 0 - first page is \"0\")",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImsUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/calculatedmetrics/{id}": {
       "get": {
         "tags": [
@@ -5057,6 +5132,108 @@
           },
           "500": {
             "description": "Unable to save tag list.",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/componentmetadata/assets/{imsUserId}/counts": {
+      "get": {
+        "tags": [
+          "Asset Management API"
+        ],
+        "summary": "Retrieve counts of assets owned by a user",
+        "operationId": "getAssetCounts_1",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
+            "name": "imsUserId",
+            "in": "path",
+            "description": "The IMS user ID of the user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AssetCount"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/componentmetadata/assets/{recipientImsUserId}/transfer": {
+      "put": {
+        "tags": [
+          "Asset Management API"
+        ],
+        "summary": "Transfer assets to the recipient user",
+        "operationId": "transferAssets_2",
+        "parameters": [
+          {
+            "name": "recipientImsUserId",
+            "in": "path",
+            "description": "The IMS user ID of the recipient user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The transfer data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/TransferData"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TransferData"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is not authorized to transfer assets",
+            "content": {}
+          },
+          "404": {
+            "description": "Recipient User does not exist",
             "content": {}
           }
         },
@@ -13110,9 +13287,6 @@
         "summary": "Retrieval of a connection by connectionId",
         "description": "Used to retrieve a connection by id",
         "operationId": "getConnection_1",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/components/parameters/authorization"
@@ -13128,65 +13302,111 @@
             "in": "path",
             "description": "The id of the connection to lookup",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "expansion",
             "in": "query",
             "description": "Comma-delimited list of additional fields to include on response.",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "name",
-                "description",
-                "owner",
-                "dataSets",
-                "createdDate",
-                "modified",
-                "organization",
-                "backfillsSummaryConnection",
-                "backfillsSummaryDataSets",
-                "dataSetLastIngested",
-                "sandboxName",
-                "sandboxId",
-                "floatPrecision",
-                "dataRetentionMonths",
-                "validationErrors",
-                "stitchedDataSets",
-                "ownerFullName",
-                "tags"
-              ]
-            },
-            "collectionFormat": "csv"
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "primaryIdType",
+                  "configuredContainers",
+                  "description",
+                  "owner",
+                  "isDeleted",
+                  "isDisabled",
+                  "dataSets",
+                  "createdDate",
+                  "modified",
+                  "caseSensitive",
+                  "organization",
+                  "components",
+                  "numDailyEvents",
+                  "externalData",
+                  "backfillEnabled",
+                  "granularBackfills",
+                  "granularStreaming",
+                  "backfillsSummaryConnection",
+                  "backfillsSummaryDataSets",
+                  "dataSetLastIngested",
+                  "componentType",
+                  "sandboxName",
+                  "sandboxId",
+                  "fieldsId",
+                  "floatPrecision",
+                  "dataRetentionMonths",
+                  "validationErrors",
+                  "resolveIdentityNamespace",
+                  "stitchedDataSets",
+                  "ownerFullName",
+                  "schemaInfo",
+                  "tags",
+                  "internalLabels"
+                ]
+              }
+            }
           },
           {
             "name": "locale",
             "in": "query",
             "description": "Locale",
-            "required": false,
-            "type": "string",
-            "default": "en_US"
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "includeHiddenDataSets",
+            "in": "query",
+            "description": "Include hidden data sets",
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "enum": [
+                true,
+                false
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/Connection"
-            }
-          },
-          "500": {
-            "description": "unexpected_error - Internal error while retrieving Connection",
-            "schema": {
-              "$ref": "#/definitions/ErrorStatus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Connection"
+                }
+              }
             }
           },
           "404": {
             "description": "resource_not_found - could not find connection with given parameters",
-            "schema": {
-              "$ref": "#/definitions/ErrorStatus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unexpected_error - internal error while retrieving connection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStatus"
+                }
+              }
             }
           }
         }
@@ -13200,9 +13420,6 @@
         "summary": "Retrieval of connections for an org",
         "description": "Used to retrieve connections for an org.",
         "operationId": "getConnectionsForCompany_1",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/components/parameters/authorization"
@@ -13216,147 +13433,222 @@
           {
             "name": "dataSetIds",
             "in": "query",
-            "description": "Comma-delimited list of dataSet ids to limit the response with.",
-            "required": false,
-            "type": "string"
+            "description": "Comma-delimited list of dataSet ids to limit the response with",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "connectionIds",
             "in": "query",
-            "description": "Comma-delimited list of connectionIds to limit the response with.",
-            "required": false,
-            "type": "string"
+            "description": "Comma-delimited list of connectionIds to limit the response with",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "sandboxId",
             "in": "query",
             "description": "Filter by sandbox id",
-            "required": false,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "sandboxName",
             "in": "query",
             "description": "Filter by sandbox name",
-            "required": false,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "expansion",
             "in": "query",
-            "description": "Comma-delimited list of additional fields to include on response.",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "name",
-                "description",
-                "owner",
-                "dataSets",
-                "createdDate",
-                "modified",
-                "organization",
-                "backfillsSummaryConnection",
-                "backfillsSummaryDataSets",
-                "dataSetLastIngested",
-                "sandboxName",
-                "sandboxId",
-                "floatPrecision",
-                "dataRetentionMonths",
-                "validationErrors",
-                "stitchedDataSets",
-                "ownerFullName",
-                "tags"
-              ]
-            },
-            "collectionFormat": "csv"
+            "description": "Comma-delimited list of additional fields to include on response",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "primaryIdType",
+                  "configuredContainers",
+                  "description",
+                  "owner",
+                  "isDeleted",
+                  "isDisabled",
+                  "dataSets",
+                  "createdDate",
+                  "modified",
+                  "caseSensitive",
+                  "organization",
+                  "components",
+                  "numDailyEvents",
+                  "externalData",
+                  "backfillEnabled",
+                  "granularBackfills",
+                  "granularStreaming",
+                  "backfillsSummaryConnection",
+                  "backfillsSummaryDataSets",
+                  "dataSetLastIngested",
+                  "componentType",
+                  "sandboxName",
+                  "sandboxId",
+                  "fieldsId",
+                  "floatPrecision",
+                  "dataRetentionMonths",
+                  "validationErrors",
+                  "resolveIdentityNamespace",
+                  "stitchedDataSets"
+                ]
+              }
+            }
           },
           {
             "name": "includeType",
             "in": "query",
-            "description": "Include additional connections.",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "systemUserOwned",
-                "disabled"
-              ]
-            },
-            "collectionFormat": "csv"
+            "description": "Include additional connections",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "systemUserOwned",
+                  "disabled"
+                ]
+              }
+            }
+          },
+          {
+            "name": "filterByModifiedAfter",
+            "in": "query",
+            "description": "Filter list to only include connections modified since this date (ISO8601 format)",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "cached",
             "in": "query",
             "description": "return cached results",
-            "required": false,
-            "type": "boolean",
-            "default": true,
-            "enum": [
-              "true",
-              "false"
-            ]
+            "schema": {
+              "type": "boolean",
+              "default": true,
+              "enum": [
+                true,
+                false
+              ]
+            }
           },
           {
             "name": "locale",
             "in": "query",
             "description": "Locale",
-            "required": false,
-            "type": "string",
-            "default": "en_US"
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "includeHiddenDataSets",
+            "in": "query",
+            "description": "Include hidden data sets",
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "name": "internalLabel",
+            "in": "query",
+            "description": "Filter by internal label",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "internalLabelNamespace",
+            "in": "query",
+            "description": "Filter by internal label namespace",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "limit",
             "in": "query",
             "description": "Number of results per page",
-            "required": false,
-            "type": "integer",
-            "default": 10
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
           },
           {
             "name": "page",
             "in": "query",
             "description": "Page number (base 0 - first page is \"0\")",
-            "required": false,
-            "type": "integer",
-            "default": 0
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
           },
           {
             "name": "sortDirection",
             "in": "query",
-            "description": "Sort direction (ASC or DESC)",
-            "required": false,
-            "type": "string",
-            "default": "ASC"
+            "description": "Sort direction (ASC or DESC",
+            "schema": {
+              "type": "string",
+              "default": "ASC"
+            }
           },
           {
             "name": "sortProperty",
             "in": "query",
             "description": "Property to sort by (only modifiedDate and id are currently allowed)",
-            "required": false,
-            "type": "string",
-            "default": "id"
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/Connection"
-            }
-          },
-          "500": {
-            "description": "unexpected_error - Internal error while retrieving Connection",
-            "schema": {
-              "$ref": "#/definitions/ErrorStatus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageConnection"
+                }
+              }
             }
           },
           "404": {
-            "description": "resource_not_found - could not find connection with given parameters",
-            "schema": {
-              "$ref": "#/definitions/ErrorStatus"
+            "description": "resource_not_found - could not find connections for company with given parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "internal error while retrieving connections",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStatus"
+                }
+              }
             }
           }
         }
@@ -13364,95 +13656,140 @@
     },
     "/data/connections/search": {
       "get": {
-        "tags": ["Connections API"],
+        "tags": [
+          "Connections API"
+        ],
         "summary": "Retrieval of connections for an org by connection",
         "description": "Used to retrieve connections for an org based on connectionId or connection name.",
         "operationId": "search_1",
-        "produces": ["application/json"],
         "parameters": [
           {
-            "$ref": "#/components/parameters/authorization"
+            "name": "query",
+            "in": "query",
+            "description": "Search by connection name or connectionId.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "$ref": "#/components/parameters/x-api-key"
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "primaryIdType",
+                  "configuredContainers",
+                  "description",
+                  "owner",
+                  "isDeleted",
+                  "isDisabled",
+                  "dataSets",
+                  "createdDate",
+                  "modified",
+                  "caseSensitive",
+                  "organization",
+                  "components",
+                  "numDailyEvents",
+                  "externalData",
+                  "backfillEnabled",
+                  "granularBackfills",
+                  "granularStreaming",
+                  "backfillsSummaryConnection",
+                  "backfillsSummaryDataSets",
+                  "dataSetLastIngested",
+                  "componentType",
+                  "sandboxName",
+                  "sandboxId",
+                  "fieldsId",
+                  "floatPrecision",
+                  "dataRetentionMonths",
+                  "validationErrors",
+                  "resolveIdentityNamespace",
+                  "stitchedDataSets",
+                  "ownerFullName",
+                  "schemaInfo",
+                  "tags",
+                  "internalLabels"
+                ]
+              }
+            }
           },
           {
-            "$ref": "#/components/parameters/x-gw-ims-org-id"
-          }, {
-          "name": "query",
-          "in": "query",
-          "description": "Search by connection name or connectionId.",
-          "required": false,
-          "type": "string"
-        }, {
-          "name": "expansion",
-          "in": "query",
-          "description": "Comma-delimited list of additional fields to include on response.",
-          "required": false,
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "name",
-              "description",
-              "owner",
-              "dataSets",
-              "createdDate",
-              "modified",
-              "organization",
-              "backfillsSummaryConnection",
-              "backfillsSummaryDataSets",
-              "dataSetLastIngested",
-              "sandboxName",
-              "sandboxId",
-              "floatPrecision",
-              "dataRetentionMonths",
-              "validationErrors",
-              "stitchedDataSets",
-              "ownerFullName",
-              "tags"
-            ]
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
+              "type": "string",
+              "default": "en_US"
+            }
           },
-          "collectionFormat": "csv"
-        }, {
-          "name": "locale",
-          "in": "query",
-          "description": "Locale",
-          "required": false,
-          "type": "string",
-          "default": "en_US"
-        }, {
-          "name": "limit",
-          "in": "query",
-          "description": "Number of results per page",
-          "required": false,
-          "type": "integer",
-          "default": 10
-        }, {
-          "name": "page",
-          "in": "query",
-          "description": "Page number (base 0 - first page is \"0\")",
-          "required": false,
-          "type": "integer",
-          "default": 0
-        }],
+          {
+            "name": "includeHiddenDataSets",
+            "in": "query",
+            "description": "Include hidden data sets",
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (base 0 - first page is \"0\")",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/Connection"
-            }
-          },
-          "500": {
-            "description": "unexpected_error - Internal error while retrieving Connection",
-            "schema": {
-              "$ref": "#/definitions/ErrorStatus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageConnection"
+                }
+              }
             }
           },
           "404": {
-            "description": "resource_not_found - could not find connection with given parameters",
-            "schema": {
-              "$ref": "#/definitions/ErrorStatus"
+            "description": "resource_not_found - could not find connections for company with given parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unexpected_error - internal error while retrieving connections",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorStatus"
+                }
+              }
             }
           }
         }
@@ -13682,11 +14019,13 @@
           }
         }
       },
-      "post" : {
-        "tags" : [ "Filters API" ],
-        "summary" : "Creates configuration for a Filters.",
-        "description" : "",
-        "operationId" : "createFilter",
+      "post": {
+        "tags": [
+          "Filters API"
+        ],
+        "summary": "Creates configuration for a Filters.",
+        "description": "",
+        "operationId": "createFilter",
         "requestBody": {
           "description": "JSON-formatted Object containing key/value pairs to be updated.",
           "content": {
@@ -13820,60 +14159,62 @@
           },
           "required": false
         },
-        "parameters" : [
-        {
-          "$ref": "#/components/parameters/authorization"
-        },
-        {
-          "$ref": "#/components/parameters/x-api-key"
-        },
-        {
-          "$ref": "#/components/parameters/x-gw-ims-org-id"
-        },
-        {
-          "name": "locale",
-          "in": "query",
-          "description": "Locale",
-          "schema": {
-            "type": "string",
-            "default": "en_US"
-          }
-        }, {
-          "name": "expansion",
-          "in": "query",
-          "description": "Comma-delimited list of additional segment metadata fields to include on response.",
-          "style": "form",
-          "explode": false,
-          "schema": {
-            "type": "array",
-            "items": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
               "type": "string",
-              "enum": [
-                "compatibility",
-                "definition",
-                "internal",
-                "modified",
-                "isDeleted",
-                "definitionLastModified",
-                "createdDate",
-                "recentRecordedAccess",
-                "performanceScore",
-                "owner",
-                "dataId",
-                "ownerFullName",
-                "dataName",
-                "sharesFullName",
-                "approved",
-                "favorite",
-                "shares",
-                "tags",
-                "usageSummary",
-                "usageSummaryWithRelevancyScore"
-              ]
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional segment metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "compatibility",
+                  "definition",
+                  "internal",
+                  "modified",
+                  "isDeleted",
+                  "definitionLastModified",
+                  "createdDate",
+                  "recentRecordedAccess",
+                  "performanceScore",
+                  "owner",
+                  "dataId",
+                  "ownerFullName",
+                  "dataName",
+                  "sharesFullName",
+                  "approved",
+                  "favorite",
+                  "shares",
+                  "tags",
+                  "usageSummary",
+                  "usageSummaryWithRelevancyScore"
+                ]
+              }
             }
           }
-        } ],
-        "responses" : {
+        ],
+        "responses": {
           "200": {
             "description": "Successful operation",
             "content": {
@@ -14885,13 +15226,15 @@
         }
       }
     },
-    "/dateranges" : {
-      "get" : {
-        "tags" : [ "Date Range APIs" ],
-        "summary" : "Returns a list of dateranges for the user",
-        "description" : "This API allows users to store commonly used date ranges so that they can be reused throughout the product.",
-        "operationId" : "getDateRanges",
-        "parameters" : [
+    "/dateranges": {
+      "get": {
+        "tags": [
+          "Date Range APIs"
+        ],
+        "summary": "Returns a list of dateranges for the user",
+        "description": "This API allows users to store commonly used date ranges so that they can be reused throughout the product.",
+        "operationId": "getDateRanges",
+        "parameters": [
           {
             "$ref": "#/components/parameters/authorization"
           },
@@ -14901,94 +15244,100 @@
           {
             "$ref": "#/components/parameters/x-gw-ims-org-id"
           },
-        {
-          "name": "locale",
-          "in": "query",
-          "description": "Locale",
-          "schema": {
-            "type": "string",
-            "default": "en_US"
-          }
-        }, {
-          "name": "filterByIds",
-          "in": "query",
-          "description": "Filter list to only include date ranges in the specified list (comma-delimited list of IDs). This has filtered Ids from tags, approved, favorites and user specified Ids list.",
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "limit",
-          "in": "query",
-          "description": "Number of results per page",
-          "schema": {
-            "type": "integer",
-            "default": 10
-          }
-        },
-        {
-          "name": "page",
-          "in": "query",
-          "description": "Page number (base 0 - first page is \"0\")",
-          "schema": {
-            "type": "integer",
-            "default": 0
-          }
-        }, {
-          "name": "expansion",
-          "in": "query",
-          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
-          "style": "form",
-          "explode": false,
-          "schema": {
-            "type": "array",
-            "items": {
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
               "type": "string",
-              "enum": [
-                "definition",
-                "modified",
-                "ownerFullName",
-                "sharesFullName",
-                "shares",
-                "tags"
-              ]
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "filterByIds",
+            "in": "query",
+            "description": "Filter list to only include date ranges in the specified list (comma-delimited list of IDs). This has filtered Ids from tags, approved, favorites and user specified Ids list.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (base 0 - first page is \"0\")",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "definition",
+                  "modified",
+                  "ownerFullName",
+                  "sharesFullName",
+                  "shares",
+                  "tags"
+                ]
+              }
+            }
+          },
+          {
+            "name": "includeType",
+            "in": "query",
+            "description": "Include additional date ranges not owned by user.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "shared",
+                  "templates"
+                ]
+              }
             }
           }
-        },
-        {
-          "name": "includeType",
-          "in": "query",
-          "description": "Include additional date ranges not owned by user.",
-          "style": "form",
-          "explode": false,
-          "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "shared",
-                "templates"
-              ]
-            }
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsDateRange"
                 }
               }
             }
           }
         }
       },
-      "post" : {
-        "tags" : [ "Date Range APIs" ],
-        "summary" : "Creates configuration for a DateRange.",
-        "description" : "",
-        "operationId" : "createDateRange",
+      "post": {
+        "tags": [
+          "Date Range APIs"
+        ],
+        "summary": "Creates configuration for a DateRange.",
+        "description": "",
+        "operationId": "createDateRange",
         "requestBody": {
           "description": "Date Range request body",
           "content": {
@@ -15000,52 +15349,54 @@
           },
           "required": true
         },
-        "parameters" : [
-        {
-          "$ref": "#/components/parameters/authorization"
-        },
-        {
-          "$ref": "#/components/parameters/x-api-key"
-        },
-        {
-          "$ref": "#/components/parameters/x-gw-ims-org-id"
-        },
-        {
-          "name": "locale",
-          "in": "query",
-          "description": "Locale",
-          "schema": {
-            "type": "string",
-            "default": "en_US"
-          }
-        }, {
-          "name": "expansion",
-          "in": "query",
-          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
-          "style": "form",
-          "explode": false,
-          "schema": {
-            "type": "array",
-            "items": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
               "type": "string",
-              "enum": [
-                "definition",
-                "modified",
-                "ownerFullName",
-                "sharesFullName",
-                "shares",
-                "tags"
-              ]
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "definition",
+                  "modified",
+                  "ownerFullName",
+                  "sharesFullName",
+                  "shares",
+                  "tags"
+                ]
+              }
             }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsDateRange"
                 }
               }
             }
@@ -15053,13 +15404,15 @@
         }
       }
     },
-    "/dateranges/{id}" : {
-      "get" : {
-        "tags" : [ "Date Range APIs" ],
-        "summary" : "Retrieves configuration for a DateRange.",
-        "description" : "",
-        "operationId" : "getDateRange",
-        "parameters" : [
+    "/dateranges/{id}": {
+      "get": {
+        "tags": [
+          "Date Range APIs"
+        ],
+        "summary": "Retrieves configuration for a DateRange.",
+        "description": "",
+        "operationId": "getDateRange",
+        "parameters": [
           {
             "$ref": "#/components/parameters/authorization"
           },
@@ -15070,60 +15423,65 @@
             "$ref": "#/components/parameters/x-gw-ims-org-id"
           },
           {
-          "name": "id",
-          "in": "path",
-          "description": "Date Range ID to be retrieved",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }, {
-          "name": "locale",
-          "in": "query",
-          "description": "Locale",
-          "schema": {
-            "type": "string",
-            "default": "en_US"
-          }
-        }, {
-          "name": "expansion",
-          "in": "query",
-          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
-          "style": "form",
-          "explode": false,
-          "schema": {
-            "type": "array",
-            "items": {
+            "name": "id",
+            "in": "path",
+            "description": "Date Range ID to be retrieved",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
               "type": "string",
-              "enum": [
-                "definition",
-                "modified",
-                "ownerFullName",
-                "sharesFullName",
-                "shares",
-                "tags"
-              ]
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "definition",
+                  "modified",
+                  "ownerFullName",
+                  "sharesFullName",
+                  "shares",
+                  "tags"
+                ]
+              }
             }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsDateRange"
                 }
               }
             }
           }
         }
       },
-      "put" : {
-        "tags" : [ "Date Range APIs" ],
-        "summary" : "Updates configuration for a DateRange.",
-        "description" : "",
-        "operationId" : "updateDateRange",
+      "put": {
+        "tags": [
+          "Date Range APIs"
+        ],
+        "summary": "Updates configuration for a DateRange.",
+        "description": "",
+        "operationId": "updateDateRange",
         "requestBody": {
           "description": "Date Range request body",
           "content": {
@@ -15135,7 +15493,7 @@
           },
           "required": true
         },
-        "parameters" : [
+        "parameters": [
           {
             "$ref": "#/components/parameters/authorization"
           },
@@ -15145,62 +15503,67 @@
           {
             "$ref": "#/components/parameters/x-gw-ims-org-id"
           },
-        {
-          "name": "id",
-          "in": "path",
-          "description": "Date Range ID to be updated",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        },{
-          "name": "locale",
-          "in": "query",
-          "description": "Locale",
-          "schema": {
-            "type": "string",
-            "default": "en_US"
-          }
-        }, {
-          "name": "expansion",
-          "in": "query",
-          "description": "Comma-delimited list of additional date range metadata fields to include on response.",
-          "style": "form",
-          "explode": false,
-          "schema": {
-            "type": "array",
-            "items": {
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Date Range ID to be updated",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale",
+            "schema": {
               "type": "string",
-              "enum": [
-                "definition",
-                "modified",
-                "ownerFullName",
-                "sharesFullName",
-                "shares",
-                "tags"
-              ]
+              "default": "en_US"
+            }
+          },
+          {
+            "name": "expansion",
+            "in": "query",
+            "description": "Comma-delimited list of additional date range metadata fields to include on response.",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "definition",
+                  "modified",
+                  "ownerFullName",
+                  "sharesFullName",
+                  "shares",
+                  "tags"
+                ]
+              }
             }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnalyticsDateRange"
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsDateRange"
                 }
               }
             }
           }
         }
       },
-      "delete" : {
-        "tags" : [ "Date Range APIs" ],
-        "summary" : "Deletes a DateRange.",
-        "description" : "",
-        "operationId" : "deleteDateRange",
-        "parameters" : [
+      "delete": {
+        "tags": [
+          "Date Range APIs"
+        ],
+        "summary": "Deletes a DateRange.",
+        "description": "",
+        "operationId": "deleteDateRange",
+        "parameters": [
           {
             "$ref": "#/components/parameters/authorization"
           },
@@ -15211,15 +15574,16 @@
             "$ref": "#/components/parameters/x-gw-ims-org-id"
           },
           {
-          "name": "id",
-          "in": "path",
-          "description": "Date Range ID to be deleted",
-          "required": true,
-          "schema": {
-            "type": "string"
+            "name": "id",
+            "in": "path",
+            "description": "Date Range ID to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
-        }],
-        "responses" : {
+        ],
+        "responses": {
           "200": {
             "description": "Successful operation",
             "content": {
@@ -15300,12 +15664,12 @@
           }
         ],
         "responses": {
-          "200" : {
-            "description" : "successful operation",
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnalyticsProject"
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsProject"
                 }
               }
             }
@@ -15345,7 +15709,7 @@
             "in": "path",
             "description": "The Project id for which to retrieve information",
             "required": true,
-            "schema":{
+            "schema": {
               "type": "string"
             }
           },
@@ -15381,12 +15745,12 @@
           }
         ],
         "responses": {
-          "200" : {
-            "description" : "successful operation",
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnalyticsProject"
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsProject"
                 }
               }
             }
@@ -15415,7 +15779,7 @@
             "in": "path",
             "description": "The Project id for which to retrieve information",
             "required": true,
-            "schema":{
+            "schema": {
               "type": "string"
             }
           },
@@ -15430,12 +15794,12 @@
           }
         ],
         "responses": {
-          "200" : {
-            "description" : "successful operation",
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DeleteResponse"
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteResponse"
                 }
               }
             }
@@ -15488,11 +15852,11 @@
           }
         ],
         "responses": {
-          "200" : {
-            "description" : "successful operation",
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
+                "schema": {
                   "$ref": "#/components/schemas/ProjectCompatibility"
                 }
               }
@@ -15700,12 +16064,12 @@
           }
         ],
         "responses": {
-          "200" : {
-            "description" : "successful operation",
+          "200": {
+            "description": "successful operation",
             "content": {
               "application/json": {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnalyticsProject"
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsProject"
                 }
               }
             }
@@ -15714,115 +16078,171 @@
       }
     }
   },
-  "components" : {
+  "components": {
     "schemas": {
-      "AnalyticsDateRange" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string",
-            "description" : "System generated id",
-            "readOnly" : true
+      "AssetCount": {
+        "type": "object",
+        "properties": {
+          "componentType": {
+            "type": "string"
           },
-          "name" : {
-            "type" : "string"
-          },
-          "description" : {
-            "type" : "string"
-          },
-          "rsid" : {
-            "type" : "string",
-            "description" : "The report suite id for which the component was created/updated"
-          },
-          "reportSuiteName" : {
-            "type" : "string",
-            "description" : "The report suite name for which the component was created/updated",
-            "readOnly" : true
-          },
-          "owner" : {
-            "$ref" : "#/components/schemas/Owner"
-          },
-          "definition" : {
-            "type" : "object"
-          },
-          "tags" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Tag"
-            }
-          },
-          "siteTitle" : {
-            "type" : "string"
-          },
-          "modified" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "created" : {
-            "type" : "string",
-            "format" : "date-time"
+          "count": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
-      "AnalyticsDateRangeDefinition" : {
-        "type" : "object",
-        "properties" : {
-          "start" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/RollingDateFunction"
+      "TransferData": {
+        "type": "object",
+        "properties": {
+          "componentType": {
+            "type": "string"
+          },
+          "componentIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
-          "end" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/RollingDateFunction"
+          "errorMessages": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "type": "string"
             }
-          },
-          "calendarType" : {
-            "$ref" : "#/components/schemas/CalendarType"
-          },
-          "version" : {
-            "type" : "string"
           }
         }
       },
-      "RollingDateFunction" : {
-        "type" : "object",
-        "properties" : {
-          "function" : {
-            "type" : "string"
+      "AnalyticsDateRange": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "System generated id",
+            "readOnly": true
           },
-          "granularity" : {
-            "type" : "string",
-            "enum" : [ "year", "quarter", "month", "week", "day", "hour", "minute" ]
+          "name": {
+            "type": "string"
           },
-          "offset" : {
-            "type" : "integer",
-            "format" : "int32"
+          "description": {
+            "type": "string"
           },
-          "dow" : {
-            "type" : "string",
-            "enum" : [ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" ]
+          "rsid": {
+            "type": "string",
+            "description": "The report suite id for which the component was created/updated"
           },
-          "date" : {
-            "type" : "string"
+          "reportSuiteName": {
+            "type": "string",
+            "description": "The report suite name for which the component was created/updated",
+            "readOnly": true
+          },
+          "owner": {
+            "$ref": "#/components/schemas/Owner"
+          },
+          "definition": {
+            "type": "object"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          },
+          "siteTitle": {
+            "type": "string"
+          },
+          "modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "CalendarType" : {
-        "type" : "object",
-        "properties" : {
-          "rsid" : {
-            "type" : "string"
+      "AnalyticsDateRangeDefinition": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RollingDateFunction"
+            }
           },
-          "type" : {
-            "type" : "string",
-            "enum" : [ "gregorian", "nrf", "qrs", "custom_454", "custom_445", "modified_gregorian" ]
+          "end": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RollingDateFunction"
+            }
           },
-          "anchorDate" : {
-            "type" : "string",
-            "format" : "date-time"
+          "calendarType": {
+            "$ref": "#/components/schemas/CalendarType"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "RollingDateFunction": {
+        "type": "object",
+        "properties": {
+          "function": {
+            "type": "string"
+          },
+          "granularity": {
+            "type": "string",
+            "enum": [
+              "year",
+              "quarter",
+              "month",
+              "week",
+              "day",
+              "hour",
+              "minute"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dow": {
+            "type": "string",
+            "enum": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday",
+              "saturday",
+              "sunday"
+            ]
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      },
+      "CalendarType": {
+        "type": "object",
+        "properties": {
+          "rsid": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "gregorian",
+              "nrf",
+              "qrs",
+              "custom_454",
+              "custom_445",
+              "modified_gregorian"
+            ]
+          },
+          "anchorDate": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -15854,7 +16274,10 @@
           },
           "type": {
             "type": "string",
-            "enum": ["project", "mobileScorecard"]
+            "enum": [
+              "project",
+              "mobileScorecard"
+            ]
           },
           "definition": {
             "$ref": "#/components/schemas/JsonNode"
@@ -15920,57 +16343,57 @@
           }
         }
       },
-      "Owner" : {
-        "type" : "object",
-        "properties" : {
-          "imsUserId" : {
-            "type" : "integer",
-            "format" : "string",
-            "description" : "the ims user id of the owner"
+      "Owner": {
+        "type": "object",
+        "properties": {
+          "imsUserId": {
+            "type": "integer",
+            "format": "string",
+            "description": "the ims user id of the owner"
           },
-          "name" : {
-            "type" : "string",
-            "description" : "the friendly full login name of the owner, included when the expansion parameter ownerFullName is true"
+          "name": {
+            "type": "string",
+            "description": "the friendly full login name of the owner, included when the expansion parameter ownerFullName is true"
           }
         }
       },
-      "DeleteResponse" : {
-        "type" : "object",
-        "properties" : {
-          "result" : {
-            "type" : "string"
+      "DeleteResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string"
           },
-          "message" : {
-            "type" : "string"
+          "message": {
+            "type": "string"
           }
         }
       },
-      "Tag" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "format" : "int32",
-            "description" : "the tag id"
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "the tag id"
           },
-          "name" : {
-            "type" : "string",
-            "description" : "the tag name "
+          "name": {
+            "type": "string",
+            "description": "the tag name "
           },
-          "description" : {
-            "type" : "string",
-            "description" : "the tag description"
+          "description": {
+            "type": "string",
+            "description": "the tag description"
           },
-          "components" : {
-            "type" : "array",
-            "description" : "the list of components that have been tagged with this tag",
-            "uniqueItems" : true,
-            "items" : {
-              "$ref" : "#/components/schemas/TaggedComponent"
+          "components": {
+            "type": "array",
+            "description": "the list of components that have been tagged with this tag",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/components/schemas/TaggedComponent"
             }
           }
         },
-        "description" : "Tag Model"
+        "description": "Tag Model"
       },
       "Connection": {
         "type": "object",
@@ -15982,12 +16405,12 @@
             "type": "string"
           },
           "owner": {
-            "$ref": "#/definitions/CJAOwner"
+            "$ref": "#/components/schemas/CJAOwner"
           },
           "dataSets": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/DataSetMetadata"
+              "$ref": "#/components/schemas/DataSetMetadata"
             }
           },
           "modifiedDate": {
@@ -16027,7 +16450,7 @@
           "connectionValidationErrors": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ConnectionValidationError"
+              "$ref": "#/components/schemas/ConnectionValidationError"
             }
           },
           "tags": {
@@ -16040,7 +16463,7 @@
             }
           },
           "backfillSummary": {
-            "$ref": "#/definitions/BackfillSummary"
+            "$ref": "#/components/schemas/BackfillSummary"
           },
           "idWithoutPrefix": {
             "type": "string",
@@ -16067,7 +16490,10 @@
           },
           "type": {
             "type": "string",
-            "enum": ["imsUser", "systemUser"]
+            "enum": [
+              "imsUser",
+              "systemUser"
+            ]
           }
         }
       },
@@ -16111,19 +16537,19 @@
             "type": "string"
           },
           "schemaInfo": {
-            "$ref": "#/definitions/SchemaInfo"
+            "$ref": "#/components/schemas/SchemaInfo"
           },
           "backfills": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/DataSetBackfill"
+              "$ref": "#/components/schemas/DataSetBackfill"
             }
           },
           "streaming": {
             "type": "boolean"
           },
           "backfillSummary": {
-            "$ref": "#/definitions/BackfillSummary"
+            "$ref": "#/components/schemas/BackfillSummary"
           },
           "lastIngestedTime": {
             "type": "string"
@@ -16136,7 +16562,7 @@
             "type": "string"
           },
           "dataSourceType": {
-            "$ref": "#/definitions/DataSourceType"
+            "$ref": "#/components/schemas/DataSourceType"
           }
         }
       },
@@ -16151,7 +16577,12 @@
           },
           "status": {
             "type": "string",
-            "enum": ["COMPLETED", "FAILED", "IN_PROGRESS", "IN_QUEUE"]
+            "enum": [
+              "COMPLETED",
+              "FAILED",
+              "IN_PROGRESS",
+              "IN_QUEUE"
+            ]
           },
           "startDate": {
             "type": "string",
@@ -16213,7 +16644,29 @@
         "properties": {
           "errorCode": {
             "type": "string",
-            "enum": ["MISSING_FIELD", "DISALLOWED_FIELD", "INVALID_CONNECTION_NAME", "INVALID_SANDBOX_ID", "INVALID_SANDBOX_NAME", "INVALID_DOMAIN", "INVALID_DATA_SET_TYPE", "INVALID_VISITOR_ID", "INVALID_NAME_SPACE", "INVALID_IDENTITY_NAMESPACE", "INVALID_IDENTITY_MAP", "INVALID_LOOKUP_KEY_FIELD", "INVALID_LOOKUP_PARENT_FIELDS", "INVALID_USE_PRIMARY_ID_NAME_SPACE", "INVALID_DATA_SOURCE_TYPE", "DATA_SET_DOES_NOT_EXIST", "REQUIRED_EVENT_DATA_SET_MISSING", "SCHEMA_UNAVAILABLE", "NAMESPACE_UNAVAILABLE", "DATASET_BACKFILL_REQUEST_LIMIT_EXCEEDED", "DATASETS_PER_CONNECTION_LIMIT_EXCEEDED"]
+            "enum": [
+              "MISSING_FIELD",
+              "DISALLOWED_FIELD",
+              "INVALID_CONNECTION_NAME",
+              "INVALID_SANDBOX_ID",
+              "INVALID_SANDBOX_NAME",
+              "INVALID_DOMAIN",
+              "INVALID_DATA_SET_TYPE",
+              "INVALID_VISITOR_ID",
+              "INVALID_NAME_SPACE",
+              "INVALID_IDENTITY_NAMESPACE",
+              "INVALID_IDENTITY_MAP",
+              "INVALID_LOOKUP_KEY_FIELD",
+              "INVALID_LOOKUP_PARENT_FIELDS",
+              "INVALID_USE_PRIMARY_ID_NAME_SPACE",
+              "INVALID_DATA_SOURCE_TYPE",
+              "DATA_SET_DOES_NOT_EXIST",
+              "REQUIRED_EVENT_DATA_SET_MISSING",
+              "SCHEMA_UNAVAILABLE",
+              "NAMESPACE_UNAVAILABLE",
+              "DATASET_BACKFILL_REQUEST_LIMIT_EXCEEDED",
+              "DATASETS_PER_CONNECTION_LIMIT_EXCEEDED"
+            ]
           },
           "dataSetId": {
             "type": "string"
@@ -16234,7 +16687,39 @@
         "properties": {
           "errorCode": {
             "type": "string",
-            "enum": ["invalid_metric_access", "method_not_allowed", "resource_conflict", "invalid_access", "resource_temporarily_unavailable", "external_api_failure", "aam_failure", "resource_already_exists", "invalid_state", "invalid_json_input", "invalid_parameters", "invalid_dimension_access", "unsupported_data_type", "resource_not_found", "insufficient_access", "health_check_error", "invalid_data", "unexpected_error", "external_api_error", "unsupported_resource", "io_error", "action_not_implemented", "too_many_requests", "payload_too_large", "invalid_request", "invalid_client_id", "unauthorized", "authorization_error", "invalid_token", "insufficient_scope", "bluecoat_unauthorized"]
+            "enum": [
+              "invalid_metric_access",
+              "method_not_allowed",
+              "resource_conflict",
+              "invalid_access",
+              "resource_temporarily_unavailable",
+              "external_api_failure",
+              "aam_failure",
+              "resource_already_exists",
+              "invalid_state",
+              "invalid_json_input",
+              "invalid_parameters",
+              "invalid_dimension_access",
+              "unsupported_data_type",
+              "resource_not_found",
+              "insufficient_access",
+              "health_check_error",
+              "invalid_data",
+              "unexpected_error",
+              "external_api_error",
+              "unsupported_resource",
+              "io_error",
+              "action_not_implemented",
+              "too_many_requests",
+              "payload_too_large",
+              "invalid_request",
+              "invalid_client_id",
+              "unauthorized",
+              "authorization_error",
+              "invalid_token",
+              "insufficient_scope",
+              "bluecoat_unauthorized"
+            ]
           },
           "errorDescription": {
             "type": "string"
@@ -16263,7 +16748,7 @@
             "type": "string"
           },
           "schemaRef": {
-            "$ref": "#/definitions/SchemaRef"
+            "$ref": "#/components/schemas/SchemaRef"
           }
         }
       },
@@ -16281,20 +16766,176 @@
         },
         "description": "This is the full URL for XDM schema path. This field will be derived from schema field, if it is not present. This field will be used to annotate XDM schema version used in the dataSet or dataSetView."
       },
-      "TaggedComponent" : {
-        "type" : "object",
-        "properties" : {
-          "componentType" : {
-            "type" : "string"
+      "TaggedComponent": {
+        "type": "object",
+        "properties": {
+          "componentType": {
+            "type": "string"
           },
-          "componentId" : {
-            "type" : "string"
+          "componentId": {
+            "type": "string"
           },
-          "tags" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Tag"
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
             }
+          }
+        }
+      },
+      "ImsUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "imsOrgId": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "storageReclamationAction": {
+            "type": "string"
+          },
+          "editable": {
+            "type": "boolean"
+          },
+          "externallyManaged": {
+            "type": "boolean"
+          },
+          "licenseGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LicenseGroup"
+            }
+          },
+          "admin": {
+            "type": "boolean"
+          },
+          "imsOrgAdmin": {
+            "type": "boolean"
+          },
+          "imsProductAdmin": {
+            "type": "boolean"
+          },
+          "images": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "LicenseGroup": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "PageConnection": {
+        "type": "object",
+        "properties": {
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageable": {
+            "$ref": "#/components/schemas/Pageable"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Connection"
+            }
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Pageable": {
+        "type": "object",
+        "properties": {
+          "paged": {
+            "type": "boolean"
+          },
+          "unpaged": {
+            "type": "boolean"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Sort": {
+        "type": "object",
+        "properties": {
+          "unsorted": {
+            "type": "boolean"
+          },
+          "sorted": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
           }
         }
       }
