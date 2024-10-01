@@ -3,7 +3,7 @@ title: Dataviews APIs
 description: Manage CJA data views through APIs
 ---
 
-# Data views
+# Dataviews
 
 The CJA Dataviews APIs allow you to retrieve, create, or update dataviews programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI. See [Dataviews](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-dataviews/data-views.html?) in the Customer Journey Analytics guide for more information.
 
