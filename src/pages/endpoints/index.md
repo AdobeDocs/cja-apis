@@ -52,10 +52,6 @@ Retrieve dimensions information.
 
 Retrieve, update, or create filters.
 
-[Media Edge API](media-edge/index.md)
-
-Track media events within the framework of XDM.
-
 <DiscoverBlock slots="link, text"/>
 
 [Reporting API](reporting/index.md)
