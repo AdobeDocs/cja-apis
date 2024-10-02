@@ -8,4 +8,4 @@ keywords:
   - CJA API Swagger
 layout: none
 ---
-<RedoclyAPIBlock src="/cja-apis/swagger.json"/>
+<RedoclyAPIBlock src="/cja-apis/swagger.json" scrollYOffset={64}/>
