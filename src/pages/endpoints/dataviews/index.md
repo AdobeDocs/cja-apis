@@ -3,7 +3,7 @@ title: Dataviews APIs
 description: Manage CJA data views through APIs
 ---
 
-# Data views
+# Dataviews
 
 The CJA Dataviews APIs allow you to retrieve, create, or update dataviews programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI. See [Dataviews](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-dataviews/data-views.html?) in the Customer Journey Analytics guide for more information.
 
@@ -141,7 +141,7 @@ The example response above shows the following:
 | `content` | container | The data views requested. Contains the `name`, `description`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modifiedDate`, `createdDate`, `organization`, `modifiedBy`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, `containerNames`, and `id` parameters. |
 | `name` | string | The name of a data view |
 | `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId` and `name` parameters. |
+| `owner` | container | The owner of a data view. Contains the `imsUserId` and `name` parameters. Note that the owner in the body is overridden by the user making the request. |
 | `imsUserId` | string | The IMS user ID of the owner of a data view |
 | `name` | string | The name of the owner of a data view |
 | `isDeleted` | boolean | Whether the data view is deleted |
@@ -254,7 +254,7 @@ The example response above shows the following for data view `dv_150a049f5d02785
 | --- | --- | --- |
 | `name` | string | The name of the data view |
 | `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. Note that the owner in the body is overridden by the user making the request.|
 | `imsUserId` | string | The IMS user ID of the owner of a data view |
 | `name` | string | The name of the owner of a data view |
 | `isDeleted` | boolean | If the data view is deleted |
@@ -358,7 +358,7 @@ The request parameters are dependent upon the structure supplied for validation.
 | --- | --- | --- | --- |
 | `name` | optional | string | The name of the data view |
 | `description` | optional | string | The description of a data view |
-| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. Note that the owner in the body is overridden by the user making the request. |
 | `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
 | `name` | optional | string | The name of the owner of a data view |
 | `isDeleted` | optional | boolean | If the data view is deleted |
@@ -489,7 +489,7 @@ The response example above shows the following:
 | --- | --- | --- | --- |
 | `name` | optional | string | The name of the data view |
 | `description` | optional | string | The description of a data view |
-| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. Note that the owner in the body is overridden by the user making the request. |
 | `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
 | `name` | optional | string | The name of the owner of a data view |
 | `isDeleted` | optional | boolean | If the data view is deleted |
@@ -587,7 +587,7 @@ The example response above shows the following information:
 | --- | --- | --- |
 | `name` | string | The name of the data view |
 | `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. Note that the owner in the body is overridden by the user making the request. |
 | `imsUserId` | string | The IMS user ID of the owner of a data view |
 | `name` | string | The name of the owner of a data view |
 | `isDeleted` | boolean | If the data view is deleted |
@@ -689,7 +689,7 @@ The example response above shows the following:
 | `expansion` | optional | string | Comma-delimited list of additional fields to include on response. Includes the enums `name`, `description`, `owner`, `isDeleted`, `parentDataGroupId`, `segmentList`, `currentTimezoneOffset`, `timezoneDesignator`, `modified`, `createdDate`, `organization`, `curationEnabled`, `recentRecordedAccess`, `sessionDefinition`, `externalData`, and `containerNames`. |
 | `name` | optional | string | The name of the data view |
 | `description` | optional | string | The description of a data view |
-| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `owner` | optional | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. Note that the owner in the body is overridden by the user making the request. |
 | `imsUserId` | optional | string | The IMS user ID of the owner of a data view |
 | `name` | optional | string | The name of the owner of a data view |
 | `isDeleted` | optional | boolean | If the data view is deleted |
@@ -722,7 +722,7 @@ The example response above shows the following:
 | --- | --- | --- |
 | `name` | string | The name of the data view |
 | `description` | string | The description of a data view |
-| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. |
+| `owner` | container | The owner of a data view. Contains the `imsUserId`, and `name` parameters. Note that the owner in the body is overridden by the user making the request. |
 | `imsUserId` | string | The IMS user ID of the owner of a data view |
 | `name` | string | The name of the owner of a data view |
 | `isDeleted` | boolean | If the data view is deleted |
@@ -798,3 +798,14 @@ The example response above shows the DELETE was a `success`.
 | --- | --- | --- |
 | `result` | sting | The result of the delete request |
 | `message` | string | A message associated with the result |
+
+## Connection Limits
+
+The limits of dataviews per connection for the following products are:
+
+* ARES_Only - 5
+* Customery Journey Analytics Foundation Standalone - 500
+* Customer Journey Analytics Select Standalone - 600
+* Customer Journey Analytics Prime Standalone - 750
+* Customer Journey Analytics Ultimate Standalone - 1000
+* Customer Journey Analytics for Adobe Analtyics S/P/U - 600
