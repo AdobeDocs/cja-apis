@@ -120,7 +120,7 @@
         }
       }
     },
-    "/configuration/ims/orgs/users": {
+    "/configuration/org/users": {
       "get": {
         "tags": [
           "Configuration API"
@@ -187,7 +187,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ImsUser"
+                  "$ref": "#/components/schemas/PageImsUser"
                 }
               }
             }
@@ -5178,6 +5178,10 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "IMS User does not exist",
+            "content": {}
           }
         }
       }
@@ -5191,6 +5195,15 @@
         "operationId": "transferAssets_2",
         "parameters": [
           {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "$ref": "#/components/parameters/x-api-key"
+          },
+          {
+            "$ref": "#/components/parameters/x-gw-ims-org-id"
+          },
+          {
             "name": "recipientImsUserId",
             "in": "path",
             "description": "The IMS user ID of the recipient user",
@@ -5201,7 +5214,7 @@
           }
         ],
         "requestBody": {
-          "description": "The transfer data",
+          "description": "The transfer data; maximum of 100 component IDs",
           "content": {
             "application/json": {
               "schema": {
@@ -5216,14 +5229,11 @@
         },
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "Asset transfer completed with the status indicated in the response body",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TransferData"
-                  }
+                  "$ref": "#/components/schemas/TransferResults"
                 }
               }
             }
@@ -16092,6 +16102,50 @@
           }
         }
       },
+      "TransferFailure": {
+        "type": "object",
+        "properties": {
+          "componentType": {
+            "type": "string",
+            "enum": [
+              "segment",
+              "calculatedMetric",
+              "project",
+              "dateRange",
+              "annotation",
+              "scheduledJob",
+              "alert"
+            ]
+          },
+          "componentId": {
+            "type": "string"
+          },
+          "errorMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "TransferResults": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/TransferFailure"
+            }
+          },
+          "status": {
+            "type": "string",
+            "example": "status_partial_success",
+            "enum": [
+              "status_success",
+              "status_partial_success",
+              "status_all_failed"
+            ]
+          }
+        }
+      },
       "TransferData": {
         "type": "object",
         "properties": {
@@ -16783,6 +16837,52 @@
           }
         }
       },
+      "PageImsUser": {
+        "type": "object",
+        "properties": {
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageable": {
+            "$ref": "#/components/schemas/Pageable"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/Sort"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImsUser"
+            }
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
       "ImsUser": {
         "type": "object",
         "properties": {
@@ -16967,7 +17067,6 @@
         "schema": {
           "type": "string"
         }
-
       }
     }
   }
