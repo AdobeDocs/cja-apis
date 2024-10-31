@@ -122,11 +122,11 @@ curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{
 
 ### Request example details
 
-The example request above
+The request above shows a request to transfer the assets of the user to the recipient.
 
 ### Response example details
 
-The response above shows
+The response above shows the component IDs of the assets transfered.
 
 ### Request Parameters
 
@@ -140,7 +140,7 @@ The following table describes the {TITLE} request parameters:
 
 ### Response Parameters
 
-The following table describes the {TITLE} response parameters:
+The following table describes the response parameters:
 
 | Name | Type | Description |
 | --- | --- | --- |
