@@ -3,7 +3,7 @@ title: CJA Asset Transfer
 description: Use CJA Asset Management API to transfer ownership of CJA assets
 ---
 
-# CJA Asset Management API Guide
+# Asset Management
 
 The CJA Asset Transfer endpoints provide methods for transferring ownership of CJA assets.
 <InlineAlert variant="info" slots="text" />
