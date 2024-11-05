@@ -59,11 +59,11 @@ curl -X GET 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/e
 
 ### Request example details
 
-The example above shows a request for the number of assets owned by user with the IMS ID `exampleId`.
+The example above shows a request for the number of assets owned by user`exampleId`.
 
 ### Response example details
 
-The response above shows the user with the Id of `exampleId` to have five total assets.
+The response above shows the numbe of assets owned by user `exampleId`, classified by `componentType`.
 
 ### Request Parameters
 
