@@ -83,9 +83,8 @@ The following table describes the GET user asset count response parameters:
 
 ## PUT user asset transfer
 
-Use this endpoint to transfer assets to a specified user.
-If an `ownerImsUserId` is specified all assets belonging to the `ownerImsUserId` are considered the assets to be transferred. Any body included in a request alongside an `ownerImsUserId` will be ignored.
-Note that the number of assets in a single request cannot exceed the limit of 100 components.
+Use this endpoint to transfer assets to a specified user. Note that the user is not the admin requesting the transfer but the user who owns the CJA asset.
+If an `ownerImsUserId` is specified all assets belonging to the `ownerImsUserId` are considered the assets to be transferred. Any body included in a request alongside an `ownerImsUserId` will be ignored. The number of assets in a single request cannot exceed the limit of 100 components.
 
 `PUT https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{recipientImsUserId}/transfer`
 
