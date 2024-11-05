@@ -6,6 +6,7 @@ description: Use CJA Asset Management API to transfer ownership of CJA assets
 # CJA Asset Management API Guide
 
 The CJA Asset Transfer endpoints provide methods for transferring ownership of CJA assets.
+<InlineAlert variant="info" slots="text" />
 
 The user of these endpoints must be an Admin in the Adobe Admin Console. For more information regarding Adobe Admin Console user roles, see the [Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html) documentation.
 
@@ -15,6 +16,10 @@ This guide includes instructions the following endpoints:
 
 * [GET user asset count](): Counts the number of assets owned by a user
 * [PUT user asset transfer](): Transfers the ownership of assets to a specified user
+
+<InlineAlert variant="info" slots="text" />
+
+Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
 
 ## GET user asset count
 
