@@ -12,18 +12,21 @@ The user of these endpoints must be an Admin in the Adobe Admin Console. For mor
 
 The endpoints described in this guide are routed through `analytics.adobe.io`. To use them, you must first create a client with access to the Adobe Developer Console. For more information, see [Getting started with the CJA API](https://developer.adobe.com/cja-apis/docs/getting-started/).
 
-This guide includes instructions the following endpoints:
+This guide includes instructions for the following:
 
-* [GET user asset count](): Counts the number of assets owned by a user
-* [PUT user asset transfer](): Transfers the ownership of assets to a specified user
+* Identifying the number of CJA assets assigned to a user in a specified organization with the [GET user asset count]() endpoint.
+* Transfering the ownership of those CJA assets to another user with the [PUT user asset transfer]() endpoint. 
+
+Before using the above endpoints, you can use the Configuration API to find users in your organization and the assets assigned to them. 
 
 <InlineAlert variant="info" slots="text" />
 
 Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
 
+
 ## GET user asset count
 
-Use this endpoint to retrieve a count of assets owned by a user.
+Use this endpoint to retrieve a count of assets owned by a user. Note that the user is not the admin requesting the counts but the user who owns the CJA asset.
 
 `GET https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{ImsUserId}/counts`
 
