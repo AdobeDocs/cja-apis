@@ -50,9 +50,10 @@ curl -X GET 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/e
 ```json
 [
   {
-    "componentType": "string",
-    "count": 5
+    "componentType": "project",
+    "count": 3
   }
+
 ]
 ```
 
@@ -78,7 +79,7 @@ The following table describes the GET user asset count response parameters:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `componentType` | string | The type of components counted by the request |
+| `componentType` | string | The type of components counted by the request. This includes `project`, `dateRange`, `annotation`, `calculatedMetric`, `segment`, `alert`, and `ScheduledJob`. |
 | `count` | integer | The number of components owned by the user |
 
 ## PUT user asset transfer
