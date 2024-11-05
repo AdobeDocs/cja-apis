@@ -50,10 +50,33 @@ curl -X GET 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/e
 ```json
 [
   {
+    "componentType": "scheduledJob",
+    "count": 0
+  },
+  {
+    "componentType": "alert",
+    "count": 0
+  },
+  {
+    "componentType": "segment",
+    "count": 2
+  },
+  {
+    "componentType": "calculatedMetric",
+    "count": 1
+  },
+  {
+    "componentType": "annotation",
+    "count": 0
+  },
+  {
+    "componentType": "dateRange",
+    "count": 0
+  },
+  {
     "componentType": "project",
-    "count": 3
+    "count": 2
   }
-
 ]
 ```
 
@@ -63,7 +86,7 @@ The example above shows a request for the number of assets owned by user`example
 
 ### Response example details
 
-The response above shows the numbe of assets owned by user `exampleId`, classified by `componentType`.
+The response above shows the number of assets owned by user `exampleId`, classified by `componentType`. This user owns two projects, one calculated metric, and two segments.
 
 ### Request Parameters
 
