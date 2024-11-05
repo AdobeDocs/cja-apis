@@ -58,7 +58,7 @@ curl -X GET 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/e
 
 ### Request example details
 
-The example above shows a request for the number of assets owned by user with IMS user ID of `exampleId`.
+The example above shows a request for the number of assets owned by user with the IMS ID `exampleId`.
 
 ### Response example details
 
@@ -70,7 +70,7 @@ The following table describes the GET user asset count request parameters:
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| `imsUserId` | required | string | The IMS user ID that will have total assets counted |
+| `imsUserId` | required | string | The ID of the IMS user whose assets are counted |
 
 ### Response Parameters
 
@@ -79,7 +79,7 @@ The following table describes the GET user asset count response parameters:
 | Name | Type | Description |
 | --- | --- | --- |
 | `componentType` | string | The type of components counted by the request |
-| `count` | integer | The number of components counted by the request |
+| `count` | integer | The number of components owned by the user |
 
 ## PUT user asset transfer
 
