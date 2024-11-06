@@ -6,6 +6,7 @@ description: Use CJA Asset Management API to transfer ownership of CJA assets
 # Asset Management
 
 The Customer Journay Analysis (CJA) asset management endpoints provide methods for transferring ownership of CJA assets.
+
 <InlineAlert variant="info" slots="text" />
 
 The user of these endpoints must be an Admin in the Adobe Admin Console. For more information regarding Adobe Admin Console user roles, see the [Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html) documentation.
@@ -123,9 +124,19 @@ To retrieve this information, follow these steps:
 
 All assets belonging to the `ownerImsUserId` are transferred. The process does not copy the assets. It removes them from the owner and assigns them to the recipient. Any body included in a request alongside an `ownerImsUserId` will be ignored. The number of assets in a single request cannot exceed the limit of 100 components.
 
+### Example transfer case
+
+Using the information and steps shown above, the example below shows how to transfer a `project` asset to another user, as follows:
+
+The Configuration API shows the user ID of the owner as `userExample1` and the recipient as `userExample2`.
+The 
+
+`ownerImsUserId`  `exampleOwnerId` to `exampleRecipientId` previous calls referenced above
+
+
 `PUT https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{recipientImsUserId}/transfer`
 
-### Request and Response Examples
+### PUT user asset transfer request and response examples
 
 Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
 
