@@ -128,43 +128,53 @@ All assets belonging to the `ownerImsUserId` are transferred. The process does n
 
 ### Example transfer case
 
-Using the information and steps shown above, the example below shows how to transfer a `project` asset to another user, as follows:
+the example below shows how to transfer a `project` asset to another user (Using the information and steps shown above), as follows:
 
-The [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API) shows the user ID of the owner as `userExample1` and the recipient as `userExample2`.
-The GET user asset count endpoint shows two `project` type assets owned by `userExample1`.
-Using the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Projects-APIs), the [GET projects by user](https://developer.adobe.com/cja-apis/docs/api/#operation/projects_getProjects) endpoint lists the asset ID of the projects to be transferred, as shown below:
+1. The [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API) shows the user ID of the owner as `userExample1` and the recipient as `userExample2`.
+2. The GET user asset count endpoint shows two `project` type assets owned by `userExample1`.
+3. Using the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Projects-APIs), the [GET projects by user](https://developer.adobe.com/cja-apis/docs/api/#operation/projects_getProjects) endpoint lists the asset ID of the projects to be transferred, as shown below:
 
+```sh
+curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId={EXAMPLE_USER_1_ID.e}\"
+     -H 'x-api-key: {CLIENT_ID}' \
+     -H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
+     -H 'Content-Type: application/json' \
+     -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+```
+The Projects API example above requests a list of projects under the ownership of EXAMPLE_USER_1.
+
+The successful response is as follows:
 
 ```json
-{
+ {
   "content": [
     {
-      "id": "634848ad448e1f02a28335c7",
+      "id": "{EXAMPLE_PROJECT_ID_1}",
       "name": "New project testing users",
       "description": "",
       "type": "project",
-      "dataId": "dv_6348465fa3ea1120bfdb8bea",
+      "dataId": "dv_5555555fa5ea5555bfdb5bea",
       "owner": {
-        "imsUserId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
-        "ownerId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
+        "imsUserId": "{EXAMPLE_USER_1_ID.e}",
+        "ownerId": "{EXAMPLE_USER_1_ID.e}",
         "name": null,
         "type": "imsUser"
       },
-      "created": "2022-10-13T17:19:41Z"
+      "created": "YYYY-MM-DDT17:19:41Z"
     },
     {
-      "id": "63c9d8b9e862c5405dc921b4",
+      "id": "{EXAMPLE_PROJECT_ID_2}",
       "name": "Testing definitions",
       "description": "",
       "type": "project",
-      "dataId": "dv_63c2d9ada3200730a4992185",
+      "dataId": "dv_66c6d6ada6666666a6666666",
       "owner": {
-        "imsUserId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
-        "ownerId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
+        "imsUserId": "{EXAMPLE_USER_1_ID.e}",
+        "ownerId": "{EXAMPLE_USER_1_ID.e}",
         "name": null,
         "type": "imsUser"
       },
-      "created": "2023-01-19T23:56:41Z"
+      "created": "YYYY-MM-DDT23:56:41Z"
     }
   ],
   "totalPages": 1,
@@ -177,11 +187,12 @@ Using the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Proje
   "size": 10
 }
 ```
+The example Projects API response above shows that the asset IDs for the projects are EXAMPLE_PROJECT_ID_1 and EXAMPLE_PROJECT_ID_2. These project IDs will be used to transfer the assets to the recipient user.
 
 
 
-`ownerImsUserId`  `exampleOwnerId` to `exampleRecipientId` previous calls referenced above
 
+The above Project API request 
 
 `PUT https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{recipientImsUserId}/transfer`
 
@@ -223,6 +234,12 @@ curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{
   }
 ]
 ```
+
+
+
+/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId=B0617A0162DCEABA0A495CD2%40ae0501bf62dcba86495c75.e
+
+
 
 ### Request example details
 
