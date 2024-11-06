@@ -5,7 +5,7 @@ description: Use CJA Asset Management API to transfer ownership of CJA assets
 
 # Asset Management
 
-The CJA Asset Transfer endpoints provide methods for transferring ownership of CJA assets.
+The Customer Journay Analysis (CJA) asset management endpoints provide methods for transferring ownership of CJA assets.
 <InlineAlert variant="info" slots="text" />
 
 The user of these endpoints must be an Admin in the Adobe Admin Console. For more information regarding Adobe Admin Console user roles, see the [Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html) documentation.
@@ -14,8 +14,8 @@ The endpoints described in this guide are routed through `analytics.adobe.io`. T
 
 This guide includes instructions for the following:
 
-* Identifying the number of CJA assets assigned to a user in a specified organization with the [GET user asset count]() endpoint.
-* Transfering the ownership of those CJA assets to another user with the [PUT user asset transfer]() endpoint. 
+* Identifying the type and number of CJA assets assigned to a user in a specified organization with the [GET user asset count]() endpoint.
+* Transfering the ownership of those CJA assets to another user with the [PUT user asset transfer]() endpoint, in combination with other API services. 
 
 Before using the above endpoints, you can use the Configuration API to find users in your organization and the assets assigned to them. 
 
@@ -26,7 +26,7 @@ Adobe may add optional request and response members (name/value pairs) to existi
 
 ## GET user asset count
 
-Use this endpoint to retrieve a count of assets owned by a user. Note that the user is not the admin requesting the counts but the user who owns the CJA asset.
+Use this endpoint to retrieve both a count of assets owned by a user, and the `componentType`for each asset. Note that the user is not the admin requesting the counts but the user who owns the CJA asset.
 
 `GET https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{ImsUserId}/counts`
 
@@ -82,11 +82,11 @@ curl -X GET 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/e
 
 ### Request example details
 
-The example above shows a request for the number of assets owned by user`exampleId`.
+The example above shows a request for the types and numbers of assets owned by user`exampleId`.
 
 ### Response example details
 
-The response above shows the number of assets owned by user `exampleId`, classified by `componentType`. This user owns two projects, one calculated metric, and two segments.
+The response above shows the number of assets owned by user `exampleId`, classified by `componentType`. This user owns `2` assets of type `project`, `1` of type `calculatedMetric`, and `2` of type `segment`.
 
 ### Request Parameters
 
