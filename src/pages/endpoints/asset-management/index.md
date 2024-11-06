@@ -117,8 +117,8 @@ Use this endpoint to transfer assets to a specified user. To complete an asset t
 To retrieve this information, follow these steps:
 
 1. Use the Configuration API to retrieve the user IDs in your organization.
-2. Use the GET user asset count endpoint above to find which types of assets belong to the specified user ID.
-3. Depending on the `componentType` of the asset, use the associated API service to find the ID of the asset. For example, if the GET user asset count endpoint shows that `exampleUserId` owns two `project` assets, use the Project API to return the asset ID.
+2. Use the **GET user asset count** endpoint above to find which types of assets belong to the specified user.
+3. Depending on the `componentType` of the asset, use the relevant API service to find the ID of the asset. For example, if the **GET user asset count** endpoint shows that `exampleUserId` owns two `project` assets, use the [Project API](https://developer.adobe.com/cja-apis/docs/endpoints/projects/) to return the asset ID.
 4. Copy the `id` from the response and use it as the `ownerImsUserId` parameter in the PUT user asset transfer call described below. 
 
 All assets belonging to the `ownerImsUserId` are transferred. The process does not copy the assets. It removes them from the owner and assigns them to the recipient. Any body included in a request alongside an `ownerImsUserId` will be ignored. The number of assets in a single request cannot exceed the limit of 100 components.
