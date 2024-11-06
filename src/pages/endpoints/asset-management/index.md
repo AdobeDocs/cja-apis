@@ -132,7 +132,53 @@ Using the information and steps shown above, the example below shows how to tran
 
 The [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API) shows the user ID of the owner as `userExample1` and the recipient as `userExample2`.
 The GET user asset count endpoint shows two `project` type assets owned by `userExample1`.
-Using the Project API, the 
+Using the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Projects-APIs), the [GET projects by user](https://developer.adobe.com/cja-apis/docs/api/#operation/projects_getProjects) endpoint lists the asset ID of the projects to be transferred, as shown below:
+
+
+```json
+{
+  "content": [
+    {
+      "id": "634848ad448e1f02a28335c7",
+      "name": "New project testing users",
+      "description": "",
+      "type": "project",
+      "dataId": "dv_6348465fa3ea1120bfdb8bea",
+      "owner": {
+        "imsUserId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
+        "ownerId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
+        "name": null,
+        "type": "imsUser"
+      },
+      "created": "2022-10-13T17:19:41Z"
+    },
+    {
+      "id": "63c9d8b9e862c5405dc921b4",
+      "name": "Testing definitions",
+      "description": "",
+      "type": "project",
+      "dataId": "dv_63c2d9ada3200730a4992185",
+      "owner": {
+        "imsUserId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
+        "ownerId": "B0617A0162DCEABA0A495CD2@ae0501bf62dcba86495c75.e",
+        "name": null,
+        "type": "imsUser"
+      },
+      "created": "2023-01-19T23:56:41Z"
+    }
+  ],
+  "totalPages": 1,
+  "totalElements": 2,
+  "numberOfElements": 2,
+  "number": 0,
+  "firstPage": true,
+  "lastPage": true,
+  "sort": null,
+  "size": 10
+}
+```
+
+
 
 `ownerImsUserId`  `exampleOwnerId` to `exampleRecipientId` previous calls referenced above
 
