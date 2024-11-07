@@ -221,3 +221,7 @@ To create a date range with the CJA APIs:
 1. Define/Specify/Configure/Build a definition.
 1. Specify a name. The name should be descriptive of what the date range does. The description field can provide additional context about the date range.
 1. `POST` to the `/dateranges` endpoint.
+
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
