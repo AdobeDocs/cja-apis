@@ -809,3 +809,7 @@ The limits of dataviews per connection for the following products are:
 * Customer Journey Analytics Prime Standalone - 750
 * Customer Journey Analytics Ultimate Standalone - 1000
 * Customer Journey Analytics for Adobe Analtyics S/P/U - 600
+
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
