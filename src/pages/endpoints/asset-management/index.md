@@ -230,14 +230,10 @@ curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/R
 #### Response
 
 ```json
-[
   {
-    "componentType": "string",
-    "componentIds": [
-      "string"
-    ]
+    "errors": [ ],
+    "status": "status_success"
   }
-]
 ```
 
 ### Request example details
@@ -246,23 +242,14 @@ The request above shows a request to transfer the project asset `ExampleProjectI
 
 ### Response example details
 
-The response above shows the component IDs of the assets transfered.
+The response above shows a successful response for the asset transfer. You can use the **GET user asset count** endpoint again to verify the number of assets transferred.
 
 ### Request Parameters
 
-The following table describes the {TITLE} request parameters:
+The following table describes the **PUT user asset transfer** request parameters:
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
 | `recipientImsUserId` | required | string | The IMS user ID to receive assets from the transfer |
 | `componentType` |  | string | The type of component |
 | `componentIds` |  | string | An array of the IDs intended to be transferred |
-
-### Response Parameters
-
-The following table describes the response parameters:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `componentType` | string | The type of component transferred |
-| `componentIds` | string | The IDs of transferred components |
