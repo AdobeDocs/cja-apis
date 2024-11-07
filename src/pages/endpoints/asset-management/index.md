@@ -253,3 +253,7 @@ The following table describes the **PUT user asset transfer** request parameters
 | `recipientImsUserId` | required | string | The IMS user ID to receive assets from the transfer |
 | `componentType` |  | string | The type of component |
 | `componentIds` |  | string | An array of the IDs intended to be transferred |
+
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
