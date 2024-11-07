@@ -179,3 +179,6 @@ curl -X PUT "https://cja.adobe.io/annotations/62437d" \
     "id": "62437d"
 }
 ```
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
