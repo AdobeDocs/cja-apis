@@ -132,13 +132,13 @@ The steps below show an example for transfering a `project` asset to another use
 2. The admin retrieves the number and type of assets for the owner with the **GET user asset count** endpoint. This shows two `project` type assets owned by `OwnerImsUserIdExample`.
 3. The admin uses the [GET projects by user](https://developer.adobe.com/cja-apis/docs/api/#operation/projects_getProjects) endpoint within the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Projects-APIs) to retrievethe asset ID of the projects to be transferred, as shown in the example request and response below:
 
-### Example requests and responses for a project asset transfer
+### Example requests and responses for a project API call
 
 Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
 
 <CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
-#### Example project scenario request
+#### Example project API request
 
 ```sh
 curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId=OwnerExample111.e\"
@@ -147,9 +147,8 @@ curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer {ACCESS_TOKEN}" \
 ```
-The Projects API example above requests a list of projects under the ownership of `OwnerExample111.e`
 
-#### Example project response
+#### Example project API response
 
 ```json
  {
@@ -194,9 +193,13 @@ The Projects API example above requests a list of projects under the ownership o
 }
 ```
 
-The example Projects API response above shows that the asset IDs for the projects are `ExampleProjectId1` and `ExampleProjectId2`. These project IDs will be used to transfer the assets to`RecipientExample222.e` with the the **PUT user asset transfer**, as shown below:
+### Request example details for project API call
 
+The Projects API example above requests a list of projects under the ownership of `OwnerExample111.e`
 
+### Response example details for project API call
+
+The example Projects API response above shows that the asset IDs for the projects are `ExampleProjectId1` and `ExampleProjectId2`. These project IDs will be used to transfer the assets to`RecipientExample222.e` with the the **PUT user asset transfer**.
 
 ### PUT user assets transfer request and response examples
 
@@ -239,7 +242,7 @@ curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/R
 
 ### Request example details
 
-The request above shows a request to transfer the assets of the user to the recipient.
+The request above shows a request to transfer the project asset `ExampleProjectId1` to the recipient `RecipientExample222.e`.
 
 ### Response example details
 
