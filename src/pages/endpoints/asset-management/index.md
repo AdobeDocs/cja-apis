@@ -27,7 +27,7 @@ Adobe may add optional request and response members (name/value pairs) to existi
 
 ## GET user asset count
 
-Use this endpoint to retrieve both a count of assets owned by a user, and the `componentType`for each asset. Note that the user is not the admin requesting the counts but the user who owns the CJA asset.
+Use this endpoint to retrieve both a count of assets owned by a user, and the `componentType` for each asset. Note that the user is not the admin requesting the counts but the user who owns the CJA asset.
 
 `GET https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{ImsUserId}/counts`
 
