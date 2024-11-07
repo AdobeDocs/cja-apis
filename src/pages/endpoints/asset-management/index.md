@@ -5,7 +5,7 @@ description: Use CJA Asset Management API to transfer ownership of CJA assets
 
 # Asset Management
 
-The Customer Journay Analysis (CJA) asset management endpoints provide methods for transferring ownership of CJA assets.
+The Customer Journay Analysis (CJA) asset management API provides methods for transferring ownership of CJA assets.
 
 <InlineAlert variant="info" slots="text" />
 
