@@ -345,3 +345,7 @@ Show me audit logs between June 1st and October 1st where the 'ACTION' was eithe
   "pageNumber": 0
 }
 ```
+
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
