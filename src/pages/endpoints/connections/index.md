@@ -527,3 +527,7 @@ The example response above shows the data source types for the organization.
 | `id` | string | The ID of the data source |
 | `type` | string | The type of data source |
 | `description` | string | A description of the data source type |
+
+## API status codes
+
+For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
