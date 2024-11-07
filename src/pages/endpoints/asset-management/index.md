@@ -15,8 +15,8 @@ The endpoints described in this guide are routed through `analytics.adobe.io`. T
 
 This guide includes instructions for the following:
 
-* Identifying the type and number of CJA assets assigned to a user in a specified organization with the [GET user asset count]() endpoint.
-* Transfering the ownership of those CJA assets to another user with the [PUT user asset transfer]() endpoint, in combination with other API services. 
+* Identifying the type and number of CJA assets assigned to a user in a specified organization with the GET user asset count endpoint.
+* Transfering the ownership of those CJA assets to another user with the PUT user asset transfer endpoint, in combination with other API services. 
 
 Before using the above endpoints, you can use the Configuration API to find users in your organization and the assets assigned to them. 
 
@@ -40,10 +40,10 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X GET 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/exampleId/counts' \
+curl -X GET "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/exampleImsUserId.e/counts" \
      -H "x-api-key: {CLIENT_ID}" \
-     -H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
-     -H 'Authorization: Bearer {ACCESS_TOKEN}'
+     -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+     -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
 #### Response
@@ -83,7 +83,7 @@ curl -X GET 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/e
 
 ### Request example details
 
-The example above shows a request for the types and numbers of assets owned by user`exampleId`.
+The example above shows a request for the types and numbers of assets owned by user`exampleImsUserId.e`.
 
 ### Response example details
 
@@ -110,17 +110,10 @@ The following table describes the GET user asset count response parameters:
 
 Use this endpoint to transfer assets to a specified user. To complete an asset transfer, you will need the following:
 
-* The `ownerImsUserId`
-* The `reciepientImsUserId`
-* The `componentType` of the asset
-* The asset ID
-
-To retrieve this information, follow these steps:
-
-1. Use the [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API) to retrieve the user IDs in your organization.
-2. Use the **GET user asset count** endpoint above to find which types of assets belong to the specified user.
-3. Depending on the `componentType` of the asset, use the relevant API service to find the ID of the asset. For example, if the **GET user asset count** endpoint shows that `exampleUserId` owns two `project` assets, use the [Project API](https://developer.adobe.com/cja-apis/docs/endpoints/projects/) to return the asset ID.
-4. Copy the `id` from the response and use it as the `ownerImsUserId` parameter in the PUT user asset transfer call described below. 
+* The `ownerImsUserId`: the IMS user ID of the owner of the assets, found with [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API).
+* The `reciepientImsUserId`: the IMS user ID of the recipieht of the assets, found with the [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API).
+* The `componentType`: the type of component as listed in response to the **Get user asset count** endpoint. 
+* The asset ID: The ID of the asset, as shown in response to the API service that corresponds to the type of asset. For example, if the **GET user asset count** endpoint shows that `exampleUserId` owns two `project` assets, use the [Project API](https://developer.adobe.com/cja-apis/docs/endpoints/projects/) to return the asset ID.
 
 <InlineAlert variant="info" slots="text" />
 
@@ -128,49 +121,49 @@ All assets belonging to the `ownerImsUserId` are transferred. The process does n
 
 ### Example transfer case
 
-the example below shows how to transfer a `project` asset to another user (Using the information and steps shown above), as follows:
+The example below provides a scenario for transfering a `project` asset to another user (using the information and steps shown above), as follows:
 
-1. The [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API) shows the user ID of the owner as `userExample1` and the recipient as `userExample2`.
-2. The GET user asset count endpoint shows two `project` type assets owned by `userExample1`.
-3. Using the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Projects-APIs), the [GET projects by user](https://developer.adobe.com/cja-apis/docs/api/#operation/projects_getProjects) endpoint lists the asset ID of the projects to be transferred, as shown below:
+1. The [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API) shows the user ID of the owner as `OwnerExample111.e` and the recipient as `RecipientExample222.e`.
+2. The GET user asset count endpoint shows two `project` type assets owned by `OwnerImsUserIdExample`.
+3. Using the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Projects-APIs), the [GET projects by user](https://developer.adobe.com/cja-apis/docs/api/#operation/projects_getProjects) endpoint lists the asset ID of the projects to be transferred, as shown in the request and response below:
 
 ```sh
-curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId={EXAMPLE_USER_1_ID.e}\"
-     -H 'x-api-key: {CLIENT_ID}' \
-     -H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
-     -H 'Content-Type: application/json' \
-     -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId=OwnerExample111.e\"
+     -H "x-api-key: {CLIENT_ID}" \
+     -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer {ACCESS_TOKEN}" \
 ```
-The Projects API example above requests a list of projects under the ownership of EXAMPLE_USER_1.
+The Projects API example above requests a list of projects under the ownership of `OwnerExample111.e`
 
-The successful response is as follows:
+The following example shows a successful response:
 
 ```json
  {
   "content": [
     {
-      "id": "{EXAMPLE_PROJECT_ID_1}",
+      "id": "ExampleProjectId1",
       "name": "New project testing users",
       "description": "",
       "type": "project",
       "dataId": "dv_5555555fa5ea5555bfdb5bea",
       "owner": {
-        "imsUserId": "{EXAMPLE_USER_1_ID.e}",
-        "ownerId": "{EXAMPLE_USER_1_ID.e}",
+        "imsUserId": "OwnerExample111.e",
+        "ownerId": "OwnerExample111.e",
         "name": null,
         "type": "imsUser"
       },
       "created": "YYYY-MM-DDT17:19:41Z"
     },
     {
-      "id": "{EXAMPLE_PROJECT_ID_2}",
+      "id": "ExampleProjectId2",
       "name": "Testing definitions",
       "description": "",
       "type": "project",
       "dataId": "dv_66c6d6ada6666666a6666666",
       "owner": {
-        "imsUserId": "{EXAMPLE_USER_1_ID.e}",
-        "ownerId": "{EXAMPLE_USER_1_ID.e}",
+        "imsUserId": "OwnerExample111.e",
+        "ownerId": "OwnerExample111.e",
         "name": null,
         "type": "imsUser"
       },
@@ -187,16 +180,11 @@ The successful response is as follows:
   "size": 10
 }
 ```
-The example Projects API response above shows that the asset IDs for the projects are EXAMPLE_PROJECT_ID_1 and EXAMPLE_PROJECT_ID_2. These project IDs will be used to transfer the assets to the recipient user.
+The example Projects API response above shows that the asset IDs for the projects are `ExampleProjectId1` and `ExampleProjectId2`. These project IDs will be used to transfer the assets to`RecipientExample222.e` in the the **PUT user asset transfer** example below.
 
+`PUT https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{RECIPIENT_USER_IMS_ID}/transfer`
 
-
-
-The above Project API request 
-
-`PUT https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{recipientImsUserId}/transfer`
-
-### PUT user asset transfer request and response examples
+### PUT user assets transfer request and response examples
 
 Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
 
@@ -205,7 +193,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{recipientImsUserId}/transfer' \
+curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/RecipientExample222.e/transfer' \
      -H 'x-api-key: {CLIENT_ID}' \
      -H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
      -H 'Content-Type: application/json' \
@@ -213,9 +201,9 @@ curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{
      -d '{
         [
           {
-            "componentType": "string",
+            "componentType": "project",
             "componentIds": [
-              "string"
+              "ExampleProjectId1"
             ]
           }
         ]
@@ -234,12 +222,6 @@ curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{
   }
 ]
 ```
-
-
-
-/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId=B0617A0162DCEABA0A495CD2%40ae0501bf62dcba86495c75.e
-
-
 
 ### Request example details
 
