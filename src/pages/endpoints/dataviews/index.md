@@ -37,10 +37,10 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl 'https://cja.adobe.io/data/dataviews?expansion=name%2Cowner%2Corganization%2Cdescription&limit=3&page=0' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'
+curl -X GET "https://cja.adobe.io/data/dataviews?expansion=name%2Cowner%2Corganization%2Cdescription&limit=3&page=0" \
+-H "x-api-key: {API_KEY}" \
+-H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+-H "Authorization: Bearer {AUTHORIZATION_TOKEN}"
 ```
 
 #### Response
@@ -199,10 +199,10 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -L 'https://cja.adobe.io/data/dataviews/dv_150a049f5d02785bacxxxxxx?expansion=name%2Cowner%2Cdescription%2CparentDataGroupId%2CtimezoneDesignator%2CexternalData' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'
+curl -X GET "https://cja.adobe.io/data/dataviews/dv_150a049f5d02785bacxxxxxx?expansion=name%2Cowner%2Cdescription%2CparentDataGroupId%2CtimezoneDesignator%2CexternalData" \
+-H "x-api-key: {API_KEY}" \
+-H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+-H "Authorization: Bearer {AUTHORIZATION_TOKEN}"
 ```
 
 #### Response
@@ -295,11 +295,11 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -L 'https://cja.adobe.io/data/dataviews/validate' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
--H 'Content-Type: application/json' \
+curl -X POST "https://cja.adobe.io/data/dataviews/validate" \
+-H "x-api-key: {API_KEY}" \
+-H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+-H "Authorization: Bearer {AUTHORIZATION_TOKEN}"\
+-H "Content-Type: application/json" \
 --data-raw '{
     "name": "testView",
     "description": "A Test Data View",
@@ -408,11 +408,11 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -L 'https://cja.adobe.io/data/dataviews?expansion=name%2Cdescription%2CparentDataGroupId%2CcurrentTimezoneOffset%2CtimezoneDesignator%2Corganization%2CsessionDefinition%2CexternalData' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
--H 'Content-Type: application/json' \
+curl -X POST "https://cja.adobe.io/data/dataviews?expansion=name%2Cdescription%2CparentDataGroupId%2CcurrentTimezoneOffset%2CtimezoneDesignator%2Corganization%2CsessionDefinition%2CexternalData" \
+-H "x-api-key: {API_KEY}" \
+-H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+-H "Authorization: Bearer {AUTHORIZATION_TOKEN}"\
+-H "Content-Type: application/json" \
 --data-raw '{
   "name": "testView",
   "description": "Test Data View",
@@ -534,10 +534,10 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X PUT 'https://cja.adobe.io/data/dataviews/copy/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cdescription%2Cowner%2CcreatedDate' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
+curl -X PUT "https://cja.adobe.io/data/dataviews/copy/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cdescription%2Cowner%2CcreatedDate" \
+-H "x-api-key: {API_KEY}" \
+-H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+-H "Authorization: Bearer {AUTHORIZATION_TOKEN}"\
 ```
 
 #### Response
@@ -630,11 +630,11 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl PUT 'https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cmodified' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
--H 'Content-Type: application/json' \
+curl -X PUT "https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx?expansion=name%2Cmodified" \
+-H "x-api-key: {API_KEY}" \
+-H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+-H "Authorization: Bearer {AUTHORIZATION_TOKEN}"\
+-H "Content-Type: application/json" \
 -d '{
   "sessionDefinition": [
     {
@@ -764,10 +764,10 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X DELETE 'https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx' \
--H 'x-api-key: {API_KEY}' \
--H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
--H 'Authorization: Bearer {AUTHORIZATION_TOKEN}'\
+curl -X DELETE "https://cja.adobe.io/data/dataviews/dv_650a049f5d02785bacxxxxxx" \
+-H "x-api-key: {API_KEY}" \
+-H "x-gw-ims-org-id: {IMS_ORG_ID}" \
+-H "Authorization: Bearer {AUTHORIZATION_TOKEN}"\
 ```
 
 #### Response
