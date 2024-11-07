@@ -106,7 +106,7 @@ The following table describes the GET user asset count response parameters:
 | `componentType` | string | The type of components counted by the request. This includes `project`, `dateRange`, `annotation`, `calculatedMetric`, `segment`, `alert`, and `ScheduledJob`. |
 | `count` | integer | The number of components owned by the user |
 
-## PUT user asset transfer
+## PUT user asset scenario
 
 Use this endpoint to transfer assets to a specified user. To complete an asset transfer, you will need the following:
 
