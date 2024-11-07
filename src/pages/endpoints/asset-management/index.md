@@ -127,6 +127,12 @@ The example below provides a scenario for transfering a `project` asset to anoth
 2. The GET user asset count endpoint shows two `project` type assets owned by `OwnerImsUserIdExample`.
 3. Using the [Project API](https://developer.adobe.com/cja-apis/docs/api/#tag/Projects-APIs), the [GET projects by user](https://developer.adobe.com/cja-apis/docs/api/#operation/projects_getProjects) endpoint lists the asset ID of the projects to be transferred, as shown in the request and response below:
 
+Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
+
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+
+#### Request
+
 ```sh
 curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId=OwnerExample111.e\"
      -H "x-api-key: {CLIENT_ID}" \
@@ -136,8 +142,7 @@ curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects
 ```
 The Projects API example above requests a list of projects under the ownership of `OwnerExample111.e`
 
-The following example shows a successful response:
-
+#### Response
 ```json
  {
   "content": [
@@ -180,7 +185,8 @@ The following example shows a successful response:
   "size": 10
 }
 ```
-The example Projects API response above shows that the asset IDs for the projects are `ExampleProjectId1` and `ExampleProjectId2`. These project IDs will be used to transfer the assets to`RecipientExample222.e` in the the **PUT user asset transfer** example below.
+
+The example Projects API response above shows that the asset IDs for the projects are `ExampleProjectId1` and `ExampleProjectId2`. These project IDs will be used to transfer the assets to`RecipientExample222.e` with the the **PUT user asset transfer**, as shown below:
 
 `PUT https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/{RECIPIENT_USER_IMS_ID}/transfer`
 
