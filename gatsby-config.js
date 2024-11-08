@@ -72,6 +72,10 @@ module.exports = {
             ]
           },
           {
+            title: 'Asset Management',
+            path: '/endpoints/asset-management/'
+          },
+          {
             title: 'Audit Logs',
             path: '/endpoints/auditlogs/'
           },
