@@ -18,6 +18,12 @@ Retrieve, update, or create annotations.
 
 <DiscoverBlock slots="link, text"/>
 
+[Asset Management API](asset-management/index.md)
+
+Retrieve and transfer asset ownership.
+
+<DiscoverBlock slots="link, text"/>
+
 [Audit Logs API](auditlogs/index.md)
 
 Retrieve audit logs to understand how individuals in your organization use Customer Journey Analytics.
