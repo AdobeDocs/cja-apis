@@ -11,7 +11,7 @@ The Customer Journay Analysis (CJA) asset management API provides methods for tr
 
 The user of these endpoints must be an Admin in the Adobe Admin Console. For more information regarding Adobe Admin Console user roles, see the [Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html) documentation.
 
-The endpoints described in this guide are routed through `analytics.adobe.io`. To use them, you must first create a client with access to the Adobe Developer Console. For more information, see [Getting started with the CJA API](https://developer.adobe.com/cja-apis/docs/getting-started/).
+The endpoints described in this guide are routed through `cja.adobe.io`. To use them, you must first create a client with access to the Adobe Developer Console. For more information, see [Getting started with the CJA API](https://developer.adobe.com/cja-apis/docs/getting-started/).
 
 This guide includes instructions for the following:
 
@@ -116,9 +116,7 @@ To complete an asset transfer, you will need the following:
 
 * The `reciepientImsUserId`: the IMS user ID of the recipieht of the assets, found with the [Configuration API](https://developer.adobe.com/cja-apis/docs/api/#tag/Configuration-API).
 * The `componentType`: the type of component as listed in response to the **Get user asset count** endpoint. 
-* The asset ID: The ID of the asset, as shown in response to the API service that corresponds to the type of asset. For example, if the **GET user asset count** endpoint shows that `exampleUserId` owns two `project` assets, use the [Project API](https://developer.adobe.com/cja-apis/docs/endpoints/projects/) to return the asset ID.
-
-Note: The asset owner user ID is already retrieved with the previous call and will be applied automatically to the **PUT user asset transfer** request. 
+* The asset ID: The ID of the asset, as shown in response to the API service that corresponds to the type of asset. For example, if the **GET user asset count** endpoint shows that `exampleUserId` owns two `project` assets, use the [Project API](https://developer.adobe.com/cja-apis/docs/endpoints/projects/) to return the asset ID. The asset ID is already associated with the current asset owner.
 
 <InlineAlert variant="info" slots="text" />
 
