@@ -186,10 +186,10 @@ const GetCredentialOAuthS2s = () => {
               <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/platform-apis/api-authentication">
                 Authentication documentation
               </a>
-              <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/platform-apis/api-guide">
+              <a style={{ color: "#0265DC" }} href="https://developer.adobe.com/cja-apis/docs/">
                 Adobe Customer Journey Analytics API documentation
               </a>
-              <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/docs/experience-platform">
+              <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/browse/customer-journey-analytics">
                 Adobe Customer Journey Analytics documentation
               </a>
             </div>
