@@ -21,11 +21,11 @@ const GetCredentialOAuthS2s = () => {
     
   return (
 
-    <GetCredential className="getCredentialContainer" templateId={template_id} productName='Adobe Experience Platform' >
+    <GetCredential className="getCredentialContainer" templateId={template_id} productName='Adobe Customer Journey Analytics' >
 
-      <GetCredential.SignIn title="Get credentials" paragraph="After signing in, you can create credentials that can be used to call the Platform APIs." buttonText="Sign in" />
+      <GetCredential.SignIn title="Get credentials" paragraph="After signing in, you can create credentials that can be used to call the Customer Journey Analytics APIs." buttonText="Sign in" />
 
-      <GetCredential.Form title="Get credentials" paragraph="Create credentials that you can use to call the Platform APIs." className="formClass">
+      <GetCredential.Form title="Get credentials" paragraph="Create credentials that you can use to call the Customer Journey Analytics APIs." className="formClass">
 
         <GetCredential.Form.CredentialName label="Credential name" description="The credential name must be unique, use alphanumeric characters, and between 6 and 45 characters long. A project will be automatically created with the same name in Adobe Developer Console." range="45" />
 
@@ -52,11 +52,11 @@ const GetCredentialOAuthS2s = () => {
               <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/platform-apis/api-authentication">
                 Authentication documentation
               </a>
-              <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/platform-apis/api-guide">
-                Adobe Experience Platform API documentation
+              <a style={{ color: "#0265DC" }} href="https://developer.adobe.com/cja-apis/docs/">
+                Adobe Customer Journey Analytics API documentation
               </a>
-              <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/docs/experience-platform">
-                Adobe Experience Platform documentation
+              <a style={{ color: "#0265DC" }} href="https://experienceleague.adobe.com/en/browse/customer-journey-analytics">
+                Adobe Customer Journey Analytics  documentation
               </a>
             </div>
           </div>
