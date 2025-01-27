@@ -17,7 +17,7 @@ const GetCredentialOAuthS2s = () => {
       `
       )
     
-      const { template_id } = data?.site?.siteMetadata;
+      const { 6793aa962bba1d9a1ba5a1c1 } = data?.site?.siteMetadata;
     
   return (
 
