@@ -10,7 +10,7 @@ const GetCredentialOAuthS2s = () => {
         query { 
           site {
             siteMetadata{
-              template_id
+              6793aa962bba1d9a1ba5a1c1
             }
           }
         }
