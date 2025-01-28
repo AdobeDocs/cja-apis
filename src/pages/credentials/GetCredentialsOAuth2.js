@@ -6,7 +6,7 @@ const GetCredentialOAuthS2s = () => {
     
   return (
 
-    <GetCredential className="getCredentialContainer" templateId=6793aa962bba1d9a1ba5a1c1 productName='Adobe Customer Journey Analytics' >
+    <GetCredential className="getCredentialContainer" templateId="6793aa962bba1d9a1ba5a1c1" productName='Adobe Customer Journey Analytics' >
 
       <GetCredential.SignIn title="Get credentials" paragraph="After signing in, you can create credentials that can be used to call the Customer Journey Analytics APIs." buttonText="Sign in" />
 
