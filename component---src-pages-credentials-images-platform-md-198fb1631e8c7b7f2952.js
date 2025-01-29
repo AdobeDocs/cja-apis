@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcja_apis=self.webpackChunkcja_apis||[]).push([[1120],{16763:function(n,t,e){e.r(t),e.d(t,{_frontmatter:function(){return c},default:function(){return f}});var o=e(87462),r=e(63366),s=(e(15007),e(64983)),u=e(91515),a=["components"],c={},i={_frontmatter:c},p=u.Z;function f(n){var t=n.components,e=(0,r.Z)(n,a);return(0,s.mdx)(p,(0,o.Z)({},i,e,{components:t,mdxType:"MDXLayout"}),(0,s.mdx)("p",null,"This is a test file."))}f.isMDXComponent=!0}}]);
+//# sourceMappingURL=component---src-pages-credentials-images-platform-md-198fb1631e8c7b7f2952.js.map
