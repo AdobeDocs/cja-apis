@@ -15,7 +15,7 @@ const GetCredentialOAuthS2s = () => {
         <GetCredential.Form.CredentialName label="Credential name" description="The credential name must be unique, use alphanumeric characters, and between 6 and 45 characters long. A project will be automatically created with the same name in Adobe Developer Console." range="45" />
 
         <GetCredential.Form.Products label="Included products and services">
-          <GetCredential.Form.Product label="Adobe Experience Platform" icon={platform} />
+          <GetCredential.Form.Product label="Adobe Customer Journey Analytics" icon={platform} />
         </GetCredential.Form.Products>
 
         <GetCredential.Form.AdobeDeveloperConsole label='By checking this box, you agree to' linkText="Adobe Developer Terms of Use" href="https://wwwimages2.adobe.com/content/dam/cc/en/legal/servicetou/Adobe-Developer-Additional-Terms_en-US_20230822.pdf" />
