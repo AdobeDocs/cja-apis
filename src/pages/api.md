@@ -8,7 +8,7 @@ keywords:
   - CJA API Swagger
 layout: none
 ---
-import GetCredentialsOauth2 from "./credentials/GetCredentialOAuth2.js"
+import GetCredentialsOauth2 from "./credentials/GetCredentialsOAuth2.js"
 
 <GetCredentialsOauth2 />
 
