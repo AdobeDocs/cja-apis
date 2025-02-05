@@ -8,4 +8,9 @@ keywords:
   - CJA API Swagger
 layout: none
 ---
+import GetCredentialsOauth2 from "./credentials/GetCredentialOAuth2.js"
+
+<GetCredentialsOauth2 />
+
 <RedoclyAPIBlock src="/cja-apis/swagger.json" scrollYOffset={64}/>
+
