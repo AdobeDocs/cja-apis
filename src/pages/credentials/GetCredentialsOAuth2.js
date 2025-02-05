@@ -90,7 +90,7 @@ const GetCredentialOAuthS2s = () => {
 
         <GetCredential.Card.DevConsoleLink heading="Developer Console Project" />
 
-        <GetCredential.Card.AccessToken helpText="" buttonLabel="Generate and copy token" heading={(<>Access token<br/><br/> <span style="font-weight:normal"><small>After copying the access token, you must prepend the token with <code>Bearer</code> to use it with API calls.</small></span></>)} />
+        <GetCredential.Card.AccessToken helpText="" buttonLabel="Generate and copy token" heading={(<>Access token<br/><br/> <span style="font-weight:normal"><small>After copying the access token, paste it into the **Authorization** header parameter after typing the word <code>Bearer</code> with one space following the word.</small></span></>)} />
 
 
         <GetCredential.Card.CredentialDetails heading={(<>Credential details<br/><br/> <span style="font-weight:normal"><small>You can use the following credential details to try the Adobe Customer Journey Analytics APIs below.<ul><li>Client ID: Your public identifier for accessing the APIs. This acts as an API key when used with the Customer Journey Analytics APIs, and corresponds with the <code>x-api-key</code> header.</li><li>Organization ID: The ID of the organization you're using with the APIs. This corresponds with the <code>x-gw-ims-org-id</code> header.</li></ul></small></span></>)} orderBy="ClientId,ImsOrgID">
