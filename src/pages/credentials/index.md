@@ -30,6 +30,12 @@ Once the credential is ready, you can use it for calling CJA APIs, as described 
 1. Supply any other parameters required for interacting with the endpoint.  
 1. Click **Send** and view the response.
 
+### Return visits to the CJA API Reference
+
+After you have created a credential, it will be available to use when you return to the CJA API Reference page, as shown below:
+
+![return image](./images/get cred 6.png)
+
 ## Troubleshooting
 
 The following information provides troubleshooting tips for common status code errors:
