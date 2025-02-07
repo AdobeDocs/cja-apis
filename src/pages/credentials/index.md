@@ -14,7 +14,7 @@ To obtain your credentials for the **Try it** feature, follow these steps:
 1. Click the **Sign in** button under the **Get credentials** heading at the top of the API reference page and then sign into your organizaion.
 1. Type the name of the credential you want to create in the appropriate field.
 1. If you agree to the terms of use, check the box. To get your credential, you must agree to the terms.
-![return image](./images/get-name2.png)
+![return image](./images/get-start.png)
 
 4. Click **Create credential**. Once your credential is created, click **Generate and copy token**. Once it is generated, click the **Copy** button when it appears next to token value. 
 ![return image](./images/get-name2.png)
