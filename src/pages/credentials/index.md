@@ -4,6 +4,7 @@ description: Manage CJA connections through APIs
 ---
 
 # Tips for using the CJA API Reference Try it
+Make interactive calls on the CJA API Reference page by obtaining a credential and using the **Try it** feature.
 
 You can interact with CJA APIs directly from the API reference page. The **Try it** feature allows you to make calls with endpoints in the API Reference and view actual responses. The easiest way to begin using the **Try it** feature is to first get authenticated, using the **Get credentials** option at the top of the API Reference page.
 
@@ -15,8 +16,11 @@ To get your credentials for the **Try it** feature, follow these steps:
 1. Type the name of the credential you want to create in the appropriate field.
 1. If you agree to the terms of use, check the box. To get your credential, you must agree to the terms.
 
+![return image](./images/get-name.png)
 
-1. Click **Create credential**. Once your credential is created, click **Generate and copy token**. Once it is generated, click the **Copy** button when it appears next to token value. 
+4. Click **Create credential**. Once your credential is created, click **Generate and copy token**. Once it is generated, click the **Copy** button when it appears next to token value. 
+
+![return image](./images/get-copy.png)
 
 ## Use the Try it feature
 
@@ -30,6 +34,9 @@ Once the credential is ready, you can use it for calling CJA APIs, as described 
 1. Supply any other parameters required for interacting with the endpoint.  
 1. Click **Send** and view the response.
 
+![return image](./images/get-header.png)
+
+
 ### Return visits to the CJA API Reference
 
 After you have created a credential, it will be available to use when you return to the CJA API Reference page for subsequent visits, as shown below:
@@ -40,8 +47,8 @@ After you have created a credential, it will be available to use when you return
 
 The following information provides troubleshooting tips for common status code errors:
 
-**400**: Bad request. The request is missking key information or has incorrect syntax. Make sure the required paramters are specified for the endpoint.
-**401**: Authentication failed. Make sure that you have included the word `Bearer` in the **Authorization** field with a space between the word and your pasted value. 
-**403**: Forbidden. Check that you have proper permissions to access the data for your organization. 
+* **400**: Bad request. The request is missking key information or has incorrect syntax. Make sure the required paramters are specified for the endpoint.
+* **401**: Authentication failed. Make sure that you have included the word `Bearer` in the **Authorization** field with a space between the word and your pasted value. 
+* **403**: Forbidden. Check that you have proper permissions to access the data for your organization. If an error indicates that your region is missing, make sure that your admin has added the **Adobe Experience Platform** product profile to your account. Also, check that you have correctly entered the value for the `x-gw-ims-org-id` header.
 
 For other possible errors, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/en/docs/experience-platform/landing/troubleshooting).
