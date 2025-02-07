@@ -34,7 +34,7 @@ Once the credential is ready, you can use it for calling CJA APIs, as described 
 
 After you have created a credential, it will be available to use when you return to the CJA API Reference page for subsequent visits, as shown below:
 
-![return image](./get-return.png)
+![return image](./images/get-return.png)
 
 ## Troubleshooting
 
