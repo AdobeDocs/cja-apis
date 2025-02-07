@@ -1,9 +1,9 @@
 ---
-title: Tips for using the CJA API Reference Try it 
+title: Tips for calling endpoints on the CJA API Reference 
 description: Manage CJA connections through APIs
 ---
 
-# Tips for using the CJA API Reference Try it
+# Tips for calling endpoints on the CJA API Reference
 Make interactive calls on the CJA API Reference page by obtaining a credential and using the **Try it** feature.
 
 Use the **Try it** feature to make calls with endpoints on the [CJA API Reference](https://developer.adobe.com/cja-apis/docs/api/) and view actual responses. The easiest way to use the **Try it** feature is to first get authenticated using the **Get credentials** option at the top of the API Reference page.
