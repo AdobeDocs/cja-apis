@@ -15,7 +15,7 @@ To obtain your credentials for the **Try it** feature, follow these steps:
 1. Type the name of the credential you want to create in the appropriate field.
 1. If you agree to the terms of use, check the box. To get your credential, you must agree to the terms.
 
-![return image](./images/get-name.png)
+![return image](./images/get-name2.png)
 
 4. Click **Create credential**. Once your credential is created, click **Generate and copy token**. Once it is generated, click the **Copy** button when it appears next to token value. 
 
