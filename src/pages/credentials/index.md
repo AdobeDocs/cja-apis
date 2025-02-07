@@ -45,5 +45,5 @@ The following information provides troubleshooting tips for common status code e
 * **400**: Bad request. The request is missking key information or has incorrect syntax. Make sure the required paramters are specified for the endpoint.
 * **401**: Authentication failed. Make sure that you have included the word `Bearer` in the **Authorization** field with a space between the word and your pasted value. 
 * **403**: Forbidden. Check that you have proper permissions to access the data for your organization. If an error indicates that your region is missing, make sure that your admin has added the **Adobe Experience Platform** product profile to your account. Also, check that you have correctly entered the value for the `x-gw-ims-org-id` header.
-* 
+  
 For other possible errors, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/en/docs/experience-platform/landing/troubleshooting).
