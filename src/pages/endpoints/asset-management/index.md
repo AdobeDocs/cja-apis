@@ -40,7 +40,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/exampleImsUserId.e/counts" \
+curl -X GET "https://cja.adobe.io/componentmetadata/assets/exampleImsUserId.e/counts" \
      -H "x-api-key: {CLIENT_ID}" \
      -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
      -H "Authorization: Bearer {ACCESS_TOKEN}"
@@ -139,7 +139,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Example project API request
 
 ```sh
-curl -X PUT "https://cja.adobe.io/data/componentmetadata/1.0/ares/users/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId=OwnerExample111.e\"
+curl -X GET "https://cja.adobe.io/projects?locale=en_US&limit=10&page=0&pagination=true&ownerId=OwnerExample111.e\"
      -H "x-api-key: {CLIENT_ID}" \
      -H "x-gw-ims-org-id: {IMS_ORG_ID}" \
      -H "Content-Type: application/json" \
@@ -208,7 +208,7 @@ Click the **Request** tab in the following example to see a cURL request for thi
 #### Request
 
 ```sh
-curl -X PUT 'https://cja.adobe.io/data/componentmetadata/1.0/ares/users/assets/RecipientExample222.e/transfer' \
+curl -X PUT 'https://cja.adobe.io/componentmetadata/assets/RecipientExample222.e/transfer' \
      -H 'x-api-key: {CLIENT_ID}' \
      -H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
      -H 'Content-Type: application/json' \
