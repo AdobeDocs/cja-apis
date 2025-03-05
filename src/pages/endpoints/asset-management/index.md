@@ -212,16 +212,14 @@ curl -X PUT 'https://cja.adobe.io/componentmetadata/assets/RecipientExample222.e
      -H 'x-gw-ims-org-id: {IMS_ORG_ID}' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-     -d '{
-        [
+     -d '[
           {
             "componentType": "project",
             "componentIds": [
               "ExampleProjectId1"
             ]
           }
-        ]
-     }'
+        ]'
 ```
 
 #### Response
