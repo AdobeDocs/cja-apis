@@ -3,13 +3,13 @@ keywords:
   - Experience Platform
   - API Documentation
   - JavaScript
-title: Filters
+title: Segments
 description: Add, edit, or delete filters using the API.
 ---
 
-# Filters
+# Segments
 
-The Filters APIs allow you to retrieve, update, or create filters programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with filters in the UI. See [Filters overview](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-components/cja-filters/filters-overview.html) in the CJA documentation for more information.
+The Segments APIs allow you to retrieve, update, or create filters programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with filters in the UI. See [Segments overview](https://experienceleague.adobe.com/en/docs/customer-journey-analytics-learn/tutorials/components/filters/introduction-to-filters-in-cja) in the CJA documentation for more information.
 
 You can call the `/filters` endpoint to add, edit or delete filters.
 
@@ -19,21 +19,19 @@ Adobe may add optional request and response members (name/value pairs) to existi
 
 ## Retrieve a list of filters
 
-In CJA, you can navigate to **Components** > **Filters** and see a list of filters that you created or others have shared. This call is helpful to identify the ID's of desired filters.
+In CJA, you can navigate to **Components** > **Segments** and see a list of segments that you created or others have shared. This call is helpful to identify the ID's of desired segments.
 
 `GET https://cja.adobe.io/filters`
 
-See [GET List of filters](#) in the API reference for supported query string parameters and example responses.
+## Retrieve a single segment
 
-## Retrieve a single filter
-
-Once you have the desired ID, you can append the ID to the call to retrieve details on a single filter:
+Once you have the desired ID, you can append the ID to the call to retrieve details on a single segment:
 
 `GET https://cja.adobe.io/filters/{id}`
 
-## Create a filter
+## Create a segment
 
-Create a new filter with the desired definition.
+Create a new segment with the desired definition.
 
 `POST https://cja.adobe.io/filters`
 
