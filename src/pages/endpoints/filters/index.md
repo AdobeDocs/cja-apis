@@ -4,7 +4,7 @@ keywords:
   - API Documentation
   - JavaScript
 title: Segments
-description: Add, edit, or delete filters using the API.
+description: Add, edit, or delete segments using the API.
 ---
 
 # Segments
