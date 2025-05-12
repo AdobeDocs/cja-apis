@@ -13805,10 +13805,10 @@
         }
       }
     },
-    "/filters": {
+    "/segments": {
       "get": {
         "tags": [
-          "Filters API"
+          "Segments API"
         ],
         "summary": "Retrieves paginated segments",
         "description": "A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
