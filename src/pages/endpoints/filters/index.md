@@ -33,7 +33,7 @@ Once you have the desired ID, you can append the ID to the call to retrieve deta
 
 Create a new segment with the desired definition.
 
-`POST https://cja.adobe.io/filters`
+`POST https://cja.adobe.io/segments`
 
 An example POST body:
 
