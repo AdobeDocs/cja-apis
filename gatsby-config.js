@@ -128,12 +128,12 @@ module.exports = {
             path: '/endpoints/dimensions/'
           },
           {
-            title: 'Filters',
-            path: '/endpoints/filters/',
+            title: 'Segments',
+            path: '/endpoints/segments/',
             pages: [
               {
                 title: 'Validate',
-                path: '/endpoints/filters/validate/'
+                path: '/endpoints/segments/validate/'
               }
             ]
           },
