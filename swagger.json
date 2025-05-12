@@ -14033,7 +14033,7 @@
         "tags": [
           "Segments API"
         ],
-        "summary": "Creates configuration for a segment.",
+        "summary": "Create a configuration for a segment",
         "description": "",
         "operationId": "createFilter",
         "requestBody": {
