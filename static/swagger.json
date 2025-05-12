@@ -14031,9 +14031,9 @@
       },
       "post": {
         "tags": [
-          "Filters API"
+          "Segments API"
         ],
-        "summary": "Creates configuration for a Filters.",
+        "summary": "Creates configuration for a segment.",
         "description": "",
         "operationId": "createFilter",
         "requestBody": {
@@ -14117,7 +14117,7 @@
                     "properties": {
                       "imsUserId": {
                         "type": "string",
-                        "description": "the ims org id of the owner, included when the expansion parameter owner is true"
+                        "description": "The IMS org ID of the owner, included when the expansion parameter owner is true"
                       },
                       "name": {
                         "type": "string"
@@ -14306,7 +14306,7 @@
                       "properties": {
                         "imsUserId": {
                           "type": "string",
-                          "description": "the ims org id of the owner, included when the expansion parameter owner is true"
+                          "description": "The IMS org ID of the owner, included when the expansion parameter owner is true"
                         },
                         "name": {
                           "type": "string"
@@ -14360,10 +14360,10 @@
         }
       }
     },
-    "/filters/validate": {
+    "/segments/validate": {
       "post": {
         "tags": [
-          "Filters API"
+          "Segments API"
         ],
         "summary": "Validate a Segment",
         "description": "Returns a segment validation for the segment contained in the post body of the report.",
@@ -14448,10 +14448,10 @@
         "x-codegen-request-body-name": "body"
       }
     },
-    "/filters/{id}": {
+    "/segments/{ID}": {
       "get": {
         "tags": [
-          "Filters API"
+          "Segments API"
         ],
         "summary": "Retrieves a single segment by ID",
         "description": "A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
@@ -14673,7 +14673,7 @@
       },
       "put": {
         "tags": [
-          "Filters API"
+          "Segments API"
         ],
         "summary": "Make changes or updates to an existing segment",
         "description": "The following fields can be modified through this endpoint: <br><b>name, description, definition, owner, rsid, aamStatus</b><br><br>Note: \"aamStatus\" is used to \"publish\" a report suite segment to other products in the Experience Cloud. Description is always required when publishing with aamStatus. The report suite must already be pre-configured for AAM for publishing to succeed (see the \"/segments/aamStatus/\" endpoint for more information). <br>Format for aamStatus object:<br>\"aamStatus\":{\"published\":[\"rsid1\",\"rsid2\"]}<br><br>Example \"defintion\" for use in testing API below (\"Page exists\"):<br>\"definition\":{\"func\":\"segment\",\"container\":{\"func\":\"container\",\"context\":\"hits\",\"pred\":{\"func\":\"exists\",\"description\":\"Page\",\"val\":{\"func\":\"attr\",\"name\":\"variables/page\"}}},\"version\":[1,0,0]}<br><br>Response will be the newly modified segment object after the update request completes.<br><br><b><span style=\"text-decoration: underline;\">SegmentResponse</span></b><br>A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
@@ -15036,9 +15036,9 @@
       },
       "delete": {
         "tags": [
-          "Filters API"
+          "Segments API"
         ],
-        "summary": "Deletion of a Segment by Id",
+        "summary": "Deletion of a Segment by ID",
         "operationId": "deleteSegment_2",
         "parameters": [
           {
