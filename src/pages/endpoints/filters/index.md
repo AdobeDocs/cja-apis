@@ -27,7 +27,7 @@ In CJA, you can navigate to **Components** > **Segments** and see a list of segm
 
 Once you have the desired ID, you can append the ID to the call to retrieve details on a single segment:
 
-`GET https://cja.adobe.io/filters/{id}`
+`GET https://cja.adobe.io/segments/{id}`
 
 ## Create a segment
 
