@@ -11,7 +11,7 @@ description: Add, edit, or delete filters using the API.
 
 The Segments APIs allow you to retrieve, update, or create filters programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with filters in the UI. See [Segments overview](https://experienceleague.adobe.com/en/docs/customer-journey-analytics-learn/tutorials/components/filters/introduction-to-filters-in-cja) in the CJA documentation for more information.
 
-You can call the `/filters` endpoint to add, edit or delete filters.
+You can call the `/segments` endpoint to add, edit or delete segments.
 
 <InlineAlert variant="info" slots="text" />
 
@@ -21,7 +21,7 @@ Adobe may add optional request and response members (name/value pairs) to existi
 
 In CJA, you can navigate to **Components** > **Segments** and see a list of segments that you created or others have shared. This call is helpful to identify the ID's of desired segments.
 
-`GET https://cja.adobe.io/filters`
+`GET https://cja.adobe.io/segments`
 
 ## Retrieve a single segment
 
