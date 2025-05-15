@@ -4,18 +4,18 @@ keywords:
   - API Documentation
   - JavaScript
 title: Validate segments
-description: Check to see if a filter API call is valid.
+description: Check to see if a segment API call is valid.
 ---
 
 # Validate segments
 
-Data views have different dimensions and metrics available. A segment that's valid in one data view might not be valid in another. You can use the `filters/validate` endpoint to check and see if a given filter is valid.
+Data views have different dimensions and metrics available. A segment that's valid in one data view might not be valid in another. You can use the `segments/validate` endpoint to check and see if a given segment is valid.
 
 <InlineAlert variant="info" slots="text" />
 
 Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
 
-`POST https://cja.adobe.io/filters/validate`
+`POST https://cja.adobe.io/segments/validate`
 
 An example POST body:
 
