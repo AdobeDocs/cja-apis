@@ -65,3 +65,5 @@ An example POST body:
     "description": "For Integration Test Only"
 }
 ```
+
+To validate a segment, see [Validate segments](/validate.md).
