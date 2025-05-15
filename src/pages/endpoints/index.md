@@ -54,9 +54,9 @@ Retrieve dimensions information.
 
 <DiscoverBlock slots="link, text"/>
 
-[Filters API](filters/index.md)
+[Segments API](segments/index.md)
 
-Retrieve, update, or create filters.
+Retrieve, update, or create segments.
 
 <DiscoverBlock slots="link, text"/>
 
