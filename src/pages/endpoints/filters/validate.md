@@ -3,13 +3,13 @@ keywords:
   - Experience Platform
   - API Documentation
   - JavaScript
-title: Validate filters
+title: Validate segments
 description: Check to see if a filter API call is valid.
 ---
 
-# Validate filters
+# Validate segments
 
-Data views have different dimensions and metrics available. A filter that's valid in one data view might not be valid in another. You can use the `filters/validate` endpoint to check and see if a given filter is valid.
+Data views have different dimensions and metrics available. A segment that's valid in one data view might not be valid in another. You can use the `filters/validate` endpoint to check and see if a given filter is valid.
 
 <InlineAlert variant="info" slots="text" />
 
