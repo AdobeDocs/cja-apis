@@ -17,7 +17,7 @@ You can call the `/segments` endpoint to add, edit or delete segments.
 
 Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
 
-## Retrieve a list of filters
+## Retrieve multiple segments
 
 In CJA, you can navigate to **Components** > **Segments** and see a list of segments that you created or others have shared. This call is helpful to identify the ID's of desired segments.
 
