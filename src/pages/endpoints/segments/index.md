@@ -31,9 +31,9 @@ Once you have the desired ID, you can append the ID to the call to retrieve deta
 
 `GET https://cja.adobe.io/segments/{id}`
 
-### Find projects that use a specified segment
+### Find components that use a specified segment
 
-To retrieve a list of projects that contain a specified segment, include the `usedIn` expansion parameter in your multiple segments request.
+To retrieve a list of components that contain a specified segment, include the `usedIn` expansion parameter in your multiple segments request.
 
 The following response shows projects that include the "Example Channel" segment:
 
