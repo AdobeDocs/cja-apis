@@ -341,15 +341,4 @@ The Reports API enforces rate limits to ensure optimal performance:
 * Use the `topItems` endpoint for quick dimension analysis without metrics
 * Use appropriate date ranges to avoid large data requests
 
-### Error handling
-
-Common error responses include:
-
-* **400 Bad Request**: Invalid request parameters
-* **401 Unauthorized**: Invalid or missing authentication
-* **403 Forbidden**: Insufficient permissions
-* **404 Not Found**: Data view not found
-* **429 Too Many Requests**: Rate limit exceeded
-* **500 Internal Server Error**: Server error
-
 For more information on CJA Reports APIs, see the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api/).
