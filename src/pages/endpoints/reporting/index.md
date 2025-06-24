@@ -1,13 +1,13 @@
 ---
-title: Reports APIs
-description: Retrieve reporting data programmatically through Adobe Developer
+title: Reporting API
+description: Create and retrieve reports programmatically
 ---
 
 # Reports
 
-The CJA Reports APIs allow you to retrieve reporting data programmatically through Adobe Developer. These APIs use the same data and methods that Adobe uses inside the product UI. See [Reports](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-workspace/reports/reports-menu.html?) in the Customer Journey Analytics guide for more information.
+The Customer Journay Analytics Reporting API allows you to create and retrieve reports programmatically. These APIs use the same data and methods that Adobe uses inside the product UI. See [Reports](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-workspace/reports/reports-menu.html?) for more information.
 
-## Discover reports endpoints
+## Retrieve top items report
 
 You can retrieve a list of available reports using the `GET /reports` endpoint to discover all available reports for your organization.
 
