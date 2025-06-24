@@ -7,11 +7,11 @@ title: Segments
 description: Add, edit, or delete segments using the API.
 ---
 
-# Segments
+# Segments API
 
-The Segments APIs allow you to retrieve, update, or create filters programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with filters in the UI. See [Segments overview](https://experienceleague.adobe.com/en/docs/customer-journey-analytics-learn/tutorials/components/filters/introduction-to-filters-in-cja) in the CJA documentation for more information.
+The Segments APIs allow you to retrieve or create segments programmatically through Adobe Developer. The APIs use the same data and methods that are used when working with segments in the UI. See [Segments overview](https://experienceleague.adobe.com/en/docs/customer-journey-analytics-learn/tutorials/components/filters/introduction-to-filters-in-cja) in the CJA documentation for more information.
 
-You can call the `/segments` endpoint to add, edit or delete segments.
+Use the `/segments` endpoint to retrieve or create segments.
 
 <InlineAlert variant="info" slots="text" />
 
@@ -19,15 +19,76 @@ Adobe may add optional request and response members (name/value pairs) to existi
 
 ## Retrieve multiple segments
 
-In CJA, you can navigate to **Components** > **Segments** and see a list of segments that you created or others have shared. This call is helpful to identify the ID's of desired segments.
+To retrieve a list of segments that you have created or that have been shared with you, use the following URL:
 
 `GET https://cja.adobe.io/segments`
+
+Each segment in the response also includes a segment ID that can be used to retrieve information individually. 
 
 ## Retrieve a single segment
 
 Once you have the desired ID, you can append the ID to the call to retrieve details on a single segment:
 
 `GET https://cja.adobe.io/segments/{id}`
+
+### Find projects that use a specified segment
+
+To retrieve a list of projects that contain a specified segment, include the `usedIn` expansion parameter in your multiple segments request.
+
+The following response shows projects that include the "Example Channel" segment:
+
+```json
+{
+    "content": [
+        {
+            "name": "Example Channel",
+            "description": "Example channel segment",
+            "organization": "77717@ExampleOrg",
+            "recentRecordedAccess": "YYYY-06-05T13:40:31Z",
+            "performanceScore": "2.14",
+            "id": "s44444444@ExampleOrg_44444444",
+            "usedIn": [
+                {
+                    "componentId": "44444444444",
+                    "componentType": "project",
+                    "subType": "project",
+                    "internal": false,
+                    "name": "Example Customer Analysis",
+                    "lastRecordedAccess": 7777775200236
+                },
+                {
+                    "componentId": "55555555",
+                    "componentType": "project",
+                    "subType": "project",
+                    "internal": false,
+                    "name": "Example Customer List",
+                    "lastRecordedAccess": 7777776824296
+                },
+               
+            ],
+            "usageSummary": {
+                "count": 0,
+                "mostRecentTimestamp": null,
+                "itemId": null
+            },
+            "owner": {
+                "imsUserId": "7777777777.e",
+                "ownerId": "777777777@7777777777.e",
+                "name": null,
+                "type": "imsUser"
+            },
+            "dataId": null
+        }
+    ],
+    "totalElements": 2,
+    "totalPages": 1,
+    "numberOfElements": 1,
+    "number": 0,
+    "firstPage": true,
+    "lastPage": true,
+    "sort": null,
+}
+```
 
 ## Create a segment
 
