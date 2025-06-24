@@ -3,7 +3,7 @@ title: Reporting API
 description: Create and retrieve reports programmatically
 ---
 
-# Reports
+# Reporting API
 
 The Customer Journay Analytics Reporting API allows you to create and retrieve reports programmatically. These APIs use the same data and methods that Adobe uses inside the product UI. See [Reports](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-workspace/reports/reports-menu.html?) for more information.
 
