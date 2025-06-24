@@ -14448,7 +14448,7 @@
         "x-codegen-request-body-name": "body"
       }
     },
-    "/segments/{ID}": {
+    "/segments/{id}": {
       "get": {
         "tags": [
           "Segments API"
@@ -16449,6 +16449,18 @@
         },
         "description": "Tag Model"
       },
+      "ConfiguredContainer": {
+          "type": "object",
+          "required": [
+              "container"
+          ],
+          "properties": {
+              "container": {
+                  "type": "string",
+                  "description": "Name of the container being configured."
+              }
+          }
+      },
       "Connection": {
         "type": "object",
         "properties": {
@@ -16457,6 +16469,13 @@
           },
            "shardTable": {
             "type": "string"
+          },
+          "configuredContainers": {
+              "type": "array",
+              "description": "The configured containers for this connection.",
+              "items": {
+                  "$ref": "#/components/schemas/ConfiguredContainer"
+              }
           },
           "name": {
             "type": "string"
@@ -16557,6 +16576,17 @@
           }
         }
       },
+      "ContainerField": {
+          "type": "object",
+          "properties": {
+              "container": {
+                  "type": "string"
+              },
+              "systemFieldValue": {
+                  "type": "string"
+              }
+          }
+      },
       "DataSetMetadata": {
         "type": "object",
         "properties": {
@@ -16574,6 +16604,12 @@
           },
           "visitorId": {
             "type": "string"
+          },
+          "containerFields": {
+              "type": "array",
+              "items": {
+                  "$ref": "#/components/schemas/ContainerField"
+              }
           },
           "lookupKeyField": {
             "type": "string"
