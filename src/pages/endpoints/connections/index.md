@@ -541,7 +541,7 @@ In Customer Journey Analytics B2B Edition, you can retreive data for an account-
 ```json
      "ContainerField": {
           "type": "object",
-          "properties": {Add commentMore actions
+          "properties": {
               "container": {
                   "type": "string"
               },
