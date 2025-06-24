@@ -528,6 +528,31 @@ The example response above shows the data source types for the organization.
 | `type` | string | The type of data source |
 | `description` | string | A description of the data source type |
 
+## B2B Features
+
+In Customer Journey Analytics B2B Edition, you can retreive data for an account-based connection in addition to a person-based connection. A B2B account-based connection facilitates account-based reporting and analysis. Responses with B2B connections can show the following:
+
+* The `primaryIdType` value as `account`, as shown in the `expansion` array for query parameters in the [Connections API Reference](https://developer.adobe.com/cja-apis/docs/api/#tag/Connections-API).
+
+* Additional items in the `configuredContainers` expansion array, including `account`, `globalAccount`, `opportunity`, and `buyingGroup`.
+
+* A `containerField` object with members as shown below:
+
+```json
+     "ContainerField": {
+          "type": "object",
+          "properties": {Add commentMore actions
+              "container": {
+                  "type": "string"
+              },
+              "systemFieldValue": {
+                  "type": "string"
+              }
+          }
+      },
+```
+
+For more information on B2B connections, see [B2B Edition concepts and features](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-overview/cja-b2b/cja-b2b-concepts-features).
 ## API status codes
 
 For a description of API status codes and tips for troubleshooting, see the [Platform FAQ and troubleshooting guide](https://experienceleague.adobe.com/docs/experience-platform/landing/troubleshooting.html#api-status-codes).
