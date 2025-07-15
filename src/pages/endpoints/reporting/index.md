@@ -28,7 +28,7 @@ Use this endpoint to retrieve the top items for a specific dimension. This retur
 #### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/reports/topItems?rsid=dv_example_dataview_id&dimension=variables%2Fpage&locale=en_US&lookupNoneValues=false&limit=10&page=0" \
+curl -X GET "https://cja.adobe.io/reports/topItems?limit=5&page=0&lookupNoneValues=true&dataId=dv_554445545&dimension=pages" \
   -H "accept: application/json" \
   -H "x-api-key: {API_KEY}" \
   -H "x-gw-ims-org-id: {ORG_ID}" \
@@ -43,12 +43,12 @@ curl -X GET "https://cja.adobe.io/reports/topItems?rsid=dv_example_dataview_id&d
 
 ```json
 {
-  "totalPages": 877,
+  "totalPages": 1,
   "firstPage": true,
-  "lastPage": false,
-  "numberOfElements": 10,
+  "lastPage": true,
+  "numberOfElements": 5,
   "number": 0,
-  "totalElements": 8768,
+  "totalElements": 5,
   "columns": {
     "dimension": {
       "id": "variables/page",
@@ -98,8 +98,8 @@ The following table describes the request parameters for the `GET /reports/topIt
 
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
-| `rsid` | Required | String | Data view ID (report suite ID for CJA) |
-| `dimension` | Required | String | The dimension to get top items for (URL encoded) |
+| `dataId` | Required | String | Data view ID |
+| `dimension` | Required | String | The dimension to get top items for |
 | `locale` | Optional | String | Language and country code. Default is `en_US` |
 | `lookupNoneValues` | Optional | Boolean | Whether to include None values. Default is `false` |
 | `limit` | Optional | Integer | Number of top items to return. Default is 10. Maximum is 1000 |
