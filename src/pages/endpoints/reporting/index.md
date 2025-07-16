@@ -98,10 +98,10 @@ The following table describes the request parameters for the `GET /reports/topIt
 
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
-| `dataId` | Required | String | Data view ID |
-| `dimension` | Required | String | The dimension to get top items for |
-| `locale` | Optional | String | Language and country code. Default is `en_US` |
-| `lookupNoneValues` | Optional | Boolean | Whether to include None values. Default is `false` |
+| `dataId` | Required | String | Data view ID. That data view in the example above is `dv_554445545`. |
+| `dimension` | Required | String | The dimension to retreive top items for. The dimension in the example above is `pages`. |
+| `locale` | Optional | String | Language and country code. The language in the example above is `en_US`. |
+| `lookupNoneValues` | Optional | Boolean | Whether to include None values in the report. Default is `false` |
 | `limit` | Optional | Integer | Number of top items to return. Default is 10. Maximum is 1000 |
 | `page` | Optional | Integer | Page number (0-based). Default is 0 |
 
