@@ -120,7 +120,7 @@
         }
       }
     },
-    "/configuration/org/users": {
+    "/configuration/orgs/users": {
       "get": {
         "tags": [
           "Configuration API"
