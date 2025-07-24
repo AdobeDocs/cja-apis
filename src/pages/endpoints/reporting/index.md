@@ -9,7 +9,7 @@ The Customer Journey Analytics Reporting API allows you to create and retrieve r
 
 This guide includes instructions for using the following endpoints:
 * [GET top items report](#get-top-items-report): Retrieves top items for a specified dimension
-* [POST create dataview report](#post-dataview-report): Creates a report for an existing dataview
+* [POST create dataview report](#create-dataview-reports): Creates a report for an existing dataview
 
 <InlineAlert variant="info" slots="text" />
 
@@ -153,7 +153,7 @@ The Reports API enforces rate limits to ensure optimal performance:
 
 For more information on CJA Reports APIs, see the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api/).
 
-## Create a dataview report
+## Create dataview reports
 
 Use this endpoint to create report requests and return data for an existing data view. This corresponds to creating a visualization in the CJA Analysis Workspace UI.
 
