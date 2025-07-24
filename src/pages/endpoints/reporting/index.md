@@ -153,7 +153,7 @@ The Reports API enforces rate limits to ensure optimal performance:
 
 For more information on CJA Reports APIs, see the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api/).
 
-## Create dataview reports
+## Post create dataview reports
 
 Use this endpoint to create report requests and return data for an existing data view. This corresponds to creating a visualization in the CJA Analysis Workspace UI.
 
