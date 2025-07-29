@@ -201,7 +201,7 @@
           "Calculated Metrics API"
         ],
         "summary": "Retrieve a single calculated metric by id",
-        "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *reportSuiteName*: Also return the friendly Report Suite name for the RSID\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
+        "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
         "operationId": "findOneCalculatedMetric_1",
         "parameters": [
           {
@@ -240,7 +240,6 @@
                   "sharesFullName",
                   "usageSummary",
                   "usageSummaryWithRelevancyScore",
-                  "reportSuiteName",
                   "siteTitle",
                   "ownerFullName",
                   "modified",
@@ -298,9 +297,6 @@
                   "type": "object",
                   "properties": {
                     "rsid": {
-                      "type": "string"
-                    },
-                    "reportSuiteName": {
                       "type": "string"
                     },
                     "dataId": {
@@ -748,7 +744,6 @@
                   "sharesFullName",
                   "usageSummary",
                   "usageSummaryWithRelevancyScore",
-                  "reportSuiteName",
                   "siteTitle",
                   "ownerFullName",
                   "modified",
@@ -810,9 +805,6 @@
                 "type": "object",
                 "properties": {
                   "rsid": {
-                    "type": "string"
-                  },
-                  "reportSuiteName": {
                     "type": "string"
                   },
                   "dataId": {
@@ -1106,9 +1098,6 @@
                   "type": "object",
                   "properties": {
                     "rsid": {
-                      "type": "string"
-                    },
-                    "reportSuiteName": {
                       "type": "string"
                     },
                     "dataId": {
@@ -1780,7 +1769,7 @@
           "Calculated Metrics API"
         ],
         "summary": "Retrieve many calculated metrics",
-        "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *reportSuiteName*: Also return the friendly Report Suite name for the RSID\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
+        "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
         "operationId": "findCalculatedMetrics_1",
         "parameters": [
           {
@@ -1811,7 +1800,6 @@
                   "sharesFullName",
                   "usageSummary",
                   "usageSummaryWithRelevancyScore",
-                  "reportSuiteName",
                   "siteTitle",
                   "ownerFullName",
                   "modified",
@@ -1971,9 +1959,6 @@
                     "type": "object",
                     "properties": {
                       "rsid": {
-                        "type": "string"
-                      },
-                      "reportSuiteName": {
                         "type": "string"
                       },
                       "dataId": {
@@ -3018,9 +3003,6 @@
                   "rsid": {
                     "type": "string"
                   },
-                  "reportSuiteName": {
-                    "type": "string"
-                  },
                   "dataId": {
                     "type": "string"
                   },
@@ -3312,9 +3294,6 @@
                   "type": "object",
                   "properties": {
                     "rsid": {
-                      "type": "string"
-                    },
-                    "reportSuiteName": {
                       "type": "string"
                     },
                     "dataId": {
