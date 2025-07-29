@@ -9,7 +9,7 @@ The Customer Journey Analytics Reporting API allows you to create and retrieve r
 
 This guide includes instructions for using the following endpoints:
 * [GET top items report](#get-top-items-report): Retrieves top items for a specified dimension
-* [POST create dataview report](#create-dataview-reports): Creates a report for an existing dataview
+* [POST create dataview reports](#post-create-dataview-reports): Creates a report for an existing dataview
 
 <InlineAlert variant="info" slots="text" />
 
