@@ -16,7 +16,7 @@
         "tags": [
           "Configuration API"
         ],
-        "summary": "Returns the current user",
+        "summary": "Retrieves the current user",
         "operationId": "getCurrentUser",
         "parameters": [
           {
@@ -125,7 +125,7 @@
         "tags": [
           "Configuration API"
         ],
-        "summary": "Returns all users associated with the provided organization",
+        "summary": "Retrieves all users associated with the provided organization",
         "operationId": "getImsUsers_1",
         "parameters": [
           {
@@ -200,8 +200,8 @@
         "tags": [
           "Calculated Metrics API"
         ],
-        "summary": "Retrieve a single calculated metric by id",
-        "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
+        "summary": "Retrieve a calculated metric by ID",
+        "description": "A calculated metric response includes these items: ID, name, description, dataview ID, owner, polarity, precision, and type \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information, see the [Calculated metrics overview](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-calcmetrics/calc-metr-overview)\n\n",
         "operationId": "findOneCalculatedMetric_1",
         "parameters": [
           {
@@ -714,7 +714,7 @@
           "Calculated Metrics API"
         ],
         "summary": "Update an existing calculated metric",
-        "description": "The following fields can be modified through this endpoint: <br><b>name, description, definition, owner, rsid</b>\nExample \"defintion\" for use in testing API below (\"Visits per visitor\"):<br>\n\"definition\": {\r\n      \"formula\": {\r\n        \"func\": \"divide\",\r\n        \"col1\": {\r\n          \"func\": \"metric\",\r\n          \"name\": \"metrics/visits\",\r\n          \"description\": \"Visits\"\r\n        },\r\n        \"col2\": {\r\n          \"func\": \"metric\",\r\n          \"name\": \"metrics/visitors\",\r\n          \"description\": \"Unique Visitors\"\r\n        }\r\n      },\r\n      \"func\": \"calc-metric\",\r\n      \"version\": [\r\n        1,\r\n        0,\r\n        0\r\n      ]\r\n    }<br><br>Response will be the newly modified calculated metric object after the update request completes.<br><br><b><span style=\"text-decoration: underline;\">CalculatedMetricResponse</span></b><br>A calculated metric response will always include these default items:* id, name, description, rsid, owner* \n\nOther attributes can be optionally requested through the 'expansion' field as defined/documented in the GET endpoints (see GET \"/calculatedmetrics\" or GET \"/calculatedmetrics/{id}\" for more documentation).",
+        "description": "The following fields can be modified through this endpoint: <br><b>name, description, definition, owner, dataview ID</b>\n\n An example \"defintion\" for use in testing API below (\"Visits per visitor\"):<br>\n\"definition\": {\r\n      \"formula\": {\r\n        \"func\": \"divide\",\r\n        \"col1\": {\r\n          \"func\": \"metric\",\r\n          \"name\": \"metrics/visits\",\r\n          \"description\": \"Visits\"\r\n        },\r\n        \"col2\": {\r\n          \"func\": \"metric\",\r\n          \"name\": \"metrics/visitors\",\r\n          \"description\": \"Unique Visitors\"\r\n        }\r\n      },\r\n      \"func\": \"calc-metric\",\r\n      \"version\": [\r\n        1,\r\n        0,\r\n        0\r\n      ]\r\n    }<br><br>The response shows the newly modified calculated metric object after the update request completes.<br><br><b><span style=\"text-decoration: underline;\">CalculatedMetricResponse</span></b><br>A calculated metric response includes these items:* ID, name, description, dataview ID, owner* \n\nOther attributes can be optionally requested through the 'expansion' field as described in the GET endpoints. See GET \"/calculatedmetrics\" or GET \"/calculatedmetrics/{id}\" for more information.",
         "operationId": "calculatedmetrics_updateCalculatedMetric",
         "parameters": [
           {
@@ -765,7 +765,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Calculated Metric ID to be updated",
+            "description": "Calculated metric ID to be updated",
             "required": true,
             "schema": {
               "type": "string"
@@ -795,7 +795,7 @@
           }
         ],
         "requestBody": {
-          "description": "JSON-formatted Object containing key/value pairs to be updated.",
+          "description": "JSON-formatted object containing key/value pairs to be updated.",
           "content": {
             "application/json": {
               "schema": {
@@ -840,7 +840,7 @@
                   },
                   "polarity": {
                     "type": "string",
-                    "description": "Set metric polarity, which indicates whether it's good or bad if a given metric goes up. Default=positive",
+                    "description": "Sets metric polarity, indicating whether it's desirable or undesirable if a given metric goes up. Default=positive",
                     "enum": [
                       "positive",
                       "negative"
@@ -1133,7 +1133,7 @@
                     },
                     "polarity": {
                       "type": "string",
-                      "description": "Set metric polarity, which indicates whether it's good or bad if a given metric goes up. Default=positive",
+                      "description": "Sets metric polarity, indicating whether it's desirable or undesirable if a given metric goes up. Default=positive",
                       "enum": [
                         "positive",
                         "negative"
@@ -1645,7 +1645,7 @@
         "tags": [
           "Calculated Metrics API"
         ],
-        "summary": "Deletion of Calculated Metrics by Id",
+        "summary": "Delete a calculated metrics by ID",
         "operationId": "calculatedmetrics_deleteCalculatedMetric",
         "parameters": [
           {
@@ -1768,8 +1768,8 @@
         "tags": [
           "Calculated Metrics API"
         ],
-        "summary": "Retrieve many calculated metrics",
-        "description": "A calculated metric response will always include these default items: *id, name, description, rsid, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information about calculated metrics go [here](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/calculatedmetrics.md)\n\n",
+        "summary": "Retrieves multiple calculated metrics",
+        "description": "A calculated metric response includes these default items: *ID, name, description, dataview ID, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information, see the [Calculated metrics overview](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-calcmetrics/calc-metr-overview)\n\n",
         "operationId": "findCalculatedMetrics_1",
         "parameters": [
           {
@@ -1784,7 +1784,7 @@
           {
             "name": "expansion",
             "in": "query",
-            "description": "Comma-delimited list of additional calculated metric metadata fields to include on response.",
+            "description": "Comma-delimited list of additional calculated metric metadata fields to include in response.",
             "style": "form",
             "explode": false,
             "schema": {
@@ -1841,7 +1841,7 @@
           {
             "name": "dataIds",
             "in": "query",
-            "description": "Filter list to only include calculated metrics tied to specified RSID list (comma-delimited)",
+            "description": "Filter list to only include calculated metrics tied to a specified dataview ID list (comma-delimited)",
             "schema": {
               "type": "string"
             }
@@ -1865,7 +1865,7 @@
           {
             "name": "toBeUsedInRsid",
             "in": "query",
-            "description": "The data view where the calculated metric intended to be used.  This data view will be used to determine things like compatibility and permissions.  If it is not specified then the permissions will be calculated based on the union of all metrics authorized in all groups the user belongs to.  If the compatibility expansion is specified and toBeUsedInRsid is not then the compatibility returned is based off the compatibility from the last time the calculated metric was saved.",
+            "description": "The dataview to be associated with the calculated metric. The dataview is used to determine compatibility and permissions. If not specified, the permissions are calculated based on the union of all metrics authorized in all groups the user belongs to. If the compatibility expansion is specified and toBeUsedInRsid is not, the compatibility returned is based on the compatibility from the last time the calculated metric was saved.",
             "schema": {
               "type": "string"
             }
@@ -1938,7 +1938,7 @@
           {
             "name": "sortProperty",
             "in": "query",
-            "description": "Property to sort by (name, modified_date, id is currently allowed)",
+            "description": "Property to sort by (name, modified_date, ID is currently allowed)",
             "schema": {
               "type": "string",
               "default": "id"
@@ -1994,7 +1994,7 @@
                       },
                       "polarity": {
                         "type": "string",
-                        "description": "Set metric polarity, which indicates whether it's good or bad if a given metric goes up. Default=positive",
+                        "description": "Set metric polarity, indicating whether it's desirable or undesirable if a given metric goes up. Default=positive",
                         "enum": [
                           "positive",
                           "negative"
@@ -2509,6 +2509,7 @@
           "Calculated Metrics API"
         ],
         "summary": "Retrieve calculated metric functions",
+        "description": "Calculated metrics functions allow you to perform mathematical operations on existing metrics, dimensions, segments, and other calculated metrics to create new, customized metrics\n\nFor more information, see the [Calculated metrics overview](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-calcmetrics/calc-metr-overview)\n\n",
         "operationId": "calculatedmetrics_getCalculatedMetricFunctions",
         "parameters": [
           {
@@ -2698,7 +2699,7 @@
         "tags": [
           "Calculated Metrics API"
         ],
-        "summary": "Retrieve a calculated metric function by id",
+        "summary": "Retrieve a calculated metric function by ID",
         "operationId": "calculatedmetrics_getCalculatedMetricFunction",
         "parameters": [
           {
@@ -2887,7 +2888,7 @@
             }
           },
           "500": {
-            "description": "External API error; Calculated metric function retrieval failed",
+            "description": "External API error; calculated metric function retrieval failed",
             "content": {
               "application/json": {
                 "schema": {
@@ -2991,7 +2992,7 @@
           }
         ],
         "requestBody": {
-          "description": "JSON-formatted Object containing key/value pairs for calculated metric validation.",
+          "description": "JSON-formatted object containing key/value pairs for calculated metric validation.",
           "content": {
             "application/json": {
               "schema": {
@@ -3036,7 +3037,7 @@
                   },
                   "polarity": {
                     "type": "string",
-                    "description": "Set metric polarity, which indicates whether it's good or bad if a given metric goes up. Default=positive",
+                    "description": "Set metric polarity, indicating whether it's desirable or undesirable if a given metric goes up. Default=positive",
                     "enum": [
                       "positive",
                       "negative"
@@ -3329,7 +3330,7 @@
                     },
                     "polarity": {
                       "type": "string",
-                      "description": "Set metric polarity, which indicates whether it's good or bad if a given metric goes up. Default=positive",
+                      "description": "Set metric polarity, indicating whether it's desirable or undesirable if a given metric goes up. Default=positive",
                       "enum": [
                         "positive",
                         "negative"
@@ -3575,7 +3576,7 @@
             }
           },
           "400": {
-            "description": "Invalid input; name, rsid, and definition are all required. Definition must be formatted as a JSON Object.",
+            "description": "Invalid input; name, rsid, and definition are all required. Definition must be formatted as a JSON object.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3640,7 +3641,7 @@
             }
           },
           "500": {
-            "description": "External API error; Calculated metric validation failed",
+            "description": "External API error; calculated metric validation failed",
             "content": {
               "application/json": {
                 "schema": {
@@ -3713,7 +3714,7 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Returns all components that have been shared by the current user (meeting the paging restriction)",
+        "summary": "Retrieves all components that have been shared by the current user (meeting the paging restriction)",
         "operationId": "findAllForCurrentUser_3",
         "parameters": [
           {
@@ -3956,7 +3957,7 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Returns details about a specific share",
+        "summary": "Retrieves details about a specific share",
         "operationId": "getShare_1",
         "parameters": [
           {
@@ -4109,7 +4110,7 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Returns all component ids that have shared to the current user",
+        "summary": "Retrieves all component ids that have shared to the current user",
         "operationId": "findAllSharesToCurrentUser_1",
         "parameters": [
           {
@@ -4307,7 +4308,7 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Returns a list of tags for the current user's company",
+        "summary": "Retrieves a list of tags for the current user's company",
         "operationId": "findAllForCompany_1",
         "parameters": [
           {
@@ -15220,7 +15221,7 @@
         "tags": [
           "Date Range APIs"
         ],
-        "summary": "Returns a list of dateranges for the user",
+        "summary": "Retrieves a list of dateranges for the user",
         "description": "This API allows users to store commonly used date ranges so that they can be reused throughout the product.",
         "operationId": "getDateRanges",
         "parameters": [
@@ -15865,7 +15866,7 @@
         "tags": [
           "Projects APIs"
         ],
-        "summary": "Returns a list of projects for the user",
+        "summary": "Retrieves a list of projects for the user",
         "description": "This Returns the projects list primarily for the Analytics product. ",
         "operationId": "projects_getProjects",
         "parameters": [
