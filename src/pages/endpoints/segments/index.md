@@ -562,7 +562,7 @@ Common error responses include:
 
 Note that some fields are managed separately from the main segments endpoints:
 
-* **Tags**: Use the [Tags endpoint](../componentmetadata/tags.md) to set or modify a segment's tags
-* **Sharing**: Use the [Shares endpoint](../componentmetadata/shares.md) to manage segment sharing permissions
+* **Tags**: Use the [Tags endpoint](https://developer.adobe.com/cja-apis/docs/api/#tag/Tags-API) to set or modify a segment's tags
+* **Sharing**: Use the [Shares endpoint](https://developer.adobe.com/cja-apis/docs/api/#tag/Shares-API) to manage segment sharing permissions
 
 For more information on CJA Segments APIs, see the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api/).
