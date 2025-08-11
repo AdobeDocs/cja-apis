@@ -1,6 +1,6 @@
 ---
 title: Reporting API
-description: Create and retrieve reporting data programmatically through Adobe Developer
+description: Create and retrieve reporting data programmatically
 ---
 
 # Reporting API
