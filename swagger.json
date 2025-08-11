@@ -125,7 +125,7 @@
         "tags": [
           "Configuration API"
         ],
-        "summary": "Returns all CJA IMS Users associated with the provided organization",
+        "summary": "Returns all users associated with the provided organization",
         "operationId": "getImsUsers_1",
         "parameters": [
           {
