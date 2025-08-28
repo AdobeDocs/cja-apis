@@ -3,7 +3,7 @@
   "info": {
     "title": "CJA APIs",
     "description": "Open API specification for Customer Journey Analytics APIs. \n\n Note: Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes. \n\n **Interactive API**: You can interact with CJA APIs directly from this reference page. Use the **Try it** function below and the **Get credentials** feature above to get authenticated for calls from this site. For more information, see [Tips for calling endpoints on the CJA API Reference](https://developer.adobe.com/cja-apis/docs/credentials/).  \n\n **Related documentation**: [CJA API endpoint guides](https://developer.adobe.com/cja-apis/docs/endpoints/)",
-    "version": "1.0"
+    "version": "0.1.0"
   },
   "servers": [
     {
@@ -16,7 +16,8 @@
         "tags": [
           "Configuration API"
         ],
-        "summary": "Retrieves the current user",
+        "summary": "Retrieve current user",
+        "description": "Retrieves information of the current user",
         "operationId": "getCurrentUser",
         "parameters": [
           {
@@ -125,7 +126,8 @@
         "tags": [
           "Configuration API"
         ],
-        "summary": "Retrieves all users associated with the provided organization",
+        "summary": "Retrieve all users",
+        "description": "Retrieves information for all users associated with the organization",
         "operationId": "getImsUsers_1",
         "parameters": [
           {
@@ -140,7 +142,7 @@
           {
             "name": "expansion",
             "in": "query",
-            "description": "Comma-delimited list of additional fields to include on response.",
+            "description": "Comma-delimited list of additional fields to include on response",
             "style": "form",
             "explode": false,
             "schema": {
@@ -156,7 +158,7 @@
           {
             "name": "useCache",
             "in": "query",
-            "description": "useCache",
+            "description": "Whether to use cached results",
             "schema": {
               "type": "boolean",
               "default": true
@@ -174,7 +176,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "Page number (base 0 - first page is \"0\")",
+            "description": "Page number (first page is \"0\")",
             "schema": {
               "type": "integer",
               "default": 0
@@ -225,7 +227,7 @@
           {
             "name": "expansion",
             "in": "query",
-            "description": "Comma-delimited list of additional calculated metric metadata fields to include on response.",
+            "description": "Comma-delimited list of additional calculated metric metadata fields to include on response",
             "style": "form",
             "explode": false,
             "schema": {
@@ -261,7 +263,7 @@
           {
             "name": "includeHidden",
             "in": "query",
-            "description": "Whether to include variables that are hidden in the UI or that the user doesn't have permission to.",
+            "description": "Whether to include variables hidden in the UI or that are not permitted for the user",
             "schema": {
               "type": "boolean",
               "default": false
@@ -270,7 +272,7 @@
           {
             "name": "toBeUsedInRsid",
             "in": "query",
-            "description": "The report suite where the calculated metric is intended to be used. This report suite will be used to determine things like compatibility and permissions.  If it is not specified then the permissions will be calculated based on the union of all metrics authorized in all groups the user belongs to.  If the compatibility expansion is specified and toBeUsedInRsid is not then the compatibility returned is based off the compatibility from the last time the calculated metric was saved.",
+            "description": "The dataview ID to be associated with the calculated metric. The dataview is used to determine compatibility and permissions. If not specified, the permissions are calculated based on the union of all metrics authorized in all groups the user belongs to. If the compatibility expansion is specified and toBeUsedInRsid is not, the compatibility returned is based on the compatibility from the last time the calculated metric was saved.",
             "schema": {
               "type": "string"
             }
@@ -1645,7 +1647,8 @@
         "tags": [
           "Calculated Metrics API"
         ],
-        "summary": "Delete a calculated metrics by ID",
+        "summary": "Delete calculated metric",
+        "description": "Deletes a calculated metric by ID",
         "operationId": "calculatedmetrics_deleteCalculatedMetric",
         "parameters": [
           {
@@ -1768,7 +1771,7 @@
         "tags": [
           "Calculated Metrics API"
         ],
-        "summary": "Retrieves multiple calculated metrics",
+        "summary": "Retrieve multiple calculated metrics",
         "description": "A calculated metric response includes these default items: *ID, name, description, dataview ID, owner, polarity, precision, type* \n\nOther attributes can be optionally requested through the 'expansion' field:\n\n* *modified*: Date that the metric was last modified (ISO 8601)\n* *definition*: Calculated metric definition as JSON object\n* *compatibility*: Products that the metric is compatible with\n* *tags*: Gives all existing tags associated with the calculated metric\n\nFor more information, see the [Calculated metrics overview](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-calcmetrics/calc-metr-overview)\n\n",
         "operationId": "findCalculatedMetrics_1",
         "parameters": [
@@ -2509,7 +2512,7 @@
           "Calculated Metrics API"
         ],
         "summary": "Retrieve calculated metric functions",
-        "description": "Calculated metrics functions allow you to perform mathematical operations on existing metrics, dimensions, segments, and other calculated metrics to create new, customized metrics\n\nFor more information, see the [Calculated metrics overview](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-calcmetrics/calc-metr-overview)\n\n",
+        "description": "Calculated metrics functions allow you to perform mathematical operations on existing metrics, dimensions, segments, and other calculated metrics to create new, customized metrics.\n\nFor more information, see the [Calculated metrics overview](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-calcmetrics/calc-metr-overview)\n\n",
         "operationId": "calculatedmetrics_getCalculatedMetricFunctions",
         "parameters": [
           {
@@ -2700,6 +2703,7 @@
           "Calculated Metrics API"
         ],
         "summary": "Retrieve a calculated metric function by ID",
+        "description": "Retrieves a calculated metric function by ID",
         "operationId": "calculatedmetrics_getCalculatedMetricFunction",
         "parameters": [
           {
@@ -2960,7 +2964,8 @@
         "tags": [
           "Calculated Metrics API"
         ],
-        "summary": "Validate a calculated metric definition",
+        "summary": "Validate calculated metric",
+        "description": "Validates a calculated metric definition",
         "operationId": "calculatedmetrics_validateCalculatedMetric",
         "parameters": [
           {
@@ -3576,7 +3581,7 @@
             }
           },
           "400": {
-            "description": "Invalid input; name, rsid, and definition are all required. Definition must be formatted as a JSON object.",
+            "description": "Invalid input; name, dataview ID, and definition are all required. Definition must be formatted as a JSON object.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3714,7 +3719,8 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Retrieves all components that have been shared by the current user (meeting the paging restriction)",
+        "summary": "Retrieve components shared by current user",
+        "description": "Retrieves all components that have been shared by the current user (meeting the paging restriction)",
         "operationId": "findAllForCurrentUser_3",
         "parameters": [
           {
@@ -3830,8 +3836,8 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Share components with users. WARNING: Authoritative; deletes/overwrites all pre-existing shares for the given components",
-        "description": "Create one/many shares for one/many components at once. For each component object in the passed list, the given shares will replace the current set of shares for each component. For example, if one of the components was previously shared with additional users, and that share is not passed in here, it will no longer be shared with them.<br>",
+        "summary": "Update shared components users. See Warning below.",
+        "description": "WARNING: Deletes/overwrites all pre-existing shares for the specified  components. Creates shares for components in single request. For each component object in the specified list, the shares  replace the current set of shares for each component. For example, if one of the components was previously shared with additional users, and that share is not specified in here, it will no longer be shared with that user.<br>",
         "operationId": "modifyShares_1",
         "parameters": [
           {
@@ -3957,7 +3963,8 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Retrieves details about a specific share",
+        "summary": "Retrieve details about a specific share",
+        "description": "Retrieves details about a specific share",
         "operationId": "getShare_1",
         "parameters": [
           {
@@ -4046,8 +4053,8 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Deletes the share with the given id",
-        "description": "Delete by shareId and remove that share from all associated components.",
+        "summary": "Delete share",
+        "description": "Deletes a share by ID and removes that share from all associated components.",
         "operationId": "deleteShare_1",
         "parameters": [
           {
@@ -4062,7 +4069,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The shareId to be deleted",
+            "description": "The share ID to be deleted",
             "required": true,
             "schema": {
               "type": "integer",
@@ -4110,7 +4117,8 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "Retrieves all component ids that have shared to the current user",
+        "summary": "Retrieve component IDs shared with user",
+        "description": "Retrieves all component IDs that have been shared with the current user",
         "operationId": "findAllSharesToCurrentUser_1",
         "parameters": [
           {
@@ -4155,7 +4163,8 @@
         "tags": [
           "Shares API"
         ],
-        "summary": "search for shares for several components at once",
+        "summary": "Create search of component shares",
+        "description": "Searches for shares of multiple components in a single request",
         "operationId": "searchComponentTags_1",
         "parameters": [
           {
@@ -4308,7 +4317,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Retrieves a list of tags for the current user's company",
+        "summary": "Retrieve tags for organization",
+        "description": "Retrieves a list of tags for the organization of the current user",
         "operationId": "findAllForCompany_1",
         "parameters": [
           {
@@ -4387,8 +4397,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Saves the given tag(s) for the current user's company",
-        "description": "Allows creation of a new tag and applies that new tag to the passed component",
+        "summary": "Create tags for components",
+        "description": "Allows creation of new tags and saves to specified component",
         "operationId": "saveTagList_1",
         "parameters": [
           {
@@ -4488,8 +4498,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Disassociates all tags from the given components",
-        "description": "Removes all tags from the passed componentIds. Note that currently this is done in a single DB query, so there is a single combined response for the entire operation.",
+        "summary": "Delete tags from components",
+        "description": "Removes all tags from the specified component IDs. Note that currently this is done in a single request, so there is a single combined response for the entire operation.",
         "operationId": "deleteTagItems_1",
         "parameters": [
           {
@@ -4569,7 +4579,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Retrieves an tag by its id",
+        "summary": "Retrieve a tag by ID",
+        "description": "Retrieves a tag by ID",
         "operationId": "getTagById_1",
         "parameters": [
           {
@@ -4641,8 +4652,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Removes the tagId and all associations from that tag to any components",
-        "description": "Delete by tagId. Will un-tag any/all components that were associated with the passed tagId.",
+        "summary": "Delete tag",
+        "description": "Deletes a tag by ID and all associations of that tag to any components",
         "operationId": "deleteTag_1",
         "parameters": [
           {
@@ -4657,7 +4668,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The tagId to be deleted",
+            "description": "The tag ID to be deleted",
             "required": true,
             "schema": {
               "type": "integer",
@@ -4688,7 +4699,7 @@
             "content": {}
           },
           "500": {
-            "description": "Unable to delete the given tagId.",
+            "description": "Unable to delete the given tag ID.",
             "content": {}
           }
         }
@@ -4699,7 +4710,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "search for tags for several components at once",
+        "summary": "Create search for component tags",
+        "description": "Searches for tags associated with multiple components in a single request",
         "operationId": "searchComponentTags_3",
         "parameters": [
           {
@@ -4814,8 +4826,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Retrieves a tags for a given component by componentId and componentType",
-        "description": "Given a componentId, return all tags associated with that component",
+        "summary": "Retrieve tags by component ID and component type",
+        "description": "Retrieves tags associated with a specified component ID and component type",
         "operationId": "getTagListByComponentIdAndComponentType_1",
         "parameters": [
           {
@@ -4904,7 +4916,7 @@
             "content": {}
           },
           "500": {
-            "description": "Unable to retrieve tags for given component.",
+            "description": "Unable to retrieve tags for given component",
             "content": {}
           }
         }
@@ -4915,8 +4927,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Retrieves component ids associated with the given tag names",
-        "description": "Given a comma separated list of tag names, return component ids associated with them.",
+        "summary": "Retrieve component IDs by tag",
+        "description": "Retreives component IDs from a comma separated list of tag names asociated with the components",
         "operationId": "getComponentsByTagName_1",
         "parameters": [
           {
@@ -4992,8 +5004,8 @@
         "tags": [
           "Tags API"
         ],
-        "summary": "Tag a component with one or many tags at once. WARNING: Authoritative; deletes/overwrites all pre-existing associations",
-        "description": "This endpoint allows many tags at once to be created/deleted. Any tags passed to this endpoint will become the *only* tags for that componentId (all other tags will be removed).",
+        "summary": "Update component tags. See warning below.",
+        "description": "WARNING: Deletes all pre-existing associations. This endpoint allows update of multiple tags in single request. Any tags used with this endpoint will become the *only* tags used for that component ID (all other tags will be removed).",
         "operationId": "saveTagComponentList_1",
         "parameters": [
           {
@@ -5123,7 +5135,8 @@
         "tags": [
           "Asset Management API"
         ],
-        "summary": "Retrieve counts of assets owned by a user",
+        "summary": "Retrieve user asset count",
+        "description": "Retrieves the number of assets owned by a specified user",
         "operationId": "getAssetCounts_1",
         "parameters": [
           {
@@ -5171,7 +5184,8 @@
         "tags": [
           "Asset Management API"
         ],
-        "summary": "Transfer assets to the recipient user",
+        "summary": "Transfer assets",
+        "description": "Transfers assets to the specified recipient user",
         "operationId": "transferAssets_2",
         "parameters": [
           {
@@ -5236,7 +5250,7 @@
           "Reporting API"
         ],
         "summary": "Create a report",
-        "description": "See the [Reporting User Guide](https://github.com/AdobeDocs/analytics-2.0-apis/blob/master/reporting-guide.md) for details.",
+        "description": "See the [Reporting User Guide](hhttps://developer.adobe.com/cja-apis/docs/endpoints/reporting/) for more information",
         "operationId": "runReport_2",
         "parameters": [
           {
@@ -7570,7 +7584,7 @@
           "Reporting API"
         ],
         "summary": "Retrieve a top items dimension report",
-        "description": "Get the top X items (based on paging restriction) for the specified dimension and Data ID. Defaults to last 90 days.\n\nSearch Clause examples:\ncontains test: 'test'\n\n contains test or test1: 'test' OR 'test1'\n\ncontains test and test1: 'test' AND 'test1'\n\ncontains test and not (test1 or test2): 'test' AND NOT ('test1' OR 'test2')\n\ndoes not contain test: NOT 'test'\n\n",
+        "description": "Retrieves the top items (based on paging restriction) for the specified dimension and Data ID. Defaults to last 90 days.\n\nSearch Clause examples:\ncontains test: 'test'\n\n contains test or test1: 'test' OR 'test1'\n\ncontains test and test1: 'test' AND 'test1'\n\ncontains test and not (test1 or test2): 'test' AND NOT ('test1' OR 'test2')\n\ndoes not contain test: NOT 'test'\n\n",
         "operationId": "NonCustomerFacingDoc",
         "parameters": [
           {
@@ -7807,8 +7821,8 @@
         "tags": [
           "Dimensions API"
         ],
-        "summary": "Retrieval of dimensions for a dataview",
-        "description": "Used to retrieve dimensions for a dataview",
+        "summary": "Retrieve dataview dimensions",
+        "description": "Retrieves dimensions for a specified dataview",
         "operationId": "getDimensionsForDataview_1",
         "parameters": [
           {
@@ -7823,7 +7837,7 @@
           {
             "name": "dataviewId",
             "in": "path",
-            "description": "The id of the DataView for which to retrieve Dimensions",
+            "description": "The dataview ID associated with the dimension to be retrieved",
             "required": true,
             "schema": {
               "type": "string"
@@ -8485,8 +8499,8 @@
         "tags": [
           "Dimensions API"
         ],
-        "summary": "Retrieval of a specific dimension for a dataview",
-        "description": "Used to retrieve a specific dimension for a dataview",
+        "summary": "Retrieve dimension by dataview ID",
+        "description": "Retrieves a specific dimension for a specified dataview",
         "operationId": "getDimensionById_1",
         "parameters": [
           {
@@ -8501,7 +8515,7 @@
           {
             "name": "dataviewId",
             "in": "path",
-            "description": "The id of the DataView the dimension is tied to",
+            "description": "The dataview ID the dimension is associated with",
             "required": true,
             "schema": {
               "type": "string"
@@ -8510,7 +8524,7 @@
           {
             "name": "dimensionId",
             "in": "path",
-            "description": "The id of the dimension to retrieve, must have the variables/ removed from the ID. For example \"daterangeday\", not \"variables/daterangeday\"",
+            "description": "The ID of the dimension to retrieve. Note: Remove the variables/ from the ID. For example \"daterangeday\", not \"variables/daterangeday\"",
             "required": true,
             "schema": {
               "type": "string"
@@ -9156,8 +9170,8 @@
         "tags": [
           "Metrics API"
         ],
-        "summary": "Retrieval of metrics for a dataview",
-        "description": "Used to retrieve metrics for a dataview",
+        "summary": "Retrieve metrics for a dataview",
+        "description": "Retrieves metrics for a specified dataview",
         "operationId": "getMetricsForDataview_1",
         "parameters": [
           {
@@ -9172,7 +9186,7 @@
           {
             "name": "dataviewId",
             "in": "path",
-            "description": "The id of the DataView for which to retrieve Metrics",
+            "description": "The Dataview ID associated with the metric",
             "required": true,
             "schema": {
               "type": "string"
@@ -9826,8 +9840,8 @@
         "tags": [
           "Metrics API"
         ],
-        "summary": "Retrieval of a specific metric for a dataview",
-        "description": "Used to retrieve a specific metric for a dataview",
+        "summary": "Retrieve metric by dataview ID",
+        "description": "Retrieves a specific metric for a specified dataview",
         "operationId": "getMetricById_1",
         "parameters": [
           {
@@ -9842,7 +9856,7 @@
           {
             "name": "dataviewId",
             "in": "path",
-            "description": "The id of the DataView the metric is tied to",
+            "description": "The dataview ID associated with the metric",
             "required": true,
             "schema": {
               "type": "string"
@@ -9851,7 +9865,7 @@
           {
             "name": "metricId",
             "in": "path",
-            "description": "The id of the metric to retrieve, must have the metrics/ removed from the ID. For example \"visitors\", not \"metrics/visitors\"",
+            "description": "The metric ID to retrieve. Note: remove \"metrics/\" from the ID. For example \"visitors\", not \"metrics/visitors\".",
             "required": true,
             "schema": {
               "type": "string"
@@ -10489,8 +10503,8 @@
         "tags": [
           "Dataviews API"
         ],
-        "summary": "Retrieval of Data Views for a Company",
-        "description": "Used to retrieve Data Views for a company.",
+        "summary": "Retrieve all dataviews",
+        "description": "Retrieve all dataviews for an organization",
         "operationId": "getDataViewsForCompany",
         "parameters": [
           {
@@ -10987,8 +11001,8 @@
         "tags": [
           "Dataviews API"
         ],
-        "summary": "Creation of Data Views",
-        "description": "Stores the given Data View in the db.",
+        "summary": "Create dataviews",
+        "description": "Creates and saves a specified dataview.",
         "operationId": "createDataView",
         "parameters": [
           {
@@ -11563,8 +11577,8 @@
         "tags": [
           "Dataviews API"
         ],
-        "summary": "Retrieval of a Data View by dataViewId",
-        "description": "Used to retrieve a Data View by id",
+        "summary": "Retrieve dataview by ID",
+        "description": "Retrieve a dataview by ID",
         "operationId": "getDataViewById",
         "parameters": [
           {
@@ -11579,7 +11593,7 @@
           {
             "name": "dataViewId",
             "in": "path",
-            "description": "The Data View id to lookup",
+            "description": "The dataview ID to retrieve",
             "required": true,
             "schema": {
               "type": "string"
@@ -11948,8 +11962,8 @@
         "tags": [
           "Dataviews API"
         ],
-        "summary": "Modification of a Data View by dataViewId",
-        "description": "Used to update a Data View by id with the given Data View data",
+        "summary": "Update dataview",
+        "description": "Update a dataview by ID with the specified dataview data",
         "operationId": "updateDataViewById",
         "parameters": [
           {
@@ -12467,8 +12481,8 @@
         "tags": [
           "Dataviews API"
         ],
-        "summary": "Deletion of a Data View by dataViewId",
-        "description": "Used to remove a Data View by id",
+        "summary": "Delete dataview by ID",
+        "description": "Deletes a dataview by ID",
         "operationId": "removeDataViewById",
         "parameters": [
           {
@@ -12709,8 +12723,8 @@
         "tags": [
           "Dataviews API"
         ],
-        "summary": "Copy a data view",
-        "description": "Copy a Data View.",
+        "summary": "Copy a dataview",
+        "description": "Copy a dataview.",
         "operationId": "copy",
         "parameters": [
           {
@@ -12782,7 +12796,7 @@
                       "properties": {
                         "imsUserId": {
                           "type": "string",
-                          "description": "the ims org id of the owner, included when the expansion parameter owner is true"
+                          "description": "The IMS org ID of the owner, included when the expansion parameter owner is true"
                         },
                         "name": {
                           "type": "string"
@@ -13274,8 +13288,8 @@
         "tags": [
           "Connections API"
         ],
-        "summary": "Retrieval of a connection by connectionId",
-        "description": "Used to retrieve a connection by id",
+        "summary": "Retrieve connection by ID",
+        "description": "Retrieves a connection by ID",
         "operationId": "getConnection_1",
         "parameters": [
           {
@@ -13407,8 +13421,8 @@
         "tags": [
           "Connections API"
         ],
-        "summary": "Retrieval of connections for an org",
-        "description": "Used to retrieve connections for an org.",
+        "summary": "Retrieve all connections",
+        "description": "Retrieves all connections for the organization",
         "operationId": "getConnectionsForCompany_1",
         "parameters": [
           {
@@ -13423,7 +13437,7 @@
           {
             "name": "dataSetIds",
             "in": "query",
-            "description": "Comma-delimited list of dataSet ids to limit the response with",
+            "description": "Comma-delimited list of dataSet IDs to limit the response with",
             "schema": {
               "type": "string"
             }
@@ -13649,14 +13663,14 @@
         "tags": [
           "Connections API"
         ],
-        "summary": "Retrieval of connections for an org by connection",
-        "description": "Used to retrieve connections for an org based on connectionId or connection name.",
+        "summary": "Retrieve connections by ID or name",
+        "description": "Retrieves connections for the organization based on connection ID or name",
         "operationId": "search_1",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Search by connection name or connectionId.",
+            "description": "Search by connection name or connection ID.",
             "schema": {
               "type": "string"
             }
@@ -13790,8 +13804,8 @@
         "tags": [
           "Segments API"
         ],
-        "summary": "Retrieves paginated segments",
-        "description": "A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
+        "summary": "Retrieve paginated segments",
+        "description": "A segment response includes these default items:<br><b>ID</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
         "operationId": "findAll_1",
         "parameters": [
           {
@@ -13884,7 +13898,7 @@
           {
             "name": "toBeUsedInRsid",
             "in": "query",
-            "description": "The report suite where the segment is intended to be used.  This report suite will be used to determine things like compatibility and permissions.",
+            "description": "The dataview ID where the segment is intended to be used.  This dataview is  used to determine compatibility and permissions",
             "schema": {
               "type": "string"
             }
@@ -14014,7 +14028,7 @@
           "Segments API"
         ],
         "summary": "Create a configuration for a segment",
-        "description": "",
+        "description": "Creates a configuration for a segment",
         "operationId": "createFilter",
         "requestBody": {
           "description": "JSON-formatted Object containing key/value pairs to be updated.",
@@ -14345,7 +14359,7 @@
         "tags": [
           "Segments API"
         ],
-        "summary": "Validate a Segment",
+        "summary": "Validate a segment",
         "description": "Returns a segment validation for the segment contained in the post body of the report.",
         "operationId": "segments_validateSegment",
         "parameters": [
@@ -14433,8 +14447,8 @@
         "tags": [
           "Segments API"
         ],
-        "summary": "Retrieves a single segment by ID",
-        "description": "A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
+        "summary": "Retrieve a segment by ID",
+        "description": "A segment response will always include these default items:<br><b>ID</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
         "operationId": "findOne_2",
         "parameters": [
           {
@@ -14458,7 +14472,7 @@
           {
             "name": "toBeUsedInRsid",
             "in": "query",
-            "description": "The report suite where the segment is intended to be used.  This report suite will be used to determine things like compatibility and permissions.",
+            "description": "The dataview ID for which the segment is intended to be used. This dataview is used to determine compatibility and permissions",
             "schema": {
               "type": "string"
             }
@@ -14655,8 +14669,8 @@
         "tags": [
           "Segments API"
         ],
-        "summary": "Make changes or updates to an existing segment",
-        "description": "The following fields can be modified through this endpoint: <br><b>name, description, definition, owner, rsid, aamStatus</b><br><br>Note: \"aamStatus\" is used to \"publish\" a report suite segment to other products in the Experience Cloud. Description is always required when publishing with aamStatus. The report suite must already be pre-configured for AAM for publishing to succeed (see the \"/segments/aamStatus/\" endpoint for more information). <br>Format for aamStatus object:<br>\"aamStatus\":{\"published\":[\"rsid1\",\"rsid2\"]}<br><br>Example \"defintion\" for use in testing API below (\"Page exists\"):<br>\"definition\":{\"func\":\"segment\",\"container\":{\"func\":\"container\",\"context\":\"hits\",\"pred\":{\"func\":\"exists\",\"description\":\"Page\",\"val\":{\"func\":\"attr\",\"name\":\"variables/page\"}}},\"version\":[1,0,0]}<br><br>Response will be the newly modified segment object after the update request completes.<br><br><b><span style=\"text-decoration: underline;\">SegmentResponse</span></b><br>A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated Data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
+        "summary": "Update segment",
+        "description": "The following fields can be modified through this endpoint: <br><b>name, description, definition, owner, dataview ID, aamStatus</b><br><br>Note: \"aamStatus\" is used to \"publish\" a report suite segment to other products in the Experience Cloud. Description is always required when publishing with aamStatus. The report suite must already be pre-configured for AAM for publishing to succeed (see the \"/segments/aamStatus/\" endpoint for more information). <br>Format for aamStatus object:<br>\"aamStatus\":{\"published\":[\"rsid1\",\"rsid2\"]}<br><br>Example \"defintion\" for use in testing API below (\"Page exists\"):<br>\"definition\":{\"func\":\"segment\",\"container\":{\"func\":\"container\",\"context\":\"hits\",\"pred\":{\"func\":\"exists\",\"description\":\"Page\",\"val\":{\"func\":\"attr\",\"name\":\"variables/page\"}}},\"version\":[1,0,0]}<br><br>Response will be the newly modified segment object after the update request completes.<br><br><b><span style=\"text-decoration: underline;\">SegmentResponse</span></b><br>A segment response will always include these default items:<br><b>id</b><br><br>Other attributes can be optionally requested through the 'expansion' field: <br><b>name</b>: Name of the segment<br><b>description</b>: Description of the segment<br><b>dataId</b>: Associated data ID of the segment<br><b>owner</b>: Owner of the segment<br><b>modified</b>: Date that the segment was last modified (ISO 8601)<br><b>definition</b>: Segment definition as JSON object<br><b>compatibility</b>: Products that the segment is compatible with<br><b>isDeleted</b>: Returns whether or not the segment is 'Deleted' (note that deleted segments are only returned if requested by ID)",
         "operationId": "updateSegment_2",
         "parameters": [
           {
@@ -15071,8 +15085,8 @@
         "tags": [
           "Audit Logs"
         ],
-        "summary": "Retrieve audit logs for Customer Journey Analytics.",
-        "description": "This API returns a filterable list of audit log records.",
+        "summary": "Retrieve audit logs",
+        "description": "Retrieves a filterable list of audit log records",
         "operationId": "searchAuditLogs_1",
         "parameters": [
           {
@@ -15221,8 +15235,8 @@
         "tags": [
           "Date Range APIs"
         ],
-        "summary": "Retrieves a list of dateranges for the user",
-        "description": "This API allows users to store commonly used date ranges so that they can be reused throughout the product.",
+        "summary": "Retrieve dateranges for user",
+        "description": "Retrieves commonly used date ranges by the user so that they can be reused throughout the product",
         "operationId": "getDateRanges",
         "parameters": [
           {
@@ -15325,8 +15339,8 @@
         "tags": [
           "Date Range APIs"
         ],
-        "summary": "Creates configuration for a DateRange.",
-        "description": "",
+        "summary": "Create configuration for a date range",
+        "description": "Creates a configuration for a date range",
         "operationId": "createDateRange",
         "requestBody": {
           "description": "Date Range request body",
@@ -15399,8 +15413,8 @@
         "tags": [
           "Date Range APIs"
         ],
-        "summary": "Retrieves configuration for a DateRange.",
-        "description": "",
+        "summary": "Retrieve configuration for a date range",
+        "description": "Retrieves configuration for a specified date range",
         "operationId": "getDateRange",
         "parameters": [
           {
@@ -15415,7 +15429,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Date Range ID to be retrieved",
+            "description": "The date range ID to be retrieved",
             "required": true,
             "schema": {
               "type": "string"
@@ -15469,8 +15483,8 @@
         "tags": [
           "Date Range APIs"
         ],
-        "summary": "Updates configuration for a DateRange.",
-        "description": "",
+        "summary": "Update configuration for a date range",
+        "description": "Updates configuration for a specified date range",
         "operationId": "updateDateRange",
         "requestBody": {
           "description": "Date Range request body",
@@ -15550,8 +15564,8 @@
         "tags": [
           "Date Range APIs"
         ],
-        "summary": "Deletes a DateRange.",
-        "description": "",
+        "summary": "Delete a date range",
+        "description": "Deletes a date range by ID",
         "operationId": "deleteDateRange",
         "parameters": [
           {
@@ -15600,8 +15614,8 @@
         "tags": [
           "Projects APIs"
         ],
-        "summary": "Retrieves configuration for a Project.",
-        "description": "",
+        "summary": "Retrieve project configuration",
+        "description": "Retrieves configuration for a specified project",
         "operationId": "projects_getProject",
         "parameters": [
           {
@@ -15616,7 +15630,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The Project id for which to retrieve information",
+            "description": "The project ID used to retrieve information",
             "required": true,
             "schema": {
               "type": "string"
@@ -15670,8 +15684,8 @@
         "tags": [
           "Projects APIs"
         ],
-        "summary": "Updates configuration for a project.",
-        "description": "",
+        "summary": "Update configuration for a project",
+        "description": "Updates configuration for a specified project",
         "operationId": "projects_updateProject",
         "requestBody": {
           "description": "Project request body",
@@ -15697,7 +15711,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The Project id for which to retrieve information",
+            "description": "The project ID used to retrieve information",
             "required": true,
             "schema": {
               "type": "string"
@@ -15751,8 +15765,8 @@
         "tags": [
           "Projects APIs"
         ],
-        "summary": "deletes a project.",
-        "description": "",
+        "summary": "Delete a project",
+        "description": "Deletes a project by ID",
         "operationId": "projects_deleteProject",
         "parameters": [
           {
@@ -15767,7 +15781,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The Project id for which to retrieve information",
+            "description": "The project ID used to retrieve information",
             "required": true,
             "schema": {
               "type": "string"
@@ -15802,7 +15816,7 @@
         "tags": [
           "Projects APIs"
         ],
-        "summary": "Validates a Project definition",
+        "summary": "Validates a project definition",
         "description": "",
         "operationId": "projects_validateProject",
         "requestBody": {
@@ -15866,8 +15880,8 @@
         "tags": [
           "Projects APIs"
         ],
-        "summary": "Retrieves a list of projects for the user",
-        "description": "This Returns the projects list primarily for the Analytics product. ",
+        "summary": "Retrieve user projects",
+        "description": "Retrieves a list of projects associated with the user",
         "operationId": "projects_getProjects",
         "parameters": [
           {
@@ -15998,8 +16012,8 @@
         "tags": [
           "Projects APIs"
         ],
-        "summary": "Creates a single project.",
-        "description": "",
+        "summary": "Create a project",
+        "description": "Creates a single project",
         "operationId": "projects_createProject",
         "requestBody": {
           "description": "Project request body",
