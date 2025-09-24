@@ -128,7 +128,7 @@ The response is an array of segment objects, each containing the following param
 
 To retrieve a list of components that contain a specified segment, include the `usedIn` expansion parameter in your multiple segments request.
 
-The following response shows projects that include the "Example Channel" segment:
+The following example shows a list components that include the `Example channel segment`, as provided for the value for the `usedIn` expansion parametr. Note that the details for components `4444` and `5555` are returned:
 
 ```json
 {
@@ -142,7 +142,7 @@ The following response shows projects that include the "Example Channel" segment
             "id": "s44444444@ExampleOrg_44444444",
             "usedIn": [
                 {
-                    "componentId": "44444444444",
+                    "componentId": "4444",
                     "componentType": "project",
                     "subType": "project",
                     "internal": false,
@@ -150,7 +150,7 @@ The following response shows projects that include the "Example Channel" segment
                     "lastRecordedAccess": 7777775200236
                 },
                 {
-                    "componentId": "55555555",
+                    "componentId": "5555",
                     "componentType": "project",
                     "subType": "project",
                     "internal": false,
