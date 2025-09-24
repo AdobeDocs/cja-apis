@@ -238,7 +238,8 @@
                   "approved",
                   "favorite",
                   "shares",
-                  "tags",
+                  "tags",                  
+                  "usedIn",
                   "sharesFullName",
                   "usageSummary",
                   "usageSummaryWithRelevancyScore",
@@ -13830,6 +13831,7 @@
                 "enum": [
                   "compatibility",
                   "definition",
+                  "usedIn",
                   "internal",
                   "modified",
                   "isDeleted",
