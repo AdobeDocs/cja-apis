@@ -124,6 +124,65 @@ The response is an array of segment objects, each containing the following param
 | `modified` | String | Date that the segment was last modified (ISO 8601) |
 | `created` | String | Date that the segment was created (ISO 8601) |
 
+### Find components that use a specified segment
+
+To retrieve a list of components that contain a specified segment, include the `usedIn` expansion parameter in your multiple segments request.
+
+The following response shows projects that include the "Example Channel" segment:
+
+```json
+{
+    "content": [
+        {
+            "name": "Example Channel",
+            "description": "Example channel segment",
+            "organization": "77717@ExampleOrg",
+            "recentRecordedAccess": "YYYY-06-05T13:40:31Z",
+            "performanceScore": "2.14",
+            "id": "s44444444@ExampleOrg_44444444",
+            "usedIn": [
+                {
+                    "componentId": "44444444444",
+                    "componentType": "project",
+                    "subType": "project",
+                    "internal": false,
+                    "name": "Example Customer Analysis",
+                    "lastRecordedAccess": 7777775200236
+                },
+                {
+                    "componentId": "55555555",
+                    "componentType": "project",
+                    "subType": "project",
+                    "internal": false,
+                    "name": "Example Customer List",
+                    "lastRecordedAccess": 7777776824296
+                },
+               
+            ],
+            "usageSummary": {
+                "count": 0,
+                "mostRecentTimestamp": null,
+                "itemId": null
+            },
+            "owner": {
+                "imsUserId": "7777777777.e",
+                "ownerId": "777777777@7777777777.e",
+                "name": null,
+                "type": "imsUser"
+            },
+            "dataId": null
+        }
+    ],
+    "totalElements": 2,
+    "totalPages": 1,
+    "numberOfElements": 1,
+    "number": 0,
+    "firstPage": true,
+    "lastPage": true,
+    "sort": null,
+}
+```
+
 ## Retrieve a single segment
 
 Use this endpoint to retrieve a specific segment by its ID.
