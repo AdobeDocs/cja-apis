@@ -82,6 +82,64 @@ curl -X GET "https://cja.adobe.io/calculatedmetrics?includeType=shared" \
     "size": 2
 }
 ```
+### Find components that use a specified calculated metric
+
+To retrieve a list of components that contain a specified calculated metric, include the `usedIn` expansion parameter in your metrics request.
+
+The following example shows a list components that include the `conversion rate`, as provided for the value for the `usedIn` expansion parametr. Note that the details for components `4444` and `5555` are returned:
+
+```json
+{
+    "content": [
+        {
+            "name": "conversion rate",
+            "description": "Example channel segment",
+            "organization": "77717@ExampleOrg",
+            "recentRecordedAccess": "YYYY-06-05T13:40:31Z",
+            "performanceScore": "2.14",
+            "id": "s44444444@ExampleOrg_44444444",
+            "usedIn": [
+                {
+                    "componentId": "4444",
+                    "componentType": "project",
+                    "subType": "project",
+                    "internal": false,
+                    "name": "Example Customer Analysis",
+                    "lastRecordedAccess": 7777775200236
+                },
+                {
+                    "componentId": "5555",
+                    "componentType": "project",
+                    "subType": "project",
+                    "internal": false,
+                    "name": "Example Traffic",
+                    "lastRecordedAccess": 7777776824296
+                },
+               
+            ],
+            "usageSummary": {
+                "count": 0,
+                "mostRecentTimestamp": null,
+                "itemId": null
+            },
+            "owner": {
+                "imsUserId": "7777777777.e",
+                "ownerId": "777777777@7777777777.e",
+                "name": null,
+                "type": "imsUser"
+            },
+            "dataId": null
+        }
+    ],
+    "totalElements": 2,
+    "totalPages": 1,
+    "numberOfElements": 1,
+    "number": 0,
+    "firstPage": true,
+    "lastPage": true,
+    "sort": null,
+}
+```
 
 ## Retrieve a single calculated metric
 
