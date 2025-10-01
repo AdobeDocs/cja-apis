@@ -124,11 +124,11 @@ The response is an array of segment objects, each containing the following param
 | `modified` | String | Date that the segment was last modified (ISO 8601) |
 | `created` | String | Date that the segment was created (ISO 8601) |
 
-### Find components that use a specified segment
+## Find components that use a specified segment
 
-To retrieve a list of components that contain a specified segment, include the `usedIn` expansion parameter in your multiple segments request.
+To retrieve components that contain a specified segment, include the `usedIn` expansion parameter in any GET segments request.
 
-The following example shows a list components that include the `Example channel segment`, as provided for the value for the `usedIn` expansion parametr. Note that the details for components `4444` and `5555` are returned:
+The following example shows a list components that include the `Example channel segment`, as provided for the value for the `usedIn` expansion parameter. Note that the details for components `4444` and `5555` are returned:
 
 ```json
 {
