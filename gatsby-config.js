@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         title: 'API reference',
-        path: '/api/'
+        path: '/api'
       },
       {
         title: 'Use cases',
@@ -35,7 +35,7 @@ module.exports = {
       },
       {
         title: 'Support',
-        path: '/support/'
+        path: '/support'
       }
     ],
     subPages: [
@@ -45,11 +45,11 @@ module.exports = {
         pages: [
           {
             title: 'FAQ',
-            path: '/getting-started/faq/'
+            path: '/getting-started/faq'
           },
           {
             title: 'CJA vs. 2.0 API',
-            path: '/getting-started/differences/'
+            path: '/getting-started/differences'
           }
         ]
       },
@@ -85,11 +85,11 @@ module.exports = {
             pages: [
               {
                 title: 'Functions',
-                path: '/endpoints/calculatedmetrics/functions/'
+                path: '/endpoints/calculatedmetrics/functions'
               },
               {
                 title: 'Validate',
-                path: '/endpoints/calculatedmetrics/validate/'
+                path: '/endpoints/calculatedmetrics/validate'
               },
               {
                 title: 'FAQ',
@@ -113,11 +113,11 @@ module.exports = {
           },
           {
             title: 'Connections',
-            path: '/endpoints/connections'
+            path: '/endpoints/connections/'
           },
           {
             title: 'Data views',
-            path: '/endpoints/dataviews'
+            path: '/endpoints/dataviews/'
           },
           {
             title: 'Date Ranges',
@@ -133,7 +133,7 @@ module.exports = {
             pages: [
               {
                 title: 'Validate',
-                path: '/endpoints/segments/validate/'
+                path: '/endpoints/segments/validate'
               }
             ]
           },
@@ -147,7 +147,7 @@ module.exports = {
             pages: [
               {
                 title: 'Project Structure',
-                path: '/endpoints/projects/structure/'
+                path: '/endpoints/projects/structure'
               }
             ]
           },
@@ -165,18 +165,18 @@ module.exports = {
       },
       {
        title: 'Use cases',
-        path: 'guides/use-cases',
+        path: 'guides/use-cases/',
         pages: [
           {
             title: 'cURL',
-            path: '/use-cases/curl/'
+            path: '/use-cases/curl'
           },
           {
             title: 'Postman',
-            path: '/use-cases/postman/'
+            path: '/use-cases/postman'
           }, {
             title: 'Python',
-            path: '/use-cases/python/'
+            path: '/use-cases/python'
           }
         ]
       }
