@@ -37,7 +37,7 @@
             - [Project Structure](/endpoints/projects/structure.md)
         - [Reporting](/endpoints/reporting/index.md)
             - [Debugger](/endpoints/reporting/debugger.md)
-    - [Use cases](guides/use-cases/index.md)
+    - [Use cases](/use-cases/index.md)
         - [cURL](/use-cases/curl.md)
         - [Postman](/use-cases/postman.md)
         - [Python](/use-cases/python.md)
