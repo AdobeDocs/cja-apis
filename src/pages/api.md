@@ -10,4 +10,4 @@ layout: none
 ---
 
 
-<RedoclyAPIBlock src="/cja-apis/swagger.json" scrollYOffset={64}/>
+<RedoclyAPIBlock src="/cja-apis/docs/swagger.json" scrollYOffset={64}/>
