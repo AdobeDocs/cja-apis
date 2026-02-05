@@ -13,15 +13,15 @@ description: Get started making API calls within the Postman API client.
 
 ## Prerequisites
 
-Before following this guide, make sure that you are prepared with all requirements that are listed on the [Getting started](/src/pages/getting-started/index.md) page. These requirements include:
+Before following this guide, make sure that you are prepared with all requirements that are listed on the [Getting started](../getting-started/index.md) page. These requirements include:
 
 * Your user account belonging to the correct product profile in the [Adobe Admin Console](https://adminconsole.adobe.com)
 * An API client created in the [Adobe Developer Console](https://console.adobe.io)
 
 ## Send a basic API call through Postman
 
-Once you have met all prerequisites, follow the steps below to submit a basic API call. You can then use the [Endpoints guides](/src/pages/endpoints/index.md) to submit the desired API calls in your project.
+Once you have met all prerequisites, follow the steps below to submit a basic API call. You can then use the [Endpoints guides](../endpoints/index.md) to submit the desired API calls in your project.
 
 1. [Download and install Postman](https://www.postman.com/downloads/). Follow the install prompts, then open the application once installed.
 1. Select [Show me how](https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/) in the left pane. This will open a new browser window, explaining how to send your first API request using [!DNL Postman].
-1. Follow this guide and after successfully having send the Postman example request (`https://postman-echo.com/get`), try one of the API requests from the [Endpoints guides](/src/pages/endpoints/index.md).
+1. Follow this guide and after successfully having send the Postman example request (`https://postman-echo.com/get`), try one of the API requests from the [Endpoints guides](../endpoints/index.md).
