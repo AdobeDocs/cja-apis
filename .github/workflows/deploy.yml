@@ -25,7 +25,7 @@ on:
 jobs:
   deployment:
     name: Deployment
-    uses: AdobeDocs/adp-devsite-workflow/.github/workflows/deploy.yml@retry
+    uses: AdobeDocs/adp-devsite-workflow/.github/workflows/deploy.yml@main
     with:
       env: ${{ inputs.env || 'stage' }}
       baseSha: ${{ inputs.baseSha || '' }}
