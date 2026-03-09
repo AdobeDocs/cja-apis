@@ -6,8 +6,6 @@ keywords:
   - API Documentation
   - CJA API Reference
   - CJA API Swagger
-layout: none
 ---
-<GetCredential jsonDefinition="./credentials/getcredential.json" />
 
 <RedoclyAPIBlock src="/cja-apis/docs/swagger.json" scrollYOffset={64}/>
