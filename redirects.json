@@ -1,1 +1,223 @@
-{"total":56,"offset":0,"limit":56,"data":[{"Source":"/cja-apis/docs/support/","Destination":"/cja-apis/docs/support"},{"Source":"/cja-apis/docs","Destination":"/cja-apis/docs/"},{"Source":"/cja-apis/docs/index","Destination":"/cja-apis/docs/"},{"Source":"/cja-apis/docs/api/","Destination":"/cja-apis/docs/api"},{"Source":"/cja-apis/docs/use-cases/python/","Destination":"/cja-apis/docs/use-cases/python"},{"Source":"/cja-apis/docs/use-cases/postman/","Destination":"/cja-apis/docs/use-cases/postman"},{"Source":"/cja-apis/docs/use-cases","Destination":"/cja-apis/docs/use-cases/"},{"Source":"/cja-apis/docs/use-cases/index","Destination":"/cja-apis/docs/use-cases/"},{"Source":"/cja-apis/docs/use-cases/curl/","Destination":"/cja-apis/docs/use-cases/curl"},{"Source":"/cja-apis/docs/getting-started","Destination":"/cja-apis/docs/getting-started/"},{"Source":"/cja-apis/docs/getting-started/index","Destination":"/cja-apis/docs/getting-started/"},{"Source":"/cja-apis/docs/getting-started/faq/","Destination":"/cja-apis/docs/getting-started/faq"},{"Source":"/cja-apis/docs/getting-started/differences/","Destination":"/cja-apis/docs/getting-started/differences"},{"Source":"/cja-apis/docs/endpoints","Destination":"/cja-apis/docs/endpoints/"},{"Source":"/cja-apis/docs/endpoints/index","Destination":"/cja-apis/docs/endpoints/"},{"Source":"/cja-apis/docs/endpoints/segments/validate/","Destination":"/cja-apis/docs/endpoints/segments/validate"},{"Source":"/cja-apis/docs/endpoints/segments","Destination":"/cja-apis/docs/endpoints/segments/"},{"Source":"/cja-apis/docs/endpoints/segments/index","Destination":"/cja-apis/docs/endpoints/segments/"},{"Source":"/cja-apis/docs/endpoints/reporting","Destination":"/cja-apis/docs/endpoints/reporting/"},{"Source":"/cja-apis/docs/endpoints/reporting/index","Destination":"/cja-apis/docs/endpoints/reporting/"},{"Source":"/cja-apis/docs/endpoints/reporting/debugger/","Destination":"/cja-apis/docs/endpoints/reporting/debugger"},{"Source":"/cja-apis/docs/endpoints/projects/structure/","Destination":"/cja-apis/docs/endpoints/projects/structure"},{"Source":"/cja-apis/docs/endpoints/projects","Destination":"/cja-apis/docs/endpoints/projects/"},{"Source":"/cja-apis/docs/endpoints/projects/index","Destination":"/cja-apis/docs/endpoints/projects/"},{"Source":"/cja-apis/docs/endpoints/metrics","Destination":"/cja-apis/docs/endpoints/metrics/"},{"Source":"/cja-apis/docs/endpoints/metrics/index","Destination":"/cja-apis/docs/endpoints/metrics/"},{"Source":"/cja-apis/docs/endpoints/dimensions","Destination":"/cja-apis/docs/endpoints/dimensions/"},{"Source":"/cja-apis/docs/endpoints/dimensions/index","Destination":"/cja-apis/docs/endpoints/dimensions/"},{"Source":"/cja-apis/docs/endpoints/dateranges","Destination":"/cja-apis/docs/endpoints/dateranges/"},{"Source":"/cja-apis/docs/endpoints/dateranges/index","Destination":"/cja-apis/docs/endpoints/dateranges/"},{"Source":"/cja-apis/docs/endpoints/dataviews","Destination":"/cja-apis/docs/endpoints/dataviews/"},{"Source":"/cja-apis/docs/endpoints/dataviews/index","Destination":"/cja-apis/docs/endpoints/dataviews/"},{"Source":"/cja-apis/docs/endpoints/connections","Destination":"/cja-apis/docs/endpoints/connections/"},{"Source":"/cja-apis/docs/endpoints/connections/index","Destination":"/cja-apis/docs/endpoints/connections/"},{"Source":"/cja-apis/docs/endpoints/componentmetadata","Destination":"/cja-apis/docs/endpoints/componentmetadata/"},{"Source":"/cja-apis/docs/endpoints/componentmetadata/index","Destination":"/cja-apis/docs/endpoints/componentmetadata/"},{"Source":"/cja-apis/docs/endpoints/componentmetadata/tags","Destination":"/cja-apis/docs/endpoints/componentmetadata/tags/"},{"Source":"/cja-apis/docs/endpoints/componentmetadata/tags/index","Destination":"/cja-apis/docs/endpoints/componentmetadata/tags/"},{"Source":"/cja-apis/docs/endpoints/componentmetadata/shares","Destination":"/cja-apis/docs/endpoints/componentmetadata/shares/"},{"Source":"/cja-apis/docs/endpoints/componentmetadata/shares/index","Destination":"/cja-apis/docs/endpoints/componentmetadata/shares/"},{"Source":"/cja-apis/docs/endpoints/calculatedmetrics/validate/","Destination":"/cja-apis/docs/endpoints/calculatedmetrics/validate"},{"Source":"/cja-apis/docs/endpoints/calculatedmetrics","Destination":"/cja-apis/docs/endpoints/calculatedmetrics/"},{"Source":"/cja-apis/docs/endpoints/calculatedmetrics/index","Destination":"/cja-apis/docs/endpoints/calculatedmetrics/"},{"Source":"/cja-apis/docs/endpoints/calculatedmetrics/functions/","Destination":"/cja-apis/docs/endpoints/calculatedmetrics/functions"},{"Source":"/cja-apis/docs/endpoints/calculatedmetrics/faq/","Destination":"/cja-apis/docs/endpoints/calculatedmetrics/faq"},{"Source":"/cja-apis/docs/endpoints/auditlogs","Destination":"/cja-apis/docs/endpoints/auditlogs/"},{"Source":"/cja-apis/docs/endpoints/auditlogs/index","Destination":"/cja-apis/docs/endpoints/auditlogs/"},{"Source":"/cja-apis/docs/endpoints/asset-management","Destination":"/cja-apis/docs/endpoints/asset-management/"},{"Source":"/cja-apis/docs/endpoints/asset-management/index","Destination":"/cja-apis/docs/endpoints/asset-management/"},{"Source":"/cja-apis/docs/endpoints/annotations/parameters/","Destination":"/cja-apis/docs/endpoints/annotations/parameters"},{"Source":"/cja-apis/docs/endpoints/annotations","Destination":"/cja-apis/docs/endpoints/annotations/"},{"Source":"/cja-apis/docs/endpoints/annotations/index","Destination":"/cja-apis/docs/endpoints/annotations/"},{"Source":"/cja-apis/docs/endpoints/annotations/definition/","Destination":"/cja-apis/docs/endpoints/annotations/definition"},{"Source":"/cja-apis/docs/docs/api/","Destination":"/cja-apis/docs/docs/api"},{"Source":"/cja-apis/docs/credentials","Destination":"/cja-apis/docs/credentials/"},{"Source":"/cja-apis/docs/credentials/index","Destination":"/cja-apis/docs/credentials/"}],":type":"sheet"}
+{
+  "total": 56,
+  "offset": 0,
+  "limit": 56,
+  "data": [
+    {
+      "Source": "/cja-apis/docs/support/",
+      "Destination": "/cja-apis/docs/support"
+    },
+    { "Source": "/cja-apis/docs", "Destination": "/cja-apis/docs/" },
+    { "Source": "/cja-apis/docs/index", "Destination": "/cja-apis/docs/" },
+    { "Source": "/cja-apis/docs/api/", "Destination": "/cja-apis/docs/api" },
+    {
+      "Source": "/cja-apis/docs/use-cases/python/",
+      "Destination": "/cja-apis/docs/use-cases/python"
+    },
+    {
+      "Source": "/cja-apis/docs/use-cases/postman/",
+      "Destination": "/cja-apis/docs/use-cases/postman"
+    },
+    {
+      "Source": "/cja-apis/docs/use-cases",
+      "Destination": "/cja-apis/docs/use-cases/"
+    },
+    {
+      "Source": "/cja-apis/docs/use-cases/index",
+      "Destination": "/cja-apis/docs/use-cases/"
+    },
+    {
+      "Source": "/cja-apis/docs/use-cases/curl/",
+      "Destination": "/cja-apis/docs/use-cases/curl"
+    },
+    {
+      "Source": "/cja-apis/docs/getting-started",
+      "Destination": "/cja-apis/docs/getting-started/"
+    },
+    {
+      "Source": "/cja-apis/docs/getting-started/index",
+      "Destination": "/cja-apis/docs/getting-started/"
+    },
+    {
+      "Source": "/cja-apis/docs/getting-started/faq/",
+      "Destination": "/cja-apis/docs/getting-started/faq"
+    },
+    {
+      "Source": "/cja-apis/docs/getting-started/differences/",
+      "Destination": "/cja-apis/docs/getting-started/differences"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints",
+      "Destination": "/cja-apis/docs/endpoints/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/index",
+      "Destination": "/cja-apis/docs/endpoints/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/segments/validate/",
+      "Destination": "/cja-apis/docs/endpoints/segments/validate"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/segments",
+      "Destination": "/cja-apis/docs/endpoints/segments/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/segments/index",
+      "Destination": "/cja-apis/docs/endpoints/segments/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/reporting",
+      "Destination": "/cja-apis/docs/endpoints/reporting/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/reporting/index",
+      "Destination": "/cja-apis/docs/endpoints/reporting/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/reporting/debugger/",
+      "Destination": "/cja-apis/docs/endpoints/reporting/debugger"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/projects/structure/",
+      "Destination": "/cja-apis/docs/endpoints/projects/structure"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/projects",
+      "Destination": "/cja-apis/docs/endpoints/projects/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/projects/index",
+      "Destination": "/cja-apis/docs/endpoints/projects/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/metrics",
+      "Destination": "/cja-apis/docs/endpoints/metrics/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/metrics/index",
+      "Destination": "/cja-apis/docs/endpoints/metrics/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/dimensions",
+      "Destination": "/cja-apis/docs/endpoints/dimensions/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/dimensions/index",
+      "Destination": "/cja-apis/docs/endpoints/dimensions/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/dateranges",
+      "Destination": "/cja-apis/docs/endpoints/dateranges/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/dateranges/index",
+      "Destination": "/cja-apis/docs/endpoints/dateranges/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/dataviews",
+      "Destination": "/cja-apis/docs/endpoints/dataviews/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/dataviews/index",
+      "Destination": "/cja-apis/docs/endpoints/dataviews/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/connections",
+      "Destination": "/cja-apis/docs/endpoints/connections/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/connections/index",
+      "Destination": "/cja-apis/docs/endpoints/connections/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/componentmetadata",
+      "Destination": "/cja-apis/docs/endpoints/componentmetadata/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/componentmetadata/index",
+      "Destination": "/cja-apis/docs/endpoints/componentmetadata/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/componentmetadata/tags",
+      "Destination": "/cja-apis/docs/endpoints/componentmetadata/tags/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/componentmetadata/tags/index",
+      "Destination": "/cja-apis/docs/endpoints/componentmetadata/tags/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/componentmetadata/shares",
+      "Destination": "/cja-apis/docs/endpoints/componentmetadata/shares/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/componentmetadata/shares/index",
+      "Destination": "/cja-apis/docs/endpoints/componentmetadata/shares/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/calculatedmetrics/validate/",
+      "Destination": "/cja-apis/docs/endpoints/calculatedmetrics/validate"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/calculatedmetrics",
+      "Destination": "/cja-apis/docs/endpoints/calculatedmetrics/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/calculatedmetrics/index",
+      "Destination": "/cja-apis/docs/endpoints/calculatedmetrics/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/calculatedmetrics/functions/",
+      "Destination": "/cja-apis/docs/endpoints/calculatedmetrics/functions"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/calculatedmetrics/faq/",
+      "Destination": "/cja-apis/docs/endpoints/calculatedmetrics/faq"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/auditlogs",
+      "Destination": "/cja-apis/docs/endpoints/auditlogs/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/auditlogs/index",
+      "Destination": "/cja-apis/docs/endpoints/auditlogs/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/asset-management",
+      "Destination": "/cja-apis/docs/endpoints/asset-management/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/asset-management/index",
+      "Destination": "/cja-apis/docs/endpoints/asset-management/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/annotations/parameters/",
+      "Destination": "/cja-apis/docs/endpoints/annotations/parameters"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/annotations",
+      "Destination": "/cja-apis/docs/endpoints/annotations/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/annotations/index",
+      "Destination": "/cja-apis/docs/endpoints/annotations/"
+    },
+    {
+      "Source": "/cja-apis/docs/endpoints/annotations/definition/",
+      "Destination": "/cja-apis/docs/endpoints/annotations/definition"
+    },
+    {
+      "Source": "/cja-apis/docs/docs/api/",
+      "Destination": "/cja-apis/docs/docs/api"
+    },
+    {
+      "Source": "/cja-apis/docs/credentials",
+      "Destination": "/cja-apis/docs/credentials/"
+    },
+    {
+      "Source": "/cja-apis/docs/credentials/index",
+      "Destination": "/cja-apis/docs/credentials/"
+    }
+  ],
+  ":type": "sheet"
+}
