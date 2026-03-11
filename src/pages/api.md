@@ -6,6 +6,7 @@ keywords:
   - API Documentation
   - CJA API Reference
   - CJA API Swagger
+layout: none
 ---
 
 <GetCredential jsonDefinition="./credential/getcredential.json" />
