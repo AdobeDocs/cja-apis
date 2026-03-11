@@ -211,12 +211,12 @@
       "Destination": "/cja-apis/docs/docs/api"
     },
     {
-      "Source": "/cja-apis/docs/credentials",
-      "Destination": "/cja-apis/docs/credentials/"
+      "Source": "/cja-apis/docs/credential",
+      "Destination": "/cja-apis/docs/credential/"
     },
     {
-      "Source": "/cja-apis/docs/credentials/index",
-      "Destination": "/cja-apis/docs/credentials/"
+      "Source": "/cja-apis/docs/credential/index",
+      "Destination": "/cja-apis/docs/credential/"
     }
   ],
   ":type": "sheet"
