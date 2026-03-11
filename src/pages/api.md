@@ -8,4 +8,6 @@ keywords:
   - CJA API Swagger
 ---
 
+<GetCredential jsonDefinition="./credentials/getcredential.json" />
+
 <RedoclyAPIBlock src="/cja-apis/docs/swagger.json" scrollYOffset={64}/>
