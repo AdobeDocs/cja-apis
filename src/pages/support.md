@@ -7,7 +7,7 @@ title: CJA API support
 description: Learn where to ask questions, report bugs, make feature requests, and spark discussions. 
 ---
 
-<Hero slots="heading, text" background="rgb(154, 23, 34)"/>
+<Superhero slots="heading, text" background="rgb(154, 23, 34)"/>
 
 # CJA API support
 
@@ -39,7 +39,7 @@ Ask/answer questions or participate in discussions around the Adobe Developer co
 
 ### GitHub
 
-[Contributing](https://github.com/AdobeDocs/cja-apis/blob/main/.github/CONTRIBUTING.md)
+[Contributing](https://github.com/AdobeDocs/cja-apis/blob/main/.github/CONTRIBUTING%2Emd)
 
 Learn how you can contribute to the CJA API documentation.
 
