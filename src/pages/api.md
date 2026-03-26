@@ -12,5 +12,5 @@ import GetCredentialsOauth2 from "./credentials/GetCredentialsOAuth2.js"
 
 <GetCredentialsOauth2 />
 
-<RedoclyAPIBlock src="/cja-apis/swagger.json" scrollYOffset={64}/>
+<RedoclyAPIBlock src="/cja-apis/docs/swagger.json" scrollYOffset={64}/>
 
