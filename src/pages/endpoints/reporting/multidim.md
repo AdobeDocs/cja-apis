@@ -86,7 +86,7 @@ With dimension-level search, you can search within specific dimensions instead o
 The following example shows a free-form table in Customer Journey Analytics Workspace with a dimension text search filter applied for `dehli`. Below the visualization is an example JSON fragment showing how the search is specified.
 
 
-![searchdelhi](../../../assets/searchdelhi.png)
+![searchdelhi](../../assets/searchdelhi.png)
 
 
 ```json
