@@ -103,7 +103,7 @@ The following example shows a free-form table in Customer Journey Analytics Work
 
 #### Example details
 
-The `city` dimension above shows the `clause` parameter with a text match after the word `CONTAINS`.
+The `city` dimension above shows the `clause` parameter with a text match of `dehli` after the word `CONTAINS`.
 
 
 ## Multi-column sorting
