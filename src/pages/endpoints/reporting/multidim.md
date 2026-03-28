@@ -20,7 +20,7 @@ With the Custonmer Journey Analtyics Report API, you can request data across mul
 
 ### Multiple dimensions array
 
-The POST Report endpoint accepts a `dimensions` array that includes both the name of a dimension and `dimensionColumnId`--a user-defined identifier. The array structure provides the foundation for multi-dimension reporting, dimension-level search, and advanced sorting.
+The POST Report endpoint accepts a `dimensions` array of objects where each object includes a name and a `dimensionColumnId`--a user-defined identifier. The array structure provides the foundation for multi-dimension reporting, dimension-level search, and advanced sorting.
 
 
 #### Dimension column IDs
