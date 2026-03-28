@@ -35,7 +35,7 @@ If the user does not provide column IDs, the system will auto‑assign positiona
 
 ### Example multiple dimension request
 
-The following example shows a free-form table in Customer Journey Analytics Workspace with multiple dimensions in one row. Below the visualization, a JSON fragment shows a matching request for the results shown in that table. The example shows both the dimensions array and the dimension conlumn IDs as described above.
+The following example shows a free-form table in Customer Journey Analytics Workspace with multiple dimensions in one row. Below the visualization, a JSON fragment shows a request for the matching results shown in that table. The example shows both the `dimensions` array and the dimension column IDs as described above.
 
 
 ![multidim1](../../assets/multidim1.png)
