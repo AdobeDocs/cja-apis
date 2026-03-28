@@ -77,7 +77,7 @@ With dimension-level search, you can search within specific dimensions instead o
 
 - Each dimension includes a search object
 - Search objects contain a `clause` parameter
-- The `clause` parameter is provided a text match with the word `CONTAINS`.
+- The `clause` parameter is provided a text match value with the word `CONTAINS`.
 - Dimensions can also be searched by Dimension Column IDs
 
 
