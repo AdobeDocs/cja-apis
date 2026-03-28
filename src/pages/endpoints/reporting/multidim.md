@@ -67,8 +67,8 @@ The following example shows a free-form table in Customer Journey Analytics Work
 
 The dimensions array above shows the following:
 
-The IDs of the dimensions include the terms `city`, `device`, and `dayofmonth`.
-The column IDs of the dimensions, in the same order, are `a111ef1a`, `a222kl2`, and `a333ri3`.
+- The IDs of the dimensions include the terms `city`, `device`, and `dayofmonth`.
+- The column IDs of the dimensions, in the same order, are `a111ef1a`, `a222kl2`, and `a333ri3`.
 
 
 ## Dimension-level search
