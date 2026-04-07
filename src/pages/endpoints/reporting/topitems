@@ -5,23 +5,21 @@ description: Retrieve top items API report
 
 # Top Items Report
 
-This guide includes instructions for retrieving an API Top Items Report for a specified dimension. For general information on the Customer Journey Analytics API Report endpoint, see the Overview.
+This guide includes instructions for retrieving an API Top Items Report for a specified dimension. The Top Items Report returns top-performing dimensions (like products, pages, or regions) ranked by metric counts. For general information on the Customer Journey Analytics API Report endpoint, see the Reporting API Overview.
 
 <InlineAlert variant="info" slots="text" />
 
 Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
 
-## Get top items report
-
-Use this endpoint to retrieve the top items for a specific dimension. This returns only the top items from the report, according to the maximum number of items you want returned, ranked by the specified metric.
+ To retrieve a Top Items Report, use the following endpoint:
 
 `GET https://cja.adobe.io/reports/topItems`
 
-### Example request
+## Example request
 
 <CodeBlock slots="heading, code" repeat="1" languages="CURL" />
 
-#### Request
+### Request
 
 ```sh
 curl -X GET "https://cja.adobe.io/reports/topItems?limit=5&page=0&lookupNoneValues=true&dataId=dv_554445545&dimension=pages" \
@@ -31,20 +29,20 @@ curl -X GET "https://cja.adobe.io/reports/topItems?limit=5&page=0&lookupNoneValu
   -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
-### Example response
+## Example response
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
-#### Response
+### Response
 
 ```json
 {
   "totalPages": 1,
   "firstPage": true,
   "lastPage": true,
-  "numberOfElements": 5,
+  "numberOfElements": 3,
   "number": 0,
-  "totalElements": 5,
+  "totalElements": 3,
   "columns": {
     "dimension": {
       "id": "variables/page",
@@ -87,6 +85,21 @@ curl -X GET "https://cja.adobe.io/reports/topItems?limit=5&page=0&lookupNoneValu
   }
 }
 ```
+
+## Example request details
+
+The example above requests a Top Items Report with the following:
+
+* The top items within the dataview `dv_554445545`.
+* The top metrics associated with the dimension `pages`.
+
+## Example response details
+
+The example above returns the top items (those with the highest of any metric counts) in descending order:
+
+* The page `home` with a count of `219567`.
+* The page `category 5` with a count of `90943`.
+* The page `category 2` with a count of `84192`.
 
 ### Request parameters
 
