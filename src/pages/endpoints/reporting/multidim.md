@@ -105,34 +105,6 @@ The following example shows a free-form table in Customer Journey Analytics Work
 
 The `city` dimension above shows the `clause` parameter with a text match of `dehli` after the word `CONTAINS`.
 
-
-## Multi-column sorting
-
-In Customer Journey Analytics, you can sort multiple columns of both dimensions and metrics. You can also mix dimensions and metrics in the same sort definition, or sort array. Each sort object is reference by `componentType` and `columnId`. For the `ascending` parameter, specify a boolean `true` to sort by ascending values and `false` to sort by descending values. The example request fragment below shows two dimensions-- one to be sorted in ascending order and another to be sorted in descending order.
-
-```json
-
-"settings": {
-    "countRepeatInstances": true,
-    "includeAnnotations": true,
-    "limit": 50,
-    "page": 0,
-    "sort": [
-        {
-            "componentType": "dimension",
-            "columnId": "a111ef1",
-            "ascending": true
-        },
-        {
-            "componentType": "dimension",
-            "columnId": "a222kl2",
-            "ascending": false
-        }
-    ]
-}
-
-```
-
 <InlineAlert variant="info" slots="text" />
 
 Segments are still applied globally at the report level, not per dimension.
