@@ -1,19 +1,21 @@
 ---
-title: Dataview API Report
-description: Create a dataview API report
+title: Dataview Report API
+description: Create an API dataview report
 ---
 
 # Create dataview reports
 
-Dataview reports return the data associated with an existing data view. To create a dataview report, use the following endpoint:
+Use dataview reports API return the data associated with an existing dataview. 
+
+To create a dataview report, use the following endpoint:
 
 `POST https://cja.adobe.io/reports`
 
-### Example request
+## Example request
 
 <CodeBlock slots="heading, code" repeat="1" languages="CURL" />
 
-#### Request
+### Request
 
 ```sh
 curl -X POST "https://cja.adobe.io/reports" \
@@ -65,11 +67,11 @@ curl -X POST "https://cja.adobe.io/reports" \
   }'
 ```
 
-### Example response
+## Example response
 
 <CodeBlock slots="heading, code" repeat="1" languages="JSON" />
 
-#### Response
+### Response
 
 ```json
 {
@@ -144,7 +146,7 @@ curl -X POST "https://cja.adobe.io/reports" \
 }
 ```
 
-### Request parameters
+## Request parameters
 
 The following table describes the request parameters for the `POST /reports` endpoint:
 
@@ -170,7 +172,7 @@ The following table describes the request parameters for the `POST /reports` end
 | `statistics` | Optional | Object | Contains the `functions` array |
 | `functions` | Optional | Array | Contains `col-max` and `col-min` |
 
-### Response parameters
+## Response parameters
 
 The following table describes the response parameters for the `POST /reports` endpoint:
 
@@ -196,3 +198,5 @@ The following table describes the response parameters for the `POST /reports` en
 | `totals` | Array | The data totals |
 | `col-max` | Array | The column maximum values |
 | `col-min` | Array | The column minimum values |
+
+For more information on the Customer Journey Analytics Reporting API, see the [Overview](index.md).
