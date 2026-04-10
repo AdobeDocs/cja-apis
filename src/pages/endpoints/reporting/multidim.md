@@ -5,6 +5,8 @@ description: Use the CJA Reporting API with multiple dimensions and multi-column
 
 # Multiple dimension reporting
 
+Use multiple dimension reporting to retrieve up to five dimensions in a single request.
+
 This guide describes key report features available with the Customer Journey Analytics Report API, including:
 
 - Multiple dimensions in a single request
@@ -116,4 +118,4 @@ Segments are still applied globally at the report level, not per dimension.
 
 2. Too Many Combinations Errors: If too many dimensions produce an excessive number of row combinations, the system may reject the request due to scale limitations. The resulting error will indicate that the report is too complex.
 
-For more information on the Customer Journey Analytics Report API, including parameter descriptions and example endpoint calls, see the [Reporting API guide](index.md).
+For more information on the Customer Journey Analytics Reporting API, see the [overview](index.md).
