@@ -5,11 +5,9 @@ description: Retrieve top items API report
 
 # Top Items Report
 
-This guide includes instructions for retrieving an API Top Items Report for a specified dimension. The Top Items Report returns top-performing dimensions (like products, pages, or regions) ranked by metric counts. For general information on the Customer Journey Analytics API Report endpoint, see the Reporting API Overview.
+Use a Top Items Report to see the top items for a specified dimension. 
 
-<InlineAlert variant="info" slots="text" />
-
-Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
+This guide includes instructions for retrieving an API Top Items Report for dimensions. The Top Items Report returns top-performing dimensions (like products, pages, or regions) ranked by metric counts. For general information on the Customer Journey Analytics API Report endpoint, see the Reporting API Overview.
 
  To retrieve a Top Items Report, use the following endpoint:
 
