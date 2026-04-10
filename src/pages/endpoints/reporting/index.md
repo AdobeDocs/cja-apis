@@ -76,6 +76,24 @@ The Reporting API enforces rate limits to ensure optimal performance:
 - **Metrics**: Maximum 20 metrics per report
 - **Execution time**: Report execution timeout is 300 seconds
 
+## HTTP status codes for Reporting API
+
+The CJA Reporting API follows standard Adobe Experience Platform patterns for HTTP responses, as shown below:
+
+| HTTP status | Meaning (high level)              | Typical causes                                                    |
+|------------|-----------------------------------|-------------------------------------------------------------------|
+| `200`      | OK                                | Valid request, report executed successfully.                      |
+| `400`      | Bad Request                       | Invalid JSON payload, invalid metric/dimension ID, invalid date range, or range too large. |
+| `401`      | Unauthorized                      | Missing or invalid access token.                                  |
+| `403`      | Forbidden                         | Token does not have access to the org, sandbox, or data view.     |
+| `404`      | Not Found                         | Incorrect URL, or referenced resource (e.g., dataview) does not exist. |
+| `429`      | Too Many Requests                 | Rate limits or reporting capacity exceeded; caller must back off and retry. |
+| `500`      | Internal Server Error             | Unexpected server-side failure while processing the request.      |
+| `503`      | Service Unavailable               | Temporary outage or maintenance window; retry with exponential backoff. |
+| `504`      | Gateway Timeout                   | Query timed out in the backend or upstream dependency.            |
+
+## Additional guides
+
 Refer to the following Reporting API guides for additional instruction:
 
 - [Top Items Report](topitems.md)
