@@ -5,6 +5,8 @@ description: Create and retrieve reporting data programmatically
 
 # Reporting API
 
+Use the Customer Journey Analytics Reporting API to create and retrieve reporting data programmatically.
+
 The Customer Journey Analytics Reporting API operates on Adobe Experience Platform datasets combined through CJA connections and dataviews. Because CJA reporting uses the Experience Data Model (XDM), you can report on any XDM field as a metric or dimension (strings, numbers, arrays, objects, etc.). The Reporting API uses the same data and methods that Adobe uses inside the product UI. See [Reports](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-workspace/reports/reports-menu.html?) for more information.This provides the following advantages:
 
 - Unlimited variables, events, dimensions, and metrics
@@ -24,9 +26,9 @@ Because CJA connects multiple datasets in a single connection and exposes them t
 - Stitched at the person level via AEP Identity Service
 - Enriched with lookup and profile datasets (e.g., CRM attributes, account data)
 
-## Multi-column report sorting
+## Multi-column sorting
 
-Reporting API requests allow you to sort multiple columns of both dimensions and metrics. You can also mix dimensions and metrics in the same sort definition, or sort array. Each sort object is referenced by `componentType` and `columnId`. For the `ascending` parameter, specify a boolean `true` to sort by ascending values and `false` to sort by descending values. The example request fragment below shows two dimensions-- one to be sorted in ascending order and another to be sorted in descending order.
+Reporting API requests allow you to sort multiple columns of both dimensions and metrics. You can also mix dimensions and metrics in the same sort definition, or sort array. Each sort object is referenced by `componentType` and `columnId`. For the `ascending` parameter, specify a boolean `true` to sort by ascending values and `false` to sort by descending values. The example request fragment below shows two dimensions--one to be sorted in ascending order and another to be sorted in descending order.
 
 ```json
 
@@ -76,6 +78,6 @@ The Reporting API enforces rate limits to ensure optimal performance:
 
 Refer to the following Reporting API guides for additional instruction:
 
-- Top Items Report
-- Create dataview reports
-- Multiple dimension reporting
+- [Top Items Report](topitems.md)
+- [Create dataview reports](dataview.md)
+- [Multiple dimension reporting](multidim.md)
