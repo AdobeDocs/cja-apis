@@ -113,8 +113,8 @@ curl -X GET "https://cja.adobe.io/reports/topItems?limit=3&page=0&lookupNoneValu
 The example above requests a Top Items Report with the following:
 
 * The dimension `pages` within the dataview `dv_554445545`.
-* Because no date range is supplied, the default target dataview setting, such as **Last 30 days**, is used. 
-* Becuase no metric is supplied, the default dataview setting, such as **Events**, is used.
+* Because no date range is supplied, the default target dataview setting (such as **Last 30 days**), is used. 
+* Becuase no metric is supplied, the default dataview setting (such as **Events**), is used.
 * A `limit` of three items.
 
 ## Example response details
