@@ -154,32 +154,6 @@ The following table describes the response parameters for the `GET /reports/topI
 | `data` | Array | The numerical values returned for the requested items |
 | `summaryData` | Object | Contains the summary data totals |
 
-## Usage notes and limitations
-
-Consider the following when working with the Reports API:
-
-### Rate limiting
-
-The Reports API enforces rate limits to ensure optimal performance:
-
-* **Requests per minute**: 60 requests per minute per organization
-* **Concurrent requests**: Maximum 6 concurrent requests per organization
-
-### Report execution limits
-
-* **Data range**: Maximum 18 months of data per request
-* **Dimension items**: Maximum 1000 dimension items per request
-* **Metrics**: Maximum 20 metrics per report
-* **Execution time**: Report execution timeout is 300 seconds
-
-### Best practices
-
-* Cache report results when possible to reduce API calls
-* Use pagination for large result sets
-* Implement retry logic with exponential backoff for rate-limited requests
-* Use the `topItems` endpoint for quick dimension analysis without metrics
-* Use appropriate date ranges to avoid large data requests
-
 For general information on the Customer Journey Analytics API Report endpoint, see the [Reporting API Overview](index.md). See the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api/) for complete data models of the CJA APIs.
 
 
