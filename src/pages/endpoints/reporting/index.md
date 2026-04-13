@@ -92,10 +92,13 @@ The CJA Reporting API follows standard Adobe Experience Platform patterns for HT
 | `503`      | Service Unavailable               | Temporary outage or maintenance window; retry with exponential backoff. |
 | `504`      | Gateway Timeout                   | Query timed out in the backend or upstream dependency.            |
 
-## Additional guides
+## More information
 
-Refer to the following Reporting API guides for additional instruction:
+Refer to the following Reporting API documentation for additional instruction:
 
 - [Top Items Report](topitems.md)
 - [Create dataview reports](dataview.md)
 - [Multiple dimension reporting](multidim.md)
+- [View API calls in the Analysis Workspace Debugger](debugger.md)
+- [CJA API reference](https://developer.adobe.com/cja-apis/docs/api)
+
