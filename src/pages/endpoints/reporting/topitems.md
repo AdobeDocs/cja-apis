@@ -23,7 +23,9 @@ The following path segments are usually included in a Top Items Report GET reque
 - date range
 - limit
 
-If no metric or date range is supplied in the path, the report will default to values for those items as set in the dataview configuration. If no limit is supplied, the default value is determined by an fixed internal default on the backend of the reporting service. The path segments above are included in an example URL path below:
+If no metric or date range is supplied in the path, the report will default to values for those items as set in the target dataview configuration. If no limit is supplied, the default value is determined by a fixed internal default on the backend of the reporting service. 
+
+The path segments above are included in an example URL path below:
 
 ```
 GET /reports/topItems
@@ -42,7 +44,7 @@ GET /reports/topItems
 ### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/reports/topItems?limit=5&page=0&lookupNoneValues=true&dataId=dv_554445545&dimension=pages" \
+curl -X GET "https://cja.adobe.io/reports/topItems?limit=3&page=0&lookupNoneValues=true&dataId=dv_554445545&dimension=pages" \
   -H "accept: application/json" \
   -H "x-api-key: {API_KEY}" \
   -H "x-gw-ims-org-id: {ORG_ID}" \
@@ -110,12 +112,14 @@ curl -X GET "https://cja.adobe.io/reports/topItems?limit=5&page=0&lookupNoneValu
 
 The example above requests a Top Items Report with the following:
 
-* The top items within the dataview `dv_554445545`.
-* The top metrics associated with the dimension `pages`.
+* The dimension `pages` within the dataview `dv_554445545`.
+* Because no date range is supplied, the default target dataview setting, such as **Last 30 days**, is used. 
+* Becuase no metric is supplied, the default dataview setting, such as **Events**, is used.
+* A `limit` of three items.
 
 ## Example response details
 
-The example above returns the top items (those with the highest of any metric counts) in descending order:
+The example above returns the top three items (those with the highest metric counts) in descending order:
 
 * The page `home` with a count of `219567`.
 * The page `category 5` with a count of `90943`.
