@@ -158,6 +158,8 @@ The following table describes the response parameters for the `GET /reports/topI
 | `data` | Array | The numerical values returned for the requested items |
 | `summaryData` | Object | Contains the summary data totals |
 
+## More information
+
 For general information on the Customer Journey Analytics API Report endpoint, see the [Reporting API Overview](index.md). See the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api/) for complete data models of the CJA APIs.
 
 
