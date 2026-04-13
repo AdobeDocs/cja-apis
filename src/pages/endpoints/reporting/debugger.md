@@ -32,5 +32,5 @@ To view API calls in the UI:
 
 ## More information
 
-For general information on the Customer Journey Analytics API Report endpoint, see the [Reporting API Overview](index.md). See the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api/) for complete data models of the CJA APIs.
+For general information on the Customer Journey Analytics API Report endpoint, see the [Reporting API Overview](index.md). See the [CJA API reference](https://developer.adobe.com/cja-apis/docs/api) for complete data models of the CJA APIs.
 
