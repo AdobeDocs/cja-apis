@@ -5,13 +5,35 @@ description: Retrieve top items API report
 
 # Top Items Report
 
-Use a Top Items Report to see the top items for a specified dimension. 
+Use a Customer Journey Analytics API Top Items Report to see the top-performing items for a specified dimension. 
 
-This guide includes instructions for retrieving an API Top Items Report for dimensions. The Top Items Report returns top-performing dimensions (like products, pages, or regions) ranked by metric counts. For general information on the Customer Journey Analytics API Report endpoint, see the Reporting API Overview.
+The CJA API Top Items Report is used as a specialized helper to identify top-performing items (ranked by a specified metric) for a specified dimension over a specified date range. The Top Items Report uses a GET method to retrieve data, instead of a POST method used in all other report requests.
 
  To retrieve a Top Items Report, use the following endpoint:
 
 `GET https://cja.adobe.io/reports/topItems`
+
+## Path segments
+
+The following path segments are usually included in a Top Items Report GET request:
+
+- dataview ID (required)
+- dimension ID (required)
+- metric ID
+- date range
+- limit
+
+If no metric or date range is supplied in the path, the report will default to values for those items as set in the dataview configuration. If no limit is supplied, the default value is determined by an fixed internal default on the backend of the reporting service. The path segments above are included in an example URL path below:
+
+```
+GET /reports/topItems
+  ?dataViewId=dv_12345
+  &dimensionId=variables/country
+  &metricId=metrics/visits
+  &startDate=2026-03-01
+  &endDate=2026-03-31
+  &limit=50
+```
 
 ## Example request
 
@@ -353,3 +375,8 @@ The following table describes the response parameters for the `POST /reports` en
 | `totals` | Array | The data totals |
 | `col-max` | Array | The column maximum values |
 | `col-min` | Array | The column minimum values |
+
+
+
+For general information on the Customer Journey Analytics API Report endpoint, see the Reporting API Overview.
+
