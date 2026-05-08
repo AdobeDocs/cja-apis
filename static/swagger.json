@@ -303,10 +303,12 @@
                       "type": "string"
                     },
                     "dataId": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the CJA data view where this filter or segment is defined."
                     },
                     "dataName": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The name of the data view."
                     },
                     "id": {
                       "type": "string"
@@ -811,10 +813,12 @@
                     "type": "string"
                   },
                   "dataId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the CJA data view where this filter or segment is defined."
                   },
                   "dataName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the data view."
                   },
                   "id": {
                     "type": "string"
@@ -1104,10 +1108,12 @@
                       "type": "string"
                     },
                     "dataId": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the CJA data view where this filter or segment is defined."
                     },
                     "dataName": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The name of the data view."
                     },
                     "id": {
                       "type": "string"
@@ -1966,10 +1972,12 @@
                         "type": "string"
                       },
                       "dataId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The ID of the CJA data view where this filter or segment is defined."
                       },
                       "dataName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the data view."
                       },
                       "id": {
                         "type": "string"
@@ -3011,10 +3019,12 @@
                     "type": "string"
                   },
                   "dataId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the CJA data view where this filter or segment is defined."
                   },
                   "dataName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the data view."
                   },
                   "id": {
                     "type": "string"
@@ -3304,10 +3314,12 @@
                       "type": "string"
                     },
                     "dataId": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the CJA data view where this filter or segment is defined."
                     },
                     "dataName": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The name of the data view."
                     },
                     "id": {
                       "type": "string"
@@ -4239,7 +4251,8 @@
                     }
                   },
                   "dataId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the CJA data view where this filter or segment is defined."
                   }
                 }
               }
@@ -4761,7 +4774,8 @@
                     }
                   },
                   "dataId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the CJA data view where this filter or segment is defined."
                   }
                 }
               }
@@ -5300,7 +5314,8 @@
                     "type": "string"
                   },
                   "dataId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the CJA data view where this filter or segment is defined."
                   },
                   "dimension": {
                     "type": "string"
@@ -6335,7 +6350,8 @@
                           "type": "string"
                         },
                         "dataId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "The ID of the CJA data view where this filter or segment is defined."
                         },
                         "dimension": {
                           "type": "string"
@@ -14049,10 +14065,7 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "report_suite": {
-                    "type": "string"
-                  },
-                  "modifiedById": {
+                                    "modifiedById": {
                     "type": "string"
                   },
                   "definition": {
@@ -14106,7 +14119,8 @@
                     "format": "date-time"
                   },
                   "dataId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the CJA data view where this filter or segment is defined."
                   },
                   "owner": {
                     "type": "object",
@@ -14124,7 +14138,8 @@
                     "type": "boolean"
                   },
                   "dataName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the data view."
                   },
                   "tags": {
                     "type": "array",
@@ -14238,10 +14253,7 @@
                       "type": "string",
                       "format": "date-time"
                     },
-                    "report_suite": {
-                      "type": "string"
-                    },
-                    "modifiedById": {
+                                        "modifiedById": {
                       "type": "string"
                     },
                     "definition": {
@@ -14295,7 +14307,8 @@
                       "format": "date-time"
                     },
                     "dataId": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the CJA data view where this filter or segment is defined."
                     },
                     "owner": {
                       "type": "object",
@@ -14313,7 +14326,8 @@
                       "type": "boolean"
                     },
                     "dataName": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The name of the data view."
                     },
                     "tags": {
                       "type": "array",
@@ -14542,10 +14556,7 @@
                       "type": "string",
                       "format": "date-time"
                     },
-                    "report_suite": {
-                      "type": "string"
-                    },
-                    "modifiedById": {
+                                        "modifiedById": {
                       "type": "string"
                     },
                     "definition": {
@@ -14599,7 +14610,8 @@
                       "format": "date-time"
                     },
                     "dataId": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the CJA data view where this filter or segment is defined."
                     },
                     "owner": {
                       "type": "object",
@@ -14617,7 +14629,8 @@
                       "type": "boolean"
                     },
                     "dataName": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The name of the data view."
                     },
                     "tags": {
                       "type": "array",
@@ -14762,10 +14775,7 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "report_suite": {
-                    "type": "string"
-                  },
-                  "modifiedById": {
+                                    "modifiedById": {
                     "type": "string"
                   },
                   "definition": {
@@ -14819,7 +14829,8 @@
                     "format": "date-time"
                   },
                   "dataId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the CJA data view where this filter or segment is defined."
                   },
                   "owner": {
                     "type": "object",
@@ -14837,7 +14848,8 @@
                     "type": "boolean"
                   },
                   "dataName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the data view."
                   },
                   "tags": {
                     "type": "array",
@@ -14896,10 +14908,7 @@
                       "type": "string",
                       "format": "date-time"
                     },
-                    "report_suite": {
-                      "type": "string"
-                    },
-                    "modifiedById": {
+                                        "modifiedById": {
                       "type": "string"
                     },
                     "definition": {
@@ -14953,7 +14962,8 @@
                       "format": "date-time"
                     },
                     "dataId": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the CJA data view where this filter or segment is defined."
                     },
                     "owner": {
                       "type": "object",
@@ -14971,7 +14981,8 @@
                       "type": "boolean"
                     },
                     "dataName": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The name of the data view."
                     },
                     "tags": {
                       "type": "array",
