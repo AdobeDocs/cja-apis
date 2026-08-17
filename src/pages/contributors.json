@@ -1,7 +1,7 @@
 {
-  "total": 40,
+  "total": 41,
   "offset": 0,
-  "limit": 40,
+  "limit": 41,
   "data": [
     {
       "page": "/",
@@ -228,6 +228,13 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
       "lastUpdated": "4/13/2026"
+    },
+    {
+      "page": "/endpoints/reporting/firstcalls",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/29133525?v=4"
+      ],
+      "lastUpdated": "8/17/2026"
     },
     {
       "page": "/endpoints/reporting/multidim",
