@@ -1,7 +1,7 @@
 {
-  "total": 41,
+  "total": 42,
   "offset": 0,
-  "limit": 41,
+  "limit": 42,
   "data": [
     {
       "page": "/",
@@ -235,6 +235,13 @@
         "https://avatars.githubusercontent.com/u/29133525?v=4"
       ],
       "lastUpdated": "8/18/2026"
+    },
+    {
+      "page": "/endpoints/reporting/kpi",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/29133525?v=4"
+      ],
+      "lastUpdated": "9/11/2026"
     },
     {
       "page": "/endpoints/reporting/multidim",
