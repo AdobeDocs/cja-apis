@@ -36,6 +36,7 @@
         - [Projects](/endpoints/projects/index.md)
             - [Project Structure](/endpoints/projects/structure.md)
         - [Reporting](/endpoints/reporting/index.md)
+            - [Basic date-trended report](/endpoints/reporting/kpi.md)
             - [Dataview reports](/endpoints/reporting/dataview.md)
             - [Debugger](/endpoints/reporting/debugger.md)
             - [First calls](/endpoints/reporting/firstcalls.md)

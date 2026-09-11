@@ -96,6 +96,7 @@ The CJA Reporting API follows standard Adobe Experience Platform patterns for HT
 
 Refer to the following Reporting API documentation for additional instruction:
 
+- [Basic Date-Trended Report](kpi.md)
 - [Top Items Report](topitems.md)
 - [Create dataview reports](dataview.md)
 - [First calls](firstcalls.md)
