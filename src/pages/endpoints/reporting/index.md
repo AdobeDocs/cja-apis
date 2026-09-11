@@ -98,6 +98,7 @@ Refer to the following Reporting API documentation for additional instruction:
 
 - [Top Items Report](topitems.md)
 - [Create dataview reports](dataview.md)
+- [First calls](firstcalls.md)
 - [Multiple dimension reporting](multidim.md)
 - [View API calls in the Analysis Workspace Debugger](debugger.md)
 - [CJA API reference](https://developer.adobe.com/cja-apis/docs/api)
