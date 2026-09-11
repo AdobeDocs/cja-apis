@@ -41,7 +41,6 @@
             - [Debugger](/endpoints/reporting/debugger.md)
             - [First calls](/endpoints/reporting/firstcalls.md)
             - [Multiple dimension reporting](/endpoints/reporting/multidim.md)
-            - [Debugger](/endpoints/reporting/debugger.md)
             - [Top Items Report](/endpoints/reporting/topitems.md)
 
     - [Use cases](/use-cases/index.md)
