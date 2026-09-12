@@ -5251,7 +5251,7 @@
           "Reporting API"
         ],
         "summary": "Create a report",
-        "description": "See the [Reporting User Guide](hhttps://developer.adobe.com/cja-apis/docs/endpoints/reporting/) for more information",
+        "description": "See the [Reporting User Guide](https://developer.adobe.com/cja-apis/docs/endpoints/reporting/) for more information",
         "operationId": "runReport_2",
         "parameters": [
           {
