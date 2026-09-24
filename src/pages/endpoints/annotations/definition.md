@@ -14,7 +14,7 @@ The annotation definition data structure is used to communicate an annotation's 
 * **`color`**: An enum representing the annotation's color. Supported values include `STANDARD1` through `STANDARD9`.
 * **`applyToAllReports`**: A boolean that determines if the annotation applies to all report suites.
 * **`scope`**: An object including the `metrics` and `filters` that the annotation uses.
-* **`createdDate`**: The ISO 8601 date that the annotation was created.
+* **`createdDate`**: The [ISO 8601](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) date that the annotation was created.
 * **`modifiedDate`**: The ISO 8601 date that the annotation was last modified.
 * **`modifiedById`**: The ID of the user who last modified the annotation.
 * **`tags`**: The tags applied to the annotation.

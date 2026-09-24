@@ -121,7 +121,7 @@ The response is an array of segment objects, each containing the following param
 | `definition` | Object | The segment definition as a JSON object |
 | `compatibility` | Object | CJA products that the segment is compatible with |
 | `tags` | Array | All existing tags associated with the segment |
-| `modified` | String | Date that the segment was last modified (ISO 8601) |
+| `modified` | String | Date that the segment was last modified ([ISO 8601](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)) |
 | `created` | String | Date that the segment was created (ISO 8601) |
 
 ## Find components that use a specified segment

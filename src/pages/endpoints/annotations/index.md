@@ -87,7 +87,7 @@ You can create annotations using `POST` API calls. The following fields are requ
 
 * **`name`**: The name of the annotation.
 * **`dataId`**: The data view ID for the annotation.
-* **`dateRange`**: The date range of the annotation. Use two date ranges separated by a forward slash (`/`) in ISO 8601 format, based on the report suite's time zone.
+* **`dateRange`**: The date range of the annotation. Use two date ranges separated by a forward slash (`/`) in [ISO 8601](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) format, based on the report suite's time zone.
 * **`color`**: The annotation's color. Supported values include `STANDARD1` through `STANDARD9`, representing each of the available colors in the UI.
 
 ![Annotation colors](../../assets/annotation-colors.png)
