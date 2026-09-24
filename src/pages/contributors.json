@@ -60,24 +60,24 @@
     {
       "page": "/endpoints/annotations/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/29133525?v=4",
-        "https://avatars.githubusercontent.com/u/33764851?v=4"
+        "https://avatars.githubusercontent.com/u/33764851?v=4",
+        "https://avatars.githubusercontent.com/u/29133525?v=4"
       ],
-      "lastUpdated": "11/7/2024"
+      "lastUpdated": "9/24/2026"
     },
     {
       "page": "/endpoints/annotations/definition",
       "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "4/1/2022"
+      "lastUpdated": "9/24/2026"
     },
     {
       "page": "/endpoints/annotations/parameters",
       "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "4/1/2022"
+      "lastUpdated": "9/24/2026"
     },
     {
       "page": "/endpoints/asset-management/",
@@ -260,9 +260,10 @@
     {
       "page": "/endpoints/segments/",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/29133525?v=4"
       ],
-      "lastUpdated": "10/1/2025"
+      "lastUpdated": "9/24/2026"
     },
     {
       "page": "/endpoints/segments/validate",
