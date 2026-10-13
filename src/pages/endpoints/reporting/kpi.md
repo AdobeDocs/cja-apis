@@ -42,7 +42,7 @@ When you design reports with the Reporting API, you interact with the data found
 To request the data:
 
 1. Use the following URI for your POST HTTP call: `POST https://cja.adobe.io/reports`.
-2. Set the `rsid` parameter to the ID of the data view you want to report on (for example, `dv_5f4df2...`). To find a data view ID, use the [Data Views API](../dataviews/index.md) or copy it from the Customer Journey Analytics UI.
+2. Set the `rsid` parameter to the ID of the data view you want to report on (for example, `dv_5f4df2...`). To find a data view ID, use the [Dataview API](../dataviews/index.md) or copy it from the Customer Journey Analytics UI.
 3. Use the example request JSON below as a template for requesting the data. Provide your desired date range along with any other modifications to the dimension or example key metrics.
 
 <InlineAlert variant="info" slots="text" />
