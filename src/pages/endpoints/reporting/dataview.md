@@ -5,7 +5,7 @@ description: Create an API dataview report
 
 # Create dataview reports
 
-Use dataview reports API return the data associated with an existing dataview. 
+Use the Dataview reports API to retrieve the data associated with an existing dataview. 
 
 To create a dataview report, use the following endpoint:
 
