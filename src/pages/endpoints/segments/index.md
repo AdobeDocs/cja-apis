@@ -28,7 +28,7 @@ Use this endpoint to retrieve all segments owned by the user or accessible to th
 #### Request
 
 ```sh
-curl -X GET "https://cja.adobe.io/segments?rsids=example_dataview_id&expansion=definition,tags,compatibility&limit=10&page=0" \
+curl -X GET "https://cja.adobe.io/segments?filterByDataIds=dv_example123&expansion=definition,tags,compatibility&limit=10&page=0" \
   -H "accept: application/json" \
   -H "x-api-key: {API_KEY}" \
   -H "x-gw-ims-org-id: {ORG_ID}" \
@@ -47,8 +47,8 @@ curl -X GET "https://cja.adobe.io/segments?rsids=example_dataview_id&expansion=d
     "id": "s300000022_5bb7c94e80f0073611afb35c",
     "name": "Mobile Device Users",
     "description": "Segment for users accessing via mobile devices",
-    "rsid": "example_dataview_id",
-    "reportSuiteName": "Example Data View",
+    "dataId": "dv_example123",
+    "dataName": "Example Data View",
     "owner": {
       "id": 596983,
       "name": "John Doe",
@@ -94,9 +94,12 @@ The following table describes the request parameters for the `GET /segments` end
 
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
+| `filterByDataIds` | Optional | String | Filter list to only include segments associated with the specified data view IDs (comma-delimited) |
+| `filterByIds` | Optional | String | Filter list to only include segments with the specified IDs (comma-delimited) |
+| `filterByName` | Optional | String | Filter list to only include segments that contain the specified name |
 | `segmentFilter` | Optional | String | Filter list to only include segments in the specified list (comma-delimited list of IDs) |
 | `locale` | Optional | String | Locale. Default is `en_US` |
-| `name` | Optional | String | Filter list to only include segments that contain the Name |
+| `name` | Optional | String | Deprecated. Use `filterByName` instead |
 | `tagNames` | Optional | String | Filter list to only include segments that contain one of the tags |
 | `filterByPublishedSegments` | Optional | String | Filter list to only include segments where the published field is set to one of the allowable values. Valid values: `all`, `true`, `false`. Default is `all` |
 | `limit` | Optional | Integer | Number of results per page. Default is `10` |
@@ -115,8 +118,8 @@ The response is an array of segment objects, each containing the following param
 | `id` | String | Id of the segment |
 | `name` | String | A name for the segment |
 | `description` | String | A description of the segment |
-| `rsid` | String | The data view id |
-| `reportSuiteName` | String | The friendly name for the data view id |
+| `dataId` | String | The data view ID |
+| `dataName` | String | The friendly name for the data view |
 | `owner` | Object | The owner of the segment as an Owner object |
 | `definition` | Object | The segment definition as a JSON object |
 | `compatibility` | Object | CJA products that the segment is compatible with |
@@ -214,8 +217,8 @@ curl -X GET "https://cja.adobe.io/segments/s300000022_5bb7c94e80f0073611afb35c?e
   "id": "s300000022_5bb7c94e80f0073611afb35c",
   "name": "Mobile Device Users", 
   "description": "Segment for users accessing via mobile devices",
-  "rsid": "example_dataview_id",
-  "reportSuiteName": "Example Data View",
+  "dataId": "dv_example123",
+  "dataName": "Example Data View",
   "owner": {
     "id": 596983,
     "name": "John Doe",
@@ -262,7 +265,7 @@ The following table describes the request parameters for the `GET /segments/{ID}
 |-----------|----------|------|-------------|
 | `id` | Required | String | The segment ID to retrieve |
 | `locale` | Optional | String | Locale. Valid values include `en_US`, `fr_FR`, `ja_JP`, `de_DE`, `es_ES`, `ko_KR`, `pt_BR`, `zh_CN`, and `zh_TW`. Default is `en_US` |
-| `expansion` | Optional | Array | Comma-delimited list of additional segment metadata fields to include on response. Valid values: `reportSuiteName`, `ownerFullName`, `modified`, `tags`, `compatibility`, `definition`, `publishingStatus`, `definitionLastModified`, `categories` |
+| `expansion` | Optional | Array | Comma-delimited list of additional segment metadata fields to include on response. Valid values: `dataName`, `ownerFullName`, `modified`, `tags`, `compatibility`, `definition`, `publishingStatus`, `definitionLastModified`, `categories` |
 
 ### Response parameters
 
@@ -290,7 +293,7 @@ curl -X POST "https://cja.adobe.io/segments" \
   -d '{
     "name": "High Value Customers",
     "description": "Customers with orders over $500",
-    "rsid": "example_dataview_id",
+    "dataId": "dv_example123",
     "definition": {
       "container": {
         "func": "segment",
@@ -323,8 +326,8 @@ curl -X POST "https://cja.adobe.io/segments" \
   "id": "s300000022_5cc8d94e80f0073611afb45d",
   "name": "High Value Customers",
   "description": "Customers with orders over $500",
-  "rsid": "example_dataview_id",
-  "reportSuiteName": "Example Data View",
+  "dataId": "dv_example123",
+  "dataName": "Example Data View",
   "owner": {
     "id": 596983,
     "name": "John Doe", 
@@ -366,10 +369,10 @@ The following table describes the request parameters for the `POST /segments` en
 |-----------|----------|------|-------------|
 | `name` | Required | String | A name for the segment |
 | `description` | Optional | String | A description of the segment |
-| `rsid` | Required | String | The data view id |
+| `dataId` | Required | String | The data view ID |
 | `definition` | Required | Object | The segment definition as a JSON object |
 | `locale` | Optional | String | Locale. Valid values include `en_US`, `fr_FR`, `ja_JP`, `de_DE`, `es_ES`, `ko_KR`, `pt_BR`, `zh_CN`, and `zh_TW`. Default is `en_US` |
-| `expansion` | Optional | Array | Comma-delimited list of additional segment metadata fields to include on response. Valid values: `reportSuiteName`, `ownerFullName`, `modified`, `tags`, `compatibility`, `definition`, `publishingStatus`, `definitionLastModified`, `categories` |
+| `expansion` | Optional | Array | Comma-delimited list of additional segment metadata fields to include on response. Valid values: `dataName`, `ownerFullName`, `modified`, `tags`, `compatibility`, `definition`, `publishingStatus`, `definitionLastModified`, `categories` |
 
 ### Response parameters
 
@@ -411,8 +414,8 @@ curl -X PUT "https://cja.adobe.io/segments/s300000022_5bb7c94e80f0073611afb35c" 
   "id": "s300000022_5bb7c94e80f0073611afb35c",
   "name": "Updated Mobile Device Users",
   "description": "Updated description for mobile device segment",
-  "rsid": "example_dataview_id",
-  "reportSuiteName": "Example Data View",
+  "dataId": "dv_example123",
+  "dataName": "Example Data View",
   "owner": {
     "id": 596983,
     "name": "John Doe",
@@ -450,7 +453,7 @@ The following table describes the request parameters for the `PUT /segments/{ID}
 | `description` | Optional | String | A description of the segment |
 | `definition` | Optional | Object | The segment definition as a JSON object |
 | `locale` | Optional | String | Locale. Valid values include `en_US`, `fr_FR`, `ja_JP`, `de_DE`, `es_ES`, `ko_KR`, `pt_BR`, `zh_CN`, and `zh_TW`. Default is `en_US` |
-| `expansion` | Optional | Array | Comma-delimited list of additional segment metadata fields to include on response. Valid values: `reportSuiteName`, `ownerFullName`, `modified`, `tags`, `compatibility`, `definition`, `publishingStatus`, `definitionLastModified`, `categories` |
+| `expansion` | Optional | Array | Comma-delimited list of additional segment metadata fields to include on response. Valid values: `dataName`, `ownerFullName`, `modified`, `tags`, `compatibility`, `definition`, `publishingStatus`, `definitionLastModified`, `categories` |
 
 ### Response parameters
 
@@ -469,28 +472,31 @@ Use this endpoint to validate a segment definition before creating or updating a
 #### Request
 
 ```sh
-curl -X POST "https://cja.adobe.io/segments/validate?rsid=example_dataview_id" \
+curl -X POST "https://cja.adobe.io/segments/validate" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -H "x-api-key: {API_KEY}" \
   -H "x-gw-ims-org-id: {ORG_ID}" \
   -H "Authorization: Bearer {ACCESS_TOKEN}" \
   -d '{
-    "container": {
-      "func": "segment",
-      "context": "visits",
-      "pred": {
-        "func": "range",
-        "val": {
-          "func": "attr",
-          "name": "metrics/revenue"
-        },
-        "low": 100,
-        "high": null
-      }
-    },
-    "func": "segment-def",
-    "version": [1, 0, 0]
+    "dataId": "dv_example123",
+    "definition": {
+      "container": {
+        "func": "segment",
+        "context": "visits",
+        "pred": {
+          "func": "range",
+          "val": {
+            "func": "attr",
+            "name": "metrics/revenue"
+          },
+          "low": 100,
+          "high": null
+        }
+      },
+      "func": "segment-def",
+      "version": [1, 0, 0]
+    }
   }'
 ```
 
@@ -513,10 +519,14 @@ curl -X POST "https://cja.adobe.io/segments/validate?rsid=example_dataview_id" \
 
 The following table describes the request parameters for the `POST /segments/validate` endpoint:
 
+The request body is a JSON object containing the segment to validate:
+
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
-| `rsid` | Required | String | Data view ID to run the validation against |
-| `body` | Required | Object | Segment definition to validate |
+| `dataId` | Required | String | Data view ID to run the validation against |
+| `definition` | Required | Object | Segment definition to validate |
+| `name` | Optional | String | Name of the segment |
+| `description` | Optional | String | Description of the segment |
 
 ### Response parameters
 
