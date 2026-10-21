@@ -7,7 +7,7 @@ description: Create and retrieve reporting data programmatically
 
 Use the Customer Journey Analytics Reporting API to create and retrieve reporting data programmatically.
 
-The Customer Journey Analytics Reporting API operates on Adobe Experience Platform datasets combined through CJA connections and dataviews. Because CJA reporting uses the Experience Data Model (XDM), you can report on any XDM field as a metric or dimension (strings, numbers, arrays, objects, etc.). The Reporting API uses the same data and methods that Adobe uses inside the product UI. See [Reports](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-workspace/reports/reports-menu.html?) for more information.This provides the following advantages:
+The Customer Journey Analytics Reporting API operates on Adobe Experience Platform datasets combined through CJA connections and dataviews. Because CJA reporting uses the Experience Data Model (XDM), you can report on any XDM field as a metric or dimension (strings, numbers, arrays, objects, etc.). The Reporting API uses the same data and methods that Adobe uses inside the product UI. This provides the following advantages:
 
 - Unlimited variables, events, dimensions, and metrics
 - Unlimited unique values
