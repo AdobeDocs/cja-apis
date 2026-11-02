@@ -1,0 +1,321 @@
+---
+title: Reports API
+description: Use the Report API to create advanced date-trended reports.
+---
+
+# Date-trended advanced reports
+
+This guide extends the features described in the [Basic Date-Trended Report](kpi.md) and introduces the following advanced features:
+
+* [Include date range comparisons in a date-trended report](#include-date-range-comparisons-in-a-date-trended-report)
+* [Add a segment to a date-trended report](#add-a-segment-to-a-date-trended-report)
+
+All examples in this guide use the Customer Journey Analytics (CJA) Reporting API. The endpoints described in this guide are routed through `cja.adobe.io`. To use them, you must first create a client with access to the Customer Journey Analytics API in the Adobe Developer Console, and have a data view that exposes the metrics and dimension you want to report on. For more information, see [Getting started with the CJA APIs](../../getting-started/index.md).
+
+<InlineAlert variant="info" slots="text" />
+
+Adobe may add optional request and response members (name/value pairs) to existing API objects at any time and without notice or changes in versioning. Adobe recommends that you refer to the API documentation of any third-party tool you integrate with our APIs so that such additions are ignored in processing if not understood. If implemented properly, such additions are non-breaking changes for your implementation. Adobe will not remove parameters or add required parameters without first providing standard notification through release notes.
+
+## Include date range comparisons in a date-trended report
+
+Use this endpoint to create a date-trended report that compares metric data across two date ranges. Date range comparisons allow you to evaluate performance for a current period against a previous period in a single report request. For more information on date-trended reports, see the [Basic Date-Trended Report](kpi.md).
+
+`POST https://cja.adobe.io/reports`
+
+<InlineAlert variant="info" slots="text" />
+
+Unlike the Adobe Analytics 2.0 API, the CJA report endpoint does not include a Global Company ID in the URL. Instead, the organization is identified with the `x-gw-ims-org-id` header, and the target data view is supplied in the `rsid` request-body parameter. In Customer Journey Analytics, `rsid` carries a data view ID rather than a report suite ID. For a full comparison, see [Differences between the CJA APIs and Analytics 2.0 APIs](../../getting-started/differences.md).
+
+<InlineAlert variant="info" slots="text" />
+
+The `dimension` object member is not required in report request payloads. For more information, see [Using `dimension` in report payload requests](index.md#using-dimension-in-report-payload-requests).
+
+### Request and Response Examples
+
+Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
+
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+
+#### Request
+
+```sh
+curl -X 'POST' \
+  "https://cja.adobe.io/reports" \
+  -H "accept: application/json" \
+  -H "x-api-key: {CLIENT_ID}" \
+  -H "x-gw-ims-org-id: {ORG_ID}" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "rsid": "dv_example_dataview_id",
+    "globalFilters": [
+      {
+        "type": "dateRange",
+        "dateRange": "YYYY-01-01T00:00:00.000/YYYY-01-31T23:59:59.999"
+      },
+      {
+        "type": "dateRange",
+        "dateRange": "YYYY-02-01T00:00:00.000/YYYY-02-28T23:59:59.999"
+      }
+    ],
+    "dimension": "variables/daterangeday",
+    "metricContainer": {
+      "metrics": [
+        {
+          "id": "metrics/visits",
+          "columnId": "visits-period1"
+        },
+        {
+          "id": "metrics/visits",
+          "columnId": "visits-period2",
+          "filters": ["1"]
+        }
+      ],
+      "metricFilters": [
+        {
+          "id": "1",
+          "type": "dateRange",
+          "dateRange": "YYYY-02-01T00:00:00.000/YYYY-02-28T23:59:59.999"
+        }
+      ]
+    }
+  }'
+```
+
+#### Response
+
+```json
+{
+  "totalPages": 1,
+  "numberOfElements": 2,
+  "rows": [
+    {
+      "itemId": "YYYY0101",
+      "value": "Jan 1, YYYY",
+      "data": [842, 731]
+    },
+    {
+      "itemId": "YYYY0102",
+      "value": "Jan 2, YYYY",
+      "data": [915, 803]
+    }
+  ],
+  "columns": {
+    "dimension": {
+      "id": "variables/daterangeday",
+      "type": "time"
+    },
+    "columnIds": ["visits-period1", "visits-period2"]
+  },
+  "summaryData": {
+    "totals": [1757, 1534]
+  }
+}
+```
+
+#### Request example details
+
+The example above creates a date-trended report comparing visits across two monthly periods:
+
+* The report runs against the `dv_example_dataview_id` data view. The data view ID is supplied in the `rsid` parameter.
+* Two `dateRange` filters are included in `globalFilters`. The first defines the primary reporting period. The second defines the comparison period. Date ranges are interpreted in the data view time zone.
+* The `dimension` is set to `variables/daterangeday` to trend the data by day.
+* The `metricContainer` includes the `metrics/visits` metric twice — once for each period — each assigned a unique `columnId` (`visits-period1` and `visits-period2`) to distinguish the columns in the response.
+* A `metricFilters` entry scopes the second metric column to the comparison date range using a filter `id` of `"1"`, which is referenced in the `filters` array of the second metric object.
+
+#### Response example details
+
+The example response above returns the following:
+
+* Each row in `rows` represents one day, identified by an `itemId` and a human-readable `value`.
+* The `data` array for each row contains two values: the first corresponds to `visits-period1` and the second to `visits-period2`.
+* The `columns` object identifies the dimension and the two column IDs returned.
+* The `summaryData.totals` array contains the aggregated totals for each column across all rows in the response.
+
+### Request Parameters
+
+The following table describes the date range comparison request parameters:
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| `rsid` | required | string | The data view ID to run the report against (for example, `dv_example_dataview_id`). This field is named `rsid` for legacy reasons; in Customer Journey Analytics, supply your data view ID as the value |
+| `globalFilters` | required | array | Array of filter objects applied to the entire report. For date range comparisons, include two filter objects of `type`: `dateRange`, each with a `dateRange` value formatted as `YYYY-MM-DDTHH:mm:ss.SSS/YYYY-MM-DDTHH:mm:ss.SSS` |
+| `dimension` | optional | string | The dimension of the trended data. Use `variables/daterangeday`, `variables/daterangeweek`, or `variables/daterangemonth` for date-trended reports. If no dimension is provided, the response will contain only `summaryData`. For more information, see the [Report API overview](index.md#using-dimension-in-report-payload-requests). |
+| `metricContainer` | required | object | Contains the `metrics` array and optional `metricFilters` array. Lists the metrics to include and any metric-level filters |
+| `metrics` | required | array | Array of metric objects. Each object requires an `id`. Assign a unique `columnId` to each metric to distinguish columns in the response. Use the `filters` array to reference a `metricFilters` entry by its `id` to scope a metric to a specific date range |
+| `metricFilters` | optional | array | Array of filter objects that can be referenced by individual metrics using a filter `id`. Use this to scope individual metric columns to specific date ranges for comparison reporting |
+
+### Response Parameters
+
+The following table describes the date range comparison response parameters:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `totalPages` | integer | Total number of pages in the result set |
+| `numberOfElements` | integer | Number of rows returned in the current page |
+| `rows` | container | Array of row objects containing the dimension and metric values. Each row includes an `itemId`, a `value`, and a `data` array |
+| `itemId` | string | The dimension item identifier. For time dimensions (such as `daterangeday`), the `itemId` deterministically encodes the calendar date and is independent of the data view calendar configuration. For more information, see the section below: "How the `itemId` encodes the date".|
+| `value` | string | The human-readable display label for the dimension `itemId`. This is a localized, calendar-aware label intended for display, not for date parsing. For data views that use a custom calendar (for example, Modified Gregorian/fiscal), `value` can read as **2022 (Jun 1-May 31)**. |
+| `data` | array | Array of metric values for the row. Values correspond to the column order defined in `columnIds` |
+| `columns` | container | Metadata about the columns returned. Contains `dimension` and `columnIds` |
+| `dimension` | object | The dimension used in the report, including its `id` and `type` |
+| `columnIds` | array | Ordered list of column identifiers corresponding to the metrics defined in the request |
+| `summaryData` | container | Contains aggregated data for the report. Includes a `totals` array with one total value per column |
+
+#### How the `itemId` encodes the date
+
+For time dimensions such as `variables/daterangeday`, the `itemId` is not an arbitrary key. It deterministically encodes the underlying Gregorian date, regardless of whether the data view uses a standard or a custom (fiscal) calendar. Because of this, `itemId` is the reliable field to read when you need the actual date: the `value` field is a display label whose format changes with the data view calendar, while the `itemId` for a given date does not.
+
+The `itemId` is built by concatenating the following segments, left to right:
+
+| Segment | Rule | Width |
+|---------|------|-------|
+| Year | year − 1900 | 2–3 digits |
+| Month | month number − 1 (that is, zero-indexed: January = `00`, December = `11`) | 2 digits |
+| Day | day of month | 2 digits |
+| Hour | hour, 24-hour clock — `daterangehour` and `daterangeminute` only | 2 digits |
+| Minute | minute — `daterangeminute` only | 2 digits |
+
+The hour segment is appended for `daterangehour` and `daterangeminute`; the minute segment is appended only for `daterangeminute`. Date-only dimensions such as `daterangeday` end after the day segment.
+
+**Examples**
+
+| Date | Year (yr − 1900) | Month (mo − 1) | Day | Time | itemId |
+|------|------------------|----------------|-----|------|--------|
+| Nov 28, 2025 (`daterangeday`) | `125` | `10` | `28` | — | `1251028` |
+| Jan 1, 2012 (`daterangeday`) | `112` | `00` | `01` | — | `1120001` |
+| Jan 1, 2012 19:00 (`daterangehour`) | `112` | `00` | `01` | `19` | `112000119` |
+| Jan 1, 2012 19:02 (`daterangeminute`) | `112` | `00` | `01` | `1902` | `11200011902` |
+| Jun 1, 2022 *(`daterangeday`; custom fiscal calendar, `value` = `2022 (Jun 1-May 31)`)* | `122` | `05` | `01` | — | `1220501` |
+
+To decode an `itemId` back to a date, read the segments from the right: the last two digits are the day and the two before that are the zero-indexed month; the remaining leading digits are the year offset, so add `1900`. For time dimensions, the rightmost four digits are the hour and minute, with the day and month shifted left accordingly.
+
+<HorizontalLine />
+
+## Add a segment to a date-trended report
+
+Use this endpoint to apply a segment to a date-trended report. Segments filter data before metric aggregation occurs, limiting the report to the subset of data that matches the segment definition. For more information on segments, see the [Segments API](../segments/index.md).
+
+`POST https://cja.adobe.io/reports`
+
+### Request and Response Examples
+
+Click the **Request** tab in the following example to see a cURL request for this endpoint. Click the **Response** tab to see a successful JSON response for the request.
+
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
+
+#### Request
+
+```sh
+curl -X 'POST' \
+  "https://cja.adobe.io/reports" \
+  -H "accept: application/json" \
+  -H "x-api-key: {CLIENT_ID}" \
+  -H "x-gw-ims-org-id: {ORG_ID}" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "rsid": "dv_example_dataview_id",
+    "globalFilters": [
+      {
+        "type": "dateRange",
+        "dateRange": "YYYY-01-01T00:00:00.000/YYYY-01-31T23:59:59.999"
+      },
+      {
+        "type": "segment",
+        "segmentId": "s1234567890_example"
+      }
+    ],
+    "dimension": "variables/daterangeday",
+    "metricContainer": {
+      "metrics": [
+        {
+          "id": "metrics/visits"
+        }
+      ]
+    }
+  }'
+```
+
+#### Response
+
+```json
+{
+  "totalPages": 1,
+  "numberOfElements": 2,
+  "rows": [
+    {
+      "itemId": "YYYY0101",
+      "value": "Jan 1, YYYY",
+      "data": [284]
+    },
+    {
+      "itemId": "YYYY0102",
+      "value": "Jan 2, YYYY",
+      "data": [317]
+    }
+  ],
+  "columns": {
+    "dimension": {
+      "id": "variables/daterangeday",
+      "type": "time"
+    },
+    "columnIds": ["0"]
+  },
+  "summaryData": {
+    "totals": [601]
+  }
+}
+```
+
+#### Request example details
+
+The example above creates a date-trended report for visits filtered to a specific segment:
+
+* The report runs against the `dv_example_dataview_id` data view.
+* The `globalFilters` array includes two filters: a `dateRange` filter that scopes the report to January, and a `segment` filter that applies the segment `s1234567890_example` as a pre-aggregation filter.
+* The segment filters data before the `metrics/visits` metric is aggregated, so the report reflects only visits that match the segment definition.
+* The `dimension` is set to `variables/daterangeday` to trend results by day.
+
+#### Response example details
+
+The example response above returns the following:
+
+* Each row in `rows` represents one day, with `data` containing the visit count for users matching the segment.
+* The lower `data` values compared to an unsegmented report reflect the pre-aggregation filtering applied by the segment.
+* The `summaryData.totals` array contains the total visits for the segment across the full date range.
+
+### Request Parameters
+
+The following table describes the segmented date-trended report request parameters not previously described above:
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| `segmentId` | required | string | The ID of a saved segment to apply to the report. Segments are applied as pre-aggregation filters. The segment must be available for the data view specified in `rsid`. The segment ID can be retrieved using the [Segments API](../segments/index.md). |
+
+### Response Parameters
+
+The response parameters are the same as those described above in the [date range comparisons response parameters table](#request-parameters).
+
+<HorizontalLine />
+
+## Status codes
+
+Each API request returns an HTTP status code that reflects the result, as follows:
+
+| HTTP code | Meaning | Description |
+| --- | --- | --- |
+| 200 | Success | The request is successful. |
+| 206 | Partial content | Some columns in the response have errors, for example the user does not have access to a requested metric or dimension, or the metric or dimension is not enabled in the data view. |
+| 400 | Bad Request | The request was improperly constructed, missing key information, and/or contained incorrect syntax. This error code could indicate a problem such as a missing required parameter or the supplied data did not pass validation. |
+| 401 | Authentication failed | The request did not pass an authentication check. Your access token may be missing or invalid. Similarly, you may have attempted to access an object that requires administrator permissions. |
+| 403 | Forbidden | The resource was found, but you do not have the right credentials to view it. You might not have the required permissions to access the organization, sandbox, or data view requested. |
+| 404 | Not found | The requested resource could not be found on the server. The resource may have been deleted (for example, the data view does not exist), or the requested path was entered incorrectly. |
+| 429 | Too Many Requests | Rate limits or reporting capacity were exceeded. Back off and retry. |
+| 500 | Internal server errors | This is a server-side error. If you are making many simultaneous calls, you may be reaching the API limit and need to filter your results. Try your request again in a few minutes, and contact your administrator if the problem persists. |
+
+For more information, or for trouble-shooting help, see the following:
+
+* [Reports API overview](index.md)
+* [API Status Codes](https://experienceleague.adobe.com/en/docs/experience-platform/landing/troubleshooting#api-status-codes)
+* [API request error headers](https://experienceleague.adobe.com/en/docs/experience-platform/landing/troubleshooting#request-header-errors)
