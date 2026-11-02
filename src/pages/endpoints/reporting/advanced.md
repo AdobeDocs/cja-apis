@@ -3,7 +3,7 @@ title: Reports API
 description: Use the Report API to create advanced date-trended reports.
 ---
 
-# Date-trended advanced reports
+# Advanced date-trended reports
 
 This guide extends the features described in the [Basic Date-Trended Report](kpi.md) and introduces the following advanced features:
 
